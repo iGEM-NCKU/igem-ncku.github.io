@@ -20,7 +20,32 @@
             </div>
         </div>
     </div>
-    <nav class = green>
+
+    <template v-for = 'i, j in pre' :key = 'i'>
+        <div class = 'screen' :style = 'vw[j] ? `` : `size: 0px; width: 0px; height: 0px; opacity: 0%; top: -1000px;`'>
+            <div class = container>
+                <div class = card>
+                    <div class = card-content>
+                        <div class = card-title> {{ title(i) }} </div>
+                        <div :style = 'vw[j] ? `` : `size: 0px`'>
+                        </div>
+                    </div>
+                    <div class = card-action>
+                        <a @click = 'endview(j)' class = 'btn btn-flat waves-effect waves-yellow'> <i class = material-icons> close </i>CLOSE </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <navi class = 'block'>
+        <a href = 'index.html' class = 'unfocused'>
+            <!-- <img src = 'logo.png' width = '10%' /> -->
+            Bye<font color = 'green'>film</font>
+        </a>
+        <a class = 'right' href = 'members.html'>Members</a>
+    </navi>
+    <!-- <nav>
         <div class = brand-logo>
             <a href = 'index.html'>
                 &nbsp;iGEM Tainan
@@ -30,27 +55,29 @@
         <ul class = right>
             <li> <a href = 'members.html'> Members </a> </li>
         </ul>
-    </nav>
+    </nav> -->
+    <br><br><br><br><br>
     <div class = container>
         <div class = row>
             <div class = 'col s6'>
                 <div class = card>
                     <div class = 'card-content center-align'>
                         <div class = card-title>
-                            iGEM
+                            <!-- iGEM -->
                         </div>
-                        <img src = '' width = '500px' height = '500px' alt = 'placeholder' />
+                        <img src = 'banner.png' width = '100%' alt = 'placeholder' />
+                        <img src = 'logo.png' width = '100%' alt = 'placeholder' />
                     </div>
                 </div>
             </div>
-            <div class = 'col s3' v-for = 'i in pre' :key = 'i'>
-                <a :href = '`${i}.html`'>
-                    <div class = 'card waves-block waves-effect'>
+            <div class = 'col s3' v-for = 'i, j in pre' :key = 'i'>
+                <!-- <a :href = '`${i}.html`'> -->
+                    <div class = 'card waves-block waves-effect hoverable' @click = 'view(j)'>
                         <div class = 'card-content'>
                             <b> {{ title(i.replace('-', ' ')) }} </b>
                         </div>
                     </div>
-                </a>
+                <!-- </a> -->
             </div>
         </div>
     </div>
@@ -66,6 +93,7 @@ export default {
         return {
             loading: true,
             pre: ['attributions', 'contribution', 'description', 'education', 'engineering', 'entrepreneurship', 'experiments', 'hardware', 'home', 'human-practices', 'inclusivity', 'measurement', 'medal', 'members', 'model', 'notebook', 'plant', 'results', 'safety-and-security', 'software', 'sustainability'],
+            vw: []
         }
     },
     mounted() {
@@ -73,6 +101,7 @@ export default {
         this.title('this is a book');
         $.get('.')
         this.loading = false;
+        for(var i in this.pre) this.vw.push(false);
     },
     methods: {
         submit() {
@@ -84,6 +113,12 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+        },
+        view(i) {
+            this.vw[i] = true;
+        },
+        endview(i) {
+            this.vw[i] = false;
         }
     }
 }
@@ -93,9 +128,12 @@ export default {
 * {
   transition: 1s all;
 }
+/* body {
+    background-color: wheat;
+} */
 .screen {
   background-color: rgba(255, 255, 255, .75);
-  z-index: 100;
+  z-index: 500;
   top: 0px;
   left: 0px;
   width: 100vw;
@@ -117,5 +155,80 @@ export default {
 }
 .bold {
   font-weight: 700;
+}
+nav {
+    z-index: 100;
+    position: fixed;
+    background-color: rgba(32, 128, 32, .75);
+    border-radius: 10px;
+    margin: 10px;
+    width: calc(100vw - 20px);
+    backdrop-filter: blur(5px);
+}
+nav:hover {
+    z-index: 100;
+    position: fixed;
+    background-color: green;
+    border-radius: 0px;
+    margin: 0px;
+    width: 100vw;
+    backdrop-filter: none;
+}
+
+a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
+    color: inherit;
+}
+.button {
+    text-decoration: none;
+}
+.block {
+    background-color: rgba(200, 255, 200, .5);
+    text-decoration: none;
+    color: black;
+    transition: 1s all;
+    /* display: flex; */
+    padding: 10px;
+    font-size: large;
+    font-weight: 100;
+    backdrop-filter: blur(25px);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    width: calc(100vw - 30px * 2);
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+}
+.block:hover {
+    background-color: darkgreen;
+    text-decoration: none;
+    color: wheat;
+    font-size: xx-large;
+    transition: 1s all;
+    font-weight: 900;
+    backdrop-filter: blur(100px);
+}
+.placeholder {
+    background-color: transparent;
+    /* display: block; */
+    height: 120px;
+    /* position: absolute; */
+}
+navi>a:hover {
+    height: 100%;
+    background-color: grey;
+    border-radius: 10px;
+}
+.msgbox {
+    z-index: 1000;
+    position: fixed;
+    backdrop-filter: blur(20px);
+    background-color: rgba(100, 100, 100, .75);
+    top: 10vh;
+    left: 35vw;
+    width: 30vw;
+    height: 50vh;
+    border-radius: 10px;
 }
 </style>

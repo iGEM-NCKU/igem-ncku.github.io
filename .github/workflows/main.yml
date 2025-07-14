@@ -33,10 +33,7 @@ jobs:
       - name: try to build the project
         run: npm run build
 
-      # use actions-gh-pages to deploy dist to gh-pages
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          # github will auto-generate a token for this job and use it 
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          path: ./public

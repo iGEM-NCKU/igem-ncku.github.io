@@ -38,12 +38,17 @@
         </div>
     </template>
     
-    <navi class = 'block'>
-        <a href = 'index.html' class = 'unfocused'>
+    <navi class = 'block' @mouseenter = 'show_nav = true' @mouseleave = 'show_nav = false'>
+        <a href = 'index.html' class = 'unfocused' @mouseenter = "submit">
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = 'green'>film</font>
         </a>
         <a class = 'right' href = 'members.html'>Members</a>
+        <div :style = 'show_nav ? `font-size: 20px` : `font-size: 0px`'>
+            <div v-for = 'i in pre' :key = 'i'>
+                <a :href = 'i'> {{ title(i) }} </a>
+            </div>
+        </div>
     </navi>
     <!-- <nav>
         <div class = brand-logo>
@@ -93,18 +98,22 @@ export default {
         return {
             loading: true,
             pre: ['attributions', 'contribution', 'description', 'education', 'engineering', 'entrepreneurship', 'experiments', 'hardware', 'home', 'human-practices', 'inclusivity', 'measurement', 'medal', 'members', 'model', 'notebook', 'plant', 'results', 'safety-and-security', 'software', 'sustainability'],
-            vw: []
+            vw: [],
+            show_nav: false
         }
     },
     mounted() {
         M.AutoInit();
         this.title('this is a book');
         $.get('.')
-        this.loading = false;
         for(var i in this.pre) this.vw.push(false);
+        setTimeout(() => {
+            this.loading = false;
+        }, 1000);
     },
     methods: {
         submit() {
+            M.toast({html: 'submit'});
             return;
         },
         title(x) {

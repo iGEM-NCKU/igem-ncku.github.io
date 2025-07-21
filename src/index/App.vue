@@ -43,7 +43,7 @@
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = 'green'>film</font>
         </a>
-        <a class = 'right' href = 'members.html'>Members</a>
+        <i class = 'material-icons right'> apps </i>
         <div :style = 'show_nav ? `font-size: 20px` : `font-size: 0px`'>
             <div v-for = 'i in pre' :key = 'i'>
                 <a :href = 'i'> {{ title(i) }} </a>
@@ -152,7 +152,7 @@ export default {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(50px);
 }
 .blur {
   z-index: 10;
@@ -214,13 +214,13 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     padding: 15px;
 }
 .block:hover {
-    background-color: darkgreen;
+    background-color: rgba(0, 100, 0, .9);
     text-decoration: none;
     color: wheat;
     font-size: xx-large;
     transition: 1s all;
     font-weight: 900;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(50px);
 }
 .placeholder {
     background-color: transparent;

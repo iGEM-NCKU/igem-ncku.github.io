@@ -38,7 +38,7 @@
         </div>
     </template>
     
-    <navi class = 'block' @mouseenter = 'show_nav = true' @mouseleave = 'show_nav = false'>
+    <navi class = 'block' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
         <a href = 'index.html' class = 'unfocused' @mouseenter = "submit">
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = 'green'>film</font>
@@ -77,16 +77,31 @@
             </div>
             <div class = 'col s3' v-for = 'i, j in pre' :key = 'i'>
                 <!-- <a :href = '`${i}.html`'> -->
-                    <div class = 'card waves-block waves-effect hoverable' @click = 'view(j)'>
+                    <!-- <div class = 'card waves-block waves-effect hoverable' @click = 'view(j)'>
                         <div class = 'card-content'>
                             <b> {{ title(i.replace('-', ' ')) }} </b>
                         </div>
-                    </div>
+                    </div> -->
+                    <v-hover>
+                        <template v-slot:default = '{isHovering, props}'>
+                            <v-card v-bind = props :color = 'isHovering ? `primary` : undefined' @click = 'view(j)' :title = "title(i.replace('-', ''))"> </v-card>
+                        </template>
+                    </v-hover>
                 <!-- </a> -->
             </div>
         </div>
+        <!-- <v-hover>
+  <template v-slot:default="{ isHovering, props }">
+    <v-card
+      v-bind="props"
+      :color="isHovering ? 'primary' : undefined"
+      title="Hover over me"
+      text="..."
+    ></v-card>
+  </template>
+</v-hover> -->
     </div>
-    <v-btn block rounded = 'xl' color = 'cyan'>
+    <v-btn block rounded = 'xl' color = 'cyan' variant = outlined>
         <v-icon icon = '$account' />
         Button
     </v-btn>
@@ -141,9 +156,9 @@ export default {
 * {
   transition: 1s all;
 }
-/* body {
+body {
     background-color: wheat;
-} */
+}
 .screen {
   background-color: rgba(255, 255, 255, .75);
   z-index: 500;
@@ -214,6 +229,42 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     padding: 15px;
 }
 .block:hover {
+    background-color: rgba(0, 100, 50, .8);
+    font-size: xx-large;
+    backdrop-filter: blur(50px);
+}
+@keyframes test {
+    25% {
+        left: calc(50vw - 100px);
+        height: 200px;
+        width: 200px;
+        border-radius: 100%;
+        font-size: 0px;
+    }
+    50% {
+        top: calc(50vh - 100px);
+    }
+    100% {
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0px;
+        font-size: normal;
+        /* opacity: 70%; */
+    }
+}
+.tmp {
+    /* animation-name: test;
+    animation-fill-mode: backwards;
+    animation-duration: 2s; */
+    animation: test 2s ease 0s 1 alternate backwards;
+
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 20px;
     background-color: rgba(0, 100, 0, .9);
     text-decoration: none;
     color: wheat;

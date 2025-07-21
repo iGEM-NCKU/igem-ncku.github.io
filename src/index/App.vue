@@ -86,6 +86,10 @@
             </div>
         </div>
     </div>
+    <v-btn block rounded = 'xl' color = 'cyan'>
+        <v-icon icon = '$account' />
+        Button
+    </v-btn>
 </template>
 
 <script>
@@ -106,7 +110,7 @@ export default {
         M.AutoInit();
         this.title('this is a book');
         $.get('.')
-        for(var i in this.pre) this.vw.push(false);
+        this.vw = new Array(this.pre.length);
         setTimeout(() => {
             this.loading = false;
         }, 1000);

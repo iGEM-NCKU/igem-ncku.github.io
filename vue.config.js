@@ -3,6 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   productionSourceMap: false,
   pages: {
-    index: 'src/index/main.js'
+    index: 'src/index/main.js',
+    members: 'src/members/main.js'
   }
 })

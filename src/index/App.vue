@@ -157,7 +157,7 @@ export default {
             show_nav: false,
             alpha: {
                 card: {
-                    style: 'outlined',
+                    style: undefined,
                     f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
                 }
             }

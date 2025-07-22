@@ -1,7 +1,7 @@
 <template>
     
     <navi class = 'block' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
-        <a href = 'index.html' class = 'unfocused' @mouseenter = "submit">
+        <a href = 'index.html' class = 'unfocused'>
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = 'green'>film</font>
         </a>
@@ -34,10 +34,6 @@ export default {
         M.AutoInit();
     },
     methods: {
-        submit() {
-            M.toast({html: 'submit'});
-            return;
-        },
         title(x) {
             var f = [];
             for(var i of x.split(' ')) {

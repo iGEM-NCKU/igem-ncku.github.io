@@ -17,7 +17,7 @@
                         </template>
                     </div>
                     <br>
-                    <b> 請稍等 </b>
+                    <b> Loading </b>
                 </div>
             </div>
         </div>

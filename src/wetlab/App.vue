@@ -126,6 +126,86 @@
             </v-col>
         </v-row>
     </v-container>
+
+    <v-container>
+        <v-row><v-col>
+            <v-card>
+                <template v-slot:title>
+                    <div class = text-center>
+                        Build
+                    </div>
+                </template>
+                <template v-slot:text>
+                    In this phase, we designed primers and constructed plasmids using SnapGene. Our plasmids were engineered to express biofilm-disrupting enzymes and include an inducible suicide module for biosafety. Detailed plasmid maps and primer sequences are shown below.
+                    <br><br>
+                    Plasmid
+                    <br>
+                    Primer
+                    <br><br>
+                    This build phase provides the foundation for both enzyme production and controlled cell death, preparing our engineered strains for functional testing in the next stage.
+                </template>
+            </v-card>
+        </v-col></v-row>
+    </v-container>
+
+    <v-container>
+        <v-row><v-col><v-card title = 'Test' class = 'text-center' text = 'We plan to evaluate whether our system can effectively produce and release enzymes in a controllable manner, validating its potential for biofilm clearance applications.' /></v-col></v-row>
+        <v-row>
+            <v-col>
+                <v-card title = 'Enzyme expression testing'>
+                    <template v-slot:text>
+                        <v-col>
+                            <v-card variant = 'tonal' v-ripple>
+                                <template v-slot:text>
+                                    Expression of the three enzymes will be confirmed using SDS-PAGE .
+                                </template>
+                            </v-card>
+                        </v-col>
+                        <v-col>
+                            <v-card variant = 'tonal' v-ripple>
+                                <template v-slot:text>
+                                    IPTG will be used to induce expression via lac and T7 promoters.
+                                </template>
+                            </v-card>
+                        </v-col>
+                    </template>
+                </v-card>
+            </v-col>
+            <v-col>
+                <v-card title = 'Lysis system validation'>
+                    <template v-slot:text>
+                        <v-col>
+                            <v-card variant = 'tonal' v-ripple>
+                                <template v-slot:text>
+                                    Strains will be grown at 30°C and shifted to 37°C to trigger the cI857 lysis mechanism.
+                                </template>
+                            </v-card>
+                        </v-col>
+                        <v-col>
+                            <v-card variant = 'tonal' v-ripple>
+                                <template v-slot:text>
+                                    Cell lysis will be assessed visually and via optical density monitoring.
+                                </template>
+                            </v-card>
+                        </v-col>
+                    </template>
+                </v-card>
+            </v-col>
+            <v-col>
+                <v-card title = 'Extracellular enzyme release'>
+                    <template v-slot:text>
+                        <v-col>
+                            <v-card variant = 'tonal' v-ripple>
+                                <template v-slot:text>
+                                    Supernatants collected post-lysis will be tested for biofilm-degrading activity, verifying that enzymes are released into the medium.
+                                </template>
+                            </v-card>
+                        </v-col>
+                    </template>
+                </v-card>
+            </v-col>
+        </v-row>
+    </v-container>
     
 </template>
 

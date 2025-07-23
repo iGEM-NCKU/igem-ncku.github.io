@@ -73,7 +73,7 @@ export default {
     data() {
         return {
             loading: true,
-            members: ['Aaron', 'Jerry', 'Johan', 'Kathleen', 'Leader', 'Richie', 'Sue', 'Yin', 'ysh'],
+            members: ['Aaron', 'Jerry', 'Johan', 'Kathleen', 'Kelly', 'Richie', 'Sue', 'Yin', 'ysh'],
             view: [],
             alpha: {
                 newview: false

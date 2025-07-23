@@ -28,7 +28,7 @@ export default {
     name: 'title_nav',
     data() {
         return {
-            pre: ['attributions', 'education', 'engineering', 'experiments', 'human-practices', 'medal', 'members', 'model', 'results', 'software'],
+            pre: ['education', 'human-practices', 'members', 'wetlab', 'introduction-to-problems'],
             show_nav: false
         }
     },
@@ -37,6 +37,7 @@ export default {
     },
     methods: {
         title(x) {
+            while(x.indexOf('-') != -1) x = x.replace('-', ' ');
             var f = [];
             for(var i of x.split(' ')) {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
@@ -71,7 +72,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     top: 0px;
     left: 0px;
     z-index: 100;
-    width: calc(100vw - 30px * 2);
+    width: calc(100vw - 15px * 2);
     border-radius: 10px;
     margin: 15px;
     padding: 15px;

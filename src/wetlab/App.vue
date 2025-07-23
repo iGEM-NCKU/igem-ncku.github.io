@@ -5,7 +5,7 @@
     <v-container>
         <v-row class = text-center>
             <v-col>
-                <v-card title = 'Design'>
+                <v-card title = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <p class = 'grey-text'>
                             To efficiently degrade biofilms, we designed a system that combines the expression of
@@ -17,7 +17,7 @@
         </v-row>
         <v-row>
             <v-col>
-                <v-card title = 'Three enzyme expression constructs' subtitle = 'Design'>
+                <v-card title = 'Three enzyme expression constructs' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <!-- <v-row> -->
                             <v-col>
@@ -49,16 +49,16 @@
             </v-col>
 
             <v-col>
-                <v-card title = 'Host strain planning' subtitle = 'Design'>
+                <v-card title = 'Host strain planning' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <v-col>
-                        <v-card variant = tonal v-ripple>
+                        <v-card :variant = 'alpha.subcard.theme' v-ripple>
                             <template v-slot:text>
                                 The Proteinase K plasmid is transformed into MG1655 λcI857, which carries a temperature-sensitive λ prophage system for heat-induced lysis.
                             </template>
                         </v-card>
                     </v-col>
                     <v-col>
-                        <v-card variant = tonal v-ripple>
+                        <v-card :variant = 'alpha.subcard.theme' v-ripple>
                             <template v-slot:text>
                                 The Dispersin B and DNase I plasmids are introduced into MG1655 λcI857 ΔlacZ::T7RNAP-kan, since MG1655 does not naturally express T7 polymerase.
                             </template>
@@ -70,24 +70,24 @@
         
         <v-row>
             <v-col>
-                <v-card title = 'T7 RNA Polymerase integration' subtitle = 'Design'>
+                <v-card title = 'T7 RNA Polymerase integration' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
-                            <v-card variant = tonal v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     T7 RNA polymerase gene was PCR-amplified from E. coli BL21(DE3).
                                 </template>
                             </v-card>
                         </v-col>
                         <v-col>
-                            <v-card variant = tonal v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     A kanamycin resistance cassette was PCR-amplified from KEIO lacY::kan.
                                 </template>
                             </v-card>
                         </v-col>
                         <v-col>
-                            <v-card variant = tonal v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     To construct our T7 expression system, we first fused the T7 RNA polymerase (T7RNAP) gene with a kanamycin resistance marker (kanR) using overlapping PCR. This fusion fragment was then integrated into a Red(Cm) strain—provided by our advisor—via Red recombination. Next, we plan to transfer the T7RNAP-kanR cassette into E. coliMG1655 through P1 phage transduction, followed by λ phage infection to establish a lysogenic strain.
                                 </template>
@@ -98,24 +98,24 @@
             </v-col>
 
             <v-col>
-                <v-card title = 'Cell lysis strategy' subtitle = 'Design'>
+                <v-card title = 'Cell lysis strategy' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
-                            <v-card variant = tonal v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     To ensure safe enzyme release, we integrated a λ prophage with a cI857 temperature-sensitive mutationinto all strains.
                                 </template>
                             </v-card>
                         </v-col>
                         <v-col>
-                            <v-card variant = tonal v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     At lower temperatures (e.g., 30°C), IPTG induction activates the lac promoter, driving T7RNAP expression, which in turn drives the expression of T7-promoter-controlled enzymes.
                                 </template>
                             </v-card>
                         </v-col>
                         <v-col>
-                            <v-card variant = tonal v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     At 37°C, the λcI857 system is activated, leading to cell lysis and the release of accumulated enzymes into the environment.
                                 </template>
@@ -129,7 +129,7 @@
 
     <v-container>
         <v-row><v-col>
-            <v-card>
+            <v-card :variant = 'alpha.card.theme'>
                 <template v-slot:title>
                     <div class = text-center>
                         Build
@@ -149,20 +149,20 @@
     </v-container>
 
     <v-container>
-        <v-row><v-col><v-card title = 'Test' class = 'text-center' text = 'We plan to evaluate whether our system can effectively produce and release enzymes in a controllable manner, validating its potential for biofilm clearance applications.' /></v-col></v-row>
+        <v-row><v-col><v-card title = 'Test' class = 'text-center' text = 'We plan to evaluate whether our system can effectively produce and release enzymes in a controllable manner, validating its potential for biofilm clearance applications.' :variant = 'alpha.card.theme' /></v-col></v-row>
         <v-row>
             <v-col>
-                <v-card title = 'Enzyme expression testing'>
+                <v-card title = 'Enzyme expression testing' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
-                            <v-card variant = 'tonal' v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     Expression of the three enzymes will be confirmed using SDS-PAGE .
                                 </template>
                             </v-card>
                         </v-col>
                         <v-col>
-                            <v-card variant = 'tonal' v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     IPTG will be used to induce expression via lac and T7 promoters.
                                 </template>
@@ -172,17 +172,17 @@
                 </v-card>
             </v-col>
             <v-col>
-                <v-card title = 'Lysis system validation'>
+                <v-card title = 'Lysis system validation' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
-                            <v-card variant = 'tonal' v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     Strains will be grown at 30°C and shifted to 37°C to trigger the cI857 lysis mechanism.
                                 </template>
                             </v-card>
                         </v-col>
                         <v-col>
-                            <v-card variant = 'tonal' v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     Cell lysis will be assessed visually and via optical density monitoring.
                                 </template>
@@ -192,10 +192,10 @@
                 </v-card>
             </v-col>
             <v-col>
-                <v-card title = 'Extracellular enzyme release'>
+                <v-card title = 'Extracellular enzyme release' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
-                            <v-card variant = 'tonal' v-ripple>
+                            <v-card :variant = 'alpha.subcard.theme' v-ripple>
                                 <template v-slot:text>
                                     Supernatants collected post-lysis will be tested for biofilm-degrading activity, verifying that enzymes are released into the medium.
                                 </template>
@@ -205,6 +205,21 @@
                 </v-card>
             </v-col>
         </v-row>
+    </v-container>
+
+    <v-container>
+        <v-row><v-col>
+            <v-card title = 'Testing Area' color = grey>
+                <template v-slot:text>
+                    <v-card title = 'Card theme' variant = outlined>
+                        <v-btn rounded = undefined v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.card.theme == i ? `green` : undefined' @click = 'alpha.card.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
+                    </v-card>
+                    <v-card title = 'Sub-Card theme' variant = outlined>
+                        <v-btn rounded = undefined v-for = 'i in alpha.subcard.f' :key = 'i' :color = 'alpha.subcard.theme == i ? `green` : undefined' @click = 'alpha.subcard.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
+                    </v-card>
+                </template>
+            </v-card>
+        </v-col></v-row>
     </v-container>
     
 </template>
@@ -221,7 +236,17 @@ export default {
     name: 'App',
     data() {
         return {
-            loading: true
+            loading: true,
+            alpha: {
+                card: {
+                    theme: undefined,
+                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
+                },
+                subcard: {
+                    theme: 'tonal',
+                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
+                }
+            }
         }
     },
     components: {

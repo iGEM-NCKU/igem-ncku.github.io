@@ -5,7 +5,7 @@
     <v-container>
         <v-row class = text-center>
             <v-col>
-                <v-card title = 'Introduction to Problem'>
+                <v-card :variant = 'alpha.card.theme' title = 'Introduction to Problem'>
                     <template v-slot:text>
                         <p> Total Knee Arthroplasty (TKA) is a widely performed surgical procedure designed to restore joint function and improve quality of life for patients with severe knee damage. In the United States alone, over 800,000 TKA surgeries are performed annually. However, despite the success of most procedures, some patients experience unexpected and severe complications. </p>
                             <br>
@@ -24,13 +24,13 @@
         </v-row>
         <v-row class = text-center>
             <v-col>
-                <v-card title = 'Education' subtitle = 'Educational stuff'>
+                <v-card :variant = 'alpha.card.theme' title = 'Education' subtitle = 'Educational stuff'>
                 </v-card>
             </v-col>
         </v-row>
         <v-row>
             <v-col>
-                <v-card title = 'Games' subtitle = 'Education'>
+                <v-card :variant = 'alpha.card.theme' title = 'Games' subtitle = 'Education'>
                     <template v-slot:text>
                         To make our project more accessible and engaging, we are developing an educational mini-game that helps players understand the core concepts of our synthetic biology strategy. Inspired by real lab experiments, the game lets players design their own “enzyme troops” to mimic the bio-tools we use to target biofilms. Players analyze bacterial “towers” (representing biofilms), identify their weaknesses, and deploy their enzyme troops strategically to break them down. By turning science into interactive gameplay, we aim to spark curiosity and make learning about biofilms and synthetic biology fun and memorable.
                         <br>
@@ -41,11 +41,11 @@
 
             <v-col>
                 <a href = 'https://www.instagram.com/igemncku/' target = '_blank'>
-                    <v-card title = 'Instagram Reels' subtitle = 'Education'>
+                    <v-card :variant = 'alpha.card.theme' title = 'Instagram Reels' subtitle = 'Education' v-ripple>
                         <template v-slot:text>
                             We also created short reels in Instagram to help people understand more about our project and how we manage to develop a solution to cure the desease.
                             <v-col>
-                                <v-card variant = tonal v-ripple class = rainbow>
+                                <v-card variant = tonal class = rainbow>
                                     <template v-slot:text>
                                         Check our instagram page to view for more @igemncku
                                     </template>
@@ -61,13 +61,13 @@
     <v-container>
         <v-row class = text-center>
             <v-col>
-                <v-card title = 'Intergrated Human Practice' subtitle = 'IHP stuff'>
+                <v-card :variant = 'alpha.card.theme' title = 'Intergrated Human Practice' subtitle = 'IHP stuff'>
                 </v-card>
             </v-col>
         </v-row>
         <v-row>
             <v-col>
-                <v-card title = 'Overview' subtitle = 'Intergrated Human Practice'>
+                <v-card :variant = 'alpha.card.theme' title = 'Overview' subtitle = 'Intergrated Human Practice'>
                     <template v-slot:text>
                         To ensure our project addressed a real-world need, we placed Integrated Human Practices at the heart of our design process. By engaging with orthopedic surgeons, infection specialists, synthetic biologists, and even patients who had experienced Total Knee Arthroplasty (TKA), we gained critical insights into the devastating impact of Periprosthetic Joint Infections (PJI) and the limitations of current treatments. These discussions highlighted the urgent need for solutions that can effectively disrupt biofilms, especially those formed by Staphylococcus aureus, and helped shape our idea of engineering E. coli to target these infections. Concerns raised about biosafety and clinical applicability also guided our development of containment strategies and localized delivery methods. Through this continuous dialogue, Human Practices didn’t just support our project—it actively shaped our decisions, helping us build a solution that is not only innovative, but also ethically and clinically grounded.
                     </template>
@@ -76,7 +76,7 @@
         </v-row>
         <v-row>
             <v-col>
-                <v-card title = 'Brainstorming' subtitle = 'Intergrated Human Practice'>
+                <v-card :variant = 'alpha.card.theme' title = 'Brainstorming' subtitle = 'Intergrated Human Practice'>
                     <v-row>
                         <v-col v-for = "i in 'https://hackmd.io/_uploads/S1uaRj2Llx.png https://hackmd.io/_uploads/B1jOAon8ex.png https://hackmd.io/_uploads/BJYo1238xg.png https://hackmd.io/_uploads/H1xRy2h8xl.png'.split(' ')" :key = 'i'>
                             <v-img :src = 'i' />
@@ -87,7 +87,7 @@
         </v-row>
         <v-row>
             <v-col>
-                <v-card title = 'Interviews' subtitle = 'Intergrated Human Practice'>
+                <v-card :variant = 'alpha.card.theme' title = 'Interviews' subtitle = 'Intergrated Human Practice'>
                     <template v-slot:text>
                         <v-col><v-card variant = tonal><template v-slot:text>
                             <p> To deepen our understanding of the real-world challenges behind Periprosthetic Joint Infection (PJI), we interviewed Dr. Lin, an experienced orthopedic surgeon, and had the rare opportunity to observe a Total Knee Arthroplasty (TKA) surgery firsthand. </p>
@@ -107,23 +107,23 @@
     
     <v-container>
         <v-row class = 'text-center'><v-col>
-            <v-card title = 'Outreach with other teams'></v-card>
+            <v-card :variant = 'alpha.card.theme' title = 'Outreach with other teams'></v-card>
         </v-col></v-row>
         <v-row>
             <v-col>
-                <v-card title = 'Online idea exchange' subtitle = 'Outreach with other teams' text = 'As part of our commitment to building a strong and collaborative synthetic biology community, we reached out to fellow iGEM teams to exchange ideas, share feedback, and explore opportunities for future collaboration. These conversations allowed us to learn from diverse perspectives, gain constructive input on our project design, and offer our support in return. Through open dialogue, we not only improved our scientific thinking but also built meaningful connections that reflect the true spirit of iGEM—innovation through cooperation.' />
+                <v-card :variant = 'alpha.card.theme' title = 'Online idea exchange' subtitle = 'Outreach with other teams' text = 'As part of our commitment to building a strong and collaborative synthetic biology community, we reached out to fellow iGEM teams to exchange ideas, share feedback, and explore opportunities for future collaboration. These conversations allowed us to learn from diverse perspectives, gain constructive input on our project design, and offer our support in return. Through open dialogue, we not only improved our scientific thinking but also built meaningful connections that reflect the true spirit of iGEM—innovation through cooperation.' />
             </v-col>
         </v-row>
         <v-row align = end>
             <v-col>
-                <v-card title = 'NYCU Taiwan' subtitle = 'Online idea exchange'>
+                <v-card :variant = 'alpha.card.theme' title = 'NYCU Taiwan' subtitle = 'Online idea exchange'>
                     <template v-slot:text>
                         <v-img src = 'https://hackmd.io/_uploads/rJ7Sm2hLgg.png' />
                     </template>
                 </v-card>
             </v-col>
             <v-col>
-                <v-card title = 'CSMU Taiwan' subtitle = 'Online idea exchange'>
+                <v-card :variant = 'alpha.card.theme' title = 'CSMU Taiwan' subtitle = 'Online idea exchange'>
                     <template v-slot:text>
                         <v-img src = 'https://hackmd.io/_uploads/B10G4nhUee.png' />
                     </template>
@@ -132,20 +132,34 @@
         </v-row>
         <v-row>
             <v-col>
-                <v-card title = 'UTokyo' subtitle = 'Online idea exchange'>
+                <v-card :variant = 'alpha.card.theme' title = 'UTokyo' subtitle = 'Online idea exchange'>
                     <template v-slot:text>
                         <v-img src = 'https://hackmd.io/_uploads/B12rNnhIgg.png' />
                     </template>
                 </v-card>
             </v-col>
             <v-col>
-                <v-card title = 'CCU Taiwan' subtitle = 'Online idea exchange'>
+                <v-card :variant = 'alpha.card.theme' title = 'CCU Taiwan' subtitle = 'Online idea exchange'>
                     <template v-slot:text>
                         <v-img src = 'https://hackmd.io/_uploads/r1pwVnh8xg.png' />
                     </template>
                 </v-card>
             </v-col>
         </v-row>
+    </v-container>
+
+    <v-container>
+        <v-row><v-col>
+            <v-card title = 'Testing Area'>
+                <template v-slot:text>
+                    <v-card title = 'Card Theme'>
+                        <template v-slot:text>
+                            <v-btn v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.card.theme == i ? `green` : undefined' @click = 'alpha.card.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
+                        </template>
+                    </v-card>
+                </template>
+            </v-card>
+        </v-col></v-row>
     </v-container>
     
 </template>
@@ -162,7 +176,13 @@ export default {
     name: 'App',
     data() {
         return {
-            loading: true
+            loading: true,
+            alpha: {
+                card: {
+                    theme: undefined,
+                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
+                }
+            }
         }
     },
     components: {
@@ -174,6 +194,7 @@ export default {
         setTimeout(() => {
             this.loading = false;
         }, 100);
+        if(localStorage.getItem('alpha.theme') != undefined) this.alpha.card.theme = localStorage.getItem('alpha.theme');
     },
     methods: {
         title(x) {

@@ -3,7 +3,7 @@
     <navi class = 'block' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
         <a href = 'index.html' class = 'unfocused'>
             <!-- <img src = 'logo.png' width = '10%' /> -->
-            Bye<font color = 'green'>film</font>
+            Bye<font color = green class = film_ani>film</font>
         </a>
         <i class = 'material-icons right'> apps </i>
         <div :style = 'show_nav ? `font-size: 20px` : `font-size: 0px`'>
@@ -13,7 +13,9 @@
         </div>
     </navi>
 
-    <img src = 'https://igem.ncku.edu.tw/images/slide2.png' v-if = 'show_nav' class = 'title_img' />
+    <transition name = fade>
+        <img src = 'https://igem.ncku.edu.tw/images/slide2.png' v-if = 'show_nav' class = 'title_img' />
+    </transition>
     
     <br><br><br><br><br>
 </template>
@@ -45,7 +47,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+* {
+    transition: all 1s;
+}
 .bold {
   font-weight: 700;
 }
@@ -127,5 +132,37 @@ navi>a:hover {
 .title_img {
     height: 100vh;
     width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+}
+
+.film_ani {
+    animation: film 5s ease 0s;
+}
+@keyframes film {
+    0% {
+        color: orange;
+    }
+    25% {
+        color: red;
+    }
+    50% {
+        color: blue;
+    }
+    75% {
+        color: green;
+    }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
 }
 </style>

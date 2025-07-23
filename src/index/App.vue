@@ -159,6 +159,9 @@ export default {
                 card: {
                     style: undefined,
                     f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
+                },
+                page: {
+                    color: 'wheat'
                 }
             }
         }
@@ -194,6 +197,9 @@ export default {
         },
         endview(i) {
             this.vw[i] = false;
+        },
+        set_html_color(x) {
+            this.alpha.page.color = x;
         }
     }
 }

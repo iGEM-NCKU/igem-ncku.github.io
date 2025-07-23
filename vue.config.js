@@ -4,6 +4,8 @@ module.exports = defineConfig({
   productionSourceMap: false,
   pages: {
     index: 'src/index/main.js',
-    members: 'src/members/main.js'
+    members: 'src/members/main.js',
+    wetlab: 'src/wetlab/main.js',
+    // 'human-practice': 'src/members/main.js'
   }
 })

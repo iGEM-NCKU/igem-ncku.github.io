@@ -152,7 +152,7 @@ export default {
     data() {
         return {
             loading: true,
-            pre: ['experiments', 'human-practices', 'medal', 'members'],
+            pre: ['wetlab', 'human-practices', 'medal', 'members'],
             vw: [],
             show_nav: false,
             alpha: {

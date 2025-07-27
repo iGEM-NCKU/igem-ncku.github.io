@@ -1,10 +1,12 @@
 <template>
     <page_loader :loading = 'loading' />
     <title_nav />
+
+    <!-- {{ mobile }} -->
     
     <v-container>
         <v-row align = start>
-            <v-col v-for = 'i in pre' :key = 'i' cols = 3>
+            <v-col v-for = 'i in pre' :key = 'i' md = 6 cols = 12 lg = 3>
                 <v-hover>
                     <template v-slot:default = '{isHovering, props}'>
                         <a :href = 'i'>
@@ -36,7 +38,7 @@
         </v-row>
 
         <v-row>
-            <v-col>
+            <v-col cols = 12 sm = 6>
                 <v-card subtitle = Introduction :variant = 'alpha.card.style'>
                     <template v-slot:title>
                         What is <b class = amber-text> iGEM </b>
@@ -49,7 +51,7 @@
                     </template>
                 </v-card>
             </v-col>
-            <v-col>
+            <v-col cols = 12 sm = 6>
                 <v-card subtitle = Introduction :variant = 'alpha.card.style'>
                     <template v-slot:title>
                         What is <b class = 'orange-text'> Synthetic Biology </b>
@@ -67,7 +69,7 @@
 
         
         <v-row>
-            <v-col>
+            <v-col cols = 12 md = 4>
                 <v-card subtitle = 'About us' :variant = 'alpha.card.style'>
                     <template v-slot:title>
                         <b class = 'cyan-text'> Why </b> we do
@@ -79,7 +81,7 @@
                     </template>
                 </v-card>
             </v-col>
-            <v-col>
+            <v-col cols = 12 md = 4>
                 <v-card subtitle = 'About us' :variant = 'alpha.card.style'>
                     <template v-slot:title>
                         <b class = 'cyan-text'> How </b> we do
@@ -91,7 +93,7 @@
                     </template>
                 </v-card>
             </v-col>
-            <v-col>
+            <v-col cols = 12 md = 4>
                 <v-card subtitle = 'About us' :variant = 'alpha.card.style'>
                     <template v-slot:title>
                         <b class = 'cyan-text'> What </b> we do
@@ -147,6 +149,8 @@ import M from 'materialize-css'
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 
+import { useDisplay } from 'vuetify'
+
 export default {
     name: 'App',
     data() {
@@ -163,7 +167,8 @@ export default {
                 page: {
                     color: 'wheat'
                 }
-            }
+            },
+            mobile: useDisplay()
         }
     },
     components: {

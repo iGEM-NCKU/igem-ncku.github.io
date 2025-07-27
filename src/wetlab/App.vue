@@ -16,7 +16,7 @@
             </v-col>
         </v-row>
         <v-row>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card title = 'Three enzyme expression constructs' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <!-- <v-row> -->
@@ -48,7 +48,7 @@
                 </v-card>
             </v-col>
 
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card title = 'Host strain planning' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <v-col>
                         <v-card :variant = 'alpha.subcard.theme' v-ripple>
@@ -69,7 +69,7 @@
         </v-row>
         
         <v-row>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card title = 'T7 RNA Polymerase integration' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
@@ -97,7 +97,7 @@
                 </v-card>
             </v-col>
 
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card title = 'Cell lysis strategy' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
@@ -151,7 +151,7 @@
     <v-container>
         <v-row><v-col><v-card title = 'Test' class = 'text-center' text = 'We plan to evaluate whether our system can effectively produce and release enzymes in a controllable manner, validating its potential for biofilm clearance applications.' :variant = 'alpha.card.theme' /></v-col></v-row>
         <v-row>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card title = 'Enzyme expression testing' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
@@ -171,7 +171,7 @@
                     </template>
                 </v-card>
             </v-col>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card title = 'Lysis system validation' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>
@@ -191,7 +191,7 @@
                     </template>
                 </v-card>
             </v-col>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card title = 'Extracellular enzyme release' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <v-col>

@@ -4,7 +4,7 @@
 
     <v-container v-if = '!alpha.newview'>
         <v-row>
-            <v-col v-for = 'i in members' :key = 'i' cols = 6>
+            <v-col v-for = 'i in members' :key = 'i' cols = 12 sm = 6 lg = 4>
                 <v-hover>
                     <template v-slot:default = '{isHovering, props}'>
                         <v-card v-bind = 'props'

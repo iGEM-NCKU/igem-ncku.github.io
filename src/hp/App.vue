@@ -29,7 +29,7 @@
             </v-col>
         </v-row>
         <v-row>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card :variant = 'alpha.card.theme' title = 'Games' subtitle = 'Education'>
                     <template v-slot:text>
                         To make our project more accessible and engaging, we are developing an educational mini-game that helps players understand the core concepts of our synthetic biology strategy. Inspired by real lab experiments, the game lets players design their own “enzyme troops” to mimic the bio-tools we use to target biofilms. Players analyze bacterial “towers” (representing biofilms), identify their weaknesses, and deploy their enzyme troops strategically to break them down. By turning science into interactive gameplay, we aim to spark curiosity and make learning about biofilms and synthetic biology fun and memorable.
@@ -39,7 +39,7 @@
                 </v-card>
             </v-col>
 
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <a href = 'https://www.instagram.com/igemncku/' target = '_blank'>
                     <v-card :variant = 'alpha.card.theme' title = 'Instagram Reels' subtitle = 'Education' v-ripple>
                         <template v-slot:text>
@@ -115,14 +115,14 @@
             </v-col>
         </v-row>
         <v-row align = end>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card :variant = 'alpha.card.theme' title = 'NYCU Taiwan' subtitle = 'Online idea exchange'>
                     <template v-slot:text>
                         <v-img src = 'https://hackmd.io/_uploads/rJ7Sm2hLgg.png' />
                     </template>
                 </v-card>
             </v-col>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card :variant = 'alpha.card.theme' title = 'CSMU Taiwan' subtitle = 'Online idea exchange'>
                     <template v-slot:text>
                         <v-img src = 'https://hackmd.io/_uploads/B10G4nhUee.png' />
@@ -131,14 +131,14 @@
             </v-col>
         </v-row>
         <v-row>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card :variant = 'alpha.card.theme' title = 'UTokyo' subtitle = 'Online idea exchange'>
                     <template v-slot:text>
                         <v-img src = 'https://hackmd.io/_uploads/B12rNnhIgg.png' />
                     </template>
                 </v-card>
             </v-col>
-            <v-col>
+            <v-col cols = 12 md = 6>
                 <v-card :variant = 'alpha.card.theme' title = 'CCU Taiwan' subtitle = 'Online idea exchange'>
                     <template v-slot:text>
                         <v-img src = 'https://hackmd.io/_uploads/r1pwVnh8xg.png' />

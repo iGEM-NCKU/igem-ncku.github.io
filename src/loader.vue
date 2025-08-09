@@ -1,7 +1,7 @@
 <template>
     <transition name = fade>
         <div class = 'screen center-align valign-wrapper' v-if = loading>
-            <div class = center>
+            <div class = center v-if = old>
                 <div class = center-align>
                     <div class="preloader-wrapper big active">
                         <template v-for = 'i in [`blue`, `red`, `yellow`, `green`]' :key = 'i'>
@@ -20,6 +20,11 @@
                     <b> 請稍等 </b>
                 </div>
             </div>
+
+            <div class = ct>
+                <load v-if = '!rev & !old'></load>
+                <loadrev v-if = 'rev & !old'></loadrev>
+            </div>
         </div>
     </transition>
 </template>
@@ -28,20 +33,32 @@
 // import $ from 'jquery'
 import M from 'materialize-css'
 
+import load from '@/loader/load.vue'
+import loadrev from '@/loader/loadrev.vue'
+
 export default {
     name: 'page_loader',
     data() {
         return {
             real_loader: false,
-            fade: false
+            fade: false,
+            old: false,
+            rev: false
         }
     },
     props: [
         'loading'
     ],
+    components: {
+        load,
+        loadrev
+    },
     mounted() {
         M.AutoInit();
         this.real_loader = this.fade = this.loading;
+        setInterval(() => {
+            this.rev ^= 1;
+        }, 2560);
     },
     watch: {
         // loading(l, r) {
@@ -85,6 +102,11 @@ export default {
 .center {
   position: fixed;
   left: calc(50% - 70px);
+  transform: translateX(50%);
+}
+.ct {
+  position: fixed;
+  left: calc(50% - 700px);
   transform: translateX(50%);
 }
 .bold {

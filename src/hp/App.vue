@@ -1,11 +1,22 @@
 <template>
     <page_loader :loading = 'loading' />
     <title_nav />
+
+    <div style = 'position: fixed'>
+        <!-- {{ scroller.now }} -->
+        <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
+            <v-hover>
+                <template v-slot:default = '{isHovering, props}'>
+                    <v-card :text = 'i' :color = 'j == this.scroller.now ? `orange` : undefined' :variant = 'isHovering ? `outlined` : `tonal`' v-ripple v-bind = props />
+                </template>
+            </v-hover>
+        </a>
+    </div>
     
     <v-container>
         <v-row class = text-center>
             <v-col>
-                <v-card :variant = 'alpha.card.theme' title = 'Introduction to Problem'>
+                <v-card :variant = 'alpha.card.theme' title = 'Introduction to Problem' class = scroller id = 'Introduction-to-Problem'>
                     <template v-slot:text>
                         <p> Total Knee Arthroplasty (TKA) is a widely performed surgical procedure designed to restore joint function and improve quality of life for patients with severe knee damage. In the United States alone, over 800,000 TKA surgeries are performed annually. However, despite the success of most procedures, some patients experience unexpected and severe complications. </p>
                             <br>
@@ -24,7 +35,7 @@
         </v-row>
         <v-row class = text-center>
             <v-col>
-                <v-card :variant = 'alpha.card.theme' title = 'Education' subtitle = 'Educational stuff'>
+                <v-card :variant = 'alpha.card.theme' title = 'Education' subtitle = 'Educational stuff' class = scroller id = 'Educational'>
                 </v-card>
             </v-col>
         </v-row>
@@ -61,7 +72,7 @@
     <v-container>
         <v-row class = text-center>
             <v-col>
-                <v-card :variant = 'alpha.card.theme' title = 'Intergrated Human Practice' subtitle = 'IHP stuff'>
+                <v-card :variant = 'alpha.card.theme' title = 'Intergrated Human Practice' subtitle = 'IHP stuff' class = scroller id = 'Intergrated-Human-Practice'>
                 </v-card>
             </v-col>
         </v-row>
@@ -111,7 +122,7 @@
         </v-col></v-row>
         <v-row>
             <v-col>
-                <v-card :variant = 'alpha.card.theme' title = 'Online idea exchange' subtitle = 'Outreach with other teams' text = 'As part of our commitment to building a strong and collaborative synthetic biology community, we reached out to fellow iGEM teams to exchange ideas, share feedback, and explore opportunities for future collaboration. These conversations allowed us to learn from diverse perspectives, gain constructive input on our project design, and offer our support in return. Through open dialogue, we not only improved our scientific thinking but also built meaningful connections that reflect the true spirit of iGEM—innovation through cooperation.' />
+                <v-card :variant = 'alpha.card.theme' title = 'Online idea exchange' subtitle = 'Outreach with other teams' class = scroller id = 'Outreach-with-other-teams' text = 'As part of our commitment to building a strong and collaborative synthetic biology community, we reached out to fellow iGEM teams to exchange ideas, share feedback, and explore opportunities for future collaboration. These conversations allowed us to learn from diverse perspectives, gain constructive input on our project design, and offer our support in return. Through open dialogue, we not only improved our scientific thinking but also built meaningful connections that reflect the true spirit of iGEM—innovation through cooperation.' />
             </v-col>
         </v-row>
         <v-row align = end>
@@ -177,6 +188,10 @@ export default {
     data() {
         return {
             loading: true,
+            scroller: {
+                now: -1,
+                name: []
+            },
             alpha: {
                 card: {
                     theme: undefined,
@@ -195,6 +210,9 @@ export default {
             this.loading = false;
         }, 100);
         if(localStorage.getItem('alpha.theme') != undefined) this.alpha.card.theme = localStorage.getItem('alpha.theme');
+        this.scroller.name = $('.scroller');
+
+        this.init_scroller();
     },
     methods: {
         title(x) {
@@ -204,6 +222,25 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+        },
+        init_scroller() {
+            this.scroller.name = ($('.scroller').map(function(index) {
+                return this.id;
+            }).get());
+            setInterval(() => {
+                var overed = (x) => {
+                    return $(`#${this.scroller.name[i]}`).position().top <= window.scrollY - 100;
+                }
+                var flag = false;
+                for(var i in this.scroller.name) {
+                    if(!overed(i)) {
+                        this.scroller.now = i;
+                        flag = true;
+                        break;
+                    }
+                }
+                if(!flag) this.scroller.now = this.scroller.name.length - 1;
+            }, 100);
         }
     }
 }

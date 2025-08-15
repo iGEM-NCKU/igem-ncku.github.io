@@ -1,6 +1,18 @@
 <template>
-    <page_loader :loading = 'loading' />
+    <page_loader :loading = 'loading' @click = 'loading = false' />
     <title_nav />
+
+    {{ p }}
+
+    <v-container v-scroll.self = 'check' class = 'overflow-y-auto' max-height = '400px'>
+        {{ now }}<br>
+        {{ p }}
+        <v-row>
+            <v-col cols = 12 v-for = 'i in 100' :key = 'i' :id = '`t${i}`'>
+                <v-card :title = '`Testing ${i}`' subtitle = 'ouob' :class = 'this?.p?.top < 0 ? `rainbow` : undefined' />
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
@@ -16,6 +28,8 @@ export default {
     data() {
         return {
             loading: true,
+            now: 0,
+            p: undefined
         }
     },
     components: {
@@ -24,6 +38,10 @@ export default {
     },
     mounted() {
         M.AutoInit();
+        setInterval(() => {
+            // console.log('1');
+            this.update();
+        }, 100);
     },
     methods: {
         title(x) {
@@ -33,6 +51,14 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+        },
+        check(e) {
+            // console.log(e);
+            this.now++;
+        },
+        update() {
+            this.p = $('#t1').first().position();
+            console.log($('#t1').position());
         }
     }
 }

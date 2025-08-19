@@ -37,6 +37,36 @@
             </v-col>
         </v-row>
 
+        <page_loader :loading = video_play />
+        <v-dialog v-model = 'video_play' width = auto>
+            <!-- For video -->
+            <v-card justify = center>
+                <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/sBDRwoa4gaBw365v6svKyc?autoplay=1" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </v-card>
+        </v-dialog>
+
+        <v-row>
+            <v-col cols = 12>
+                <v-card
+                    class = 'text-right'
+                    subtitle = 'The iGEM Tainan 2025'
+                    color = black
+                    image = video.png
+                    style = 'backdrop-filter: blur(10px)'
+                    @click = 'video_play = true'
+                    :variant = 'alpha.card.style'
+                >
+                    <template v-slot:title>
+                        Promotion <b class = 'green-text'> Video </b>
+                    </template>
+                    <!-- dk -->
+                    <template v-slot:text>
+                        <a class = 'btn-large hoverable pulse green' @click = 'video_play = true'> SHOW ME THIS </a>
+                    </template>
+                </v-card>
+            </v-col>
+        </v-row>
+
         <v-row>
             <v-col cols = 12 sm = 6>
                 <v-card subtitle = Introduction :variant = 'alpha.card.style'>
@@ -168,7 +198,8 @@ export default {
                     color: 'wheat'
                 }
             },
-            mobile: useDisplay()
+            mobile: useDisplay(),
+            video_play: false
         }
     },
     components: {

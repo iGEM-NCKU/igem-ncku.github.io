@@ -1,5 +1,7 @@
 <template>
     <v-layout>
+        <page_loader :loading = 'loading' @click = 'loading = false' />
+        <title_nav />
         <!-- <v-app-bar variant = text scroll-behavior="collapse elevate fade-image" color = green>
             <template v-slot:prepend>
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -18,8 +20,6 @@
         <v-row justify = end>
             <v-col cols = 9 class = 'ma-5 pa-5'>
                 <v-main>
-                    <page_loader :loading = 'loading' @click = 'loading = false' />
-                    <title_nav />
         
                     {{ p }}
         

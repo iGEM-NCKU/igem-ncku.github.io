@@ -1,6 +1,15 @@
 <template>
-    
+    <v-progress-linear
+        v-model = scroll.progress
+        style = 'position:fixed; z-index: 100;'
+        color = green
+        buffer-color = 'green lighten-2'
+        height = 5
+        :buffer-value = scroll.progress_bottom
+        buffer-opacity = .3
+     />
     <navi class = 'block' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
+        <!-- {{ alpha }} -->
         <a href = 'index.html' class = 'unfocused'>
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = green class = film_ani>film</font>
@@ -29,11 +38,19 @@ export default {
     data() {
         return {
             pre: ['education', 'human-practices', 'members', 'wetlab', 'introduction-to-problems'],
-            show_nav: false
+            show_nav: false,
+            scroll: {
+                progress: 0,
+                progress_bottom: 0,
+                now: 0,
+                length: 0,
+                height: 0
+            }
         }
     },
     mounted() {
         M.AutoInit();
+        window.onscroll = this.update_scroll;
     },
     methods: {
         title(x) {
@@ -43,6 +60,13 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+        },
+        update_scroll() {
+            this.scroll.length = document.body.clientHeight;
+            this.scroll.height = window.innerHeight;
+            this.scroll.now = window.scrollY;
+            this.scroll.progress = this.scroll.now / this.scroll.length * 100;
+            this.scroll.progress_bottom = (this.scroll.now + this.scroll.height) / this.scroll.length * 100;
         }
     }
 }

@@ -1,18 +1,44 @@
 <template>
-    <page_loader :loading = 'loading' @click = 'loading = false' />
-    <title_nav />
-
-    {{ p }}
-
-    <v-container v-scroll.self = 'check' class = 'overflow-y-auto' max-height = '400px'>
-        {{ now }}<br>
-        {{ p }}
+    <v-layout>
+        <!-- <v-app-bar variant = text scroll-behavior="collapse elevate fade-image" color = green>
+            <template v-slot:prepend>
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-app-bar-title> <a href = '.'> ByeFilm </a> </v-app-bar-title>
+            </template>
+            <template v-slot:append>
+                <v-btn v-for = 'i in 10' :key = i> HP </v-btn>
+            </template>
+        </v-app-bar> -->
         <v-row>
-            <v-col cols = 12 v-for = 'i in 100' :key = 'i' :id = '`t${i}`'>
-                <v-card :title = '`Testing ${i}`' subtitle = 'ouob' :class = 'this?.p?.top < 0 ? `rainbow` : undefined' />
+            <v-col cols = 2 style = 'position: fixed;' v-if = '$vuetify.display.mdAndUp' class = 'ma-5'>
+                <br><br><br><br>
+                <v-card :subtitle="i" v-for = 'i in 10' :key = i></v-card>
             </v-col>
         </v-row>
-    </v-container>
+        <v-row justify = end>
+            <v-col cols = 9 class = 'ma-5 pa-5'>
+                <v-main>
+                    <page_loader :loading = 'loading' @click = 'loading = false' />
+                    <title_nav />
+        
+                    {{ p }}
+        
+                    <v-container v-scroll.self = 'check' class = 'overflow-y-auto' max-height = '400px'>
+                        {{ now }}<br>
+                        {{ p }}
+                        <v-row>
+                            <v-col cols = 12 v-for = 'i in 100' :key = 'i' :id = '`t${i}`'>
+                                <v-card :title = '`Testing ${i}`' subtitle = 'ouob' :class = 'this?.p?.top < 0 ? `rainbow` : undefined' />
+                            </v-col>
+                        </v-row>
+                    </v-container>
+        
+                    <v-card :title = i v-for = 'i in 100' :key = i v-ripple class = rainbow />
+                </v-main>
+            </v-col>
+            <v-col cols = 1></v-col>
+        </v-row>
+    </v-layout>
 </template>
 
 <script>

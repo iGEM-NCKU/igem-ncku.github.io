@@ -2,7 +2,7 @@
     <page_loader :loading = 'loading' />
     <title_nav />
 
-    <div style = 'position: fixed'>
+    <div style = 'position: fixed' class = 'ma-5' v-if = '$vuetify.display.mdAndUp'>
         <!-- {{ scroller.now }} -->
         <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
             <v-hover>
@@ -13,7 +13,7 @@
         </a>
     </div>
     
-    <v-container>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>
             <v-col>
                 <v-card :variant = 'alpha.card.theme' title = 'Introduction to Problem' class = scroller id = 'Introduction-to-Problem'>
@@ -67,9 +67,9 @@
                 </a>
             </v-col>
         </v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
 
-    <v-container>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>
             <v-col>
                 <v-card :variant = 'alpha.card.theme' title = 'Intergrated Human Practice' subtitle = 'IHP stuff' class = scroller id = 'Intergrated-Human-Practice'>
@@ -114,9 +114,9 @@
                 </v-card>
             </v-col>
         </v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
     
-    <v-container>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = 'text-center'><v-col>
             <v-card :variant = 'alpha.card.theme' title = 'Outreach with other teams'></v-card>
         </v-col></v-row>
@@ -157,9 +157,9 @@
                 </v-card>
             </v-col>
         </v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
 
-    <v-container>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row><v-col>
             <v-card title = 'Testing Area'>
                 <template v-slot:text>
@@ -171,7 +171,7 @@
                 </template>
             </v-card>
         </v-col></v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
     
 </template>
 
@@ -234,7 +234,7 @@ export default {
                 var flag = false;
                 for(var i in this.scroller.name) {
                     if(!overed(i)) {
-                        this.scroller.now = i;
+                        this.scroller.now = (i - 1 < 0 ? 0 : i - 1);
                         flag = true;
                         break;
                     }

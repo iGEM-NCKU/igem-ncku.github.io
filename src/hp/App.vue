@@ -4,13 +4,17 @@
 
     <div style = 'position: fixed' class = 'ma-5' v-if = '$vuetify.display.mdAndUp'>
         <!-- {{ scroller.now }} -->
-        <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
-            <v-hover>
-                <template v-slot:default = '{isHovering, props}'>
-                    <v-card :text = 'i' :color = 'j == this.scroller.now ? `orange` : undefined' :variant = 'isHovering ? `outlined` : `tonal`' v-ripple v-bind = props />
-                </template>
-            </v-hover>
-        </a>
+        <v-card title = 'Navigation' subtitle = 'TOC'>
+            <template v-slot:text>
+                <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
+                    <v-hover>
+                        <template v-slot:default = '{isHovering, props}'>
+                            <v-card :text = 'i' :color = 'isHovering || j == this.scroller.now ? `orange` : undefined' :variant = 'j == this.scroller.now ? `outlined` : `tonal`' v-ripple v-bind = props />
+                        </template>
+                    </v-hover>
+                </a>
+            </template>
+        </v-card>
     </div>
     
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
@@ -229,7 +233,7 @@ export default {
             }).get());
             setInterval(() => {
                 var overed = (x) => {
-                    return $(`#${this.scroller.name[i]}`).position().top <= window.scrollY - 100;
+                    return $(`#${this.scroller.name[i]}`).position().top <= window.scrollY + 100;
                 }
                 var flag = false;
                 for(var i in this.scroller.name) {

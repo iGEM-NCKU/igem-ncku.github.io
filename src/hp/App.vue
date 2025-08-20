@@ -4,17 +4,32 @@
 
     <div style = 'position: fixed' class = 'ma-5' v-if = '$vuetify.display.mdAndUp'>
         <!-- {{ scroller.now }} -->
-        <v-card title = 'Navigation' subtitle = 'TOC'>
-            <template v-slot:text>
-                <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
-                    <v-hover>
-                        <template v-slot:default = '{isHovering, props}'>
-                            <v-card :text = 'i' :color = 'isHovering || j == this.scroller.now ? `orange` : undefined' :variant = 'j == this.scroller.now ? `outlined` : `tonal`' v-ripple v-bind = props />
-                        </template>
-                    </v-hover>
-                </a>
+        <v-hover>
+            <template v-slot:default = '{isHovering, props}'>
+                <v-card :variant = alpha.sidenav.style>
+                    <template v-slot:title>
+                        <div v-bind = props>
+                            <!-- {{ isHovering ? `< Back` : `Navigation` }} -->
+                            <a href = '.' v-text = '`< Back`' v-if = isHovering></a>
+                            <b v-else> Navigation </b>
+                        </div>
+                    </template>
+                    <template v-slot:subtitle>
+                        <a href = '.' v-if = isHovering> Click to return to Homepage </a>
+                        <b v-else> Human Practice </b>
+                    </template>
+                    <template v-slot:text>
+                        <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
+                            <v-hover>
+                                <template v-slot:default = '{isHovering, props}'>
+                                    <v-card :text = 'i' :color = 'isHovering || j == this.scroller.now ? `orange` : undefined' :variant = 'j == this.scroller.now ? `outlined` : `tonal`' v-ripple v-bind = props />
+                                </template>
+                            </v-hover>
+                        </a>
+                    </template>
+                </v-card>
             </template>
-        </v-card>
+        </v-hover>
     </div>
     
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
@@ -172,6 +187,11 @@
                             <v-btn v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.card.theme == i ? `green` : undefined' @click = 'alpha.card.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
                         </template>
                     </v-card>
+                    <v-card title = 'Sidenav Theme'>
+                        <template v-slot:text>
+                            <v-btn v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.sidenav.style == i ? `green` : undefined' @click = 'alpha.sidenav.style = i'> {{ i ? i : 'NORMAL' }} </v-btn>
+                        </template>
+                    </v-card>
                 </template>
             </v-card>
         </v-col></v-row>
@@ -200,6 +220,9 @@ export default {
                 card: {
                     theme: undefined,
                     f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
+                },
+                sidenav: {
+                    style: undefined
                 }
             }
         }

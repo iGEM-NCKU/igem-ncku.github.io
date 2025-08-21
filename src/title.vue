@@ -15,12 +15,18 @@
             Bye<font color = green class = film_ani>film</font>
         </a>
         <i class = 'material-icons right'> apps </i>
+        <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b>
         <div :style = 'show_nav ? `font-size: 20px` : `font-size: 0px`'>
             <div v-for = 'i in pre' :key = 'i'>
                 <a :href = 'i'> {{ title(i) }} </a>
             </div>
         </div>
     </navi>
+
+    <div class = subnav>
+            <a href = '#'> <b class = right> Link 1 </b> </a><br>
+            <a href = '#'> <b class = right> Link 2 </b> </a>
+    </div>
 
     <!-- <transition name = fade>
         <img src = 'https://igem.ncku.edu.tw/images/slide2.png' v-if = 'show_nav' class = 'title_img' />
@@ -30,7 +36,7 @@
 </template>
 
 <script>
-// import $ from 'jquery'
+import $ from 'jquery'
 import M from 'materialize-css'
 
 export default {
@@ -67,6 +73,18 @@ export default {
             this.scroll.now = window.scrollY;
             this.scroll.progress = this.scroll.now / this.scroll.length * 100;
             this.scroll.progress_bottom = (this.scroll.now + this.scroll.height) / this.scroll.length * 100;
+        },
+        show_subnav() {
+            var now = ($('#menu').first().position());
+            var x = now.top;
+            var y = now.left;
+            x += ($('#menu').first().height());
+            console.log(`${x} ${y}`);
+            $('.subnav').first().css({top: x, left: y, 'z-index': 1000});
+            $('.subnav').show();
+        },
+        hide_subnav() {
+            $('.subnav').hide();
         }
     }
 }
@@ -161,6 +179,15 @@ navi>a:hover {
     top: 0px;
     left: 0px;
     z-index: 10;
+}
+.subnav {
+    position: fixed;
+    top: 500px;
+    background-color: grey;
+    border-radius: 10px;
+    padding: 10px;
+    /* filter: blur(10px); */
+    opacity: 70%;
 }
 
 .film_ani {

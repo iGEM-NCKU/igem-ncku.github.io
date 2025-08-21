@@ -2,16 +2,28 @@
     <v-layout>
         <page_loader :loading = 'loading' @click = 'loading = false' />
         <title_nav />
-
-        <!-- <v-app-bar variant = text scroll-behavior="collapse elevate fade-image" color = green>
+<!-- 
+        <v-app-bar variant = text scroll-behavior="collapse elevate fade-image" color = green>
             <template v-slot:prepend>
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
                 <v-app-bar-title> <a href = '.'> ByeFilm </a> </v-app-bar-title>
             </template>
             <template v-slot:append>
-                <v-btn v-for = 'i in 10' :key = i> HP </v-btn>
+                <div class = text-center>
+                    <v-menu open-on-hover>
+                        <template v-slot:activator = '{props}'>
+                            <v-btn v-bind = props> TEST </v-btn>
+                        </template>
+                        <v-list>
+                            <v-list-item v-for = 'i in 10' :key = i :value = 'i'>
+                                <v-list-item-title> {{ i }} </v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
+                </div>
             </template>
         </v-app-bar> -->
+        
         <v-row>
             <v-col cols = 2 style = 'position: fixed;' v-if = '$vuetify.display.mdAndUp' class = 'ma-5'>
                 <br><br><br><br>
@@ -21,6 +33,35 @@
         <v-row justify = end>
             <v-col cols = 9 class = 'ma-5 pa-5'>
                 <v-main>
+            
+                    <v-card>
+                        <template v-slot:text>
+                            <div class="text-center">
+                                <v-menu
+                                open-on-hover
+                                >
+                                <template v-slot:activator="{ props }">
+                                    <v-btn
+                                    color="primary"
+                                    v-bind="props"
+                                    >
+                                    Dropdown
+                                    </v-btn>
+                                </template>
+
+                                <v-list>
+                                    <v-list-item
+                                    v-for="(item, index) in [1,2,3,4,5]"
+                                    :key="index"
+                                    :value="index"
+                                    >
+                                    <v-list-item-title color = black>{{ item }}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                                </v-menu>
+                            </div>
+                        </template>
+                    </v-card>
         
                     {{ p }}
         
@@ -85,7 +126,7 @@ export default {
         },
         update() {
             this.p = $('#t1').first().position();
-            console.log($('#t1').position());
+            // console.log($('#t1').position());
         }
     }
 }

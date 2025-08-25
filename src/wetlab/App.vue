@@ -1,9 +1,10 @@
 <template>
     <page_loader :loading = 'loading' />
     <title_nav />
+    <sidenav name = 'WetLab' />
     
-    <v-container>
-        <v-row class = text-center>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
+        <v-row class = 'text-center scroller' id = 'Design'>
             <v-col>
                 <v-card title = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
@@ -125,11 +126,11 @@
                 </v-card>
             </v-col>
         </v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
 
-    <v-container>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row><v-col>
-            <v-card :variant = 'alpha.card.theme'>
+            <v-card :variant = 'alpha.card.theme' class = scroller id = Build>
                 <template v-slot:title>
                     <div class = text-center>
                         Build
@@ -146,10 +147,10 @@
                 </template>
             </v-card>
         </v-col></v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
 
-    <v-container>
-        <v-row><v-col><v-card title = 'Test' class = 'text-center' text = 'We plan to evaluate whether our system can effectively produce and release enzymes in a controllable manner, validating its potential for biofilm clearance applications.' :variant = 'alpha.card.theme' /></v-col></v-row>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
+        <v-row><v-col><v-card id = Test title = 'Test' class = 'text-center scroller' text = 'We plan to evaluate whether our system can effectively produce and release enzymes in a controllable manner, validating its potential for biofilm clearance applications.' :variant = 'alpha.card.theme' /></v-col></v-row>
         <v-row>
             <v-col cols = 12 md = 6>
                 <v-card title = 'Enzyme expression testing' :variant = 'alpha.card.theme'>
@@ -205,9 +206,9 @@
                 </v-card>
             </v-col>
         </v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
 
-    <v-container>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row><v-col>
             <v-card title = 'Testing Area' color = grey>
                 <template v-slot:text>
@@ -220,7 +221,7 @@
                 </template>
             </v-card>
         </v-col></v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
     
 </template>
 
@@ -231,6 +232,7 @@ import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
+import sidenav from '@/sidenav.vue'
 
 export default {
     name: 'App',
@@ -251,7 +253,8 @@ export default {
     },
     components: {
         title_nav,
-        page_loader
+        page_loader,
+        sidenav
     },
     mounted() {
         M.AutoInit();

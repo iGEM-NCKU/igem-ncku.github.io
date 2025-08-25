@@ -1,17 +1,18 @@
 <template>
     <page_loader :loading = 'loading' />
     <title_nav />
+    <sidenav name = 'Education' />
     
-    <v-container>
+    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>
             <v-col>
-                <v-card title = 'Education' subtitle = 'Educational stuff'>
+                <v-card title = 'Education' subtitle = 'Educational stuff' id = Education class = scroller>
                 </v-card>
             </v-col>
         </v-row>
         <v-row>
             <v-col>
-                <v-card title = 'Games' subtitle = 'Education'>
+                <v-card title = 'Games' subtitle = 'Education' id = Games class = scroller>
                     <template v-slot:text>
                         To make our project more accessible and engaging, we are developing an educational mini-game that helps players understand the core concepts of our synthetic biology strategy. Inspired by real lab experiments, the game lets players design their own “enzyme troops” to mimic the bio-tools we use to target biofilms. Players analyze bacterial “towers” (representing biofilms), identify their weaknesses, and deploy their enzyme troops strategically to break them down. By turning science into interactive gameplay, we aim to spark curiosity and make learning about biofilms and synthetic biology fun and memorable.
                         <br>
@@ -22,7 +23,7 @@
 
             <v-col>
                 <a href = 'https://www.instagram.com/igemncku/' target = '_blank'>
-                    <v-card title = 'Instagram Reels' subtitle = 'Education' v-ripple>
+                    <v-card title = 'Instagram Reels' subtitle = 'Education' v-ripple id = 'Instagram Reels' class = scroller>
                         <template v-slot:text>
                             We also created short reels in Instagram to help people understand more about our project and how we manage to develop a solution to cure the desease.
                             <v-col>
@@ -37,7 +38,7 @@
                 </a>
             </v-col>
         </v-row>
-    </v-container>
+    </v-col><v-col cols = 1 /></v-row>
     
 </template>
 
@@ -48,6 +49,7 @@ import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
+import sidenav from '@/sidenav.vue'
 
 export default {
     name: 'App',
@@ -58,7 +60,8 @@ export default {
     },
     components: {
         title_nav,
-        page_loader
+        page_loader,
+        sidenav
     },
     mounted() {
         M.AutoInit();

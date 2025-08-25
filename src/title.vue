@@ -4,7 +4,7 @@
         style = 'position:fixed; z-index: 100;'
         color = green
         buffer-color = 'green lighten-2'
-        height = 5
+        height = 9
         :buffer-value = scroll.progress_bottom
         buffer-opacity = .3
      />
@@ -15,18 +15,29 @@
             Bye<font color = green class = film_ani>film</font>
         </a>
         <i class = 'material-icons right'> apps </i>
-        <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b>
-        <div :style = 'show_nav ? `font-size: 20px` : `font-size: 0px`'>
-            <div v-for = 'i in pre' :key = 'i'>
-                <a :href = 'i'> {{ title(i) }} </a>
-            </div>
+        <!-- <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b> -->
+        <div :style = 'show_nav ? `font-size: 40px` : `font-size: 0px`'>
+            <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j'>
+                <template v-slot:default = '{isHovering, props}'>
+                    <div v-bind = props>
+                        <!-- {{ k }} -->
+                        <b> {{ j }} </b>
+                        <!-- <a :href = 'i' style = 'color: white; '> {{ title(i) }} </a> -->
+                        <div v-if = 'isHovering'>
+                            <div v-for = 'url in i' :key = 'url' style = 'padding-left: 30px; font-size: medium'>
+                                <a :href = url style = 'color: white;'> {{ title(url) }} </a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </v-hover>
         </div>
     </navi>
 
-    <div class = subnav>
+    <!-- <div class = subnav>
             <a href = '#'> <b class = right> Link 1 </b> </a><br>
             <a href = '#'> <b class = right> Link 2 </b> </a>
-    </div>
+    </div> -->
 
     <!-- <transition name = fade>
         <img src = 'https://igem.ncku.edu.tw/images/slide2.png' v-if = 'show_nav' class = 'title_img' />
@@ -43,7 +54,12 @@ export default {
     name: 'title_nav',
     data() {
         return {
-            pre: ['education', 'human-practices', 'members', 'wetlab', 'introduction-to-problems'],
+            pre: ['education', 'integrated-human-practices', 'members', 'wetlab', 'introduction-to-problems', 'software', 'model', ],
+            f: {
+                'Team': ['attributions', 'members'],
+                'Project': ['description', 'engineering', 'experiments', 'notebook', 'results'],
+                'Labs': ['drylab', 'wetlab', 'integrated-human-practice'],
+            },
             show_nav: false,
             scroll: {
                 progress: 0,
@@ -51,12 +67,14 @@ export default {
                 now: 0,
                 length: 0,
                 height: 0
-            }
+            },
+            hide: []
         }
     },
     mounted() {
         M.AutoInit();
         window.onscroll = this.update_scroll;
+        this.hide = new Array(this.f.length);
     },
     methods: {
         title(x) {
@@ -71,8 +89,8 @@ export default {
             this.scroll.length = document.body.clientHeight;
             this.scroll.height = window.innerHeight;
             this.scroll.now = window.scrollY;
-            this.scroll.progress = this.scroll.now / this.scroll.length * 100;
-            this.scroll.progress_bottom = (this.scroll.now + this.scroll.height) / this.scroll.length * 100;
+            this.scroll.progress = this.scroll.now / this.scroll.length * 100 + this.scroll.height * this.scroll.now / ((this.scroll.length - this.scroll.height) * this.scroll.length) * 100;
+            // this.scroll.progress_bottom = (this.scroll.now + this.scroll.height) / this.scroll.length * 100;
         },
         show_subnav() {
             var now = ($('#menu').first().position());

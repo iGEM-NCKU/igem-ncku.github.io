@@ -186,7 +186,7 @@ export default {
     data() {
         return {
             loading: true,
-            pre: ['wetlab', 'human-practices', 'education', 'members'],
+            pre: ['wetlab', 'integrated-human-practices', 'education', 'members'],
             vw: [],
             show_nav: false,
             alpha: {
@@ -221,7 +221,7 @@ export default {
             return;
         },
         title(x) {
-            x = x.replace('-', ' ');
+            while(x.indexOf('-') != -1) x = x.replace('-', ' ');
             var f = [];
             for(var i of x.split(' ')) {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());

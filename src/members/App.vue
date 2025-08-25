@@ -108,9 +108,6 @@ export default {
 * {
   transition: 1s all;
 }
-body {
-    background-color: wheat;
-}
 .dim {
     filter: brightness(50%);
 }

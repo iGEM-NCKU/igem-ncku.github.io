@@ -9,8 +9,9 @@
         buffer-opacity = .3
      />
     <navi class = 'block' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
+        <img src = icon.png height = 20px />
         <!-- {{ alpha }} -->
-        <a href = 'index.html' class = 'unfocused'>
+        <a href = 'index.html' class = 'unfocused stroke'>
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = green class = film_ani>film</font>
         </a>
@@ -126,7 +127,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     /* display: flex; */
     padding: 10px;
     font-size: large;
-    font-weight: 100;
+    font-weight: 900;
     backdrop-filter: blur(25px);
     position: fixed;
     top: 0px;
@@ -179,7 +180,7 @@ v-btn:hover {
     padding: 20px;
     background-color: rgba(0, 100, 0, .1);
     text-decoration: none;
-    color: wheat;
+    color: #f2ffde;
     font-size: xx-large;
     transition: 1s all;
     font-weight: 900;
@@ -234,5 +235,16 @@ navi>a:hover {
 }
 .fade-enter-to, .fade-leave-from {
   opacity: 1;
+}
+
+
+.stroke {
+    /* -webkit-text-stroke: .5px #efe4d1; */
+    /* text-stroke: 1.5px #efe4d1; */
+    text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
 }
 </style>

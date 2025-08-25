@@ -6,7 +6,7 @@
         <!-- {{ scroller.now }} -->
         <v-hover>
             <template v-slot:default = '{isHovering, props}'>
-                <v-card :variant = alpha.sidenav.style>
+                <v-card :variant = alpha.sidenav.style prepend-avatar = icon.png>
                     <template v-slot:title>
                         <div v-bind = props>
                             <!-- {{ isHovering ? `< Back` : `Navigation` }} -->
@@ -276,9 +276,6 @@ export default {
 <style>
 * {
   transition: 1s all;
-}
-body {
-    background-color: wheat;
 }
 .blur {
   z-index: 10;

@@ -136,9 +136,6 @@ export default {
 * {
   transition: 1s all;
 }
-body {
-    background-color: wheat;
-}
 .blur {
   z-index: 10;
   background-color: rgba(255, 255, 255, .75);

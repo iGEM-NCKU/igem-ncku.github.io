@@ -195,7 +195,7 @@ export default {
                     f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
                 },
                 page: {
-                    color: 'wheat'
+                    color: '#f2ffde'
                 }
             },
             mobile: useDisplay(),
@@ -244,9 +244,6 @@ export default {
 <style>
 * {
   transition: 1s all;
-}
-body {
-    background-color: wheat;
 }
 .blur {
   z-index: 10;

@@ -1,9 +1,10 @@
 <template>
     <div style = 'position: fixed' class = 'ma-5' v-if = '$vuetify.display.mdAndUp' >
         <!-- {{ scroller.now }} -->
+          <!-- <b class = stroke>1</b> -->
         <v-hover>
             <template v-slot:default = '{isHovering, props}'>
-                <v-card min-width = '20vw'>
+                <v-card min-width = '20vw' prepend-avatar = icon.png>
                     <template v-slot:title>
                         <div v-bind = props>
                             <!-- {{ isHovering ? `< Back` : `Navigation` }} -->
@@ -19,7 +20,11 @@
                         <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
                             <v-hover>
                                 <template v-slot:default = '{isHovering, props}'>
-                                    <v-card :text = 'i' :color = 'isHovering || j == this.scroller.now ? `orange` : undefined' :variant = 'j == this.scroller.now ? `outlined` : `tonal`' v-ripple v-bind = props />
+                                    <v-card :color = 'isHovering || j == this.scroller.now ? `orange` : undefined' :variant = 'j == this.scroller.now ? `outlined` : `tonal`' v-ripple v-bind = props>
+                                        <template v-slot:text>
+                                            <b class = 'stroke'> {{ i }} </b>
+                                        </template>
+                                    </v-card>
                                 </template>
                             </v-hover>
                         </a>
@@ -78,5 +83,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.stroke {
+    /* -webkit-text-stroke: .5px #efe4d1; */
+    /* text-stroke: 1.5px #efe4d1; */
+    text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+}
 </style>

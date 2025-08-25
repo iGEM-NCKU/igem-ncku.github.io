@@ -83,6 +83,14 @@ export default {
 * {
   transition: 1s all;
 }
+body {
+    font-family: 'font', sans-serif;
+    background-image: linear-gradient(to bottom, #49a06f, wheat);
+}
+@font-face {
+    font-family: 'font';
+    src: url('../public/fonts/CreHappiness-B.ttf');
+}
 .screen {
   background-color: rgba(255, 255, 255, .75);
   z-index: 500;

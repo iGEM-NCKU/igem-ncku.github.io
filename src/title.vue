@@ -59,7 +59,7 @@ export default {
             f: {
                 'Team': ['attributions', 'members'],
                 'Project': ['description', 'engineering', 'experiments', 'notebook', 'results'],
-                'Labs': ['drylab', 'wetlab', 'integrated-human-practice'],
+                'Labs': ['drylab', 'wetlab', 'integrated-human-practices'],
             },
             show_nav: false,
             scroll: {

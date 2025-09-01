@@ -17,7 +17,7 @@
                         <b v-else> {{ name }} </b>
                     </template>
                     <template v-slot:text>
-                        <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
+                        <a @click = 'goto(`#${i}`)' v-for = 'i, j in scroller.name' :key = 'i'>
                             <v-hover>
                                 <template v-slot:default = '{isHovering, props}'>
                                     <v-card :color = 'isHovering || j == this.scroller.now ? `orange` : undefined' :variant = 'j == this.scroller.now ? `outlined` : `tonal`' v-ripple v-bind = props>
@@ -40,6 +40,8 @@
 import $ from 'jquery'
 import M from 'materialize-css'
 
+import { useGoTo } from 'vuetify/lib/composables/goto'
+
 export default {
     name: 'sidenav',
     data() {
@@ -47,7 +49,8 @@ export default {
             scroller: {
                 now: -1,
                 name: []
-            }
+            },
+            goTo: useGoTo()
         }
     },
     props: {
@@ -78,6 +81,15 @@ export default {
                 }
                 if(!flag) this.scroller.now = this.scroller.name.length - 1;
             }, 100);
+        },
+        goto(x) {
+            // M.toast({html: `going to ${x}`, classes: 'amber rounded'});
+            this.goTo(x, {
+                container: 'html',
+                duration: 300,
+                easing: 'easeInOutCubic',
+                offset: -100
+            });
         }
     }
 }

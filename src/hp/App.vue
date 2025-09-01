@@ -1,36 +1,7 @@
 <template>
     <page_loader :loading = 'loading' />
     <title_nav />
-
-    <div style = 'position: fixed' class = 'ma-5' v-if = '$vuetify.display.mdAndUp'>
-        <!-- {{ scroller.now }} -->
-        <v-hover>
-            <template v-slot:default = '{isHovering, props}'>
-                <v-card :variant = alpha.sidenav.style prepend-avatar = icon.png>
-                    <template v-slot:title>
-                        <div v-bind = props>
-                            <!-- {{ isHovering ? `< Back` : `Navigation` }} -->
-                            <a href = '.' v-text = '`< Back`' v-if = isHovering></a>
-                            <b v-else> Navigation </b>
-                        </div>
-                    </template>
-                    <template v-slot:subtitle>
-                        <a href = '.' v-if = isHovering> Click to return to Homepage </a>
-                        <b v-else> Human Practice </b>
-                    </template>
-                    <template v-slot:text>
-                        <a :href = '`#${i}`' v-for = 'i, j in scroller.name' :key = 'i'>
-                            <v-hover>
-                                <template v-slot:default = '{isHovering, props}'>
-                                    <v-card :text = 'i' :color = 'isHovering || j == this.scroller.now ? `orange` : undefined' :variant = 'j == this.scroller.now ? `outlined` : `tonal`' v-ripple v-bind = props />
-                                </template>
-                            </v-hover>
-                        </a>
-                    </template>
-                </v-card>
-            </template>
-        </v-hover>
-    </div>
+    <sidenav name = 'Integrated Human Practice' />
     
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>
@@ -206,6 +177,7 @@ import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
+import sidenav from '@/sidenav.vue'
 
 export default {
     name: 'App',
@@ -229,7 +201,8 @@ export default {
     },
     components: {
         title_nav,
-        page_loader
+        page_loader,
+        sidenav
     },
     mounted() {
         M.AutoInit();

@@ -24,7 +24,7 @@
                         <!-- {{ k }} -->
                         <b> {{ j }} </b>
                         <!-- <a :href = 'i' style = 'color: white; '> {{ title(i) }} </a> -->
-                        <div v-if = 'isHovering'>
+                        <div v-if = 'isHovering && show_nav'>
                             <div v-for = 'url in i' :key = 'url' style = 'padding-left: 30px; font-size: medium'>
                                 <a :href = url style = 'color: white;'> {{ title(url) }} </a>
                             </div>

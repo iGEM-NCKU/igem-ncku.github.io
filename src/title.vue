@@ -20,7 +20,7 @@
         <div :style = 'show_nav ? `font-size: 40px` : `font-size: 0px`'>
             <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j'>
                 <template v-slot:default = '{isHovering, props}'>
-                    <div v-bind = props>
+                    <div v-bind = props @click = undefined>
                         <!-- {{ k }} -->
                         <b> {{ j }} </b>
                         <!-- <a :href = 'i' style = 'color: white; '> {{ title(i) }} </a> -->

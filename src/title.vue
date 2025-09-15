@@ -151,7 +151,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
 .block {
-    background-color: rgba(200, 255, 200, .5);
+    background-color: rgba(0, 100, 50, .8);
     text-decoration: none;
     color: black;
     transition: 1s all;
@@ -168,11 +168,6 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     border-radius: 10px;
     margin: 15px;
     padding: 15px;
-}
-.block:hover {
-    background-color: rgba(0, 100, 50, .8);
-    /* font-size: xx-large; */
-    backdrop-filter: blur(25px);
 }
 v-btn:hover {
     text-align: center;

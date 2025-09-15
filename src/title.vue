@@ -15,7 +15,25 @@
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = green class = film_ani>film</font>
         </a>
-        <i class = 'material-icons right'> apps </i>
+        <v-hover v-for = 'i, j in f' :key = i :value = j>
+            <template #default = '{isHovering, props}'>
+                <div class = right :id = '`title-button-${j}`' v-bind = props>
+                    <b> {{ j }} </b>&nbsp;&nbsp;
+                </div>
+                <v-card class = 'title_showcase' :id = '`title-${j}`' :style = 'isHovering ? undefined : `display: none;`'>
+                    <template #title>
+                        {{ j }}
+                    </template>
+                    <template #subtitle>
+                        <v-btn v-for = 'subtitle in i' :key = subtitle :href = subtitle>
+                            {{ title(subtitle) }}
+                        </v-btn>
+                    </template>
+                </v-card>
+            </template>
+        </v-hover>
+
+        <!-- <i class = 'material-icons right'> apps </i> -->
         <!-- <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b> -->
         <div :style = 'show_nav ? `font-size: 40px` : `font-size: 0px`'>
             <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j'>
@@ -76,8 +94,19 @@ export default {
         M.AutoInit();
         window.onscroll = this.update_scroll;
         this.hide = new Array(this.f.length);
+        this.init_subnav();
     },
     methods: {
+        init_subnav() {
+            for(var i in this.f) {
+                let j = this.f[i];j;
+                console.log(`#title-button-${i}`);
+                console.log($(`#title-button-${i}`).first().position().left);
+                $(`#title-${i}`).css({
+                    right: window.innerWidth - ($(`#title-button-${i}`).first().position().left + $(`#title-button-${i}`).first().innerWidth())
+                });
+            }
+        },
         title(x) {
             while(x.indexOf('-') != -1) x = x.replace('-', ' ');
             var f = [];
@@ -111,7 +140,7 @@ export default {
 
 <style scoped>
 * {
-    transition: all 1s;
+    transition: all 0.3s;
 }
 .bold {
   font-weight: 700;
@@ -246,5 +275,14 @@ navi>a:hover {
         1px -1px 0 #fff,
         -1px 1px 0 #fff,
         1px 1px 0 #fff;
+}
+.title_showcase {
+    position: fixed;
+    /* top: 10px;
+    left: 50px; */
+    /* right: 1200px; */
+    background-color: rgba(255, 255, 255, .75);
+    backdrop-filter: blur(10px);
+    z-index: 100;
 }
 </style>

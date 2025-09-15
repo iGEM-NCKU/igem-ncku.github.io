@@ -81,7 +81,7 @@ export default {
 
 <style>
 * {
-  transition: 1s all;
+  transition: 0.5s all;
 }
 body {
     font-family: 'font', sans-serif;

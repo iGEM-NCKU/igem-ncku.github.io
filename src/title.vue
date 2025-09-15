@@ -18,7 +18,7 @@
         <v-hover v-for = 'i, j in f' :key = i :value = j>
             <template #default = '{isHovering, props}'>
                 <div v-bind = props class = right>
-                    <div :id = '`title-button-${j}`'>
+                    <div :id = '`title-button-${j}`' v-if = '!show_nav'>
                         <b> {{ j }} </b>&nbsp;&nbsp;
                     </div>
                     <v-card class = 'title_showcase' :id = '`title-${j}`' :style = 'isHovering ? undefined : `display: none;`'>
@@ -37,7 +37,7 @@
 
         <!-- <i class = 'material-icons right'> apps </i> -->
         <!-- <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b> -->
-        <div :style = 'show_nav ? `font-size: 40px` : `font-size: 0px`'>
+        <div :style = 'show_nav ? `font-size: 40px;` : `font-size: 0px`'>
             <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j'>
                 <template v-slot:default = '{isHovering, props}'>
                     <div v-bind = props @click = undefined>
@@ -151,7 +151,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
 .block {
-    background-color: rgba(0, 100, 50, .8);
+    background-color: rgba(0, 100, 50, .7);
     text-decoration: none;
     color: black;
     transition: 1s all;
@@ -204,13 +204,10 @@ v-btn:hover {
     border-radius: 0px;
     margin: 0px;
     padding: 20px;
-    background-color: rgba(0, 100, 0, .1);
+    background-color: rgba(150, 150, 150, .3);
     text-decoration: none;
-    color: #f2ffde;
-    font-size: xx-large;
-    transition: 1s all;
     font-weight: 900;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(50px);
 }
 navi>a:hover {
     height: 100%;

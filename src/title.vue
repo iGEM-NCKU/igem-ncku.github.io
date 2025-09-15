@@ -17,19 +17,21 @@
         </a>
         <v-hover v-for = 'i, j in f' :key = i :value = j>
             <template #default = '{isHovering, props}'>
-                <div class = right :id = '`title-button-${j}`' v-bind = props>
-                    <b> {{ j }} </b>&nbsp;&nbsp;
+                <div v-bind = props class = right>
+                    <div :id = '`title-button-${j}`'>
+                        <b> {{ j }} </b>&nbsp;&nbsp;
+                    </div>
+                    <v-card class = 'title_showcase' :id = '`title-${j}`' :style = 'isHovering ? undefined : `display: none;`'>
+                        <template #title>
+                            {{ j }}
+                        </template>
+                        <template #subtitle>
+                            <v-btn v-for = 'subtitle in i' :key = subtitle :href = subtitle>
+                                {{ title(subtitle) }}
+                            </v-btn>
+                        </template>
+                    </v-card>
                 </div>
-                <v-card class = 'title_showcase' :id = '`title-${j}`' :style = 'isHovering ? undefined : `display: none;`'>
-                    <template #title>
-                        {{ j }}
-                    </template>
-                    <template #subtitle>
-                        <v-btn v-for = 'subtitle in i' :key = subtitle :href = subtitle>
-                            {{ title(subtitle) }}
-                        </v-btn>
-                    </template>
-                </v-card>
             </template>
         </v-hover>
 

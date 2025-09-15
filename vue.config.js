@@ -9,6 +9,7 @@ module.exports = defineConfig({
     'integrated-human-practices': 'src/hp/main.js',
     education: 'src/education/main.js',
     'introduction-to-problems': 'src/introduction/main.js',
-    test: 'src/test/main.js'
+    test: 'src/test/main.js',
+    drylab: 'src/drylab/main.js'
   }
 })

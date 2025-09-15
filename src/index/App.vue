@@ -66,7 +66,27 @@
                 </v-card>
             </v-col>
         </v-row>
+    </v-container>
 
+    <div class = 'scroller'>
+        <div id = 'filter-inside'>
+            <!-- We should put some text here, right? -->
+
+            <v-card variant = plain>
+                <template #title>
+                    Here is the title
+                </template>
+                <template #subtitle>
+                    Here comes the subtitle
+                </template>
+                <template #text>
+                    This is a book
+                </template>
+            </v-card>
+        </div>
+    </div>
+
+    <v-container>
         <v-row>
             <v-col cols = 12 sm = 6>
                 <v-card subtitle = Introduction :variant = 'alpha.card.style'>
@@ -214,6 +234,24 @@ export default {
         setTimeout(() => {
             this.loading = false;
         }, 100);
+        setInterval(() => {
+            var currently_position = (window.scrollY);
+            var page_length = (document.body.clientHeight);
+            var window_height = (window.innerHeight);
+            var now = ($('#filter-inside').position().top);
+            var height = ($('#filter-inside').height());
+
+            var max = (a, b) => (a > b ? a : b);
+            var min = (a, b) => (a ^ b ^ max(a, b));
+            
+            if($('#filter-inside').position().top <= window_height) {
+                let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
+                console.log(sc);
+                $('#filter-inside').css({
+                    left: sc
+                }, 0);
+            }
+        }, 100);
     },
     methods: {
         submit() {
@@ -281,6 +319,27 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     left: 35vw;
     width: 30vw;
     height: 50vh;
+    border-radius: 10px;
+}
+.scroller {
+    background-color: black;
+    min-height: 500px;
+    background-image: url('/public/image\ \(10\).png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+}
+#filter-inside {
+    background-color: rgba(255, 255, 255, .34);
+    width: 45vw;
+    height: 80%;
+    z-index: 10;
+    position: fixed;
+    top: 10%;
+    left: 50vw;
+    backdrop-filter: blur(30px);
     border-radius: 10px;
 }
 </style>

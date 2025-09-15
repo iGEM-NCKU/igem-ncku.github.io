@@ -171,7 +171,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 .block:hover {
     background-color: rgba(0, 100, 50, .8);
-    font-size: xx-large;
+    /* font-size: xx-large; */
     backdrop-filter: blur(25px);
 }
 v-btn:hover {

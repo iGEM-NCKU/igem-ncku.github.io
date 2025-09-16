@@ -4,12 +4,23 @@
     <sidenav name = 'DryLab' />
     
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row class = 'text-center scroller' id = 'Design'>
+        <v-row class = 'text-center scroller' id = 'Model'>
             <v-col>
-                <v-card title = 'Design' :variant = 'alpha.card.theme'>
+                <v-card title = 'Model' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
                         <p class = 'grey-text'>
-                            This is drylab.
+                            This is Model.
+                        </p>
+                    </template>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row class = 'text-center scroller' id = 'Software'>
+            <v-col>
+                <v-card title = 'Software' :variant = 'alpha.card.theme'>
+                    <template v-slot:text>
+                        <p class = 'grey-text'>
+                            This is Software.
                         </p>
                     </template>
                 </v-card>

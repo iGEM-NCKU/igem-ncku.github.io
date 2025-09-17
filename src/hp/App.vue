@@ -157,71 +157,20 @@
 </template>
 
 <script>
- /* eslint-disable */ 
-import $ from 'jquery'
-import M from 'materialize-css'
-
+/* eslint-disable */ 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
-import site_footer from '@/footer.vue'
 
 export default {
-    name: 'App',
-    data() {
-        return {
-            loading: true,
-            scroller: {
-                now: -1,
-                name: []
-            },
-            
-        }
-    },
-    components: {
-        title_nav,
-        page_loader,
-        sidenav,
-        site_footer
-    },
-    mounted() {
-        M.AutoInit();
-        setTimeout(() => {
-            this.loading = false;
-        }, 100);
-        this.scroller.name = $('.scroller');
-
-        this.init_scroller();
-    },
-    methods: {
-        title(x) {
-            x = x.replace('-', ' ');
-            var f = [];
-            for(var i of x.split(' ')) {
-                f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
-            }
-            return (f.join(' '));
-        },
-        init_scroller() {
-            this.scroller.name = ($('.scroller').map(function(index) {
-                return this.id;
-            }).get());
-            setInterval(() => {
-                var overed = (x) => {
-                    return $(`#${this.scroller.name[i]}`).position().top <= window.scrollY + 100;
-                }
-                var flag = false;
-                for(var i in this.scroller.name) {
-                    if(!overed(i)) {
-                        this.scroller.now = (i - 1 < 0 ? 0 : i - 1);
-                        flag = true;
-                        break;
-                    }
-                }
-                if(!flag) this.scroller.now = this.scroller.name.length - 1;
-            }, 100);
-        }
-    }
+  name: 'App',
+  data() {
+    return { loading: true }
+  },
+  components: { title_nav, page_loader, sidenav },
+  mounted() {
+    setTimeout(() => { this.loading = false }, 100)
+  }
 }
 </script>
 

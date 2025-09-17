@@ -1,5 +1,5 @@
 <template>
-  <div style="position: fixed" class="ma-5" v-if="$vuetify.display.mdAndUp">
+  <div :style="{ position: 'fixed', top: offsetTop }" class="ma-5" v-if="$vuetify.display.mdAndUp">
     <v-card min-width="260" class="pa-2">
       <v-card-title class="text-primary">{{ name || 'Navigation' }}</v-card-title>
       <v-divider class="mb-2" />
@@ -37,7 +37,7 @@ import { useGoTo } from 'vuetify/lib/composables/goto'
 
 export default {
   name: 'sidenav',
-  props: { name: '' },
+  props: { name: '', offsetTop: { type: String, default: '96px' } },
   data() {
     return {
       sections: [], // [{ id, label, subs: [{id,label}] }]

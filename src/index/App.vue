@@ -5,139 +5,84 @@
 
     <!-- {{ mobile }} -->
     
-    <v-main>
-    <!-- Compact hero with tagline and quick links -->
-    <v-container class = 'mt-6'>
-        <v-row>
-            <v-col cols = 12>
-                <v-card class = 'glass-card elevate text-center' image = banner.png>
-                    <template #title>
-                        <span class = 'text-primary'>bye</span><b class = 'text-accent'>film</b>
-                    </template>
-                    <template #subtitle>
-                        Breaking biofilms, empowering recovery
-                    </template>
-                    <template #text>
-                        <v-btn size = small color = 'primary' rounded = xl class = 'ma-1' href = 'description'>Project</v-btn>
-                        <v-btn size = small color = 'primary' rounded = xl class = 'ma-1' href = 'wetlab'>WetLab</v-btn>
-                        <v-btn size = small color = 'primary' rounded = xl class = 'ma-1' href = 'drylab'>DryLab</v-btn>
-                        <v-btn size = small color = 'primary' rounded = xl class = 'ma-1' href = 'integrated-human-practices'>IHP</v-btn>
-                        <v-btn size = small color = 'primary' rounded = xl class = 'ma-1' href = 'members'>Team</v-btn>
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
-    </v-container>
-
-    <v-container>
-        <v-row align = start>
-            <v-col v-for = 'i in pre' :key = 'i' md = 6 cols = 12 lg = 3>
-                <v-hover>
-                    <template v-slot:default = '{isHovering, props}'>
-                        <a :href = 'i'>
-                            <v-card
-                                v-bind = 'props'
-                                v-ripple
-                                class = 'glass-card elevate'
-                                variant = 'elevated'
-                                :title = 'title(i)'
-                                :text = 'i'
-                                :color = 'isHovering ? `primary` : ``'
-                            />
-                        </a>
-                    </template>
-                </v-hover>
-            </v-col>
-        </v-row>
-        <v-divider class = 'my-6' />
-
-        <v-row>
-            <v-col cols = 12>
-                <v-card class = 'text-center glass-card elevate' subtitle = 'The iGEM Tainan 2025' variant = 'elevated' v-reveal>
-                    <template v-slot:title>
-                        Bye<b class = 'text-primary'>film</b>
-                    </template>
-                    <!-- dk -->
-                    <v-img src = banner.png max-height = 200px />
-                </v-card>
-            </v-col>
-        </v-row>
-        <v-divider class = 'my-6' />
-
-        <page_loader :loading = video_play />
-        <v-dialog v-model = 'video_play' width = auto>
-            <!-- For video -->
-            <v-card justify = center>
-                <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/sBDRwoa4gaBw365v6svKyc?autoplay=1" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </v-card>
-        </v-dialog>
-
-        <v-row>
-            <v-col cols = 12>
-                <v-card
-                    class = 'text-right glass-card elevate'
-                    subtitle = 'The iGEM Tainan 2025'
-                    image = video.png
-                    @click = 'video_play = true'
-                    variant = 'elevated' v-reveal
-                >
-                    <template v-slot:title>
-                        Promotion <b class = 'text-primary'> Video </b>
-                    </template>
-                    <!-- dk -->
-                    <template v-slot:text>
-                        <v-btn color = 'primary' variant = 'elevated' @click = 'video_play = true'>Watch video</v-btn>
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
-    </v-container>
-
-    <div class = 'scroller'>
-        <div id = 'filter-inside' class = 'glass-card elevate'>
-            <v-card variant = plain>
-                <template #title>
-                    Here is the title
-                </template>
-                <template #subtitle>
-                    Here comes the subtitle
-                </template>
-                <template #text>
-                    This is a book
-                </template>
-            </v-card>
+    <v-main class="home-main">
+      <!-- Full hero like ZJU: big title, subtitle, CTAs -->
+      <section class="hero">
+        <div class="hero-img">
+          <div class="hero-overlay">
+            <!-- Centered logo only -->
+            <img src="logo.svg" alt="Byefilm" class="hero-logo" />
+          </div>
         </div>
-    </div>
+      </section>
 
-    <v-container>
+      <!-- Explore cards -->
+      <v-container id="start">
         <v-row>
-            <v-col cols = 12 sm = 6>
-                <v-card subtitle = Introduction variant = 'elevated' class = 'glass-card elevate' v-reveal>
-                    <template v-slot:title>
-                        What is <b class = 'text-primary'> iGEM </b>
-                    </template>
-                    <template v-slot:text>
-                        <b>
-                            <a href = http://igem.org/Main_Page> International Genetically Engineered Machine Competition </a>
-                        </b>
-                    </template>
-                </v-card>
-            </v-col>
-            <v-col cols = 12 sm = 6>
-                <v-card subtitle = Introduction variant = 'elevated' class = 'glass-card elevate' v-reveal>
-                    <template v-slot:title>
-                        What is <b class = 'text-primary'> Synthetic Biology </b>
-                    </template>
-                    <template v-slot:text>
-                        <b>
-                             「合成生物學」…
-                        </b>
-                    </template>
-                </v-card>
-            </v-col>
+          <v-col cols="12">
+            <div class="text-subtitle-1 mb-2" style="font-family:'Nunito','Inter',sans-serif; font-weight:700;">Explore</div>
+          </v-col>
+          <v-col v-for="i in pre" :key="i" md="6" cols="12" lg="3">
+            <v-hover>
+              <template #default="{ isHovering, props }">
+                <a :href="i" class="unfocused">
+                  <v-card
+                    v-bind="props"
+                    v-ripple
+                    class="glass-card elevate"
+                    variant="elevated"
+                    :title="title(i)"
+                    :text="i"
+                    :color="isHovering ? 'primary' : ''"
+                  />
+                </a>
+              </template>
+            </v-hover>
+          </v-col>
         </v-row>
-    </v-container>
-    
+      </v-container>
+
+      <!-- Promo video, simple and centered -->
+      <v-container>
+        <v-row>
+          <v-col cols="12">
+            <v-card class="glass-card elevate text-center" variant="elevated" v-reveal>
+              <template #title>Promotion <b class="text-primary">Video</b></template>
+              <template #text>
+                <v-btn color="primary" rounded="xl" @click="video_play = true">Watch video</v-btn>
+              </template>
+            </v-card>
+          </v-col>
+        </v-row>
+        <page_loader :loading="video_loading" />
+        <v-dialog v-model="video_play" width="auto">
+          <v-card>
+            <iframe title="NCKU-Tainan: Byefilm – Promotion" width="560" height="315" src="https://video.igem.org/videos/embed/sBDRwoa4gaBw365v6svKyc?autoplay=1" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups allow-forms" @load="onVideoLoaded"></iframe>
+          </v-card>
+        </v-dialog>
+      </v-container>
+
+      <!-- About iGEM and SynBio -->
+      <v-container>
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-card subtitle="Introduction" variant="elevated" class="glass-card elevate" v-reveal>
+              <template #title>What is <b class="text-primary">iGEM</b>?</template>
+              <template #text>
+                <b><a href="http://igem.org/Main_Page" target="_blank" rel="noopener">International Genetically Engineered Machine Competition</a></b>
+              </template>
+            </v-card>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-card subtitle="Introduction" variant="elevated" class="glass-card elevate" v-reveal>
+              <template #title>What is <b class="text-primary">Synthetic Biology</b>?</template>
+              <template #text>
+                <b>「合成生物學」…</b>
+              </template>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
     <site_footer />
     </v-app>
@@ -157,12 +102,18 @@ export default {
             loading: true,
             pre: ['wetlab', 'integrated-human-practices', 'education', 'members'],
             mobile: useDisplay(),
-            video_play: false
+            video_play: false,
+            video_loading: false
         }
     },
     components: { title_nav, page_loader, site_footer },
     mounted() {
         setTimeout(() => { this.loading = false }, 100);
+    },
+    watch: {
+        video_play(nv) {
+            if (nv) this.video_loading = true; else this.video_loading = false;
+        }
     },
     methods: {
         title(x) {
@@ -172,6 +123,9 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+        },
+        onVideoLoaded() {
+            this.video_loading = false;
         }
     }
 }
@@ -181,6 +135,23 @@ export default {
 * {
   transition: 1s all;
 }
+.home-main { min-height: calc(100vh - 160px); display: block; }
+.hero { position: relative; height: 78vh; border-radius: var(--radius); overflow: hidden; }
+.hero-img { height: 100%; }
+.hero-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, rgba(250,247,239,0.55) 0%, rgba(250,247,239,0.92) 60%, rgba(250,247,239,1) 100%); padding: 24px; }
+.hero-title { display: none; }
+.hero-sub { display: none; }
+.hero-down { display: none; }
+
+/* Label style like the reference image */
+.label { display: inline-block; padding: 6px 14px; border-radius: 10px; background: #2b5fd6; color: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+.label-lg { padding: 8px 18px; }
+
+/* CTA buttons like pills */
+.hero-cta .v-btn { text-transform: uppercase; letter-spacing: .06em; font-weight: 800; box-shadow: 0 10px 22px rgba(15,92,77,0.25); }
+
+/* Centered logo in hero */
+.hero-logo { width: clamp(260px, 40vw, 680px); height: auto; filter: drop-shadow(0 10px 22px rgba(0,0,0,0.12)); }
 .blur {
   z-index: 10;
   background-color: rgba(255, 255, 255, .75);

@@ -1,9 +1,9 @@
 <template>
-    <v-layout>
+    <v-app>
         <page_loader :loading = 'loading' @click = 'loading = false' />
         <title_nav />
 <!-- 
-        <v-app-bar variant = text scroll-behavior="collapse elevate fade-image" color = green>
+        <v-app-bar variant = text scroll-behavior="collapse elevate fade-image" color = 'primary'>
             <template v-slot:prepend>
                 <v-app-bar-nav-icon></v-app-bar-nav-icon>
                 <v-app-bar-title> <a href = '.'> ByeFilm </a> </v-app-bar-title>
@@ -55,7 +55,7 @@
                                     :key="index"
                                     :value="index"
                                     >
-                                    <v-list-item-title color = black>{{ item }}</v-list-item-title>
+                                    <v-list-item-title class = 'text-primary'>{{ item }}</v-list-item-title>
                                     </v-list-item>
                                 </v-list>
                                 </v-menu>
@@ -80,7 +80,7 @@
             </v-col>
             <v-col cols = 1></v-col>
         </v-row>
-    </v-layout>
+    </v-app>
 </template>
 
 <script>
@@ -153,9 +153,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     0% {
         color: red;
     }
-    14% {
-        color: orange;
-    }
+    14% { color: var(--color-secondary); }
     28% {
         color: yellow;
     }

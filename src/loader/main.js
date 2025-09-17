@@ -9,26 +9,8 @@ import App from './App.vue'
 // createApp(App).mount('#app')
 
 
-// Vuetify
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+// Vuetify (shared theme)
+import vuetify from '../plugins/vuetify'
+import reveal from '../plugins/reveal'
 
-// Components
-// import App from './App.vue'
-
-const vuetify = createVuetify({
-  components,
-  directives,
-  icons: {
-    defaultSet: 'mdi',
-    aliases,
-    sets: {
-      mdi,
-    },
-  },
-})
-
-createApp(App).use(vuetify).mount('#app')
+createApp(App).use(vuetify).use(reveal).mount('#app')

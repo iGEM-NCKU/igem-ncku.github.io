@@ -5,6 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <!-- Local fonts (Inter/Nunito) served from /public/fonts -->
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        src: url('<%= BASE_URL %>fonts/inter/Inter_24pt-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url('<%= BASE_URL %>fonts/inter/Inter_24pt-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url('<%= BASE_URL %>fonts/inter/Inter_24pt-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Nunito';
+        src: url('<%= BASE_URL %>fonts/nunito/Nunito-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Nunito';
+        src: url('<%= BASE_URL %>fonts/nunito/Nunito-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>

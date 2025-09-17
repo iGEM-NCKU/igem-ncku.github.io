@@ -1,8 +1,10 @@
 <template>
+    <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
     <sidenav name = 'Education' />
     
+    <v-main>
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>
             <v-col>
@@ -39,6 +41,8 @@
             </v-col>
         </v-row>
     </v-col><v-col cols = 1 /></v-row>
+    </v-main>
+    </v-app>
     
 </template>
 
@@ -103,9 +107,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     0% {
         color: red;
     }
-    14% {
-        color: orange;
-    }
+    14% { color: var(--color-secondary); }
     28% {
         color: yellow;
     }

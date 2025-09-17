@@ -80,32 +80,21 @@ export default {
 </script>
 
 <style>
-* {
-  transition: 0.5s all;
-}
-body {
-    font-family: 'font', sans-serif;
-    background-image: linear-gradient(to bottom, #49a06f, wheat);
-    background-color: wheat;
-}
-@font-face {
-    font-family: 'font';
-    src: url('../public/fonts/CreHappiness-B.ttf');
-}
+* { transition: 0.5s all; }
 .screen {
-  background-color: rgba(255, 255, 255, .75);
+  background-color: rgba(255, 255, 255, .72);
   z-index: 500;
   top: 0px;
   left: 0px;
   width: 100vw;
   height: 100vh;
   position: fixed;
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(22px);
 }
 .blur {
   z-index: 10;
   background-color: rgba(255, 255, 255, .75);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   position: absolute;
 }
 .center {
@@ -143,4 +132,7 @@ body {
 .fade-enter-to, .fade-leave-from {
   opacity: 1;
 }
+
+/* Warm spinner accent */
+.preloader-wrapper.big .spinner-layer { border-color: var(--color-primary) !important; }
 </style>

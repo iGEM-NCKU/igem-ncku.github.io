@@ -1,59 +1,54 @@
 <template>
     <v-progress-linear
         v-model = scroll.progress
-        style = 'position:fixed; z-index: 100;'
-        color = green
-        buffer-color = 'green lighten-2'
-        height = 9
+        style = 'position:fixed; left:0; top:0; width:100vw; z-index:1100; pointer-events:none;'
+        color = 'primary'
+        buffer-color = 'primary'
+        height = 4
         :buffer-value = scroll.progress_bottom
         buffer-opacity = .3
      />
-    <navi class = 'block' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
-        <img src = icon.png height = 20px />
-        <!-- {{ alpha }} -->
-        <a href = 'index.html' class = 'unfocused stroke'>
-            <!-- <img src = 'logo.png' width = '10%' /> -->
-            Bye<font color = green class = film_ani>film</font>
+    <v-app-bar
+      flat
+      class="glass elevate"
+      style="position:sticky; top:0; z-index:1000; border-radius:0; border-top-left-radius:0; border-top-right-radius:0; border-bottom-left-radius: var(--radius); border-bottom-right-radius: var(--radius);"
+    >
+      <v-toolbar-title class="d-flex align-center">
+        <img src="icon.png" height="24" class="mr-2" />
+        <a href="index.html" class="unfocused stroke" style="font-weight:900;">
+          <span class="text-primary">bye</span><span class="film_ani text-accent">film</span>
         </a>
-        <v-hover v-for = 'i, j in f' :key = i :value = j>
-            <template #default = '{isHovering, props}'>
-                <div v-bind = props class = right>
-                    <div :id = '`title-button-${j}`' v-if = '!show_nav'>
-                        <b> {{ j }} </b>&nbsp;&nbsp;
-                    </div>
-                    <v-card class = 'title_showcase' :id = '`title-${j}`' :style = 'isHovering ? undefined : `display: none;`'>
-                        <template #title>
-                            {{ j }}
-                        </template>
-                        <template #subtitle>
-                            <v-btn v-for = 'subtitle in i' :key = subtitle :href = subtitle>
-                                {{ title(subtitle) }}
-                            </v-btn>
-                        </template>
-                    </v-card>
-                </div>
-            </template>
-        </v-hover>
+      </v-toolbar-title>
+      <v-spacer />
+      <template v-for="(items, label) in f" :key="label">
+        <v-menu open-on-hover location="bottom" v-if="$vuetify.display.mdAndUp">
+          <template #activator="{ props }">
+            <v-btn v-bind="props" variant="text" color="primary">{{ label }}</v-btn>
+          </template>
+          <v-list>
+            <v-list-item v-for="url in items" :key="url" :href="url">
+              <v-list-item-title>{{ title(url) }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </template>
+      <v-app-bar-nav-icon class="d-md-none" aria-label="Open navigation" @click="drawer = true" />
+    </v-app-bar>
 
-        <!-- <i class = 'material-icons right'> apps </i> -->
-        <!-- <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b> -->
-        <div :style = 'show_nav ? `font-size: 40px;` : `font-size: 0px`'>
-            <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j'>
-                <template v-slot:default = '{isHovering, props}'>
-                    <div v-bind = props @click = undefined>
-                        <!-- {{ k }} -->
-                        <b> {{ j }} </b>
-                        <!-- <a :href = 'i' style = 'color: white; '> {{ title(i) }} </a> -->
-                        <div v-if = 'isHovering && show_nav'>
-                            <div v-for = 'url in i' :key = 'url' style = 'padding-left: 30px; font-size: medium'>
-                                <a :href = url style = 'color: white;'> {{ title(url) }} </a>
-                            </div>
-                        </div>
-                    </div>
-                </template>
-            </v-hover>
-        </div>
-    </navi>
+    <v-navigation-drawer v-model="drawer" location="right" temporary>
+      <v-list>
+        <v-list-group v-for="(items, label) in f" :key="'m-'+label" :value="false">
+          <template #activator="{ props }">
+            <v-list-item v-bind="props" :title="label" />
+          </template>
+          <v-list-item v-for="url in items" :key="'mi-'+url" :title="title(url)" :href="url" />
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-fab-transition>
+      <v-btn v-show="showTop" icon="mdi-arrow-up" color="primary" style="position:fixed; right:24px; bottom:24px; z-index:1001;" @click="goTop" />
+    </v-fab-transition>
 
     <!-- <div class = subnav>
             <a href = '#'> <b class = right> Link 1 </b> </a><br>
@@ -64,12 +59,10 @@
         <img src = 'https://igem.ncku.edu.tw/images/slide2.png' v-if = 'show_nav' class = 'title_img' />
     </transition> -->
     
-    <br><br><br><br><br>
 </template>
 
 <script>
-import $ from 'jquery'
-import M from 'materialize-css'
+// Simple, professional header without jQuery/Materialize hooks
 
 export default {
     name: 'title_nav',
@@ -81,33 +74,30 @@ export default {
                 'Project': ['description', 'engineering', 'experiments', 'notebook', 'results'],
                 'Labs': ['drylab', 'wetlab', 'integrated-human-practices'],
             },
-            show_nav: false,
+            drawer: false,
             scroll: {
                 progress: 0,
                 progress_bottom: 0,
                 now: 0,
                 length: 0,
-                height: 0
+                height: 0,
+                ticking: false
             },
-            hide: []
+            showTop: false
         }
     },
     mounted() {
-        M.AutoInit();
-        window.onscroll = this.update_scroll;
-        this.hide = new Array(this.f.length);
-        this.init_subnav();
+        window.addEventListener('scroll', this.onScroll, { passive: true });
+        this.update_scroll();
     },
     methods: {
-        init_subnav() {
-            for(var i in this.f) {
-                let j = this.f[i];j;
-                console.log(`#title-button-${i}`);
-                console.log($(`#title-button-${i}`).first().position().left);
-                $(`#title-${i}`).css({
-                    right: window.innerWidth - ($(`#title-button-${i}`).first().position().left + $(`#title-button-${i}`).first().innerWidth())
-                });
-            }
+        onScroll() {
+            if (this.scroll.ticking) return;
+            this.scroll.ticking = true;
+            requestAnimationFrame(() => {
+                this.update_scroll();
+                this.scroll.ticking = false;
+            });
         },
         title(x) {
             while(x.indexOf('-') != -1) x = x.replace('-', ' ');
@@ -118,136 +108,29 @@ export default {
             return (f.join(' '));
         },
         update_scroll() {
-            this.scroll.length = document.body.clientHeight;
+            const doc = document.documentElement;
             this.scroll.height = window.innerHeight;
-            this.scroll.now = window.scrollY;
-            this.scroll.progress = this.scroll.now / this.scroll.length * 100 + this.scroll.height * this.scroll.now / ((this.scroll.length - this.scroll.height) * this.scroll.length) * 100;
-            // this.scroll.progress_bottom = (this.scroll.now + this.scroll.height) / this.scroll.length * 100;
+            this.scroll.length = doc.scrollHeight; // total document height
+            this.scroll.now = window.scrollY || doc.scrollTop || 0;
+            const track = Math.max(1, this.scroll.length - this.scroll.height);
+            const pct = (this.scroll.now / track) * 100;
+            this.scroll.progress = Math.max(0, Math.min(100, pct));
+            this.showTop = this.scroll.now > 300;
         },
-        show_subnav() {
-            var now = ($('#menu').first().position());
-            var x = now.top;
-            var y = now.left;
-            x += ($('#menu').first().height());
-            console.log(`${x} ${y}`);
-            $('.subnav').first().css({top: x, left: y, 'z-index': 1000});
-            $('.subnav').show();
-        },
-        hide_subnav() {
-            $('.subnav').hide();
-        }
+        goTop() { window.scrollTo({ top: 0, behavior: 'smooth' }) }
     }
 }
 </script>
 
 <style scoped>
-* {
-    transition: all 0.3s;
-}
-.bold {
-  font-weight: 700;
-}
-a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
-    color: inherit;
-}
-.block {
-    background-color: rgba(0, 100, 50, .7);
-    text-decoration: none;
-    color: black;
-    transition: 1s all;
-    /* display: flex; */
-    padding: 10px;
-    font-size: large;
-    font-weight: 900;
-    backdrop-filter: blur(25px);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 100;
-    width: calc(100vw - 15px * 2);
-    border-radius: 10px;
-    margin: 15px;
-    padding: 15px;
-}
-v-btn:hover {
-    text-align: center;
-}
-@keyframes test {
-    25% {
-        left: calc(50vw - 100px);
-        height: 200px;
-        width: 200px;
-        border-radius: 100%;
-        font-size: 0px;
-    }
-    50% {
-        top: calc(50vh - 100px);
-    }
-    100% {
-        top: 0px;
-        left: 0px;
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0px;
-        font-size: normal;
-        /* opacity: 70%; */
-    }
-}
-.tmp {
-    /* animation-name: test;
-    animation-fill-mode: backwards;
-    animation-duration: 2s; */
-    /* animation: test 2s ease 0s 1 alternate backwards; */
+* { transition: all 0.3s; }
+a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active { color: inherit; }
 
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0px;
-    margin: 0px;
-    padding: 20px;
-    background-color: rgba(150, 150, 150, .3);
-    text-decoration: none;
-    font-weight: 900;
-    backdrop-filter: blur(50px);
-}
-navi>a:hover {
-    height: 100%;
-    background-color: grey;
-    border-radius: 10px;
-}
-.title_img {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 10;
-}
-.subnav {
-    position: fixed;
-    top: 500px;
-    background-color: grey;
-    border-radius: 10px;
-    padding: 10px;
-    /* filter: blur(10px); */
-    opacity: 70%;
-}
-
-.film_ani {
-    animation: film 5s ease 0s;
-}
+.film_ani { animation: film 6s ease 0s infinite alternate; }
 @keyframes film {
-    0% {
-        color: orange;
-    }
-    25% {
-        color: red;
-    }
-    50% {
-        color: blue;
-    }
-    75% {
-        color: green;
-    }
+    0% { color: var(--color-secondary); }
+    33% { color: var(--color-primary); }
+    66% { color: var(--color-accent); }
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -270,13 +153,5 @@ navi>a:hover {
         -1px 1px 0 #fff,
         1px 1px 0 #fff;
 }
-.title_showcase {
-    position: fixed;
-    /* top: 10px;
-    left: 50px; */
-    /* right: 1200px; */
-    background-color: rgba(255, 255, 255, .75);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-}
+.title_showcase { position: fixed; background: rgba(255,255,255,0.86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.7); border-radius: var(--radius); z-index: 100; }
 </style>

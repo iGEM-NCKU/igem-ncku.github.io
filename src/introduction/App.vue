@@ -1,11 +1,13 @@
 <template>
+    <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
     
+    <v-main>
     <v-container>
         <v-row class = text-center>
             <v-col>
-                <v-card title = 'Introduction to Problem'>
+                <v-card title = 'Introduction to Problem' class = 'glass-card elevate'>
                     <template v-slot:text>
                         <p> Total Knee Arthroplasty (TKA) is a widely performed surgical procedure designed to restore joint function and improve quality of life for patients with severe knee damage. In the United States alone, over 800,000 TKA surgeries are performed annually. However, despite the success of most procedures, some patients experience unexpected and severe complications. </p>
                             <br>
@@ -23,6 +25,9 @@
             </v-col>
         </v-row>
     </v-container>
+    <site_footer />
+    </v-main>
+    </v-app>
 
 </template>
 
@@ -33,6 +38,7 @@ import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
+import site_footer from '@/footer.vue'
 
 export default {
     name: 'App',
@@ -43,7 +49,8 @@ export default {
     },
     components: {
         title_nav,
-        page_loader
+        page_loader,
+        site_footer
     },
     mounted() {
         M.AutoInit();
@@ -85,9 +92,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     0% {
         color: red;
     }
-    14% {
-        color: orange;
-    }
+    14% { color: var(--color-secondary); }
     28% {
         color: yellow;
     }

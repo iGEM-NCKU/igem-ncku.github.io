@@ -248,8 +248,8 @@
         </v-row>
     </v-col><v-col cols = 1 /></v-row>
     
-    <site_footer />
     </v-main>
+    <site_footer />
     </v-app>
 </template>
 

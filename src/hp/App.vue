@@ -60,7 +60,6 @@
             </v-col>
         </v-row>
     </v-col><v-col cols = 1 /></v-row>
-    <site_footer />
 
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-8'>
         <v-row class = text-center>
@@ -153,6 +152,7 @@
     </v-col><v-col cols = 1 /></v-row>
     
     </v-main>
+    <site_footer />
     </v-app>
 </template>
 
@@ -161,13 +161,14 @@
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
+import site_footer from '@/footer.vue'
 
 export default {
   name: 'App',
   data() {
     return { loading: true }
   },
-  components: { title_nav, page_loader, sidenav },
+  components: { title_nav, page_loader, sidenav, site_footer },
   mounted() {
     setTimeout(() => { this.loading = false }, 100)
   }

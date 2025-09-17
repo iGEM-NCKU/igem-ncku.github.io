@@ -50,8 +50,8 @@
     <v-container class="text-center">
         <v-btn color = 'primary' rounded = xl @click = 'alpha.newview ^= 1'> Gallery: {{ alpha.newview ? 'Grid' : 'Cards' }} view </v-btn>
     </v-container>
-    <site_footer />
     </v-main>
+    <site_footer />
     </v-app>
 </template>
 

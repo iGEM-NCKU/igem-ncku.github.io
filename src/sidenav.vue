@@ -23,16 +23,21 @@
                          {{ this.scroller.ns == -1 ? '' : this.scroller.subtitles[this.scroller.now][this.scroller.ns] }} -->
                         <v-list>
                             <template v-for = 'i, j in scroller.name' :key = i>
-                                <v-list-group v-model:opened = 'tmp[j]' v-if = 'scroller.subtitles[j].length != 0'>
+                                <v-list-group
+                                    :key = '`${j}${tmp[j]}`'
+                                    :value = 'tmp[j]'
+                                    @update:opened = 'opened => this.tmp[j] = opened'
+                                    v-if = 'scroller.subtitles[j].length != 0'
+                                >
                                     <template #activator = '{props}'>
                                         <a :href = '`#${i}`'>
-                                            <v-list-item v-bind = props :active = 'j == this.scroller.now'>
+                                            <v-list-item v-bind = props >
                                                 <!-- <b> {{ tmp[j] }} {{ j }} {{ j == this.scroller.now }} </b> -->
                                                 <b> {{ i }} </b>
                                             </v-list-item>
                                         </a>
                                     </template>
-                                    <v-list-item v-for = 'k in scroller.subtitles[j]' :key = k :active = 'j == this.scroller.now'>
+                                    <v-list-item v-for = 'k in scroller.subtitles[j]' :key = k>
                                         <a :href = '`#${k}`'> <b> {{ k }} </b> </a>
                                     </v-list-item>
                                 </v-list-group>

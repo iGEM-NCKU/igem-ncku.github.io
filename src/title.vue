@@ -8,14 +8,14 @@
         :buffer-value = scroll.progress_bottom
         buffer-opacity = .3
      />
-     <v-card style = 'position: fixed; z-index: 1000;' :style = '`top: ${200 + 80 * k}px;`' v-for = 'i, j, k in scroll' :key = j>
+     <!-- <v-card style = 'position: fixed; z-index: 1000;' :style = '`top: ${200 + 80 * k}px;`' v-for = 'i, j, k in scroll' :key = j>
         <template #title>
             <b> {{ j }} </b>
         </template>
         <template #subtitle>
             <b> {{ i }} </b>
         </template>
-     </v-card>
+     </v-card> -->
     <navi class = 'block glass' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
         <img src = icon.png height = 20px />
         <!-- {{ alpha }} -->
@@ -110,8 +110,8 @@ export default {
         init_subnav() {
             for(var i in this.f) {
                 let j = this.f[i];j;
-                console.log(`#title-button-${i}`);
-                console.log($(`#title-button-${i}`).first().position().left);
+                // console.log(`#title-button-${i}`);
+                // console.log($(`#title-button-${i}`).first().position().left);
                 $(`#title-${i}`).css({
                     right: window.innerWidth - ($(`#title-button-${i}`).first().position().left + $(`#title-button-${i}`).first().innerWidth())
                 });
@@ -137,7 +137,7 @@ export default {
             var x = now.top;
             var y = now.left;
             x += ($('#menu').first().height());
-            console.log(`${x} ${y}`);
+            // console.log(`${x} ${y}`);
             $('.subnav').first().css({top: x, left: y, 'z-index': 1000});
             $('.subnav').show();
         },

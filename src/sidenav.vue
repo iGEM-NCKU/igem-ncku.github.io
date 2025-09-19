@@ -17,17 +17,25 @@
                         <b v-else> {{ name }} </b>
                     </template>
                     <template v-slot:text>
-                        <a @click = 'goto(`#${i}`)' v-for = 'i, j in scroller.name' :key = 'i'>
-                            <v-hover>
-                                <template v-slot:default = '{isHovering, props}'>
-                                    <v-card :color = 'isHovering || j == this.scroller.now ? `orange` : undefined' :variant = 'j == this.scroller.now ? `outlined` : `tonal`' v-ripple v-bind = props>
-                                        <template v-slot:text>
-                                            <b class = 'stroke'> {{ i }} </b>
-                                        </template>
-                                    </v-card>
+                        <!-- Place holder -->
+                         <!-- {{ this.scroller.name[this.scroller.now] }}
+                         {{ this.scroller.now }}
+                         {{ this.scroller.ns == -1 ? '' : this.scroller.subtitles[this.scroller.now][this.scroller.ns] }} -->
+                        <v-list>
+                            <v-list-group v-for = 'i, j in scroller.name' :key = i v-model = 'tmp[j]' sub-group>
+                                <template #activator = '{props}'>
+                                    <a :href = '`#${i}`'>
+                                        <v-list-item v-bind = props :active = 'j == this.scroller.now'>
+                                            <!-- <b> {{ tmp[j] }} {{ j }} {{ j == this.scroller.now }} </b> -->
+                                             <b> {{ i }} </b>
+                                        </v-list-item>
+                                    </a>
                                 </template>
-                            </v-hover>
-                        </a>
+                                <v-list-item v-for = 'k in scroller.subtitles[j]' :key = k :active = 'j == this.scroller.now'>
+                                    <a :href = '`#${k}`'> <b> {{ k }} </b> </a>
+                                </v-list-item>
+                            </v-list-group>
+                        </v-list>
                     </template>
                 </v-card>
             </template>
@@ -46,9 +54,12 @@ export default {
     name: 'sidenav',
     data() {
         return {
+            tmp: [false, false, false, false],
             scroller: {
-                now: -1,
-                name: []
+                now: 0,
+                ns: -1,
+                name: [],
+                subtitles: []
             },
             goTo: useGoTo()
         }
@@ -61,27 +72,45 @@ export default {
         this.scroller.name = $('.scroller');
 
         this.init_scroller();
+        setInterval(() => {
+            console.log(this.tmp);
+        }, 3000);
     },
     methods: {
         init_scroller() {
             this.scroller.name = ($('.scroller').map(function(index) {
                 return this.id;
             }).get());
-            console.log(this.scroller.name);
-            window.onscroll = (() => {
+            
+            for(var i of this.scroller.name) {
+                // console.log(i);
+                this.scroller.subtitles.push($(`#${i}`).find('.subtitle').map(function(index) {
+                    return (this.id);
+                }).get());
+            }
+            // console.log(this.scroller.subtitles);
+            window.addEventListener('scroll', () => {
+                var now = window.scrollY + 100;
                 var overed = (x) => {
-                    return $(`#${this.scroller.name[i]}`)?.position()?.top <= window.scrollY + 100;
-                }
-                var flag = false;
-                for(var i in this.scroller.name) {
-                    console.log(i);
-                    if(!overed(i)) {
-                        this.scroller.now = (i - 1 < 0 ? 0 : i - 1);
-                        flag = true;
-                        break;
+                    if($(`#${x}`).first().position() == undefined) console.log(`ERROR -> ${x}`);
+                    return $(`#${x}`).first().position().top < now;
+                };
+                var latest = (x) => {
+                    if((x || []).length == 0) return -1;
+                    var order = 0;
+                    for(var i in x) {
+                        if(overed(x[i])) order = i;
                     }
+                    return order;
                 }
-                if(!flag) this.scroller.now = this.scroller.name.length - 1;
+
+                var order = latest(this.scroller.name);
+
+                // console.log(this.scroller.ns);
+                this.scroller.ns = latest(this.scroller.subtitles[order]);
+
+                this.scroller.now = order;
+                this.tmp = this.scroller.name.map((_, j) => (this.scroller.now == j));
             });
         },
         goto(x) {

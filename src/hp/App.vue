@@ -1,9 +1,9 @@
 <template>
     <page_loader :loading = 'loading' />
     <title_nav />
-    <sidenav name = 'Integrated Human Practice' />
     
     <v-app><v-main>
+    <sidenav name = 'Integrated Human Practice' />
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>
             <v-col>
@@ -24,40 +24,42 @@
                 </v-card>
             </v-col>
         </v-row>
-        <v-row class = text-center>
-            <v-col>
-                <v-card :variant = 'alpha.card.theme' title = 'Education' subtitle = 'Educational stuff' class = scroller id = 'Educational'>
-                </v-card>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols = 12 md = 6>
-                <v-card :variant = 'alpha.card.theme' title = 'Games' subtitle = 'Education'>
-                    <template v-slot:text>
-                        To make our project more accessible and engaging, we are developing an educational mini-game that helps players understand the core concepts of our synthetic biology strategy. Inspired by real lab experiments, the game lets players design their own “enzyme troops” to mimic the bio-tools we use to target biofilms. Players analyze bacterial “towers” (representing biofilms), identify their weaknesses, and deploy their enzyme troops strategically to break them down. By turning science into interactive gameplay, we aim to spark curiosity and make learning about biofilms and synthetic biology fun and memorable.
-                        <br>
-                        <v-img src = 'https://hackmd.io/_uploads/ryKJAsnUxx.png' />
-                    </template>
-                </v-card>
-            </v-col>
-
-            <v-col cols = 12 md = 6>
-                <a href = 'https://www.instagram.com/igemncku/' target = '_blank'>
-                    <v-card :variant = 'alpha.card.theme' title = 'Instagram Reels' subtitle = 'Education' v-ripple>
+        <div class = scroller id = 'Educational'>
+            <v-row class = text-center>
+                <v-col>
+                    <v-card :variant = 'alpha.card.theme' title = 'Education' subtitle = 'Educational stuff'>
+                    </v-card>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col cols = 12 md = 6>
+                    <v-card :variant = 'alpha.card.theme' title = 'Games' subtitle = 'Education' class = subtitle id = 'Games'>
                         <template v-slot:text>
-                            We also created short reels in Instagram to help people understand more about our project and how we manage to develop a solution to cure the desease.
-                            <v-col>
-                                <v-card variant = tonal class = rainbow>
-                                    <template v-slot:text>
-                                        Check our instagram page to view for more @igemncku
-                                    </template>
-                                </v-card>
-                            </v-col>
+                            To make our project more accessible and engaging, we are developing an educational mini-game that helps players understand the core concepts of our synthetic biology strategy. Inspired by real lab experiments, the game lets players design their own “enzyme troops” to mimic the bio-tools we use to target biofilms. Players analyze bacterial “towers” (representing biofilms), identify their weaknesses, and deploy their enzyme troops strategically to break them down. By turning science into interactive gameplay, we aim to spark curiosity and make learning about biofilms and synthetic biology fun and memorable.
+                            <br>
+                            <v-img src = 'https://hackmd.io/_uploads/ryKJAsnUxx.png' />
                         </template>
                     </v-card>
-                </a>
-            </v-col>
-        </v-row>
+                </v-col>
+
+                <v-col cols = 12 md = 6>
+                    <a href = 'https://www.instagram.com/igemncku/' target = '_blank'>
+                        <v-card :variant = 'alpha.card.theme' title = 'Instagram Reels' subtitle = 'Education' v-ripple class = subtitle id = 'Instagram-Reels'>
+                            <template v-slot:text>
+                                We also created short reels in Instagram to help people understand more about our project and how we manage to develop a solution to cure the desease.
+                                <v-col>
+                                    <v-card variant = tonal class = rainbow>
+                                        <template v-slot:text>
+                                            Check our instagram page to view for more @igemncku
+                                        </template>
+                                    </v-card>
+                                </v-col>
+                            </template>
+                        </v-card>
+                    </a>
+                </v-col>    
+            </v-row>
+        </div>
     </v-col><v-col cols = 1 /></v-row>
 
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>

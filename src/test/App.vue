@@ -1,62 +1,22 @@
 <template>
-        <page_loader :loading = 'loading' @click = 'loading = false' />
-        <title_nav />
-        <v-row>
-            <v-col cols = 2 style = 'position: fixed;' v-if = '$vuetify.display.mdAndUp' class = 'ma-5'>
-                <br><br><br><br>
-                <v-card :subtitle="i" v-for = 'i in 10' :key = i></v-card>
-            </v-col>
-        </v-row>
-        <v-row justify = end>
-            <v-col cols = 9 class = 'ma-5 pa-5'>
-                <v-main>
-            
-                    <v-card>
-                        <template v-slot:text>
-                            <div class="text-center">
-                                <v-menu
-                                open-on-hover
-                                >
-                                <template v-slot:activator="{ props }">
-                                    <v-btn
-                                    color="primary"
-                                    v-bind="props"
-                                    >
-                                    Dropdown
-                                    </v-btn>
-                                </template>
+    <page_loader :loading = 'loading' @click = 'loading = false' />
+    <title_nav />
 
-                                <v-list>
-                                    <v-list-item
-                                    v-for="(item, index) in [1,2,3,4,5]"
-                                    :key="index"
-                                    :value="index"
-                                    >
-                                    <v-list-item-title color = black>{{ item }}</v-list-item-title>
-                                    </v-list-item>
-                                </v-list>
-                                </v-menu>
-                            </div>
-                        </template>
-                    </v-card>
+    {{ q }}
+
+    <v-list>
+        <v-list-group v-model:opened = q :active = true>
+            <template #activator = '{props}'>
+                <v-list-item v-bind = props active v-model:opened = q opened>
+                    ouob
+                </v-list-item>
+            </template>
+            <v-list-item v-for = 'i in 100' :key = i active>
+                {{ i }}
+            </v-list-item>
+        </v-list-group>
+    </v-list>
         
-                    {{ p }}
-        
-                    <v-container v-scroll.self = 'check' class = 'overflow-y-auto' max-height = '400px'>
-                        {{ now }}<br>
-                        {{ p }}
-                        <v-row>
-                            <v-col cols = 12 v-for = 'i in 100' :key = 'i' :id = '`t${i}`'>
-                                <v-card :title = '`Testing ${i}`' subtitle = 'ouob' :class = 'this?.p?.top < 0 ? `rainbow` : undefined' />
-                            </v-col>
-                        </v-row>
-                    </v-container>
-        
-                    <v-card :title = i v-for = 'i in 100' :key = i v-ripple class = rainbow />
-                </v-main>
-            </v-col>
-            <v-col cols = 1></v-col>
-        </v-row>
     <site_footer></site_footer>
 </template>
 
@@ -73,6 +33,7 @@ export default {
     name: 'App',
     data() {
         return {
+            q: true,
             loading: true,
             now: 0,
             p: undefined

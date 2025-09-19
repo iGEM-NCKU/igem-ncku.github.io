@@ -24,7 +24,17 @@ html, body {
 }
 
 body {
-  font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'font', sans-serif;
+    /* background-image: linear-gradient(to bottom, #49a06f, wheat); */
+    background-color: #FBF7EF;
+}
+@font-face {
+    font-family: 'font';
+    src: url('../../public/fonts/CreHappiness-B.ttf');
+}
+
+body {
+  font-family: 'font', 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
   color: var(--color-text);
   background: var(--color-bg); /* solid cream for consistency */
   -webkit-font-smoothing: antialiased;
@@ -39,7 +49,7 @@ html { scroll-behavior: smooth; }
 
 /* Headings in Nunito for a friendly, warm vibe */
 h1, h2, h3, h4, h5, h6, .v-card-title, .v-btn, .v-toolbar-title {
-  font-family: 'Nunito', 'Inter', sans-serif;
+  font-family: 'font', 'Nunito', 'Inter', sans-serif;
 }
 
 /* Links */

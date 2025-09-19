@@ -17,7 +17,7 @@
                                 :variant = 'alpha.card.style'
                                 :title = 'title(i)'
                                 :text = 'i'
-                                :color = 'isHovering ? `amber` : ``'
+                                :color = 'isHovering ? `primary` : ``'
                             />
                         </a>
                     </template>

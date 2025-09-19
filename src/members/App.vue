@@ -2,6 +2,7 @@
     <page_loader :loading = 'loading' />
     <title_nav />
 
+    <v-app><v-main>
     <v-container v-if = '!alpha.newview'>
         <v-row>
             <v-col v-for="i in members" :key="i" cols="12" sm="6" lg="4">
@@ -77,6 +78,10 @@
             </v-card>
         </v-col></v-row>
     </v-container>
+
+    </v-main></v-app>
+    
+    <site_footer></site_footer>
 </template>
 
 <script>
@@ -86,6 +91,7 @@ import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
+import site_footer from '@/footer.vue'
 import { mdiAlphaA } from '@mdi/js'
 
 export default {
@@ -103,7 +109,8 @@ export default {
     },
     components: {
         title_nav,
-        page_loader
+        page_loader,
+        site_footer
     },
     mounted() {
         M.AutoInit();

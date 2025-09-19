@@ -1,29 +1,6 @@
 <template>
-    <v-layout>
         <page_loader :loading = 'loading' @click = 'loading = false' />
         <title_nav />
-<!-- 
-        <v-app-bar variant = text scroll-behavior="collapse elevate fade-image" color = green>
-            <template v-slot:prepend>
-                <v-app-bar-nav-icon></v-app-bar-nav-icon>
-                <v-app-bar-title> <a href = '.'> ByeFilm </a> </v-app-bar-title>
-            </template>
-            <template v-slot:append>
-                <div class = text-center>
-                    <v-menu open-on-hover>
-                        <template v-slot:activator = '{props}'>
-                            <v-btn v-bind = props> TEST </v-btn>
-                        </template>
-                        <v-list>
-                            <v-list-item v-for = 'i in 10' :key = i :value = 'i'>
-                                <v-list-item-title> {{ i }} </v-list-item-title>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
-                </div>
-            </template>
-        </v-app-bar> -->
-        
         <v-row>
             <v-col cols = 2 style = 'position: fixed;' v-if = '$vuetify.display.mdAndUp' class = 'ma-5'>
                 <br><br><br><br>
@@ -80,7 +57,7 @@
             </v-col>
             <v-col cols = 1></v-col>
         </v-row>
-    </v-layout>
+    <site_footer></site_footer>
 </template>
 
 <script>
@@ -90,6 +67,7 @@ import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
+import site_footer from '@/footer.vue'
 
 export default {
     name: 'App',
@@ -102,7 +80,8 @@ export default {
     },
     components: {
         title_nav,
-        page_loader
+        page_loader,
+        site_footer
     },
     mounted() {
         M.AutoInit();

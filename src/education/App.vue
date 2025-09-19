@@ -3,6 +3,7 @@
     <title_nav />
     <sidenav name = 'Education' />
     
+    <v-app><v-main>
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>
             <v-col>
@@ -39,6 +40,8 @@
             </v-col>
         </v-row>
     </v-col><v-col cols = 1 /></v-row>
+
+    </v-main></v-app>
 
     <site_footer />
     

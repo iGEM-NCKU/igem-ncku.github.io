@@ -3,6 +3,7 @@
     <title_nav />
     <sidenav name = 'WetLab' />
     
+    <v-app><v-main>
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = 'text-center scroller' id = 'Design'>
             <v-col>
@@ -223,6 +224,8 @@
         </v-col></v-row>
     </v-col><v-col cols = 1 /></v-row>
     
+    <site_footer></site_footer>
+</v-main></v-app>
 </template>
 
 <script>
@@ -233,6 +236,7 @@ import M from 'materialize-css'
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
+import site_footer from '@/footer.vue'
 
 export default {
     name: 'App',
@@ -254,7 +258,8 @@ export default {
     components: {
         title_nav,
         page_loader,
-        sidenav
+        sidenav,
+        site_footer
     },
     mounted() {
         M.AutoInit();

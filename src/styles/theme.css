@@ -55,7 +55,7 @@ a:hover { color: var(--color-primary-600); }
 
 /* Glassy surfaces */
 .glass {
-  background: rgba(255,255,255,0.72);
+  background: rgba(255,255,255,0.3);
   backdrop-filter: blur(var(--nav-blur));
   -webkit-backdrop-filter: blur(var(--nav-blur));
   border: 1px solid rgba(255, 255, 255, 0.6);

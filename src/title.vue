@@ -8,7 +8,15 @@
         :buffer-value = scroll.progress_bottom
         buffer-opacity = .3
      />
-    <navi class = 'block' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
+     <v-card style = 'position: fixed; z-index: 1000;' :style = '`top: ${200 + 80 * k}px;`' v-for = 'i, j, k in scroll' :key = j>
+        <template #title>
+            <b> {{ j }} </b>
+        </template>
+        <template #subtitle>
+            <b> {{ i }} </b>
+        </template>
+     </v-card>
+    <navi class = 'block glass' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
         <img src = icon.png height = 20px />
         <!-- {{ alpha }} -->
         <a href = 'index.html' class = 'unfocused stroke'>
@@ -94,7 +102,7 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        window.onscroll = this.update_scroll;
+        window.addEventListener('scroll', this.update_scroll);
         this.hide = new Array(this.f.length);
         this.init_subnav();
     },

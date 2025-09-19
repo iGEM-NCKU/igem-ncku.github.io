@@ -186,13 +186,10 @@
             </v-card>
         </v-card>
     </v-container>
-    
-    <v-btn block rounded = 'xl' color = 'cyan' variant = outlined>
-        <v-icon icon = 'mdi-domain' />
-        Button
-    </v-btn>
 
     </v-main></v-app>
+
+    <site_footer></site_footer>
 </template>
 
 <script>
@@ -202,6 +199,7 @@ import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
+import site_footer from '@/footer.vue'
 
 import { useDisplay } from 'vuetify'
 
@@ -228,7 +226,8 @@ export default {
     },
     components: {
         title_nav,
-        page_loader
+        page_loader,
+        site_footer
     },
     mounted() {
         M.AutoInit();

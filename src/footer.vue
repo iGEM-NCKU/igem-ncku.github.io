@@ -35,10 +35,10 @@
           <div class="text-subtitle-1 mb-2" style="font-family: 'Nunito', 'Inter', sans-serif; font-weight: 700;">Sponsors</div>
           <div class="d-flex flex-wrap align-center" style="gap: 16px;">
             <template v-for="s in sponsors" :key="s.name">
-              <a :href="s.url" target="_blank" rel="noopener" class="unfocused" style="display:inline-flex; align-items:center;">
-                <v-img v-if="s.logo" :src="s.logo" :alt="s.name" height="32" contain style="max-width: 140px;" />
+              <!-- <a herf = s.url> -->
+                <v-img v-if="s.logo" :src="s.logo" :alt="s.name" height="50" contain style="max-width: 140px;" />
                 <v-chip v-else color="primary" variant="tonal" class="text-capitalize">{{ s.name }}</v-chip>
-              </a>
+              <!-- </a> -->
             </template>
           </div>
         </v-col>
@@ -60,11 +60,7 @@ export default {
   data() {
     return {
       sponsors: [
-        { name: 'Zymo Research', url: 'https://www.zymoresearch.com/', logo: 'https://static.igem.wiki/teams/5237/sponsor-logos/zymo-research-logo.jpg' },
-        { name: 'Eppendorf', url: 'https://www.eppendorf.com/', logo: 'https://static.igem.wiki/teams/5237/sponsor-logos/eppendorf-logo.jpg' },
-        { name: 'IDT', url: 'https://www.idtdna.com/', logo: 'https://static.igem.wiki/teams/5237/sponsor-logos/idt-logo.jpg' },
-        { name: 'SnapGene', url: 'https://www.snapgene.com/', logo: 'https://static.igem.wiki/teams/5237/sponsor-logos/snapgene-logo.jpg' },
-        { name: 'NEB', url: 'https://www.neb.com/', logo: 'https://static.igem.wiki/teams/5237/sponsor-logos/neb-logo.jpg' },
+        { name: 'IDT', url: 'https://www.idtdna.com/', logo: 'IDT_logo.png' },
       ],
     }
   },

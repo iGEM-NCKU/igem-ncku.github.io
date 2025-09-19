@@ -102,7 +102,7 @@ export default {
                 'Aaron': 'Major : International Bachelor Degree Program on Energy\nPosition : Hp member',
                 'Jerry': 'Major : Life Sciences\nPosition : Wet Lab Leader',
                 'Johan': 'Major : Depart. of Biotechnology and Bioindustry Sciences\nPosition : Dry Lab member',
-                'Kathleen': 'Major : Life Sciences\nPosition : Hp Leader',
+                'Kathleen': 'Major : International business\nPosition : Hp Leader',
                 'Kelly': 'Major : Life Sciences\nPosition : Team Leader',
                 'Richie': 'Major : Life Sciences\nPosition : Dry Lab Leader',
                 'Sue': 'Major : Bio-Chemistry\nPosition : Wet Lab and Hp member',

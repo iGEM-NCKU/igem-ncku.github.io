@@ -19,9 +19,6 @@
   --shadow-md: 0 10px 24px rgba(0,0,0,.12);
 }
 
-html, body {
-  height: 100%;
-}
 
 body {
     font-family: 'font', sans-serif;

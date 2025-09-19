@@ -30,6 +30,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 // import $ from 'jquery'
 import M from 'materialize-css'
 
@@ -40,10 +41,16 @@ export default {
     name: 'page_loader',
     data() {
         return {
-            real_loader: false,
-            fade: false,
+            show: false,
             old: false,
-            rev: false
+            rev: false,
+            delayMs: 250,       // don't show unless load > 250ms
+            minShowMs: 400,     // keep visible at least 400ms to avoid flicker
+            _pendingTimer: null,
+            _hideTimer: null,
+            _revTimer: null,
+            _visibleAt: 0,
+            _revScheduled: false
         }
     },
     props: [
@@ -55,33 +62,53 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        this.real_loader = this.fade = this.loading;
-        setInterval(() => {
-            this.rev ^= 1;
-        }, 2560);
+        this.applyLoading(this.loading);
+    },
+    beforeUnmount() {
+        if (this._revTimer) clearTimeout(this._revTimer)
+        if (this._pendingTimer) clearTimeout(this._pendingTimer)
+        if (this._hideTimer) clearTimeout(this._hideTimer)
     },
     watch: {
-        // loading(l, r) {
-            // console.log(`${l} ${r}`)
-            // if(r) this.real_loader = this.fade = true;
-            // else {
-            //     this.fade = false;
-            //     setTimeout(() => {
-            //         console.log('1')
-            //         this.real_loader = false;
-            //     }, 1000)
-            // }
-            // this.real_loader = r;
-        // }
+        loading(nv) { this.applyLoading(nv) },
+        show(nv) {
+            // Schedule a one-time animation variant switch if loading is long
+            if (nv && !this._revScheduled) {
+                this._revScheduled = true
+                this.rev = false
+                this._revTimer = setTimeout(() => { this.rev = true }, 1200)
+            }
+        }
     },
     methods: {
+        applyLoading(start) {
+            if (start) {
+                if (this._hideTimer) { clearTimeout(this._hideTimer); this._hideTimer = null }
+                if (this._pendingTimer) clearTimeout(this._pendingTimer)
+                this._revScheduled = false
+                this._pendingTimer = setTimeout(() => {
+                    this.show = true
+                    this._visibleAt = Date.now()
+                }, this.delayMs)
+            } else {
+                // stop pending show
+                if (this._pendingTimer) { clearTimeout(this._pendingTimer); this._pendingTimer = null }
+                const elapsed = Date.now() - (this._visibleAt || Date.now())
+                const wait = Math.max(0, this.minShowMs - elapsed)
+                if (this.show) {
+                    this._hideTimer = setTimeout(() => { this.show = false }, wait)
+                } else {
+                    this.show = false
+                }
+            }
+        }
     }
 }
 </script>
 
 <style>
 * {
-  transition: 0.5s all;
+    transition: 0.5s all;
 }
 body {
     font-family: 'font', sans-serif;
@@ -105,7 +132,7 @@ body {
 .blur {
   z-index: 10;
   background-color: rgba(255, 255, 255, .75);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   position: absolute;
 }
 .center {
@@ -143,4 +170,7 @@ body {
 .fade-enter-to, .fade-leave-from {
   opacity: 1;
 }
+
+/* Warm spinner accent */
+.preloader-wrapper.big .spinner-layer { border-color: var(--color-primary) !important; }
 </style>

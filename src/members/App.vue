@@ -23,7 +23,14 @@
                             v-reveal
                         >
                             <template v-slot:text v-if="isHovering">
-                                <b v-html="members_info[i].replace(/\n/g, '<br>')" class="text"></b>
+                                <div v-for = 'j, k in members_info[i]' :key = k>
+                                    <v-chip v-text = k rounded = none variant = outlined class = 'ma-2' />
+                                    <br>
+                                    <template v-if = 'k == `Group`'>
+                                        <v-chip v-text = l variant = elevated v-for = 'l in j' :key = l class = 'ma-2' />
+                                    </template>
+                                    <v-chip v-text = j variant = elevated v-else class = 'ma-2' />
+                                </div>
                             </template>
                         </v-card>
                         </div>
@@ -99,15 +106,51 @@ export default {
             loading: true,
             members: ['Aaron', 'Jerry', 'Johan', 'Kathleen', 'Kelly', 'Richie', 'Sue', 'Yin', 'ysh'],
             members_info: {
-                'Aaron': 'Major : International Bachelor Degree Program on Energy\nPosition : Hp member',
-                'Jerry': 'Major : Life Sciences\nPosition : Wet Lab Leader',
-                'Johan': 'Major : Depart. of Biotechnology and Bioindustry Sciences\nPosition : Dry Lab member',
-                'Kathleen': 'Major : International business\nPosition : Hp Leader',
-                'Kelly': 'Major : Life Sciences\nPosition : Team Leader',
-                'Richie': 'Major : Life Sciences\nPosition : Dry Lab Leader',
-                'Sue': 'Major : Bio-Chemistry\nPosition : Wet Lab and Hp member',
-                'Yin': 'Major : Life Sciences\nPosition : Wet Lab member',
-                'ysh': 'Major : Electrical Engineering\nPosition : Dry Lab member'
+                'Aaron': {
+                    'Major': 'International Bachelor Degree Program on Energy',
+                    'Group': ['Human Practice'],
+                    'Position': 'Member'
+                },
+                'Jerry': {
+                    'Major': 'Life Sciences',
+                    'Group': ['Wet Lab'],
+                    'Position': 'Leader'
+                },
+                'Johan': {
+                    'Major': 'Depart. of Biotechnology and Bioindustry Sciences',
+                    'Group': ['Dry Lab'],
+                    'Position': 'Member'
+                },
+                'Kathleen': {
+                    'Major': 'International business',
+                    'Group': ['Human Practice'],
+                    'Position': 'Leader'
+                },
+                'Kelly': {
+                    'Major': 'Life Sciences',
+                    'Group': ['Wet Lab', 'Dry Lab', 'Human Practice'],
+                    'Position': 'Leader'
+                },
+                'Richie': {
+                    'Major': 'Life Sciences',
+                    'Group': ['Dry Lab'],
+                    'Position': 'Leader'
+                },
+                'Sue': {
+                    'Major': 'Bio-Chemistry',
+                    'Group': ['Wet Lab', 'Human Practice'],
+                    'Position': 'Member'
+                },
+                'Yin': {
+                    'Major': 'Life Sciences',
+                    'Group': ['Wet Lab'],
+                    'Position': 'Member'
+                },
+                'ysh': {
+                    'Major': 'Electrical Engineering',
+                    'Group': ['Dry Lab'],
+                    'Position': 'Member'
+                },
             },
             flippedCard: null,
             view: [],

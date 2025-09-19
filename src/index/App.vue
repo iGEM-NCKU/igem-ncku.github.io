@@ -4,6 +4,8 @@
 
     <!-- {{ mobile }} -->
     
+    <v-app>
+    <v-main>
     <v-container>
         <v-row align = start>
             <v-col v-for = 'i in pre' :key = 'i' md = 6 cols = 12 lg = 3>
@@ -189,6 +191,8 @@
         <v-icon icon = 'mdi-domain' />
         Button
     </v-btn>
+
+    </v-main></v-app>
 </template>
 
 <script>

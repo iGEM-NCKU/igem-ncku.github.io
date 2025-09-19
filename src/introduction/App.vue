@@ -1,9 +1,7 @@
 <template>
-    <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
     
-    <v-main>
     <v-container>
         <v-row class = text-center>
             <v-col>
@@ -25,9 +23,6 @@
             </v-col>
         </v-row>
     </v-container>
-    </v-main>
-    <site_footer />
-    </v-app>
 
 </template>
 
@@ -38,7 +33,6 @@ import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
-import site_footer from '@/footer.vue'
 
 export default {
     name: 'App',
@@ -49,8 +43,7 @@ export default {
     },
     components: {
         title_nav,
-        page_loader,
-        site_footer
+        page_loader
     },
     mounted() {
         M.AutoInit();

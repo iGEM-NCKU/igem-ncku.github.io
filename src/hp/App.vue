@@ -1,10 +1,8 @@
 <template>
-    <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
     <sidenav name = 'Integrated Human Practice' />
     
-    <v-main>
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>
             <v-col>
@@ -150,7 +148,7 @@
             </v-col>
         </v-row>
     </v-col><v-col cols = 1 /></v-row>
-    
+
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row><v-col>
             <v-card title = 'Testing Area'>
@@ -173,15 +171,17 @@
 </template>
 
 <script>
-/* eslint-disable */ 
+ /* eslint-disable */ 
+import $ from 'jquery'
+import M from 'materialize-css'
+
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
-import site_footer from '@/footer.vue'
 
 export default {
-  name: 'App',
-  data() {
+    name: 'App',
+    data() {
         return {
             loading: true,
             scroller: {
@@ -198,15 +198,51 @@ export default {
                 }
             }
         }
-  },
+    },
     components: {
         title_nav,
         page_loader,
         sidenav
     },
-  mounted() {
-    setTimeout(() => { this.loading = false }, 100)
-  }
+    mounted() {
+        M.AutoInit();
+        setTimeout(() => {
+            this.loading = false;
+        }, 100);
+        if(localStorage.getItem('alpha.theme') != undefined) this.alpha.card.theme = localStorage.getItem('alpha.theme');
+        this.scroller.name = $('.scroller');
+
+        this.init_scroller();
+    },
+    methods: {
+        title(x) {
+            x = x.replace('-', ' ');
+            var f = [];
+            for(var i of x.split(' ')) {
+                f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
+            }
+            return (f.join(' '));
+        },
+        init_scroller() {
+            this.scroller.name = ($('.scroller').map(function(index) {
+                return this.id;
+            }).get());
+            setInterval(() => {
+                var overed = (x) => {
+                    return $(`#${this.scroller.name[i]}`).position().top <= window.scrollY + 100;
+                }
+                var flag = false;
+                for(var i in this.scroller.name) {
+                    if(!overed(i)) {
+                        this.scroller.now = (i - 1 < 0 ? 0 : i - 1);
+                        flag = true;
+                        break;
+                    }
+                }
+                if(!flag) this.scroller.now = this.scroller.name.length - 1;
+            }, 100);
+        }
+    }
 }
 </script>
 

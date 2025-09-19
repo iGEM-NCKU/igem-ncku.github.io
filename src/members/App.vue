@@ -23,9 +23,7 @@
                             v-reveal
                         >
                             <template v-slot:text v-if="isHovering">
-                            <b style="filter: none;" class="text">
-                                一位隊員
-                            </b>
+                                <b v-html="members_info[i].replace(/\n/g, '<br>')" class="text"></b>
                             </template>
                         </v-card>
                         </div>
@@ -34,7 +32,7 @@
                         <v-card height="500px" class="glass-card elevate text-center" color="transparent">
                             <v-card-title>{{ i }}</v-card-title>
                             <v-card-text>
-                            <b>yo bro</b>
+                            <b>bro</b>
                             </v-card-text>
                         </v-card>
                         </div>
@@ -100,6 +98,17 @@ export default {
         return {
             loading: true,
             members: ['Aaron', 'Jerry', 'Johan', 'Kathleen', 'Kelly', 'Richie', 'Sue', 'Yin', 'ysh'],
+            members_info: {
+                'Aaron': 'Major : International Bachelor Degree Program on Energy\nPosition : Hp member',
+                'Jerry': 'Major : Life Sciences\nPosition : Wet Lab Leader',
+                'Johan': 'Major : Depart. of Biotechnology and Bioindustry Sciences\nPosition : Dry Lab member',
+                'Kathleen': 'Major : Life Sciences\nPosition : Hp Leader',
+                'Kelly': 'Major : Life Sciences\nPosition : Team Leader',
+                'Richie': 'Major : Life Sciences\nPosition : Dry Lab Leader',
+                'Sue': 'Major : Bio-Chemistry\nPosition : Wet Lab and Hp member',
+                'Yin': 'Major : Life Sciences\nPosition : Wet Lab member',
+                'ysh': 'Major : Electrical Engineering\nPosition : Dry Lab member'
+            },
             flippedCard: null,
             view: [],
             alpha: {

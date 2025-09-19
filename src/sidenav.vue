@@ -67,12 +67,14 @@ export default {
             this.scroller.name = ($('.scroller').map(function(index) {
                 return this.id;
             }).get());
-            setInterval(() => {
+            console.log(this.scroller.name);
+            window.onscroll = (() => {
                 var overed = (x) => {
-                    return $(`#${this.scroller.name[i]}`).position().top <= window.scrollY + 100;
+                    return $(`#${this.scroller.name[i]}`)?.position()?.top <= window.scrollY + 100;
                 }
                 var flag = false;
                 for(var i in this.scroller.name) {
+                    console.log(i);
                     if(!overed(i)) {
                         this.scroller.now = (i - 1 < 0 ? 0 : i - 1);
                         flag = true;
@@ -80,7 +82,7 @@ export default {
                     }
                 }
                 if(!flag) this.scroller.now = this.scroller.name.length - 1;
-            }, 100);
+            });
         },
         goto(x) {
             // M.toast({html: `going to ${x}`, classes: 'amber rounded'});

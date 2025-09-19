@@ -85,8 +85,8 @@ export default {
 }
 body {
     font-family: 'font', sans-serif;
-    background-image: linear-gradient(to bottom, #49a06f, wheat);
-    background-color: wheat;
+    /* background-image: linear-gradient(to bottom, #49a06f, wheat); */
+    background-color: #FBF7EF;
 }
 @font-face {
     font-family: 'font';

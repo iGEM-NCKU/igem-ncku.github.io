@@ -2,9 +2,9 @@
     <v-progress-linear
         v-model = scroll.progress
         style = 'position:fixed; z-index: 100;'
-        color = green
+        color = '#004733'
         buffer-color = 'green lighten-2'
-        height = 9
+        height = 5
         :buffer-value = scroll.progress_bottom
         buffer-opacity = .3
      />
@@ -151,7 +151,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
 .block {
-    background-color: rgba(0, 100, 50, .7);
+    background-color: rgba(255, 255, 255, .7);
     text-decoration: none;
     color: black;
     transition: 1s all;

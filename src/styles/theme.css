@@ -19,6 +19,15 @@
   --shadow-md: 0 10px 24px rgba(0,0,0,.12);
 }
 
+.v-icon {
+  display: inline-block;
+  font: normal normal normal 24px/1 "Material Design Icons";
+  font-size: inherit;
+  text-rendering: auto;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 body {
     font-family: 'font', sans-serif;

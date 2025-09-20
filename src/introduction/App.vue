@@ -1,8 +1,9 @@
 <template>
+    <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
     
-    <v-app><v-main>
+    <v-main>
     <v-container>
         <v-row class = text-center>
             <v-col>

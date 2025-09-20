@@ -1,7 +1,7 @@
 <template>
     <v-progress-linear
         v-model = scroll.progress
-        style = 'position:fixed; z-index: 100;'
+        style = 'position:fixed; z-index: 101;'
         color = '#004733'
         buffer-color = 'green lighten-2'
         height = 5
@@ -16,32 +16,37 @@
             <b> {{ i }} </b>
         </template>
      </v-card> -->
-    <navi class = 'block glass' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``'>
+    <navi class = 'block glass' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``' id = 'title'>
         <img src = icon.png height = 20px />
         <!-- {{ alpha }} -->
         <a href = 'index.html' class = 'unfocused stroke'>
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = green class = film_ani>film</font>
         </a>
-        <v-hover v-for = 'i, j in f' :key = i :value = j>
-            <template #default = '{isHovering, props}'>
+        <v-menu v-for = 'i, j in f' :key = i :value = j open-on-hover location = bottom scroll-strategy="none" attach = '#title'>
+            <template #activator = '{props}'>
                 <div v-bind = props class = right>
                     <div :id = '`title-button-${j}`' v-if = '!show_nav'>
                         <b> {{ j }} </b>&nbsp;&nbsp;
                     </div>
-                    <v-card class = 'title_showcase' :id = '`title-${j}`' :style = 'isHovering ? undefined : `display: none;`'>
-                        <template #title>
-                            {{ j }}
-                        </template>
-                        <template #subtitle>
-                            <v-btn v-for = 'subtitle in i' :key = subtitle :href = subtitle>
-                                {{ title(subtitle) }}
-                            </v-btn>
-                        </template>
-                    </v-card>
                 </div>
             </template>
-        </v-hover>
+            <v-card style = 'z-index: 100' prepend-icon = 'mdi-instagram' class = glass>
+              <template #title>
+                {{ j }}
+              </template>
+              <template #subtitle>
+                Byefilm
+              </template>
+              <template #text>
+                <v-list>
+                  <v-list-item v-for = 'k in i' :key = k :title = title(k) :href = '`${k}.html`'></v-list-item>
+                </v-list>
+              </template>
+            </v-card>
+        </v-menu>
+
+        
 
         <!-- <i class = 'material-icons right'> apps </i> -->
         <!-- <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b> -->
@@ -168,7 +173,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     font-size: large;
     font-weight: 900;
     backdrop-filter: blur(25px);
-    position: fixed;
+    position: sticky;
     top: 0px;
     left: 0px;
     z-index: 100;

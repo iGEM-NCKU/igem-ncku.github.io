@@ -1,8 +1,9 @@
 <template>
+    <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
     
-    <v-app><v-main>
+    <v-main>
     <sidenav name = 'Education' />
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = text-center>

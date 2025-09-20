@@ -1,8 +1,9 @@
 <template>
+    <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
 
-    <v-app><v-main>
+    <v-main>
     <v-container v-if = '!alpha.newview'>
         <v-row>
             <v-col v-for="i in members" :key="i" cols="12" sm="6" lg="4">
@@ -97,7 +98,6 @@ import M from 'materialize-css'
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import site_footer from '@/footer.vue'
-import { mdiAlphaA } from '@mdi/js'
 
 export default {
     name: 'App',

@@ -1,10 +1,10 @@
 <template>
+  <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
 
     <!-- {{ mobile }} -->
     
-    <v-app>
     <v-main>
         <!-- <v-icon>fa-solid fa-home</v-icon>
         <v-btn icon = 'mdi-alpha-r-circle-outline mdi-set' class = mdi-alpha-r-circle-outline></v-btn>

@@ -1,8 +1,9 @@
 <template>
+    <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
 
-    <v-app><v-main>
+    <v-main>
     <v-container v-if = '!alpha.newview'>
         <v-row>
             <v-col v-for="i in members" :key="i" cols="12" sm="6" lg="4">

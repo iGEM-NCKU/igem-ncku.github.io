@@ -1,12 +1,16 @@
 // Centralized Vuetify with warm theme and icon set
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
+import { fa } from "vuetify/iconsets/fa";
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
 // Load global theme CSS once per entry
 import '../styles/theme.css'
+
+import "@mdi/font/css/materialdesignicons.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 const vuetify = createVuetify({
   components,
@@ -18,9 +22,9 @@ const vuetify = createVuetify({
     VBtn: { rounded: 'xl' },
   },
   icons: {
-    defaultSet: 'mdi',
+    defaultSet: 'fa',
     aliases,
-    sets: { mdi },
+    sets: { mdi, fa },
   },
   theme: {
     defaultTheme: 'brand',

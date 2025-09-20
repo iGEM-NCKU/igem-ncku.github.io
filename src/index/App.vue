@@ -6,6 +6,9 @@
     
     <v-app>
     <v-main>
+        <!-- <v-icon>fa-solid fa-home</v-icon>
+        <v-btn icon = 'mdi-alpha-r-circle-outline mdi-set' class = mdi-alpha-r-circle-outline></v-btn>
+        <v-icon class = 'mdi-alpha-r-circle-outline mdi-set'></v-icon> -->
     <v-container>
         <v-row align = start>
             <v-col v-for = 'i in pre' :key = 'i' md = 6 cols = 12 lg = 3>
@@ -195,7 +198,7 @@
 <script>
  /* eslint-disable */ 
 import $ from 'jquery'
-import M from 'materialize-css'
+// import M from 'materialize-css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'

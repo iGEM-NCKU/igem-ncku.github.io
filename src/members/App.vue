@@ -98,7 +98,6 @@ import M from 'materialize-css'
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import site_footer from '@/footer.vue'
-import { mdiAlphaA } from '@mdi/js'
 
 export default {
     name: 'App',

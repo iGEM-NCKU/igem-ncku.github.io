@@ -61,6 +61,7 @@ export default {
     return {
       sponsors: [
         { name: 'IDT', url: 'https://www.idtdna.com/', logo: 'IDT_logo.png' },
+        { name: 'IV-Tech', url: 'https://www.ivt.com.tw', logo: 'IV-tech.png' },
       ],
     }
   },

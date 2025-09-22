@@ -43,10 +43,12 @@
 }
 </style>
 
-# ENDzyme - a better way to create enzyme
+### ENDzyme - a better way to create enzyme
 ![endzyme logo](https://hackmd.io/_uploads/HJis5jRFgl.png)
 
-## Introduction
+
+### Introduction
+
 
 In our wet-lab experiments, we observed that the effect of enzyme treatment was not as pronounced as expected. This can be attributed to two main factors: (1) enzyme yield, and (2) enzyme activity and binding efficiency. To address the latter, we developed a computational pipeline aimed at optimizing enzyme activity and substrate binding efficiency.
 
@@ -60,7 +62,9 @@ Through this pipeline, we are able to identify and obtain a functionally improve
 
 **Zymctrl** is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over 37 M sequences. Given a user-defined Enzymatic Commission (EC) number, the model generates protein sequences that fulfil that catalytic reaction. The generated sequences are ordered, globular, and distant to natural ones, while their intended catalytic properties match those defined by users.
 
-:::spoiler How we use the Zymctrl
+<details> 
+<summary>How we use the Zymctrl</summary>
+
 ``` python
 generator = pipeline('text-generation', model='AI4PD/ZymCTRL')
 if maxLength == None:
@@ -74,10 +78,14 @@ for output in generated_outputs:
     novel_sequence = raw_novel_sequence.replace("<|endoftext|>", "").replace(" ", "").strip()[:max_len]
     candidate_sequences.append(novel_sequence)
 ```
-:::
+
+</details>
+
 **ColabFold** is an AlphaFold2-based module. Since AlphaFold3 currently lacks an API, we are using ColabFold to fulfill this part of the pipeline.
 
-:::spoiler How we use the colabfold
+<details>
+<summary> How we use the colabfold</summary>
+
 ``` python
 cmd = [
         "colabfold_batch","--msa-mode", "single_sequence",       
@@ -98,20 +106,24 @@ cmd = [
 
     return cmd
 ```
-:::
+</details>
 
 #### Tools
 - Zymctrl
 - Colabfold
 ### Screening
 We use **mmseqs2** as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.
- :::spoiler How we use the mmseqs2
+
+
+<details>
+ <summary>How we use the mmseqs2</summary>
+
 ``` bash
 mmseqs search input.fasta ./swissprot result tmp
 
 mmseqs createtsv query.fasta ./swissprot result result.tsv
 ```
-:::
+</details>
 
 #### Tools
 - mmseqs2
@@ -119,8 +131,10 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
 In our project, we use AutoDock Vina to optimize the performance of proteins by evaluating their interactions with small molecules. Due to a limitation of AutoDock Vina, we are unable to use polymers as docking targets. As a result, we have chosen to utilize monomers as our docking targets.
 Furthermore, our goal is to make this software accessible to the broader scientific community. To achieve this, we have developed a Python script that automatically calculates the grid box, streamlining the docking process and enhancing the usability of the software for users without requiring manual configuration.
 
-:::spoiler How we automatically set our gridbox in the pipeline
-```python=
+<details>
+<summary>spoiler How we automatically set our gridbox in the pipeline</summary>
+
+```python
 from pymol import cmd
 import sys
 
@@ -164,10 +178,11 @@ cmd.select("binding_site", "ligand around 10")
 get_gridbox()
 
 ```
-:::
+</details>
+
 ＊＊＊＊＊ 補docking 的比較圖    
 
-## Result (GIF files are to big to put in here)
+### Result (GIF files are to big to put in here)
 <div class='two-column-layout'>  
     
  ![file350](https://hackmd.io/_uploads/H1bNLQkjgl.png)

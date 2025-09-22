@@ -11,9 +11,8 @@
             <v-col>
                 <v-card title = 'Model' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
-                        <p class = 'grey-text'>
-                            This is Model.
-                        </p>
+                        <div v-html="markdownToHtml">
+                        </div>
                     </template>
                 </v-card>
             </v-col>
@@ -245,6 +244,7 @@
  /* eslint-disable */ 
 import $ from 'jquery'
 import M from 'materialize-css'
+import { marked } from 'marked'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
@@ -265,7 +265,8 @@ export default {
                     theme: 'tonal',
                     f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
                 }
-            }
+            },
+            markdown: ''
         }
     },
     components: {
@@ -278,7 +279,12 @@ export default {
         M.AutoInit();
         setTimeout(() => {
             this.loading = false;
-        }, 100);
+        }, 100),
+        fetch('/drylab/endzyme.md')     
+            .then(res => res.text())
+            .then(text => {
+        this.markdown = text
+      });
     },
     methods: {
         title(x) {
@@ -288,6 +294,11 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+        }
+    },
+    computed: {
+        markdownToHtml() {
+            return marked(this.markdown);
         }
     }
 }

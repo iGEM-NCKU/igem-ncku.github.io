@@ -79,7 +79,7 @@
         <img src = 'https://igem.ncku.edu.tw/images/slide2.png' v-if = 'show_nav' class = 'title_img' />
     </transition> -->
     
-    <br><br><br><br><br>
+    <!-- <br><br><br><br><br> -->
 </template>
 
 <script>

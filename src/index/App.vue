@@ -9,38 +9,27 @@
         <!-- <v-icon>fa-solid fa-home</v-icon>
         <v-btn icon = 'mdi-alpha-r-circle-outline mdi-set' class = mdi-alpha-r-circle-outline></v-btn>
         <v-icon class = 'mdi-alpha-r-circle-outline mdi-set'></v-icon> -->
-    <v-container>
-        <v-row align = start>
-            <v-col v-for = 'i in pre' :key = 'i' md = 6 cols = 12 lg = 3>
-                <v-hover>
-                    <template v-slot:default = '{isHovering, props}'>
-                        <a :href = 'i'>
-                            <v-card
-                                v-bind = 'props'
-                                v-ripple
-                                
-                                :variant = 'alpha.card.style'
-                                :title = 'title(i)'
-                                :text = 'i'
-                                :color = 'isHovering ? `primary` : ``'
-                            />
-                        </a>
-                    </template>
-                </v-hover>
-            </v-col>
-        </v-row>
 
-        <v-row>
-            <v-col cols = 12>
-                <v-card class = 'text-center' subtitle = 'The iGEM Tainan 2025' :variant = 'alpha.card.style'>
-                    <template v-slot:title>
-                        Bye<b class = 'green-text'>film</b>
-                    </template>
-                    <!-- dk -->
-                    <v-img src = banner.png max-height = 200px />
-                </v-card>
-            </v-col>
-        </v-row>
+    <div class = 'scroller'>
+        <div id = 'filter-inside'>
+            <!-- We should put some text here, right? -->
+
+            <v-card variant = plain>
+                <template #title>
+                    <b class = 'white-text'> Here is the title </b>
+                </template>
+                <template #subtitle>
+                    Here comes the subtitle
+                </template>
+                <template #text>
+                    This is a book
+                </template>
+            </v-card>
+        </div>
+    </div>
+
+
+    <v-container>
 
         <page_loader :loading = video_play />
         <v-dialog v-model = 'video_play' width = auto>
@@ -72,111 +61,6 @@
             </v-col>
         </v-row>
     </v-container>
-
-    <div class = 'scroller'>
-        <div id = 'filter-inside'>
-            <!-- We should put some text here, right? -->
-
-            <v-card variant = plain>
-                <template #title>
-                    Here is the title
-                </template>
-                <template #subtitle>
-                    Here comes the subtitle
-                </template>
-                <template #text>
-                    This is a book
-                </template>
-            </v-card>
-        </div>
-    </div>
-
-    <v-container>
-        <v-row>
-            <v-col cols = 12 sm = 6>
-                <v-card subtitle = Introduction :variant = 'alpha.card.style'>
-                    <template v-slot:title>
-                        What is <b class = amber-text> iGEM </b>
-                    </template>
-                    <template v-slot:text>
-                        <b>
-                            <a href = http://igem.org/Main_Page> International Genetically Engineered Machine Competition </a>
-                            ，簡稱 iGEM，是全球最高等級的合成生物學競賽，每年由美國麻省理工學院（Massachusetts Institute of Technology , MIT）主辦。 合成生物學，為新興學科，融合了生物、工程、物理、計算機科學和其他多項領域的綜合性科學工程，大賽目的在於「促進跨學科領域研究與合作，利用工程手段創造標準化的生物元件（Bio-Brick），並利用它們構建具有各種實用價值的微生物遺傳體，並解決社會問題。」曾多次被 Nature 等國際權威科學雜誌報導，每年約有200多隊，來自超過30個國家參賽。 
-                        </b>
-                    </template>
-                </v-card>
-            </v-col>
-            <v-col cols = 12 sm = 6>
-                <v-card subtitle = Introduction :variant = 'alpha.card.style'>
-                    <template v-slot:title>
-                        What is <b class = 'orange-text'> Synthetic Biology </b>
-                    </template>
-                    <template v-slot:text>
-                        <b>
-                             「合成生物學」是項融合了生物、工程科學、物理、化學、計算機科學和其他多項領域的綜合性科學工程。2004年美國MIT出版的
-                             <a href = 'http://www.rle.mit.edu/thz/documents/10_emerging_tech.pdf'> 《Technology Review》</a>
-                             將合成生物學列為將改變世界的十大新技術之一。簡單地說，合成生物學通過設計和構建自然界中不存在的人工生物系統來解決能源、材料、健康和環保等問題。透過合成生物學設計的新元件，組裝出真正的生物系統，並令其在活體細胞中工作。
-                        </b>
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
-
-        
-        <v-row>
-            <v-col cols = 12 md = 4>
-                <v-card subtitle = 'About us' :variant = 'alpha.card.style'>
-                    <template v-slot:title>
-                        <b class = 'cyan-text'> Why </b> we do
-                    </template>
-                    <template v-slot:text>
-                        <b>
-                            成功大學擁有最完整的學院與系所，並接近南部科學工業園區。我們的使命是從大學出發，運用各自的背景專業、結合這片土地的優勢，去連結世界，透過合成生物學，開創出新的跨領域合作風氣、環境與開創藍海。 
-                        </b>
-                    </template>
-                </v-card>
-            </v-col>
-            <v-col cols = 12 md = 4>
-                <v-card subtitle = 'About us' :variant = 'alpha.card.style'>
-                    <template v-slot:title>
-                        <b class = 'cyan-text'> How </b> we do
-                    </template>
-                    <template v-slot:text>
-                        <b>
-                            透過跨領域的整合，促成對話與合作，讓討論的所產生的火花成為產品的原型，並且站在巨人的肩膀上，動手解決問題。 
-                        </b>
-                    </template>
-                </v-card>
-            </v-col>
-            <v-col cols = 12 md = 4>
-                <v-card subtitle = 'About us' :variant = 'alpha.card.style'>
-                    <template v-slot:title>
-                        <b class = 'cyan-text'> What </b> we do
-                    </template>
-                    <template v-slot:text>
-                        <b>
-                            將近半年的Pre-Training，打好彼此的專業知識基礎，解決各領域的成員在溝通上的障礙；寒假時期定訂出最後比賽計畫與方向；下學期各部門專業分工；並於暑假時舉辦亞洲太平洋交流會，邀請海外國家團隊，來台南一同交流、展現成果，創造更好的跨領域環境，並透過實作去真正的解決問題。 
-                        </b>
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
-
-        <v-row>
-            <v-col>
-                <v-card subtitle = Byefilm!! title = 'Who are we' :variant = 'alpha.card.style'>
-                    <template v-slot:text>
-                        <b>
-                            團隊成立於 2024 年暑假末，起初為一些化工系的大學部學生，發現成功大學雖為全台最綜合學科大學，大學部卻鮮少有跨領域整合團隊，朝著一個目標而努力實踐，甚至將成果打上國際舞台，看見世界之大。
-
-                            因此，在 2024 年九月與十月時，經由一系列團隊招募活動，最後聚集了10個系所的25位同學，一同聚集與此，發揮各自所長，像最後的目標努力，並讓成功大學的跨領域合作，被世界看到，並獲得重視，最後產生成功大學的跨領域合作風氣與漣漪。 
-                        </b>
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
-            
-    </v-container>
     
     <v-container>
         <v-card title = 'Testing Area' color = 'grey'>
@@ -206,7 +90,7 @@ import site_footer from '@/footer.vue'
 
 import { useDisplay } from 'vuetify'
 
-export default {
+export default {   
     name: 'App',
     data() {
         return {
@@ -329,8 +213,8 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 .scroller {
     background-color: black;
-    min-height: 500px;
-    background-image: url('/public/image\ \(10\).png');
+    min-height: 500vh;
+    background-image: url('/public/TGEM_NCKU-Tainan.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

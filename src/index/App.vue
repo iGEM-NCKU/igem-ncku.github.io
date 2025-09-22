@@ -226,6 +226,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     background-size: cover;
     backdrop-filter: blur(10px);
     display: block;
+    overflow: hidden;
 }
 #filter-inside {
     background-color: rgba(255, 255, 255, .34);

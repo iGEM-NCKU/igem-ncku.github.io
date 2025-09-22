@@ -137,8 +137,9 @@ export default {
             if($('#filter-inside').position().top <= window_height) {
                 let scale = currently_position * 1.0 / height;
                 $('.scroller').css({
-                    transform: `scale(${1 + (currently_position*0.001) })`,
-                    opacity: 1 - (currently_position*0.0012)
+                    'background-size': `${100 + (scale * 700)}%`,
+                    // transform: `scale(${1 + (currently_position*0.001) })`,
+                    // opacity: 1 - (currently_position*0.0012)
                 })
 
                 let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
@@ -219,12 +220,12 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 .scroller {
     background-color: black;
-    min-height:100vh;
+    min-height: 500vh;
     background-image: url('/public/TGEM_NCKU-Tainan.jpg');
     background-attachment: fixed;
-    background-position: center;
+    background-position: 80% 45%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     backdrop-filter: blur(10px);
     display: block;
     overflow: hidden;

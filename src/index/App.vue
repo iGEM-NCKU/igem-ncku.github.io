@@ -249,7 +249,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     backdrop-filter: blur(10px);
     display: block;
     overflow: hidden;
-}
+}   
 .transparent-card {
     position: absolute;
     top: 20vw;

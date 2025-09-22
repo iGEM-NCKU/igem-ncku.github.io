@@ -58,8 +58,10 @@ export default {
   data() {
     return {
       sponsors: [
+        {name: 'NCKU', url: 'https://web.ncku.edu.tw', logo: 'https://static.igem.wiki/teams/6003/logo/national-cheng-kung-university-logo.webp'},
+        {name: 'MoE', url: 'https://english.moe.gov.tw/mp-1.html', logo: 'https://static.igem.wiki/teams/6003/logo/moe-logo.webp'},
         { name: 'IDT', url: 'https://www.idtdna.com/', logo: 'https://static.igem.wiki/teams/6003/logo/idt-logo.webp' },
-        { name: 'IV-Tech', url: 'https://www.ivt.com.tw', logo: 'IV-tech.png' },
+        { name: 'IV-Tech', url: 'https://www.ivt.com.tw', logo: 'IV-tech.png' }
       ],
     }
   },

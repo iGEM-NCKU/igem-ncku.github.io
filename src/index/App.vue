@@ -11,7 +11,7 @@
         <v-icon class = 'mdi-alpha-r-circle-outline mdi-set'></v-icon> -->
 
     <div class = 'scroller' id = map>
-        <v-card variant="plain" class="text-box">
+        <v-card variant="plain" class="transparent-card">
             <template #title>
                 <b class = 'white-text' style="font-size: 32px;"> Projected global median age<br>from 1950 to 2100</b>
             </template>
@@ -250,14 +250,13 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     display: block;
     overflow: hidden;
 }
-.text-box {
+.transparent-card {
     position: absolute;
     top: 20vw;
     left: 55vw;
-    background: rgba(0,0,0,0.6);
-    color: white;               
-    padding: 20px;
-    border-radius: 12px;         
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 #map {

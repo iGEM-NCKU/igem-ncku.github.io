@@ -135,6 +135,11 @@ export default {
             var min = (a, b) => (a ^ b ^ max(a, b));
             
             if($('#filter-inside').position().top <= window_height) {
+                let scale = currently_position * 1.0 / height;
+                $('.scroller').css({
+                    transform: `scale(${1 + scale})`
+                })
+
                 let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
                 console.log(sc);
                 $('#filter-inside').css({
@@ -220,6 +225,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(10px);
+    display: block;
 }
 #filter-inside {
     background-color: rgba(255, 255, 255, .34);

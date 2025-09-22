@@ -10,10 +10,8 @@
         <v-btn icon = 'mdi-alpha-r-circle-outline mdi-set' class = mdi-alpha-r-circle-outline></v-btn>
         <v-icon class = 'mdi-alpha-r-circle-outline mdi-set'></v-icon> -->
 
-    <div class = 'scroller'>
+    <div class = 'scroller' id = map>
         <div id = 'filter-inside'>
-            <!-- We should put some text here, right? -->
-
             <v-card variant = plain>
                 <template #title>
                     <b class = 'white-text'> Here is the title </b>
@@ -27,6 +25,7 @@
             </v-card>
         </div>
     </div>
+    <div id = Taiwan class = scrollers />
 
 
     <v-container>
@@ -221,7 +220,6 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 .scroller {
     background-color: black;
     min-height: 500vh;
-    background-image: url('/public/TGEM_NCKU-Tainan.jpg');
     background-attachment: fixed;
     background-position: 80% 45%;
     background-repeat: no-repeat;
@@ -229,6 +227,26 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     backdrop-filter: blur(10px);
     display: block;
     overflow: hidden;
+}
+.scrollers {
+    background-color: black;
+    min-height: 500vh;
+    background-attachment: fixed;
+    background-position: 80% 45%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    backdrop-filter: blur(10px);
+    display: block;
+    overflow: hidden;
+}
+#map {
+    background-image: url('/public/TGEM_NCKU-Tainan.jpg');
+}
+#bone {
+    background-image: url('/public/image\ \(10\).png');
+}
+#Taiwan {
+    background-image: url('/public/TGEM_TW-Tainan.jpg');
 }
 #filter-inside {
     background-color: rgba(255, 255, 255, .34);

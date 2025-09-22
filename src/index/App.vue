@@ -11,6 +11,11 @@
         <v-icon class = 'mdi-alpha-r-circle-outline mdi-set'></v-icon> -->
 
     <div class = 'scroller' id = map>
+        <v-card variant="plain" class="text-box">
+            <template #title>
+                <b class = 'white-text' style="font-size: 32px;"> Projected global median age<br>from 1950 to 2100</b>
+            </template>
+        </v-card>
         <div id = 'filter-inside'>
             <v-card variant = plain>
                 <template #title>
@@ -25,7 +30,7 @@
             </v-card>
         </div>
     </div>
-    <div id = Taiwan class = scrollers />
+    <div id = Taiwan class = Taiwan />
 
 
     <v-container>
@@ -137,9 +142,15 @@ export default {
                 let scale = currently_position * 1.0 / height;
                 $('.scroller').css({
                     'background-size': `${100 + (scale * 700)}%`,
+                    'filter': `brightness(${1 - scale * 2})`,
                     // transform: `scale(${1 + (currently_position*0.001) })`,
-                    // opacity: 1 - (currently_position*0.0012)
                 })
+                $('.Taiwan').css({
+                    //'background-size': `${100 + (scale * 700)}%`,
+                    'filter': `brightness(1)`,
+                    // transform: `scale(${1 + (currently_position*0.001) })`,
+                })
+
 
                 let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
                 console.log(sc);
@@ -219,7 +230,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 .scroller {
     background-color: black;
-    min-height: 500vh;
+    min-height: 400vh;
     background-attachment: fixed;
     background-position: 80% 45%;
     background-repeat: no-repeat;
@@ -228,7 +239,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     display: block;
     overflow: hidden;
 }
-.scrollers {
+.Taiwan {
     background-color: black;
     min-height: 500vh;
     background-attachment: fixed;
@@ -239,6 +250,16 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     display: block;
     overflow: hidden;
 }
+.text-box {
+    position: absolute;
+    top: 20vw;
+    left: 55vw;
+    background: rgba(0,0,0,0.6);
+    color: white;               
+    padding: 20px;
+    border-radius: 12px;         
+}
+
 #map {
     background-image: url('/public/TGEM_NCKU-Tainan.jpg');
 }

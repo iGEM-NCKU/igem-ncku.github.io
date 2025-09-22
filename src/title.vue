@@ -27,11 +27,12 @@
             <template #activator = '{props}'>
                 <div v-bind = props class = right>
                     <div :id = '`title-button-${j}`' v-if = '!show_nav'>
-                        <b> {{ j }} </b>&nbsp;&nbsp;
+                        <v-icon> {{ i.icon }} </v-icon>&nbsp;
+                        <b> {{ j }} </b>&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
             </template>
-            <v-card style = 'z-index: 100' prepend-icon = 'mdi-instagram' class = glass>
+            <v-card style = 'z-index: 100' :prepend-icon = i.icon class = glass>
               <template #title>
                 {{ j }}
               </template>
@@ -40,7 +41,7 @@
               </template>
               <template #text>
                 <v-list>
-                  <v-list-item v-for = 'k in i' :key = k :title = title(k) :href = '`${k}.html`'></v-list-item>
+                  <v-list-item v-for = 'k in i.subpages' :key = k :title = title(k.name) :href = '`${k.name}.html`'></v-list-item>
                 </v-list>
               </template>
             </v-card>
@@ -55,11 +56,12 @@
                 <template v-slot:default = '{isHovering, props}'>
                     <div v-bind = props @click = undefined>
                         <!-- {{ k }} -->
+                        <v-icon> {{ i.icon }} </v-icon>&nbsp;
                         <b> {{ j }} </b>
                         <!-- <a :href = 'i' style = 'color: white; '> {{ title(i) }} </a> -->
                         <div v-if = 'isHovering && show_nav'>
-                            <div v-for = 'url in i' :key = 'url' style = 'padding-left: 30px; font-size: medium'>
-                                <a :href = url style = 'color: white;'> {{ title(url) }} </a>
+                            <div v-for = 'url in i.subpages' :key = 'url' style = 'padding-left: 30px; font-size: medium'>
+                                <a :href = '`${url.name}.html`' style = 'color: white;'> {{ title(url.name) }} </a>
                             </div>
                         </div>
                     </div>
@@ -90,9 +92,31 @@ export default {
         return {
             pre: ['education', 'integrated-human-practices', 'members', 'wetlab', 'introduction-to-problems', 'software', 'model', ],
             f: {
-                'Team': ['attributions', 'members'],
-                'Project': ['description', 'engineering', 'experiments', 'notebook', 'results'],
-                'Labs': ['drylab', 'wetlab', 'integrated-human-practices'],
+                'Team': {
+                    icon: 'fa-solid fa-circle-user',
+                    subpages: [
+                        {name: 'attributions', icon: undefined}, 
+                        {name: 'members', icon: undefined}
+                    ]
+                },
+                'Project': {
+                    icon: 'fa-solid fa-bars-progress',
+                    subpages: [
+                        {name: 'description', icon: undefined}, 
+                        {name: 'engineering', icon: undefined}, 
+                        {name: 'experiments', icon: undefined}, 
+                        {name: 'notebook', icon: undefined}, 
+                        {name: 'results', icon: undefined}
+                    ]
+                },
+                'Labs': {
+                    icon: 'fa-solid fa-flask',
+                    subpages: [
+                        {name: 'drylab', icon: undefined}, 
+                        {name: 'wetlab', icon: undefined}, 
+                        {name: 'integrated-human-practices', icon: undefined}
+                    ]
+                }
             },
             show_nav: false,
             scroll: {

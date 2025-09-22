@@ -11,7 +11,7 @@
             <v-col>
                 <v-card title = 'Model' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
-                        <div v-html="markdownToHtml">
+                        <div v-html="endzymeToHtml">
                         </div>
                     </template>
                 </v-card>
@@ -266,7 +266,7 @@ export default {
                     f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
                 }
             },
-            markdown: ''
+            endzyme: ''
         }
     },
     components: {
@@ -283,7 +283,7 @@ export default {
         fetch('/drylab/endzyme.md')     
             .then(res => res.text())
             .then(text => {
-        this.markdown = text
+        this.endzyme = text
       });
     },
     methods: {
@@ -297,8 +297,8 @@ export default {
         }
     },
     computed: {
-        markdownToHtml() {
-            return marked(this.markdown);
+        endzymeToHtml() {
+            return marked(this.endzyme);
         }
     }
 }

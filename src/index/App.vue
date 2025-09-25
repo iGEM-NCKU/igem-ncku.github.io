@@ -30,7 +30,13 @@
             </v-card>
         </div>
     </div>
-    <div id = Taiwan class = Taiwan />
+    <div id = Taiwan class = 'Taiwan'>
+        <v-card variant="plain" class="transparent-card">
+            <template #title>
+                <b class = 'red-text' style="font-size: 32px;">In Taiwan <br>20% are above 65%</b>
+            </template>
+        </v-card>
+    </div>
 
 
     <v-container>
@@ -129,12 +135,15 @@ export default {
             this.loading = false;
         }, 100);
         setInterval(() => {
+            const filter = $('#filter-inside');
+            const taiwan = $('#Taiwan');
+            const taiwanOffset = taiwan.offset().top;
             var currently_position = (window.scrollY);
             var page_length = (document.body.clientHeight);
             var window_height = (window.innerHeight);
             var now = ($('#filter-inside').position().top);
             var height = ($('#filter-inside').height());
-
+            var taiwanHight = ($('#Taiwan').height());
             var max = (a, b) => (a > b ? a : b);
             var min = (a, b) => (a ^ b ^ max(a, b));
             
@@ -145,12 +154,11 @@ export default {
                     'filter': `brightness(${1 - scale * 2})`,
                     // transform: `scale(${1 + (currently_position*0.001) })`,
                 })
+                let taiwanScale = (scrollY - taiwanOffset) / taiwanHight;
+                console.log(taiwanScale);
                 $('.Taiwan').css({
-                    //'background-size': `${100 + (scale * 700)}%`,
-                    'filter': `brightness(1)`,
-                    // transform: `scale(${1 + (currently_position*0.001) })`,
+                    'filter': `brightness(${1 - taiwanScale * 2})`,
                 })
-
 
                 let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
                 console.log(sc);
@@ -230,7 +238,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 .scroller {
     background-color: black;
-    min-height: 400vh;
+    min-height: 200vh;
     background-attachment: fixed;
     background-position: 80% 45%;
     background-repeat: no-repeat;
@@ -241,7 +249,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 .Taiwan {
     background-color: black;
-    min-height: 500vh;
+    min-height: 200vh;
     background-attachment: fixed;
     background-position: 80% 45%;
     background-repeat: no-repeat;

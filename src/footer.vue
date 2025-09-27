@@ -1,5 +1,5 @@
 <template>
-  <v-footer height="auto" class="glass elevate mt-10" style="border-radius: var(--radius);">
+  <v-footer height="auto" class="glass elevate mt-10" style="border-radius: var(--radius); position: related;">
     <v-container class="py-6">
       <v-row>
         <v-col cols="12" md="6" class="mb-4">

@@ -92,6 +92,9 @@ export default {
         return {
             pre: ['education', 'integrated-human-practices', 'members', 'wetlab', 'introduction-to-problems', 'software', 'model', ],
             f: {
+                'sponser': {
+                    icon: 'fa-solid fa-key',
+                },
                 'Team': {
                     icon: 'fa-solid fa-circle-user',
                     subpages: [
@@ -181,9 +184,12 @@ export default {
             var x = now.top;
             var y = now.left;
             x += ($('#menu').first().height());
-            // console.log(`${x} ${y}`);
+                        // console.log(`${x} ${y}`);
+            if(!now.is('sponsor')){
             $('.subnav').first().css({top: x, left: y, 'z-index': 1000});
             $('.subnav').show();
+            }
+
         },
         hide_subnav() {
             $('.subnav').hide();

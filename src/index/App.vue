@@ -100,7 +100,7 @@ import $ from 'jquery'
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import site_footer from '@/footer.vue'
-import index_wallpaper from './wallpaper.vue'
+import index_wallpaper from '@/index/wallpaper.vue'
 
 import { useDisplay } from 'vuetify'
 

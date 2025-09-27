@@ -268,7 +268,6 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     background-color: black;
     min-height: 300vh;
     background-attachment: fixed;
-    background-position: 80% 45%;
     background-repeat: no-repeat;
     background-size: contain;
     backdrop-filter: blur(10px);

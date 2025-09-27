@@ -106,7 +106,8 @@ export default {
                         {name: 'engineering', icon: undefined}, 
                         {name: 'experiments', icon: undefined}, 
                         {name: 'notebook', icon: undefined}, 
-                        {name: 'results', icon: undefined}
+                        {name: 'results', icon: undefined},
+                        {name: 'ml-model', icon: undefined}
                     ]
                 },
                 'Labs': {

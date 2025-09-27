@@ -160,9 +160,21 @@ export default {
                     // transform: `scale(${1 + (currently_position*0.001) })`,
                 })
                 let taiwanScale = (scrollY - taiwanOffset) / taiwanHight;
-                console.log(taiwanScale);
+                let progress = Math.min(Math.max(taiwanScale, 0), 1);
+                let brightness;
+                if (progress <= 0.5) {
+                    brightness = progress * 2;
+                }else if(progress >0.5 && progress <=0.7){
+                    brightness = 1;
+                }else {
+                    brightness = (1 - progress) * 2;
+                }
+                console.log(brightness);
                 $('.Taiwan').css({
-                    'filter': `brightness(${1 - taiwanScale * 2})`,
+                    'filter': `brightness(1)`,
+                })
+                $('.Taiwan').css({
+                    'filter': `brightness(${brightness})`,
                 })
 
                 let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
@@ -265,7 +277,15 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }   
 .transparent-card {
     position: absolute;
-    top: 20vw;
+    top: 10vw;
+    left: 10vw;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.transparent-card_TW {
+    position: absolute;
+    top: 130vw;
     left: 55vw;
     background: transparent !important;
     box-shadow: none !important;
@@ -284,7 +304,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 #filter-inside {
     background-color: rgba(255, 255, 255, .34);
     width: 45vw;
-    height: 80%;
+    height: 10vw;
     z-index: 10;
     position: fixed;
     top: 10%;

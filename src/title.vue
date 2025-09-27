@@ -92,6 +92,9 @@ export default {
         return {
             pre: ['education', 'integrated-human-practices', 'members', 'wetlab', 'introduction-to-problems', 'software', 'model', ],
             f: {
+                'sponser': {
+                    icon: 'fa-solid fa-key',
+                },
                 'Team': {
                     icon: 'fa-solid fa-circle-user',
                     subpages: [
@@ -99,25 +102,39 @@ export default {
                         {name: 'members', icon: undefined}
                     ]
                 },
+                'HP': {
+                    icon: 'fa-solid fa-person',
+                    subpages: [
+                        {name: 'human-practices', icon: undefined}, 
+                        {name: 'education', icon: undefined}, 
+                        {name: 'inclusivity', icon: undefined},
+                        {name: 'sustainability', icon: undefined}
+                    ]
+                },
+                'DRY': {
+                    icon: 'fa-solid fa-computer',
+                    subpages: [
+                        {name: 'software', icon: undefined}, 
+                        {name: 'model', icon: undefined}, 
+                    ]
+                },
+                'WET': {
+                    icon: 'fa-solid fa-flask',
+                    subpages: [
+                        {name: 'experiments', icon: undefined}, 
+                        {name: 'notebook', icon: undefined}, 
+                        {name: 'measurement', icon: undefined},
+                        {name: 'safety-and-security', icon: undefined}
+                    ]
+                },
                 'Project': {
                     icon: 'fa-solid fa-bars-progress',
                     subpages: [
                         {name: 'description', icon: undefined}, 
                         {name: 'engineering', icon: undefined}, 
-                        {name: 'experiments', icon: undefined}, 
-                        {name: 'notebook', icon: undefined}, 
                         {name: 'results', icon: undefined},
-                        {name: 'ml-model', icon: undefined}
                     ]
                 },
-                'Labs': {
-                    icon: 'fa-solid fa-flask',
-                    subpages: [
-                        {name: 'drylab', icon: undefined}, 
-                        {name: 'wetlab', icon: undefined}, 
-                        {name: 'integrated-human-practices', icon: undefined}
-                    ]
-                }
             },
             show_nav: false,
             scroll: {
@@ -167,9 +184,12 @@ export default {
             var x = now.top;
             var y = now.left;
             x += ($('#menu').first().height());
-            // console.log(`${x} ${y}`);
+                        // console.log(`${x} ${y}`);
+            if(!now.is('sponsor')){
             $('.subnav').first().css({top: x, left: y, 'z-index': 1000});
             $('.subnav').show();
+            }
+
         },
         hide_subnav() {
             $('.subnav').hide();

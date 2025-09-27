@@ -33,7 +33,7 @@
             </div>
         </div>
         <div id = Taiwan class = 'Taiwan'>
-            <v-card variant="plain" class="transparent-card">
+            <v-card variant="plain" class="transparent-card_TW">
                 <template #title>
                     <b class = 'red-text' style="font-size: 56px;">In Taiwan <br>20% are above 65</b>
                 </template>

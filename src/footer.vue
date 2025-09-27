@@ -35,8 +35,12 @@
           <div class="text-subtitle-1 mb-2" style="font-family: 'Nunito', 'Inter', sans-serif; font-weight: 700;">Sponsors</div>
           <div class="d-flex flex-wrap align-center" style="gap: 16px;">
             <template v-for="s in sponsors" :key="s.name">
-                <v-img class = 'cursor-help' @click = 'gourl(s.url)' v-if="s.logo" :src="s.logo" :alt="s.name" height="50" contain style="max-width: 140px;" />
-                <v-chip v-else color="primary" variant="tonal" class="text-capitalize">{{ s.name }}</v-chip>
+              <v-tooltip :text = s.popup>
+                <template #activator = '{props}'>
+                  <v-img class = 'cursor-help' v-bind = props @click = 'gourl(s.url)' v-if="s.logo" :src="s.logo" :alt="s.name" height="50" contain style="max-width: 140px;" />
+                  <v-chip v-else color="primary" variant="tonal" class="text-capitalize">{{ s.name }}</v-chip>
+                </template>
+              </v-tooltip>
             </template>
           </div>
         </v-col>
@@ -58,10 +62,10 @@ export default {
   data() {
     return {
       sponsors: [
-        {name: 'NCKU', url: 'https://web.ncku.edu.tw', logo: 'https://static.igem.wiki/teams/6003/logo/national-cheng-kung-university-logo.webp'},
-        {name: 'MoE', url: 'https://english.moe.gov.tw/mp-1.html', logo: 'https://static.igem.wiki/teams/6003/logo/moe-logo.webp'},
-        { name: 'IDT', url: 'https://www.idtdna.com/', logo: 'https://static.igem.wiki/teams/6003/logo/idt-logo.webp' },
-        { name: 'IV-Tech', url: 'https://www.ivt.com.tw', logo: 'IV-tech.png' }
+        {name: 'NCKU', popup: 'Our school in Tainan:D', url: 'https://web.ncku.edu.tw', logo: 'https://static.igem.wiki/teams/6003/logo/national-cheng-kung-university-logo.webp'},
+        {name: 'MoE', popup: 'Good sponsor', url: 'https://english.moe.gov.tw/mp-1.html', logo: 'https://static.igem.wiki/teams/6003/logo/moe-logo.webp'},
+        { name: 'IDT', popup: 'Also good sponsor:D', url: 'https://www.idtdna.com/', logo: 'https://static.igem.wiki/teams/6003/logo/idt-logo.webp' },
+        { name: 'IV-Tech', popup: 'Excellent sponsor ouob', url: 'https://www.ivt.com.tw', logo: 'IV-tech.png' }
       ],
     }
   },

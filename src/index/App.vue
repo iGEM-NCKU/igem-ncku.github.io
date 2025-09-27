@@ -6,52 +6,54 @@
     <!-- {{ mobile }} -->
     
     <v-main>
+
+        
         <!-- <v-icon>fa-solid fa-home</v-icon>
         <v-btn icon = 'mdi-alpha-r-circle-outline mdi-set' class = mdi-alpha-r-circle-outline></v-btn>
         <v-icon class = 'mdi-alpha-r-circle-outline mdi-set'></v-icon> -->
-
-    <div class = 'scroller' id = map>
-        <v-card variant="plain" class="transparent-card">
-            <template #title>
-                <b class = 'white-text' style="font-size: 32px;"> Projected global median age<br>from 1950 to 2100</b>
-            </template>
-        </v-card>
-        <div id = 'filter-inside'>
-            <v-card variant = plain>
+        
+        <div class = 'scroller' id = map>
+            <v-card variant="plain" class="transparent-card">
                 <template #title>
-                    <b class = 'white-text'> Here is the title </b>
+                    <b class = 'white-text' style="font-size: 32px;"> Projected global median age<br>from 1950 to 2100</b>
                 </template>
-                <template #subtitle>
-                    Here comes the subtitle
-                </template>
-                <template #text>
-                    This is a book
+            </v-card>
+            <div id = 'filter-inside'>
+                <v-card variant = plain>
+                    <template #title>
+                        <b class = 'white-text'> Here is the title </b>
+                    </template>
+                    <template #subtitle>
+                        Here comes the subtitle
+                    </template>
+                    <template #text>
+                        This is a book
+                    </template>
+                </v-card>
+            </div>
+        </div>
+        <div id = Taiwan class = 'Taiwan'>
+            <v-card variant="plain" class="transparent-card">
+                <template #title>
+                    <b class = 'red-text' style="font-size: 56px;">In Taiwan <br>20% are above 65</b>
                 </template>
             </v-card>
         </div>
-    </div>
-    <div id = Taiwan class = 'Taiwan'>
-        <v-card variant="plain" class="transparent-card">
-            <template #title>
-                <b class = 'red-text' style="font-size: 56px;">In Taiwan <br>20% are above 65</b>
-            </template>
-        </v-card>
-    </div>
-
-
-    <v-container>
-
-        <page_loader :loading = video_play />
-        <v-dialog v-model = 'video_play' width = auto>
-            <!-- For video -->
-            <v-card justify = center>
-                <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/sBDRwoa4gaBw365v6svKyc?autoplay=1" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </v-card>
-        </v-dialog>
-
-        <v-row>
-            <v-col cols = 12>
-                <v-card
+        
+        
+        <v-container>
+            
+            <page_loader :loading = video_play />
+            <v-dialog v-model = 'video_play' width = auto>
+                <!-- For video -->
+                <v-card justify = center>
+                    <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/sBDRwoa4gaBw365v6svKyc?autoplay=1" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+                </v-card>
+            </v-dialog>
+            
+            <v-row>
+                <v-col cols = 12>
+                    <v-card
                     class = 'text-right'
                     subtitle = 'The iGEM Tainan 2025'
                     color = black
@@ -59,7 +61,7 @@
                     style = 'backdrop-filter: blur(10px)'
                     @click = 'video_play = true'
                     :variant = 'alpha.card.style'
-                >
+                    >
                     <template v-slot:title>
                         Promotion <b class = 'green-text'> Video </b>
                     </template>
@@ -83,10 +85,11 @@
             </v-card>
         </v-card>
     </v-container>
+    <index_wallpaper />
+    
+</v-main></v-app>
 
-    </v-main></v-app>
-
-    <site_footer></site_footer>
+<site_footer></site_footer>
 </template>
 
 <script>
@@ -97,6 +100,7 @@ import $ from 'jquery'
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import site_footer from '@/footer.vue'
+import index_wallpaper from './wallpaper.vue'
 
 import { useDisplay } from 'vuetify'
 
@@ -124,7 +128,8 @@ export default {
     components: {
         title_nav,
         page_loader,
-        site_footer
+        site_footer,
+        index_wallpaper
     },
     mounted() {
         M.AutoInit();

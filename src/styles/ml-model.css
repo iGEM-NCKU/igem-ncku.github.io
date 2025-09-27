@@ -1,0 +1,51 @@
+/* Extracted from biofilm_prediction/static/index.html <style> for 1:1 UI */
+.tool-surface {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f7f2;
+  color: #1a472a;
+}
+.tool-surface h1, .tool-surface h2, .tool-surface h3, .tool-surface h4, .tool-surface h5, .tool-surface h6 { font-family: 'Nunito', sans-serif; }
+.tool-surface .card { background-color: #ffffff; }
+.status-dot { width: 0.625rem; height: 0.625rem; border-radius: 9999px; transition: color 150ms; }
+.tooltip { position: absolute; visibility: hidden; z-index: 20; width: max-content; max-width: 20rem; background: #1f2937; color: #fff; font-size: .75rem; border-radius: .5rem; padding: .5rem .75rem; margin-top: -2.5rem; transition: opacity .3s; box-shadow: 0 10px 25px rgba(0,0,0,.25); }
+.has-tooltip:hover .tooltip { visibility: visible; opacity: 1; }
+input[type='number']::-webkit-inner-spin-button, input[type='number']::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type='number'] { -moz-appearance: textfield; }
+.tool-surface .custom-scrollbar::-webkit-scrollbar { height: 8px; }
+.tool-surface .custom-scrollbar::-webkit-scrollbar-track { background-color: #f1f5f9; border-radius: 10px; }
+.tool-surface .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #a8c899; border-radius: 10px; }
+.tool-surface .sticky-header thead { position: sticky; top: 0; z-index: 10; }
+
+/* Slider styling aligned with theme greens */
+.tool-surface input[type='range'] { accent-color: #A8C899; }
+.tool-surface .ratio-slider { -webkit-appearance: none; appearance: none; height: 8px; width: 10rem; background: #e5e7eb; border-radius: 9999px; outline: none; transition: filter 120ms ease; }
+.tool-surface .ratio-slider:hover { filter: brightness(1.02); }
+.tool-surface .ratio-slider:focus { box-shadow: 0 0 0 3px rgba(168,200,153,0.35); }
+.tool-surface .ratio-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; height: 18px; width: 18px; border-radius: 9999px; background-color: #ffffff; border: 2px solid #A8C899; cursor: pointer; transition: transform 120ms ease, box-shadow 120ms ease; }
+.tool-surface .ratio-slider:hover::-webkit-slider-thumb { transform: scale(1.06); box-shadow: 0 1px 6px rgba(26,71,42,0.18); }
+.tool-surface .ratio-slider:active::-webkit-slider-thumb { transform: scale(1.08); }
+.tool-surface .ratio-slider::-moz-range-thumb { height: 18px; width: 18px; border-radius: 9999px; background-color: #ffffff; border: 2px solid #A8C899; cursor: pointer; transition: transform 120ms ease, box-shadow 120ms ease; }
+.tool-surface .ratio-slider:hover::-moz-range-thumb { transform: scale(1.06); box-shadow: 0 1px 6px rgba(26,71,42,0.18); }
+.tool-surface .ratio-slider:active::-moz-range-thumb { transform: scale(1.08); }
+.tool-surface .ratio-slider::-moz-range-track { height: 8px; background-color: #e5e7eb; border-radius: 9999px; }
+
+/* Focus outlines */
+.tool-surface input:focus, .tool-surface select:focus, .tool-surface textarea:focus { outline: none !important; box-shadow: 0 0 0 3px rgba(168,200,153,0.35) !important; border-color: #A8C899 !important; }
+.tool-surface input[type='range']:focus { box-shadow: 0 0 0 3px rgba(168,200,153,0.35) !important; }
+
+/* Subtle entrance + feedback animations */
+.row-enter { animation: fadeSlideIn 280ms ease-out both; }
+@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.pulse-highlight { animation: pulseGlow 900ms ease-out 1; }
+@keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(168,200,153,0.0); } 35% { box-shadow: 0 0 0 6px rgba(168,200,153,0.28); } 100% { box-shadow: 0 0 0 0 rgba(168,200,153,0.0); } }
+.row-exit { animation: fadeSlideOut 360ms ease-in forwards; }
+@keyframes fadeSlideOut { 0% { opacity: 1; transform: translateX(0); background-color: #fff; } 40% { background-color: #fee2e2; } 100% { opacity: 0; transform: translateX(-16px); background-color: #fff; } }
+
+/* Predicted progress bar */
+.tool-surface .progress-outer { width: 100%; background: #e5e7eb; height: 10px; border-radius: 9999px; overflow: hidden; }
+.tool-surface .progress-inner { height: 10px; background: #16a34a; border-radius: 9999px; width: 0%; transition: width 600ms cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* Button micro-interactions */
+.tool-surface .get-prediction-btn, .tool-surface .copy-row-btn, .tool-surface .delete-row-btn, .tool-surface #add-row-btn, .tool-surface #find-optimal-mix-btn, .tool-surface #export-csv-btn { transition: transform 120ms ease, box-shadow 160ms ease; }
+.tool-surface .get-prediction-btn:hover, .tool-surface .copy-row-btn:hover, .tool-surface .delete-row-btn:hover, .tool-surface #add-row-btn:hover, .tool-surface #find-optimal-mix-btn:hover, .tool-surface #export-csv-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 12px rgba(26,71,42,0.08); }
+.tool-surface .get-prediction-btn:active, .tool-surface .copy-row-btn:active, .tool-surface .delete-row-btn:active, .tool-surface #add-row-btn:active, .tool-surface #find-optimal-mix-btn:active, .tool-surface #export-csv-btn:active { transform: translateY(0); }

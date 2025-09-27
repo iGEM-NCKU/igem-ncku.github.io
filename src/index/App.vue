@@ -134,7 +134,7 @@ export default {
         setTimeout(() => {
             this.loading = false;
         }, 100);
-        setInterval(() => {
+        addEventListener('scroll', () => {
             const filter = $('#filter-inside');
             const taiwan = $('#Taiwan');
             const taiwanOffset = taiwan.offset().top;
@@ -176,7 +176,7 @@ export default {
                     left: sc
                 }, 0);
             }
-        }, 100);
+        });
     },
     methods: {
         submit() {

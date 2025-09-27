@@ -33,7 +33,7 @@
     <div id = Taiwan class = 'Taiwan'>
         <v-card variant="plain" class="transparent-card">
             <template #title>
-                <b class = 'red-text' style="font-size: 56px;">In Taiwan <br>20% are above 65</b>
+                <b class = 'red-text' style="font-size: 32px;">In Taiwan <br>20% are above 65%</b>
             </template>
         </v-card>
     </div>
@@ -155,9 +155,19 @@ export default {
                     // transform: `scale(${1 + (currently_position*0.001) })`,
                 })
                 let taiwanScale = (scrollY - taiwanOffset) / taiwanHight;
-                console.log(taiwanScale);
+                let progress = Math.min(Math.max(taiwanScale, 0), 1);
+                let brightness;
+                if (progress <= 0.5) {
+                    brightness = progress * 2; // 0 → 1
+                } else {
+                    brightness = (1 - progress) * 2; // 1 → 0
+                }
+                console.log(brightness);
                 $('.Taiwan').css({
-                    'filter': `brightness(${1 - taiwanScale * 2})`,
+                    'filter': `brightness(1)`,
+                })
+                $('.Taiwan').css({
+                    'filter': `brightness(${brightness})`,
                 })
 
                 let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
@@ -260,7 +270,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }   
 .transparent-card {
     position: absolute;
-    top: 20vw;
+    top: 150vw;
     left: 55vw;
     background: transparent !important;
     box-shadow: none !important;

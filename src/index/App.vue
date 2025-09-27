@@ -31,7 +31,7 @@
         </div>
     </div>
     <div id = Taiwan class = 'Taiwan'>
-        <v-card variant="plain" class="transparent-card">
+        <v-card variant="plain" class="transparent-card_TW">
             <template #title>
                 <b class = 'red-text' style="font-size: 54px;">In Taiwan <br>20% are above 65</b>
             </template>
@@ -272,7 +272,15 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }   
 .transparent-card {
     position: absolute;
-    top: 150vw;
+    top: 10vw;
+    left: 10vw;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.transparent-card_TW {
+    position: absolute;
+    top: 130vw;
     left: 55vw;
     background: transparent !important;
     box-shadow: none !important;

@@ -11,7 +11,7 @@
         <!-- <v-icon>fa-solid fa-home</v-icon>
         <v-btn icon = 'mdi-alpha-r-circle-outline mdi-set' class = mdi-alpha-r-circle-outline></v-btn>
         <v-icon class = 'mdi-alpha-r-circle-outline mdi-set'></v-icon> -->
-        
+
         <div class = 'scroller' id = map>
             <v-card variant="plain" class="transparent-card">
                 <template #title>
@@ -32,6 +32,7 @@
                 </v-card>
             </div>
         </div>
+        
         <div id = Taiwan class = 'Taiwan'>
             <v-card variant="plain" class="transparent-card_TW">
                 <template #title>
@@ -40,7 +41,21 @@
             </v-card>
         </div>
         
-        
+         <div class = 'PJI'>
+            
+        </div>
+         <div class = 'RISKFACTOR'>
+            
+        </div>
+        <div class = 'conclusion'>
+
+        </div>
+        <div class = 'oursolution'>
+
+        </div>
+        <div class = 'logo'>
+
+        </div>    
         <v-container>
             
             <page_loader :loading = video_play />
@@ -299,6 +314,9 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 #Taiwan {
     background-image: url('/public/TGEM_TW-Tainan.jpg');
+}
+#black {
+    background-image: url('/public/black.jpg');
 }
 #filter-inside {
     background-color: rgba(255, 255, 255, .34);

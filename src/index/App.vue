@@ -33,7 +33,7 @@
     <div id = Taiwan class = 'Taiwan'>
         <v-card variant="plain" class="transparent-card">
             <template #title>
-                <b class = 'red-text' style="font-size: 32px;">In Taiwan <br>20% are above 65%</b>
+                <b class = 'red-text' style="font-size: 54px;">In Taiwan <br>20% are above 65</b>
             </template>
         </v-card>
     </div>
@@ -158,9 +158,11 @@ export default {
                 let progress = Math.min(Math.max(taiwanScale, 0), 1);
                 let brightness;
                 if (progress <= 0.5) {
-                    brightness = progress * 2; // 0 → 1
-                } else {
-                    brightness = (1 - progress) * 2; // 1 → 0
+                    brightness = progress * 2;
+                }else if(progress >0.5 && progress <=0.7){
+                    brightness = 1;
+                }else {
+                    brightness = (1 - progress) * 2;
                 }
                 console.log(brightness);
                 $('.Taiwan').css({
@@ -289,7 +291,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 #filter-inside {
     background-color: rgba(255, 255, 255, .34);
     width: 45vw;
-    height: 80%;
+    height: 10vw;
     z-index: 10;
     position: fixed;
     top: 10%;

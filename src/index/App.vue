@@ -169,7 +169,7 @@ export default {
                 }else {
                     brightness = (1 - progress) * 2;
                 }
-                console.log(brightness);
+                // console.log(brightness);
                 $('.Taiwan').css({
                     'filter': `brightness(1)`,
                 })
@@ -178,7 +178,7 @@ export default {
                 })
 
                 let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
-                console.log(sc);
+                // console.log(sc);
                 $('#filter-inside').css({
                     left: sc
                 }, 0);

@@ -1,13 +1,14 @@
 <template>
     <div class = bs>
-        <v-card title = 這裡應該要有影片 class = bs>
+        <v-card class = 'bs' id = one>
             <div class = 'center-align valign-center bs'>
-                <div class = start></div>
-                <h1 id = 'title_knee_new_life'> <b> A new knee, A new life ? </b> </h1>
-                <div class = 'scroll container'>
-                    <h2 id = 'not_always'> Not always </h2>
+                <div for = one>
+                    <h1 id = 'title_knee_new_life'> <b> A new knee, A new life ? </b> </h1>
+                    <div class = 'scroll container'>
+                        <h2 id = 'not_always'> Not always </h2>
+                        {{ dock_observer.one }}
+                    </div>
                 </div>
-                <div class = end></div>
             </div>
         </v-card>
     </div>
@@ -16,13 +17,14 @@
 <script>
  /* eslint-disable */ 
 import $ from 'jquery'
-import { animate, stagger, onScroll } from 'animejs';
+import { animate, stagger, onScroll, text } from 'animejs';
 
 export default {   
     name: 'home_wallpaper',
     data() {
         return {
-            ouob: true
+            ouob: true,
+            dock_observer: {}
         }
     },
     mounted() {
@@ -50,6 +52,32 @@ export default {
                 sync: 'inOutCirc'
             })
         });
+        animate('.dock', {
+            autoplay: onScroll({
+                container: '.scroll-container',
+                enter: 'top topz',
+                leave: 'bottom bottom',
+                sync: 'inOutCirc',
+                onEnter: (e) => {
+                    this.dock_observer[e.target.id] = true;
+                    console.log(`Enter - ${e.target.id}`)
+                },
+                onLeave: (e) => {
+                    this.dock_observer[e.target.id] = false;
+                    console.log(`Leave - ${e.target.id}`)
+                }
+            })
+        })
+        // addEventListener('scroll', () => {
+        //     for(var i in this.dock_observer) {
+        //         if(this.dock_observer[i] == true) {
+        //             $(`div[for=${i}]`).css({
+        //                 'background-color': 'red',
+        //                 top: window.scrollY - $(`#${i}`).position().top
+        //             }, 0)
+        //         }
+        //     }
+        // })
     },
     methods: {
     }
@@ -59,28 +87,13 @@ export default {
 <style scoped>
 .bs {
     position: relative;
-    height: 200vh;
+    height: 100vh;
     width: 100vw;
-    backdrop-filter: blur(10px);
-}
-.start {
-    position: absolute;
-    top: 25%;
-    width: 10px;
-    height: 10px;
-    background-color: black;
-}
-.end {
-    position: relative;
-    bottom: 100%;
-    width: 10px;
-    height: 10px;
-    background-color: black;
+    /* backdrop-filter: blur(10px); */
 }
 .center-align {
-    position: absolute;
-    top: 50vh;
-    left: 0px;
+    /* position: absolute; */
+    top: 50%;
     width: 100vw;
     text-align: center;
 }
@@ -94,5 +107,12 @@ export default {
     color: red;
     font-weight: 900;
     opacity: 0%;
+}
+.docked {
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    top: 50vh;
+    left: 0px;
 }
 </style>

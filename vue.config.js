@@ -10,7 +10,7 @@ module.exports = defineConfig({
     education: 'src/education/main.js',
     'introduction-to-problems': 'src/introduction/main.js',
     test: 'src/test/main.js',
-    drylab: 'src/drylab/main.js',
-    'ml-model': 'src/ml-model/main.js'
-  }
+    software: 'src/software/main.js',
+    model: 'src/model/main.js',
+    }
 })

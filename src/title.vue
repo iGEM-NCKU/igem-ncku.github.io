@@ -184,12 +184,12 @@ export default {
             var x = now.top;
             var y = now.left;
             x += ($('#menu').first().height());
-                        // console.log(`${x} ${y}`);
-            if(!now.is('sponsor')){
+            //console.log(`${x} ${y}`);
+            console.log(now);
+            if(!$('#menu').first().is('sponsor')){
             $('.subnav').first().css({top: x, left: y, 'z-index': 1000});
             $('.subnav').show();
             }
-
         },
         hide_subnav() {
             $('.subnav').hide();

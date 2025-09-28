@@ -52,7 +52,6 @@
  /* eslint-disable */ 
 import $ from 'jquery'
 import M from 'materialize-css'
-import { marked } from 'marked'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
@@ -74,7 +73,6 @@ export default {
                     f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
                 }
             },
-            endzyme: ''
         }
     },
     components: {
@@ -104,11 +102,6 @@ export default {
             return (f.join(' '));
         }
     },
-    computed: {
-        endzymeToHtml() {
-            return marked(this.endzyme);
-        }
-    }
 }
 </script>
 

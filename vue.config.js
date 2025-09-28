@@ -11,6 +11,6 @@ module.exports = defineConfig({
     'introduction-to-problems': 'src/introduction/main.js',
     test: 'src/test/main.js',
     software: 'src/software/main.js',
-    'ml-model': 'src/ml-model/main.js'
-  }
+    model: 'src/model/main.js',
+    }
 })

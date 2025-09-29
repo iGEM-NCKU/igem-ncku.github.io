@@ -43,7 +43,7 @@
                     <v-tabs-window-item value="Miniprep">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Miniprep</strong></h2>
+                            <h3><strong>Miniprep</strong></h3>
                             <p><strong>1.Centrifugation of Bacterial Culture</strong></p>
                             <p>Transfer 1.5 mL of bacterial culture into an Eppendorf tube and centrifuge it at 12,000 rpm for 1 minute at room temperature. After centrifugation, discard the supernatant. Repeat the process by adding another 1.5 mL of culture to the same tube, centrifuge again under the same conditions, and discard the supernatant.</p>
                             <p><strong>2.Resuspension</strong></p>
@@ -69,7 +69,7 @@
                     <v-tabs-window-item value="Agarose Gel Preparation">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Agarose Gel Preparation</strong></h2>
+                            <h3><strong>Agarose Gel Preparation</strong></h3>
                             <p><strong>1.Prepare Agarose Solution</strong></p>
                             <p>For a small gel, combine 20 mL of TBE buffer with 0.14 g of agarose. For a large gel, combine 50 mL of TBE buffer with 0.35 g of agarose. Weigh the agarose carefully and add the appropriate volume of TBE buffer into a conical flask.</p>
                             <p><strong>2.Dissolve Agarose</strong></p>
@@ -84,7 +84,7 @@
                     <v-tabs-window-item value="Electrophoresis">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Electrophoresis</strong></h2>
+                            <h3><strong>Electrophoresis</strong></h3>
                             <p><strong>1.Set Up Gel in Chamber</strong></p>
                             <p>Place the prepared agarose gel into the electrophoresis chamber and add enough TBE buffer to completely submerge the gel. Ensure that the gel is fully covered to allow proper conduction of the electric current.</p>
                             <p><strong>2.Prepare and Load Samples</strong></p>
@@ -98,7 +98,7 @@
                     <v-tabs-window-item value="PCR">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>PCR</strong></h2>
+                            <h3><strong>PCR</strong></h3>
                             <p><strong>1.Thawing Components</strong></p>
                             <p>Thaw all components on ice except for the enzyme. Keep the enzyme in the freezer until immediately before use, as it must remain cold and stable.</p>
                             <p><strong>2.Preparation of Reaction Mix</strong></p>
@@ -204,7 +204,7 @@
                     <v-tabs-window-item value="PCR purified">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>PCR purified</strong></h2>
+                            <h3><strong>PCR purified</strong></h3>
                             <p><strong>1. Binding of PCR Product</strong></p>
                             <p>Mix the PCR reaction solution with five volumes of DS Buffer. The maximum PCR product volume is 100 µL. If the volume exceeds this limit, divide it into multiple tubes.</p>
                             <p><strong>2. Loading onto DF Column</strong></p>
@@ -223,7 +223,7 @@
                     <v-tabs-window-item value="Gel extraction">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Gel extraction</strong></h2>
+                            <h3><strong>Gel extraction</strong></h3>
                             <p><strong>1.Excise and Dissolve Gel</strong></p>
                             <p>Excise the DNA fragment from the agarose gel. Weigh the gel slice. Add 100 µL of Binding Buffer for every 100 mg of gel.</p>
                             <p>Incubate the mixture at 60 °C for 5–15 minutes, vortexing every 2–3 minutes until the gel slice is completely dissolved. After the gel is fully dissolved, add five volumes of Binding Buffer relative to the original gel slice.</p>
@@ -242,7 +242,7 @@
                     <v-tabs-window-item value="Digestion">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Digestion</strong></h2>
+                            <h3><strong>Digestion</strong></h3>
                             <p><strong>1. Buffer Preparation</strong></p>
                             <p>Thaw the appropriate buffer on ice according to the restriction enzyme requirements. Keep enzymes in the freezer until immediately before use.</p>
                             <p><strong>2. Reaction Setup</strong></p>
@@ -291,7 +291,7 @@
                     <v-tabs-window-item value="EtOH Precipitation">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>EtOH Precipitation</strong></h2>
+                            <h3><strong>EtOH Precipitation</strong></h3>
                             <p><strong>1. Precipitation</strong></p>
                             <p>Add 1/10 volume of 3 M NaAc and 2.5 volumes of 99% EtOH to the DNA sample. Mix gently and incubate at –20 °C for 1 hour.</p>
                             <p><strong>2. Pellet Collection</strong></p>
@@ -310,7 +310,7 @@
                     <v-tabs-window-item value="Transformation">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Transformation</strong></h2>
+                            <h3><strong>Transformation</strong></h3>
                             <p><strong>1. Cuvette Preparation</strong></p>
                             <p>Rinse the cuvette with sterile water, remove residual liquid using a pipette, and place the cuvette in the fume hood to dry completely.</p>
                             <p><strong>2. Bacterial Culture</strong></p>
@@ -343,7 +343,7 @@
                     <v-tabs-window-item value="Ligation">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Ligation</strong></h2>
+                            <h3><strong>Ligation</strong></h3>
                                 <p><strong>1. Reaction Setup</strong></p>
                                 <p>Prepare the ligation mixture on ice according to the table below:</p>
                                 <table>
@@ -382,7 +382,7 @@
                     <v-tabs-window-item value="SDS-page">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>SDS-page</strong></h2>
+                            <h3><strong>SDS-page</strong></h3>
                             <p><strong>1.Cell Culture and Sample Preparation</strong></p>
                             <p>Inoculate a fresh tube with 5 mL LB medium and add 5 µL of overnight E. coli culture along with the appropriate antibiotic. Incubate at 25°C until the culture reaches an OD₆₀₀ of ~0.4–0.6. Add IPTG to induce protein expression, and continue incubation at 25°C for 3 hours.</p>
                             <p>Measure the OD₆₀₀ and calculate the volume of culture to harvest based on the formula:</p>
@@ -474,7 +474,7 @@
                     <v-tabs-window-item value="Western blot">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Western blot</strong></h2>
+                            <h3><strong>Western blot</strong></h3>
                             <p><strong>1.Cell Culture and Sample Preparation</strong></p>
                             <p>Inoculate a fresh tube with 5 mL LB medium and add 5 µL of overnight E. coli culture along with the appropriate antibiotic. Incubate at 25°C until the culture reaches an OD₆₀₀ of ~0.4–0.6. Add IPTG to induce protein expression, and continue incubation at 25°C for 3 hours.</p>
                             <p>Measure the OD₆₀₀ and calculate the volume of culture to harvest based on the formula:</p>
@@ -579,7 +579,7 @@
                     <v-tabs-window-item value="Red recombination">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Red recombination</strong></h2>
+                            <h3><strong>Red recombination</strong></h3>
                             <p><strong>1. Culture Inoculation</strong></p>
                             <p>Inoculate 0.5 mL of overnight culture into 50 mL of fresh SOB medium without Mg²⁺. Grow the cells with shaking at 30 °C for 1.5 hours.</p>
                             <p><strong>2. Induction</strong></p>
@@ -608,7 +608,7 @@
                     <v-tabs-window-item value="P1 preparation">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>P1 preparation</strong></h2>
+                            <h3><strong>P1 preparation</strong></h3>
                             <p><strong>1. Host Culture</strong></p>
                             <p>Prepare an overnight culture of host E. coli in LB medium.</p>
                             <p><strong>2. Plate Preparation</strong></p>
@@ -637,7 +637,7 @@
                     <v-tabs-window-item value="P1 transduction">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>P1 transduction</strong></h2>
+                            <h3><strong>P1 transduction</strong></h3>
                             <p><strong>1. Recipient Cell Preparation</strong></p>
                             <p>Prepare an overnight culture of your recipient E. coli in LB medium. In a sterile test tube, mix 1.4 mL of fresh LB medium, 0.1 mL of 0.1 M CaCl₂, and 0.5 mL of the overnight culture. Incubate the mixture with shaking at 37°C for 2 hours to make the cells competent for P1 infection.</p>
                             <p><strong>2. Infection with P1 Phage</strong></p>
@@ -654,7 +654,7 @@
                         <v-tabs-window-item value="Lambda phage infection">
                         <v-card flat>
                             <v-card-text>
-                                <h2><strong>Lambda phage infection</strong></h2>
+                                <h3><strong>Lambda phage infection</strong></h3>
                                 <p><strong>1. Host Culture</strong></p>
                                 <p>Inoculate E. coli in 2 mL LB medium containing 0.2% maltose and incubate overnight.</p>
                                 <p><strong>2. Harvesting Cells</strong></p>
@@ -671,7 +671,7 @@
                         <v-tabs-window-item value="NautiaZ plasmid DNA midi">
                         <v-card flat>
                             <v-card-text>
-                                <h2><strong>NautiaZ plasmid DNA midi</strong></h2>
+                                <h3><strong>NautiaZ plasmid DNA midi</strong></h3>
                                 <p><strong>1.Harvesting Bacterial Culture</strong></p>
                                 <p>Transfer 100 mL of well-grown bacterial culture into a centrifuge tube. Centrifuge at 6,000 × g for 5 minutes to pellet the cells, then carefully discard the supernatant.</p>
                                 <p><strong>2.Cell Resuspension</strong></p>
@@ -692,7 +692,7 @@
                         <v-tabs-window-item value="Bioflim formation">
                         <v-card flat>
                             <v-card-text>
-                                <h2><strong>Bioflim formation</strong></h2>
+                                <h3><strong>Bioflim formation</strong></h3>
                                 <p><strong>1.Overnight Culture</strong></p>
                                 <p>Inoculate Staphylococcus aureus in 0.5xTSB (Tryptic Soy Broth) with 1% glucose and incubate overnight at 37°C to obtain a dense culture.</p>
                                 <p><strong>2.OD Measurement and Adjustment</strong></p>
@@ -707,7 +707,7 @@
                         <v-tabs-window-item value="Bioflim Quantification">
                         <v-card flat>
                             <v-card-text>
-                                <h2><strong>Bioflim Quantification</strong></h2>
+                                <h3><strong>Bioflim Quantification</strong></h3>
                                 <p><strong>1.Washing and Drying</strong></p>
                                 <p>Carefully wash the wells of the 96-well plate with RO water three times to remove non-adherent cells. Allow the plate to air dry.</p>
                                 <p><strong>2.Heat Fixation</strong></p>

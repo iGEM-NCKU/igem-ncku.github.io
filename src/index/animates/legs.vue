@@ -46,7 +46,7 @@ export default {
             autoplay: onScroll({
                 enter: 'top+=100vh top',
                 leave: 'top bottom',
-                sync: 'inOutCirc'
+                sync: true
             })
         })
     },

@@ -64,7 +64,7 @@ export default {
                 container: '.scroll-container',
                 enter: 'center+=200px top',
                 leave: 'center bottom',
-                sync: 'inOutCirc'
+                sync: true
             })
         });
         animate('#not_always', {
@@ -76,7 +76,7 @@ export default {
                 container: '.scroll-container',
                 enter: 'center+=200px top',
                 leave: 'center bottom',
-                sync: 'inOutCirc'
+                sync: true
             })
         });
         animate('.dock', {

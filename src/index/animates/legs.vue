@@ -1,6 +1,6 @@
 <template>
     <div class = bs>
-        <v-card class = 'bs' id = one align = start>
+        <v-card class = 'bs' id = two align = start>
             <template #image>
                 <video id = 'legs' src = 'assets/legs.mp4' control = false preload muted autoplay speed = '3'></video>
             </template>
@@ -29,22 +29,18 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        // animate(document.getElementById('legs'), {
-        //     currentTime: 10,
-        //     // loop: true,
-        //     autoplay: onScroll({
-        //         enter: 'bottom',
-        //         leave: 'top',
-        //         sync: 'inOutCirc',
-        //         onUpdate: () => {
-        //             this.test = document.getElementById('legs').currentTime
-        //         }
-        //     })
-        // })
-        animate('.title', {
-            y: '80vh',
+        animate('#legs', {
+            filter: "blur(0px)",
             autoplay: onScroll({
-                enter: 'top+=100vh top',
+                enter: 'top top',
+                leave: 'top-=200px top',
+                sync: true
+            })
+        })
+        animate('.title', {
+            y: '50vh',
+            autoplay: onScroll({
+                enter: 'top top',
                 leave: 'top bottom',
                 sync: true
             })
@@ -57,9 +53,10 @@ export default {
 
 <style scoped>
 .bs {
-    position: relative;
-    height: 150vh;
+    position: sticky;
+    height: 100vh;
     width: 100vw;
+    top: 0;
     margin-top: -100vh;
     /* z-index: -1; */
     /* backdrop-filter: blur(10px); */
@@ -69,5 +66,8 @@ export default {
     top: 50%;
     width: 100vw;
     /* text-align: center; */
+}
+#legs {
+    filter: blur(50px);
 }
 </style>

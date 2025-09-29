@@ -43,8 +43,8 @@ export default {
         });
         animate('#one', {
             autoplay: onScroll({
-                enter: 'bottom+=200px bottom',
-                leave: 'bottom bottom',
+                enter: 'top bottom',
+                leave: 'top-=200px bottom',
                 sync: 'inOutCirc',
                 onUpdate: self => {
                     console.log(self.progress);
@@ -104,7 +104,7 @@ export default {
 <style scoped>
 .bs {
     position: relative;
-    height: 200vh;
+    height: 100vh;
     width: 100vw;
     /* backdrop-filter: blur(10px); */
 }
@@ -136,5 +136,14 @@ export default {
     text-align: center;
     top: 50vh;
     left: 0px;
+}
+#man_walking {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+#one {
+    position: sticky;
+    top: 0;
 }
 </style>

@@ -29,6 +29,14 @@ export default {
     },
     mounted() {
         M.AutoInit();
+        animate('#legs', {
+            filter: "blur(0px)",
+            autoplay: onScroll({
+                enter: 'top top',
+                leave: 'top-=200px top',
+                sync: true
+            })
+        })
         animate('.title', {
             y: '50vh',
             autoplay: onScroll({
@@ -58,5 +66,8 @@ export default {
     top: 50%;
     width: 100vw;
     /* text-align: center; */
+}
+#legs {
+    filter: blur(50px);
 }
 </style>

@@ -19,6 +19,7 @@
                 >
                     <v-tab  :prepend-icon = 'tab == "Miniprep" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Miniprep" value="Miniprep"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "Agarose Gel Preparation" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Agarose Gel Preparation" value="Agarose Gel Preparation"></v-tab>
+                    <v-tab  :prepend-icon = 'tab == "Electrophoresis" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Electrophoresis" value="Electrophoresis"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "PCR" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR" value="PCR"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "PCR purified" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR purified" value="PCR purified"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "Gel extraction" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Gel extraction" value="Gel extraction"></v-tab>
@@ -28,7 +29,9 @@
                     <v-tab  :prepend-icon = 'tab == "Ligation" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Ligation" value="Ligation"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "SDS-page" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="SDS-page" value="SDS-page"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "Western blot" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Western blot" value="Western blot"></v-tab>
+                    <v-tab  :prepend-icon = 'tab == "Red recombination" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Red recombination" value="Red recombination"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "P1 preparation" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="P1 preparation" value="P1 preparation"></v-tab>
+                    <v-tab  :prepend-icon = 'tab == "P1 transduction" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="P1 transduction" value="P1 transduction"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "Lambda phage infection" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Lambda phage infection" value="Lambda phage infection"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "NautiaZ plasmid DNA midi" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="NautiaZ plasmid DNA midi" value="NautiaZ plasmid DNA midi"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "Bioflim formation" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Bioflim formation" value="Bioflim formation"></v-tab>
@@ -63,7 +66,6 @@
                         </v-card-text>
                     </v-card>
                     </v-tabs-window-item>
-
                     <v-tabs-window-item value="Agarose Gel Preparation">
                     <v-card flat>
                         <v-card-text>
@@ -79,7 +81,20 @@
                         </v-card-text>
                     </v-card>
                     </v-tabs-window-item>
-
+                    <v-tabs-window-item value="Electrophoresis">
+                    <v-card flat>
+                        <v-card-text>
+                            <h2><strong>Electrophoresis</strong></h2>
+                            <p><strong>1.Set Up Gel in Chamber</strong></p>
+                            <p>Place the prepared agarose gel into the electrophoresis chamber and add enough TBE buffer to completely submerge the gel. Ensure that the gel is fully covered to allow proper conduction of the electric current.</p>
+                            <p><strong>2.Prepare and Load Samples</strong></p>
+                            <p>Spot 1 µL of 10× loading dye onto a clean surface, then add 2 µL of the DNA sample. Mix thoroughly by pipetting to ensure even distribution of the dye. Carefully load the mixture into the designated wells of the gel.</p>
+                            <p><strong>3.Load DNA Ladder</strong></p>
+                            <p>Load 5 µL of DNA ladder into the last well to serve as a size reference for fragment analysis.</p>
+                            <p><strong>4.Run the Gel</strong></p>
+                            <p>Close the lid of the electrophoresis chamber and connect the power supply. Run the gel at 100 V for 30 minutes, monitoring occasionally to ensure the dye front moves properly.</p>                        </v-card-text>
+                    </v-card>
+                    </v-tabs-window-item>
                     <v-tabs-window-item value="PCR">
                     <v-card flat>
                         <v-card-text>
@@ -561,6 +576,35 @@
                         </v-card-text>
                     </v-card>
                     </v-tabs-window-item>
+                    <v-tabs-window-item value="Red recombination">
+                    <v-card flat>
+                        <v-card-text>
+                            <h2><strong>Red recombination</strong></h2>
+                            <p><strong>1. Culture Inoculation</strong></p>
+                            <p>Inoculate 0.5 mL of overnight culture into 50 mL of fresh SOB medium without Mg²⁺. Grow the cells with shaking at 30 °C for 1.5 hours.</p>
+                            <p><strong>2. Induction</strong></p>
+                            <p>Add an appropriate volume of 20% IPTG solution to the culture and continue incubation at 30 °C for 1 hour to induce the recombination system.</p>
+                            <p><strong>3. Cell Harvesting</strong></p>
+                            <p>Chill the culture flask on ice for 5 minutes. Transfer the culture into a 50 mL centrifuge tube and centrifuge at 6,000 rpm, 4 °C for 5 minutes. After this point, maintain the cells at cold temperature throughout the preparation steps.</p>
+                            <p><strong>4. First Wash</strong></p>
+                            <p>Carefully remove as much supernatant as possible. Resuspend the pellet in 1 mL of ice-cold 10% glycerol, transfer into a 1.5 mL tube, and centrifuge at 12,000 rpm, 4 °C for 1 minute.</p>
+                            <p><strong>5. Second Wash</strong></p>
+                            <p>Remove the supernatant using a pipette. Resuspend the cells again in 1 mL of ice-cold 10% glycerol and centrifuge under the same conditions (12,000 rpm, 4 °C, 1 min).</p>
+                            <p><strong>6. Final Resuspension</strong></p>
+                            <p>Remove the supernatant using a pipette and resuspend the cells in 250 µL of ice-cold 10% glycerol.</p>
+                            <p><strong>7. Transformation Mixture</strong></p>
+                            <p>In a fresh pre-chilled 1.5 mL tube, mix 50 µL of competent cells with 5 µL of DNA solution.</p>
+                            <p><strong>8. Electroporation</strong></p>
+                            <p>Transfer the mixture into a pre-chilled electroporation cuvette. Wait ~2 minutes between preparations, then pulse using the Ec2 program on the electroporator.</p>
+                            <p><strong>9. Recovery</strong></p>
+                            <p>Immediately after electroporation, add 1 mL of SOC medium to the cuvette. Mix thoroughly and transfer the suspension back into a tube. Incubate at 37 °C for 1 hour to allow recovery.</p>
+                            <p><strong>10. Plating</strong></p>
+                            <p>Plate the transformed cells onto selective agar plates. It is recommended to spread 100 µL per plate for approximately 10 plates. Incubate the plates at 37 °C overnight.</p>
+                            <p><strong>11. Transfer of Transformants</strong></p>
+                            <p>Select colonies from the primary plates and transfer them onto fresh selective plates. Incubate at 37 °C to maintain and expand the transformants.</p>
+                        </v-card-text>
+                    </v-card>
+                    </v-tabs-window-item>
                     <v-tabs-window-item value="P1 preparation">
                     <v-card flat>
                         <v-card-text>
@@ -590,35 +634,23 @@
                         </v-card-text>
                     </v-card>
                     </v-tabs-window-item>
-                    <v-tabs-window-item value="Red recombination">
+                    <v-tabs-window-item value="P1 transduction">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Red recombination</strong></h2>
-                            <p><strong>1. Culture Inoculation</strong></p>
-                            <p>Inoculate 0.5 mL of overnight culture into 50 mL of fresh SOB medium without Mg²⁺. Grow the cells with shaking at 30 °C for 1.5 hours.</p>
-                            <p><strong>2. Induction</strong></p>
-                            <p>Add an appropriate volume of 20% IPTG solution to the culture and continue incubation at 30 °C for 1 hour to induce the recombination system.</p>
-                            <p><strong>3. Cell Harvesting</strong></p>
-                            <p>Chill the culture flask on ice for 5 minutes. Transfer the culture into a 50 mL centrifuge tube and centrifuge at 6,000 rpm, 4 °C for 5 minutes. After this point, maintain the cells at cold temperature throughout the preparation steps.</p>
-                            <p><strong>4. First Wash</strong></p>
-                            <p>Carefully remove as much supernatant as possible. Resuspend the pellet in 1 mL of ice-cold 10% glycerol, transfer into a 1.5 mL tube, and centrifuge at 12,000 rpm, 4 °C for 1 minute.</p>
-                            <p><strong>5. Second Wash</strong></p>
-                            <p>Remove the supernatant using a pipette. Resuspend the cells again in 1 mL of ice-cold 10% glycerol and centrifuge under the same conditions (12,000 rpm, 4 °C, 1 min).</p>
-                            <p><strong>6. Final Resuspension</strong></p>
-                            <p>Remove the supernatant using a pipette and resuspend the cells in 250 µL of ice-cold 10% glycerol.</p>
-                            <p><strong>7. Transformation Mixture</strong></p>
-                            <p>In a fresh pre-chilled 1.5 mL tube, mix 50 µL of competent cells with 5 µL of DNA solution.</p>
-                            <p><strong>8. Electroporation</strong></p>
-                            <p>Transfer the mixture into a pre-chilled electroporation cuvette. Wait ~2 minutes between preparations, then pulse using the Ec2 program on the electroporator.</p>
-                            <p><strong>9. Recovery</strong></p>
-                            <p>Immediately after electroporation, add 1 mL of SOC medium to the cuvette. Mix thoroughly and transfer the suspension back into a tube. Incubate at 37 °C for 1 hour to allow recovery.</p>
-                            <p><strong>10. Plating</strong></p>
-                            <p>Plate the transformed cells onto selective agar plates. It is recommended to spread 100 µL per plate for approximately 10 plates. Incubate the plates at 37 °C overnight.</p>
-                            <p><strong>11. Transfer of Transformants</strong></p>
-                            <p>Select colonies from the primary plates and transfer them onto fresh selective plates. Incubate at 37 °C to maintain and expand the transformants.</p>
+                            <h2><strong>P1 transduction</strong></h2>
+                            <p><strong>1. Recipient Cell Preparation</strong></p>
+                            <p>Prepare an overnight culture of your recipient E. coli in LB medium. In a sterile test tube, mix 1.4 mL of fresh LB medium, 0.1 mL of 0.1 M CaCl₂, and 0.5 mL of the overnight culture. Incubate the mixture with shaking at 37°C for 2 hours to make the cells competent for P1 infection.</p>
+                            <p><strong>2. Infection with P1 Phage</strong></p>
+                            <p>In a sterile 1.5 mL tube, mix 0.2 mL of the CaCl₂-treated culture with 2 µL of P1 phage solution (approximately 1 × 10⁷ pfu/µL). Incubate the mixture at 37°C for 20 minutes. This short incubation allows the P1 phage to infect the E. coli cells in the presence of Ca²⁺.</p>
+                            <p><strong>3. Removal of Excess Phage</strong></p>
+                            <p>Centrifuge the infection mixture at 10,000 rpm for 1 minute. Remove the supernatant as completely as possible using a pipette to minimize free phage.</p>
+                            <p><strong>4. Recovery</strong></p>
+                            <p>Resuspend the cell pellet in 1 mL of LB-citrate medium (0.9 mL LB + 0.1 mL 1 M Na-citrate). The citrate chelates Ca²⁺ ions to prevent further phage infection. Incubate the tube at 30°C for 3 hours to allow recovery of transduced cells.</p>
+                            <p><strong>5. Plating</strong></p>
+                            <p>Centrifuge the recovered culture at 10,000 rpm for 1 minute. Remove the supernatant by decanting, then resuspend the pellet in the remaining medium. Plate the cell suspension onto selective agar plates to isolate transductants.</p>
                         </v-card-text>
-                        </v-card>
-                        </v-tabs-window-item>
+                    </v-card>
+                    </v-tabs-window-item>
                         <v-tabs-window-item value="Lambda phage infection">
                         <v-card flat>
                             <v-card-text>

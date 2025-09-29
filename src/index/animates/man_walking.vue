@@ -44,7 +44,7 @@ export default {
         animate('#one', {
             autoplay: onScroll({
                 enter: 'top bottom',
-                leave: 'top-=200px bottom',
+                leave: 'top-=50px bottom',
                 sync: 'inOutCirc',
                 onUpdate: self => {
                     console.log(self.progress);

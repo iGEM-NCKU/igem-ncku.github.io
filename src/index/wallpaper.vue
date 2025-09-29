@@ -1,6 +1,10 @@
 <template>
-    <man_walking />
-    <legs />
+    <div class = 'place_holder'>
+        <man_walking />
+    </div>
+    <div class = 'place_holder'>
+        <legs />
+    </div>
 </template>
 
 <script>
@@ -26,4 +30,9 @@ export default {
 </script>
 
 <style scoped>
+.place_holder {
+    position: relative;
+    height: 200vh;
+    width: 100vw;
+}
 </style>

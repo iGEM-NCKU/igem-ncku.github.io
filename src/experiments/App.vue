@@ -19,9 +19,9 @@
                 >
                     <v-tab  :prepend-icon = 'tab == "Miniprep" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Miniprep" value="Miniprep"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "Agarose Gel Preparation" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Agarose Gel Preparation" value="Agarose Gel Preparation"></v-tab>
+                    <v-tab  :prepend-icon = 'tab == "PCR" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR" value="PCR"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "PCR purified" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR purified" value="PCR purified"></v-tab>
-                    <v-tab  :prepend-icon = 'tab == "PCR" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR" value="PCR"></v-tab>
-                    <v-tab  :prepend-icon = 'tab == "PCR" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR" value="PCR"></v-tab>
+                    <v-tab  :prepend-icon = 'tab == "Gel extraction" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="Gel extraction" value="Gel extraction"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "PCR" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR" value="PCR"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "PCR" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR" value="PCR"></v-tab>
                     <v-tab  :prepend-icon = 'tab == "PCR" ? `fa-duotone fa-regular fa-file fa-beat-fade` : `fa-duotone fa-regular fa-file`' text="PCR" value="PCR"></v-tab>
@@ -182,29 +182,41 @@
                         </v-card-text>
                     </v-card>
                     </v-tabs-window-item>
-                    <v-tabs-window-item value="Miniprep">
+                    <v-tabs-window-item value="PCR purified">
                     <v-card flat>
                         <v-card-text>
-                            <h2><strong>Miniprep</strong></h2>
-                            <p><strong>1.Centrifugation of Bacterial Culture</strong></p>
-                            <p>Transfer 1.5 mL of bacterial culture into an Eppendorf tube and centrifuge it at 12,000 rpm for 1 minute at room temperature. After centrifugation, discard the supernatant. Repeat the process by adding another 1.5 mL of culture to the same tube, centrifuge again under the same conditions, and discard the supernatant.</p>
-                            <p><strong>2.Resuspension</strong></p>
-                            <p>Add 200 µL of P1 buffer to the bacterial pellet. Resuspend the cells thoroughly by pipetting up and down until no clumps remain, ensuring the pellet is completely dispersed.</p>
-                            <p><strong>3.Cell Lysis</strong></p>
-                            <p>Add 200 µL of P2 buffer to the resuspended cells. Gently invert the tube ten times to mix and incubate briefly. The incubation should not exceed five minutes, and vortexing must be avoided to prevent shearing of genomic DNA.</p>
-                            <p><strong>4.Neutralization</strong></p>
-                            <p>Add 300 µL of P3 buffer to the lysate and gently invert the tube ten times to mix. Centrifuge the mixture at 12,000 rpm for 10 minutes to pellet cell debris.</p>
-                            <p><strong>5.Spin Column Preparation</strong></p>
-                            <p>Place a CP3 spin column into a labeled collection tube, ensuring that the column is securely positioned before transferring the lysate.</p>
-                            <p><strong>6.Binding of Plasmid DNA</strong></p>
-                            <p>Carefully transfer the supernatant from the previous centrifugation into the prepared spin column. Centrifuge at 12,000 rpm for 1 minute, allowing the plasmid DNA to bind to the column membrane, and discard the flow-through.</p>
-                            <p><strong>7.Wash column</strong></p>
-                            <p>Add 400 µL of PD buffer to the spin column and centrifuge at 12,000 rpm for 1 minute. Discard the flow-through to remove impurities.</p>
-                            <p>Add 700 µL of PW buffer (containing ethanol) to the spin column and centrifuge at 12,000 rpm for 1 minute. Discard the flow-through to further purify the DNA.</p>
-                            <p><strong>8.Remove Residual Wash Buffer</strong></p>
-                            <p>Centrifuge the spin column at 12,000 rpm for 3 minutes to remove any residual PW buffer and ensure no ethanol remains.</p>
-                            <p><strong>9.Elution of Plasmid DNA</strong></p>
-                            <p>Place the spin column into a clean 1.5 mL microcentrifuge tube. Add 50 µL of preheated EB buffer directly onto the membrane and incubate for 5 minutes at room temperature. Centrifuge at 12,000 rpm for 2 minutes to elute the purified plasmid DNA.</p>  
+                            <h2><strong>PCR purified</strong></h2>
+                            <p><strong>1. Binding of PCR Product</strong></p>
+                            <p>Mix the PCR reaction solution with five volumes of DS Buffer. The maximum PCR product volume is 100 µL. If the volume exceeds this limit, divide it into multiple tubes.</p>
+                            <p><strong>2. Loading onto DF Column</strong></p>
+                            <p>Place the DF Column into a 2 mL Collection Tube and transfer the entire mixture into the column. Centrifuge at 13,000 rpm (17,900 × g) for 1 minute. Discard the flow-through completely and place the DF Column back into the Collection Tube.</p>
+                            <p><strong>3. Washing the Column</strong></p>
+                            <p>Add 750 µL of Wash Buffer to the DF Column, stand at room temperature for 1 minute, and centrifuge at 13,000 rpm for 1 minute. Discard the flow-through and return the DF Column to the Collection Tube.</p>
+                            <p>Repeat this washing step once more.</p>
+                            <p><strong>4. Removal of Residual Wash Buffer</strong></p>
+                            <p>Centrifuge the DF Column at 13,000 rpm for 3 minutes to completely remove any residual Wash Buffer.</p>
+                            <p><strong>5. Drying and Elution</strong></p>
+                            <p>Place the DF Column into a clean 1.5 mL microcentrifuge tube and incubate at 37 °C for 7 minutes to dry the membrane.</p>
+                            <p>Add 60 °C preheated MQ water to the center of the membrane, stand for at least 1 minute, then centrifuge at 13,000 rpm for 2 minutes to elute the purified DNA.</p>
+                        </v-card-text>
+                    </v-card>
+                    </v-tabs-window-item>
+                    <v-tabs-window-item value="Gel extraction">
+                    <v-card flat>
+                        <v-card-text>
+                            <h2><strong>Gel extraction</strong></h2>
+                            <p><strong>1.Excise and Dissolve Gel</strong></p>
+                            <p>Excise the DNA fragment from the agarose gel. Weigh the gel slice. Add 100 µL of Binding Buffer for every 100 mg of gel.</p>
+                            <p>Incubate the mixture at 60 °C for 5–15 minutes, vortexing every 2–3 minutes until the gel slice is completely dissolved. After the gel is fully dissolved, add five volumes of Binding Buffer relative to the original gel slice.</p>
+                            <p>2.Load DNA Mixture onto Column.</p>
+                            <p>Transfer the dissolved gel mixture (up to ~700 µL) onto the spin column placed in a Collection Tube. Centrifuge at 12,000–14,000 × g for 1 minute and discard the flow-through.</p>
+                            <p>Add 500 µL of Binding Buffer to the spin column and centrifuge again at 12,000–14,000 × g for 1 minute.</p>
+                            <p><strong>3.Washing the Column</strong></p>
+                            <p>Add 700 µL of Washing Buffer to the spin column, centrifuge at 12,000–14,000 × g for 1 minute, and discard the flow-through.</p>
+                            <p>Centrifuge again at 12,000–14,000 × g for 3 minutes to completely remove residual Washing Buffer.</p>
+                            <p><strong>4.Drying and Elution</strong></p>
+                            <p>Incubate the spin column at 37–65 °C for 5 minutes to dry the membrane.</p>
+                            <p>Place the spin column into a clean 1.5 mL microcentrifuge tube. Add 60 °C preheated MQ water directly to the membrane, incubate for at least 1 minute, and centrifuge at 12,000–14,000 × g for 1 minute to elute the purified DNA.</p>
                         </v-card-text>
                     </v-card>
                     </v-tabs-window-item>
@@ -416,33 +428,7 @@
                         </v-card-text>
                     </v-card>
                     </v-tabs-window-item>
-                    <v-tabs-window-item value="Miniprep">
-                    <v-card flat>
-                        <v-card-text>
-                            <h2><strong>Miniprep</strong></h2>
-                            <p><strong>1.Centrifugation of Bacterial Culture</strong></p>
-                            <p>Transfer 1.5 mL of bacterial culture into an Eppendorf tube and centrifuge it at 12,000 rpm for 1 minute at room temperature. After centrifugation, discard the supernatant. Repeat the process by adding another 1.5 mL of culture to the same tube, centrifuge again under the same conditions, and discard the supernatant.</p>
-                            <p><strong>2.Resuspension</strong></p>
-                            <p>Add 200 µL of P1 buffer to the bacterial pellet. Resuspend the cells thoroughly by pipetting up and down until no clumps remain, ensuring the pellet is completely dispersed.</p>
-                            <p><strong>3.Cell Lysis</strong></p>
-                            <p>Add 200 µL of P2 buffer to the resuspended cells. Gently invert the tube ten times to mix and incubate briefly. The incubation should not exceed five minutes, and vortexing must be avoided to prevent shearing of genomic DNA.</p>
-                            <p><strong>4.Neutralization</strong></p>
-                            <p>Add 300 µL of P3 buffer to the lysate and gently invert the tube ten times to mix. Centrifuge the mixture at 12,000 rpm for 10 minutes to pellet cell debris.</p>
-                            <p><strong>5.Spin Column Preparation</strong></p>
-                            <p>Place a CP3 spin column into a labeled collection tube, ensuring that the column is securely positioned before transferring the lysate.</p>
-                            <p><strong>6.Binding of Plasmid DNA</strong></p>
-                            <p>Carefully transfer the supernatant from the previous centrifugation into the prepared spin column. Centrifuge at 12,000 rpm for 1 minute, allowing the plasmid DNA to bind to the column membrane, and discard the flow-through.</p>
-                            <p><strong>7.Wash column</strong></p>
-                            <p>Add 400 µL of PD buffer to the spin column and centrifuge at 12,000 rpm for 1 minute. Discard the flow-through to remove impurities.</p>
-                            <p>Add 700 µL of PW buffer (containing ethanol) to the spin column and centrifuge at 12,000 rpm for 1 minute. Discard the flow-through to further purify the DNA.</p>
-                            <p><strong>8.Remove Residual Wash Buffer</strong></p>
-                            <p>Centrifuge the spin column at 12,000 rpm for 3 minutes to remove any residual PW buffer and ensure no ethanol remains.</p>
-                            <p><strong>9.Elution of Plasmid DNA</strong></p>
-                            <p>Place the spin column into a clean 1.5 mL microcentrifuge tube. Add 50 µL of preheated EB buffer directly onto the membrane and incubate for 5 minutes at room temperature. Centrifuge at 12,000 rpm for 2 minutes to elute the purified plasmid DNA.</p>  
-                        </v-card-text>
-                    </v-card>
-                    </v-tabs-window-item>
-                    
+
                 </v-tabs-window>
                 </div>
             </v-card>

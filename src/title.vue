@@ -70,6 +70,10 @@
         </div>
     </navi>
 
+    <v-fab key = app app color = primary location = 'right bottom' size = large icon @click = 'goto(0)'>
+        <v-icon> fa-solid fa-circle-up </v-icon>
+    </v-fab>
+
     <!-- <div class = subnav>
             <a href = '#'> <b class = right> Link 1 </b> </a><br>
             <a href = '#'> <b class = right> Link 2 </b> </a>
@@ -85,6 +89,7 @@
 <script>
 import $ from 'jquery'
 import M from 'materialize-css'
+import { useGoTo } from 'vuetify/lib/composables/goto';
 
 export default {
     name: 'title_nav',
@@ -144,7 +149,8 @@ export default {
                 length: 0,
                 height: 0
             },
-            hide: []
+            hide: [],
+            goto: useGoTo()
         }
     },
     mounted() {

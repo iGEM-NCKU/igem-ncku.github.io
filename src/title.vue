@@ -70,9 +70,11 @@
         </div>
     </navi>
 
-    <v-fab key = app app color = primary location = 'right bottom' size = large icon @click = 'goto(0)'>
-        <v-icon> fa-solid fa-circle-up </v-icon>
-    </v-fab>
+    <transition name = scale>
+        <v-fab key = app app color = primary location = 'right bottom' size = large icon @click = 'goto(0)' v-if = 'show_top'>
+            <v-icon> fa-solid fa-circle-up </v-icon>
+        </v-fab>
+    </transition>
 
     <!-- <div class = subnav>
             <a href = '#'> <b class = right> Link 1 </b> </a><br>
@@ -150,7 +152,8 @@ export default {
                 height: 0
             },
             hide: [],
-            goto: useGoTo()
+            goto: useGoTo(),
+            show_top: false
         }
     },
     mounted() {
@@ -158,6 +161,7 @@ export default {
         window.addEventListener('scroll', this.update_scroll);
         this.hide = new Array(this.f.length);
         this.init_subnav();
+        this.init_top();
     },
     methods: {
         init_subnav() {
@@ -199,6 +203,11 @@ export default {
         },
         hide_subnav() {
             $('.subnav').hide();
+        },
+        init_top() {
+            addEventListener('scroll', () => {
+                this.show_top = window.scrollY >= 100;
+            })
         }
     }
 }
@@ -350,5 +359,19 @@ navi>a:hover {
 .fixed {
     position: fixed;
     top: 0px;
+}
+
+.scale-enter-active, .scale-leave-active {
+    transition: all 0.5s;
+}
+.scale-enter-from, .scale-leave-to {
+    opacity: 0%;
+    max-height: 0px;
+    max-width: 0px;
+}
+.scale-enter-from, .scale-leave-to {
+    opacity: 100%;
+    max-height: 100vh;
+    max-width: 100vw;
 }
 </style>

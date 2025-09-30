@@ -12,6 +12,7 @@ module.exports = defineConfig({
     test: 'src/test/main.js',
     software: 'src/software/main.js',
     model: 'src/model/main.js',
-    experiments: 'src/experiments/main.js'
+    experiments: 'src/experiments/main.js',
+    engineering: 'src/engineering/main.js'
     }
 })

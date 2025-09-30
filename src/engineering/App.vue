@@ -1,9 +1,5 @@
 <template>
-    <v-app>
-        <page_loader :loading='loading' />
-        <title_nav />
-        <v-main>
-            <sidenav name='experiments' />
+  <appLayout>
             <v-container class="d-flex justify-center" style="height: 35vh;">
                 <div class="circle-container">
                     <v-btn class="circle-btn" @click="prevCard">Prev</v-btn>
@@ -28,24 +24,18 @@
                     <v-card-text>{{ selectedItem.text }}</v-card-text>
                 </v-card>
             </v-container>
-
-        </v-main>
-    </v-app>
-
-    <site_footer></site_footer>
+  </appLayout>
 </template>
 
 <script>
-import title_nav from '@/title.vue'
-import page_loader from '@/loader.vue'
-import sidenav from '@/sidenav.vue'
-import site_footer from '@/footer.vue'
+
+import appLayout from '@/AppLayout.vue'
 
 export default {
   data() {
     return {
-      dialog: false,  // 控制 dialog 顯示
-      selectedItem: {},  // 被選中的卡片內容
+      dialog: false,  
+      selectedItem: {},  
       items: [
         { title: 'Card 1', subtitle: 'Subtitle 1', text: 'This is some description for Card 1.' },
         { title: 'Card 2', subtitle: 'Subtitle 2', text: 'This is some description for Card 2.' },
@@ -58,10 +48,7 @@ export default {
     };
   },
   components: {
-    title_nav,
-    page_loader,
-    sidenav,
-    site_footer
+    appLayout
   },
   methods: {
     getWrapperStyle() {

@@ -219,7 +219,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     font-weight: 900;
     backdrop-filter: blur(25px);
     position: sticky;
-    top: 0px;
+    top: 10px;
     left: 0px;
     z-index: 100;
     width: calc(100vw - 15px * 2);

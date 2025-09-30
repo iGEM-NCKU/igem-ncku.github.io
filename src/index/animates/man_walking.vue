@@ -55,7 +55,7 @@ export default {
             })
         });
         animate('#title_knee_new_life', {
-            y: '20rem',
+            y: '12rem',
             color: '#FFFFFF',
             ease: 'linear',
             delay: stagger(100, { from: 'last' }),
@@ -68,13 +68,13 @@ export default {
             })
         });
         animate('#not_always', {
-            y: '5rem',
+            y: '12rem',
             ease: 'linear',
             delay: stagger(100, { from: 'last' }),
             opacity: 1,
             autoplay: onScroll({
                 container: '.scroll-container',
-                enter: 'center+=200px top',
+                enter: 'center+=250px top',
                 leave: 'center bottom',
                 sync: true
             })
@@ -110,7 +110,7 @@ export default {
 }
 .center-align {
     /* position: absolute; */
-    top: 30%;
+    top: 20%;
     width: 100vw;
     text-align: center;
 }

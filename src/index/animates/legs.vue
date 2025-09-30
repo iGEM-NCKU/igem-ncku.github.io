@@ -2,7 +2,7 @@
     <div class = bs>
         <v-card class = 'bs' id = two align = start>
             <template #image>
-                <video id = 'legs' src = 'assets/legs.mp4' control = false preload muted autoplay speed = '3'></video>
+                <video id = 'legs' src = 'assets/legs.mp4' control = false preload muted autoplay loop></video>
             </template>
             <div class = 'title'>
                 <h3> In US </h3>

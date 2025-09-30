@@ -16,7 +16,7 @@
             <b> {{ i }} </b>
         </template>
      </v-card> -->
-    <navi class = 'block glass' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp` : ``' id = 'title'>
+    <navi class = 'block glass' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp fixed` : `sticky`' id = 'title'>
         <img src = icon.png height = 20px />
         <!-- {{ alpha }} -->
         <a href = 'index.html' class = 'unfocused stroke'>
@@ -218,8 +218,8 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     font-size: large;
     font-weight: 900;
     backdrop-filter: blur(25px);
-    position: sticky;
-    top: 10px;
+    /* position: sticky; */
+    /* top: 10px; */
     left: 0px;
     z-index: 100;
     width: calc(100vw - 15px * 2);
@@ -336,5 +336,13 @@ navi>a:hover {
     background-color: rgba(255, 255, 255, .75);
     backdrop-filter: blur(10px);
     z-index: 100;
+}
+.sticky {
+    position: sticky;
+    top: 10px;
+}
+.fixed {
+    position: fixed;
+    top: 0px;
 }
 </style>

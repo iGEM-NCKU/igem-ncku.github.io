@@ -4,7 +4,12 @@
     <title_nav />
 
     <v-main>
-    <v-container v-if = '!alpha.newview'>
+        <v-card :class = 'yes ? `test` : undefined' @click = 'yes ^= 1' id = tt>
+            <template #title>
+                ouob
+            </template>
+        </v-card>
+    <v-container>
         <v-row>
             <v-col v-for="i in members" :key="i" cols="12" sm="6" lg="4">
             <v-hover>
@@ -51,38 +56,6 @@
             </v-hover>
             </v-col>
         </v-row>
-    </v-container>
-    
-    <v-container v-else>
-        <div justify = center>
-            <v-row>
-                <div v-for = 'i in members' :key = 'i'>
-                    <v-hover>
-                        <template v-slot:default = '{isHovering, props}'>
-                            <v-col>
-                                <v-card :title = 'i' subtitle = 'Members' :image = '`members_picture/${i}.jpg`' v-bind = 'props'>
-                                    <v-img src = '' height = 500px cover :width = 'isHovering ? `500px` : undefined' />
-                                </v-card>
-                            </v-col>
-                        </template>
-                    </v-hover>
-                </div>
-            </v-row>
-        </div>
-    </v-container>
-
-    <v-container>
-        <v-row><v-col>
-            <v-card title = 'Testing Area' color = 'grey'>
-                <template v-slot:text>
-                    <v-card subtitle = 'Enable new view of gallery' :color = 'alpha.newview ? `green` : undefined' v-ripple @click = 'alpha.newview ^= 1'>
-                        <template v-slot:text>
-                            <v-btn rounded = xl @click = 'alpha.newview ^= 1'> switch : {{ alpha.newview ? 'ON' : 'OFF' }} </v-btn>
-                        </template>
-                    </v-card>
-                </template>
-            </v-card>
-        </v-col></v-row>
     </v-container>
 
     </v-main></v-app>
@@ -154,9 +127,7 @@ export default {
             },
             flippedCard: null,
             view: [],
-            alpha: {
-                newview: false
-            }
+            yes: false
         }
     },
     components: {
@@ -227,5 +198,24 @@ export default {
 
 .flip-card-back {
   transform: rotateY(180deg);
+}
+
+* {
+    transition: all 1s;
+}
+
+@keyframes carz {
+    0% {
+        position: relative;
+    }
+    100% {
+        position: fixed;
+        top: 50px;
+        left: 50px;
+    }
+}
+
+.test {
+    animation: carz 1s;
 }
 </style>

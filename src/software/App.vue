@@ -6,20 +6,21 @@
 
         <v-main>
         <sidenav name = 'software' />
+        <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
+            <!-- <v-row class = 'text-center scroller' id = 'Design'>
+                <v-col>
+                    <v-card title = 'Design' :variant = 'alpha.card.theme'>
+                        <template v-slot:text>
+                            <p class = 'grey-text'>
+                                To efficiently degrade biofilms, we designed a system that combines the expression of
+                                three biofilm-degrading enzymes with a temperature-controlled cell lysis mechanism.
+                            </p>
+                        </template>
+                    </v-card>
+                </v-col>
+            </v-row> -->
             <v-container>
                 <v-row>
-                    <v-row class = 'text-center scroller' id = 'Design'>
-                        <v-col>
-                            <v-card title = 'Design' :variant = 'alpha.card.theme'>
-                                <template v-slot:text>
-                                    <p class = 'grey-text'>
-                                        To efficiently degrade biofilms, we designed a system that combines the expression of
-                                        three biofilm-degrading enzymes with a temperature-controlled cell lysis mechanism.
-                                    </p>
-                                </template>
-                            </v-card>
-                        </v-col>
-                    </v-row>
                     <v-col cols="12">
                         <v-card class="d-flex justify-center wallpaper-card"
                             id ='wallpaper'>
@@ -55,6 +56,7 @@
                     </v-col>
                 </v-row>
             </v-container>
+        </v-col><v-col cols = 1 /></v-row>
         </v-main>
     </v-app>
     
@@ -137,12 +139,11 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 .wallpaper-card {
     height: 300px;
-    width: 800px;
-    background-color: transparent !important;
+     background-color: transparent !important;
     box-shadow: none !important;
-    background-position: center;
-    background-size: cover; /* cover / contain / auto */
-    background-repeat:space;
+    background-position: center;     
+    background-size: cover;            
+    background-repeat: no-repeat;      
 }
 
 .wallpaper-text {

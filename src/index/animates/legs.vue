@@ -32,8 +32,8 @@ export default {
         animate('#legs', {
             filter: "blur(0px)",
             autoplay: onScroll({
-                enter: 'top top',
-                leave: 'top-=200px top',
+                enter: 'top+=200px top',
+                leave: 'top top',
                 sync: true
             })
         })

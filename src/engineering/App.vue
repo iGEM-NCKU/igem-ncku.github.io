@@ -37,8 +37,8 @@ import appLayout from '@/AppLayout.vue'
 export default {
   data() {
     return {
-      dialog: false,  // 控制 dialog 的顯示
-      selectedItem: {},  // 用來存儲選中的卡片內容
+      dialog: false,
+      selectedItem: {},  
       items: [
         { title: 'Design', subtitle: 'Subtitle 1', text: 'This is some description for Design.' },
         { title: 'Build', subtitle: 'Subtitle 2', text: 'This is some description for Build.' },
@@ -122,8 +122,8 @@ export default {
 
 .circle-card {
   width: 400px;
-  height: 200px;
-  background-color: rgb(0, 80, 56);
+  height: 400px;
+  background-color: rgb(0, 124, 27);
   text-align: center;
   border-radius: 10px;
   position: absolute;

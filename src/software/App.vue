@@ -5,11 +5,11 @@
 
         <v-main>
         <sidenav name = 'software' />
-            <v-container>
-                <v-row>
-                    <v-col cols="12">
+                <v-row justify = end>
+                    <v-col cols = 12 md = 8 class = 'pa-5'>
                         <v-card class="wallpaper-card"
-                            id ='wallpaper'>
+                            id ='wallpaper'
+                            image = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp'>
                             <template v-slot:text>
                                 <div class="wallpaper-text">
                                     A better way to create enzyme
@@ -40,8 +40,8 @@
                                 </div>
                         </v-card>                        
                     </v-col>
+                    <v-col cols = 1 />
                 </v-row>
-            </v-container>
         </v-main>
     </v-app>
     
@@ -118,9 +118,6 @@ export default {
 }
 a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
-}
-#wallpaper{
-    background-image: url('https://static.igem.wiki/teams/6003/software/endzyme-logo.webp');
 }
 .wallpaper-card {
     height: 25vw;

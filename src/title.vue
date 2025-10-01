@@ -16,47 +16,49 @@
             <b> {{ i }} </b>
         </template>
      </v-card> -->
-    <navi class = 'block glass' @click = 'show_nav ^= 1' :class = 'show_nav ? `tmp fixed` : `sticky`' id = 'title'>
+    <navi class = 'block glass' @click = 'show_nav ^= 1' :class = '[show_nav ? `tmp fixed` : `sticky`, !$vuetify.display.mdAndUp ? `text-center` : undefined]' id = 'title'>
         <img src = icon.png height = 20px />
         <!-- {{ alpha }} -->
         <a href = 'index.html' class = 'unfocused stroke'>
             <!-- <img src = 'logo.png' width = '10%' /> -->
             Bye<font color = green class = film_ani>film</font>
         </a>
-        <v-menu v-for = 'i, j in f' :key = i :value = j open-on-hover location = bottom scroll-strategy="none" attach = '#title'>
-            <template #activator = '{props}'>
-                <div v-bind = props class = right>
-                    <div :id = '`title-button-${j}`' v-if = '!show_nav'>
-                        <v-icon> {{ i.icon }} </v-icon>&nbsp;
-                        <b> {{ j }} </b>&nbsp;&nbsp;&nbsp;&nbsp;
+        <template v-if = '$vuetify.display.mdAndUp'>
+            <v-menu v-for = 'i, j in f' :key = i :value = j open-on-hover location = bottom scroll-strategy="none" attach = '#title'>
+                <template #activator = '{props}'>
+                    <div v-bind = props class = right>
+                        <div :id = '`title-button-${j}`' v-if = '!show_nav'>
+                            <v-icon> fa-sm fa-solid {{ i.icon }} </v-icon>&nbsp;
+                            <b> {{ j }} </b>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
                     </div>
-                </div>
-            </template>
-            <v-card style = 'z-index: 100' :prepend-icon = i.icon class = glass>
-              <template #title>
-                {{ j }}
-              </template>
-              <template #subtitle>
-                Byefilm
-              </template>
-              <template #text>
-                <v-list>
-                  <v-list-item v-for = 'k in i.subpages' :key = k :title = title(k.name) :href = '`${k.name}.html`'></v-list-item>
-                </v-list>
-              </template>
-            </v-card>
-        </v-menu>
+                </template>
+                <v-card style = 'z-index: 100' :prepend-icon = i.icon class = glass>
+                <template #title>
+                    {{ j }}
+                </template>
+                <template #subtitle>
+                    Byefilm
+                </template>
+                <template #text>
+                    <v-list>
+                    <v-list-item v-for = 'k in i.subpages' :key = k :title = title(k.name) :href = '`${k.name}.html`'></v-list-item>
+                    </v-list>
+                </template>
+                </v-card>
+            </v-menu>
+        </template>
 
         
 
         <!-- <i class = 'material-icons right'> apps </i> -->
         <!-- <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b> -->
-        <div :style = 'show_nav ? `font-size: 40px;` : `font-size: 0px`'>
+        <div :style = 'show_nav ? `font-size: 40px;` : `font-size: 0px`' @click = '() => {}'>
             <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j'>
                 <template v-slot:default = '{isHovering, props}'>
                     <div v-bind = props @click = undefined>
                         <!-- {{ k }} -->
-                        <v-icon> {{ i.icon }} </v-icon>&nbsp;
+                        <v-icon> fa-sm fa-solid {{ i.icon }} </v-icon>&nbsp;
                         <b> {{ j }} </b>
                         <!-- <a :href = 'i' style = 'color: white; '> {{ title(i) }} </a> -->
                         <div v-if = 'isHovering && show_nav'>
@@ -160,7 +162,6 @@ export default {
         M.AutoInit();
         window.addEventListener('scroll', this.update_scroll);
         this.hide = new Array(this.f.length);
-        this.init_subnav();
         this.init_top();
     },
     methods: {

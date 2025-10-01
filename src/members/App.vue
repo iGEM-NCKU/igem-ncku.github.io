@@ -13,6 +13,7 @@
                             <template #activator='{ props }'>
                                 <v-card v-bind="props" height="500px" class="glass-card elevate"
                                     :image="`members_picture/${i}.jpg`" :title="i"
+                                    :style = 'view[j] ? `opacity: 0%;` : undefined'
                                     v-ripple v-reveal>
                                 </v-card>
                             </template>
@@ -155,7 +156,7 @@ export default {
 
 <style>
 * {
-  transition: 1s all;
+  transition: 0.3s all;
 }
 .dim {
     filter: brightness(50%);

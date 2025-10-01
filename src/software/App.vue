@@ -1,4 +1,3 @@
-
 <template>
     <v-app>
         <page_loader :loading = 'loading' />
@@ -121,19 +120,20 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
 .wallpaper-card {
-    height: 300px;
-    width: 800px;
+    height: 25vw;
+    width: 65vw;
     background-color: transparent !important;
     box-shadow: none !important;
     background-position: center;
     background-size: cover; /* cover / contain / auto */
     background-repeat:space;
+    background-position: center;
 }
 
 .wallpaper-text {
     position: absolute;
-    top:260px;
-    left:350px;           
+    top:20vw;
+    left:19vw;           
     transform: translateX(-50%); 
     color: black;
     font-size: 2rem;      

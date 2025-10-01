@@ -6,101 +6,12 @@
     <!-- {{ mobile }} -->
     
     <v-main>
-
-        
-        <!-- <v-icon>fa-solid fa-home</v-icon>
-        <v-btn icon = 'mdi-alpha-r-circle-outline mdi-set' class = mdi-alpha-r-circle-outline></v-btn>
-        <v-icon class = 'mdi-alpha-r-circle-outline mdi-set'></v-icon> -->
-
-        <div class = 'scroller' id = map>
-            <v-card variant="plain" class="transparent-card">
-                <template #title>
-                    <b class = 'white-text' style="font-size: 32px;"> Projected global median age<br>from 1950 to 2100</b>
-                </template>
-            </v-card>
-            <div id = 'filter-inside'>
-                <v-card variant = plain>
-                    <template #title>
-                        <b class = 'white-text'> Here is the title </b>
-                    </template>
-                    <template #subtitle>
-                        Here comes the subtitle
-                    </template>
-                    <template #text>
-                        This is a book
-                    </template>
-                </v-card>
-            </div>
-        </div>
-        
-        <div id = Taiwan class = 'Taiwan'>
-            <v-card variant="plain" class="transparent-card_TW">
-                <template #title>
-                    <b class = 'red-text' style="font-size: 56px;">In Taiwan <br>20% are above 65</b>
-                </template>
-            </v-card>
-        </div>
-        
-         <div class = 'PJI'>
-            
-        </div>
-         <div class = 'RISKFACTOR'>
-            
-        </div>
-        <div class = 'conclusion'>
-
-        </div>
-        <div class = 'oursolution'>
-
-        </div>
-        <div class = 'logo'>
-
-        </div>    
         <v-container>
-            
-            <page_loader :loading = video_play />
-            <v-dialog v-model = 'video_play' width = auto>
-                <!-- For video -->
-                <v-card justify = center>
-                    <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/sBDRwoa4gaBw365v6svKyc?autoplay=1" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-                </v-card>
-            </v-dialog>
-            
-            <v-row>
-                <v-col cols = 12>
-                    <v-card
-                    class = 'text-right'
-                    subtitle = 'The iGEM Tainan 2025'
-                    color = black
-                    image = video.png
-                    style = 'backdrop-filter: blur(10px)'
-                    @click = 'video_play = true'
-                    :variant = 'alpha.card.style'
-                    >
-                    <template v-slot:title>
-                        Promotion <b class = 'green-text'> Video </b>
-                    </template>
-                    <!-- dk -->
-                    <template v-slot:text>
-                        <a class = 'btn-large hoverable pulse green' @click = 'video_play = true'> SHOW ME THIS </a>
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
-    </v-container>
-    
-    <v-container>
-        <v-card title = 'Testing Area' color = 'grey'>
-            <v-card subtitle = 'Card Style' color = 'cyan'>
-                <template v-slot:text>
-                    <v-btn v-for = 'i in alpha.card.f' :key = 'i' rounded = 'xl' @click = 'alpha.card.style = i'>
-                        {{ i ? i : 'normal' }}
-                    </v-btn>
-                </template>
+            <v-card justify = center>
+                <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/sBDRwoa4gaBw365v6svKyc?autoplay=1" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
             </v-card>
-        </v-card>
-    </v-container>
-    <index_wallpaper />
+        </v-container>
+        <index_wallpaper />
     
 </v-main></v-app>
 
@@ -154,51 +65,6 @@ export default {
         setTimeout(() => {
             this.loading = false;
         }, 100);
-        addEventListener('scroll', () => {
-            const filter = $('#filter-inside');
-            const taiwan = $('#Taiwan');
-            const taiwanOffset = taiwan.offset().top;
-            var currently_position = (window.scrollY);
-            var page_length = (document.body.clientHeight);
-            var window_height = (window.innerHeight);
-            var now = ($('#filter-inside').position().top);
-            var height = ($('#filter-inside').height());
-            var taiwanHight = ($('#Taiwan').height());
-            var max = (a, b) => (a > b ? a : b);
-            var min = (a, b) => (a ^ b ^ max(a, b));
-            
-            if($('#filter-inside').position().top <= window_height) {
-                let scale = currently_position * 1.0 / height;
-                $('.scroller').css({
-                    'background-size': `${100 + (scale * 700)}%`,
-                    'filter': `brightness(${1 - scale * 2})`,
-                    // transform: `scale(${1 + (currently_position*0.001) })`,
-                })
-                let taiwanScale = (scrollY - taiwanOffset) / taiwanHight;
-                let progress = Math.min(Math.max(taiwanScale, 0), 1);
-                let brightness;
-                if (progress <= 0.5) {
-                    brightness = progress * 2;
-                }else if(progress >0.5 && progress <=0.7){
-                    brightness = 1;
-                }else {
-                    brightness = (1 - progress) * 2;
-                }
-                // console.log(brightness);
-                $('.Taiwan').css({
-                    'filter': `brightness(1)`,
-                })
-                $('.Taiwan').css({
-                    'filter': `brightness(${brightness})`,
-                })
-
-                let sc = `${min(max(10, 60 - (Math.floor(now * 40) / max(1, (window_height - height)) + 10)), 50)}%`;
-                // console.log(sc);
-                $('#filter-inside').css({
-                    left: sc
-                }, 0);
-            }
-        });
     },
     methods: {
         submit() {

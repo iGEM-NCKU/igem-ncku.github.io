@@ -1,65 +1,60 @@
 <template>
     <v-app>
-    <page_loader :loading = 'loading' />
-    <title_nav />
+        <page_loader :loading='loading' />
+        <title_nav />
 
-    <v-main>
-        <v-card :class = 'yes ? `test` : undefined' @click = 'yes ^= 1' id = tt>
-            <template #title>
-                ouob
-            </template>
-        </v-card>
-    <v-container>
-        <v-row>
-            <v-col v-for="i in members" :key="i" cols="12" sm="6" lg="4">
-            <v-hover>
-                <template v-slot:default="{ isHovering, props }">
-                <div class="flip-container" @click="flipCard(i)">
-                    <div :class="['flip-card', flippedCard === i ? 'flipped' : '']">
-                    <div class="flip-card-inner">
+        <v-main>
+            <v-container>
+                <v-row>
+                    <v-col v-for="i, j in members" :key="i" cols="12" sm="6" lg="4">
                         <!-- frontttt -->
-                        <div class="flip-card-front">
-                        <v-card v-bind="props"
-                            height="500px"
-                            class="glass-card elevate"
-                            :image="`members_picture/${i}.jpg`"
-                            :title="i"
-                            :class="isHovering ? 'dim' : undefined"
-                            v-ripple
-                            v-reveal
-                        >
-                            <template v-slot:text v-if="isHovering">
-                                <div v-for = 'j, k in members_info[i]' :key = k>
-                                    <v-chip v-text = k rounded = none variant = outlined class = 'ma-2' />
-                                    <br>
-                                    <template v-if = 'k == `Group`'>
-                                        <v-chip v-text = l variant = elevated v-for = 'l in j' :key = l class = 'ma-2' />
-                                    </template>
-                                    <v-chip v-text = j variant = elevated v-else class = 'ma-2' />
-                                </div>
-                            </template>
-                        </v-card>
-                        </div>
-                        <!-- backkkkk -->
-                        <div class="flip-card-back">
-                        <v-card height="500px" class="glass-card elevate text-center" color="transparent">
-                            <v-card-title>{{ i }}</v-card-title>
-                            <v-card-text>
-                            <b>bro</b>
-                            </v-card-text>
-                        </v-card>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </template>
-            </v-hover>
-            </v-col>
-        </v-row>
-    </v-container>
 
-    </v-main></v-app>
-    
+                        <v-dialog v-model='view[j]' class = 'text-center pa-4' width = auto>
+                            <template #activator='{ props }'>
+                                <v-card v-bind="props" height="500px" class="glass-card elevate"
+                                    :image="`members_picture/${i}.jpg`" :title="i"
+                                    v-ripple v-reveal>
+                                </v-card>
+                            </template>
+                            
+                            <v-card width = 500px align = center justify = center :prepend-avatar = "`members_picture/${i}.jpg`">
+                                <template #image>
+                                    <v-img :src = "`members_picture/${i}.jpg`" class = 'align-end' cover style = 'filter: blur(10px); opacity: 50%' />
+                                </template>
+                                
+                                <template #title>
+                                    {{ i }}
+                                </template>
+                                <template #subtitle>
+                                    Byefilm
+                                </template>
+                                <template #text>
+                                    <v-card :title = members_info[i].Major subtitle = Major prepend-icon = 'fa-solid fa-graduation-cap' color = amber-darken-2 variant = tonal class = 'pa-3 ma-3' />
+                                    <v-card :title = "members_info[i].Group.join(' / ')" subtitle = Group prepend-icon = 'fa-solid fa-flask' color = green variant = tonal class = 'pa-3 ma-3' />
+                                    <v-card :title = members_info[i].Position subtitle = Position prepend-icon = 'fa-solid fa-map-pin' color = blue variant = tonal class = 'pa-3 ma-3' />
+
+                                    <!-- <div v-for='j, k in members_info[i]' :key=k>
+                                        <v-chip v-text=k rounded=none variant=outlined class='ma-2' />
+                                        <br>
+                                        <template v-if='k == `Group`'>
+                                            <v-chip v-text=l variant=elevated v-for='l in j' :key=l class='ma-2' />
+                                        </template>
+                                        <v-chip v-text=j variant=elevated v-else class='ma-2' />
+                                    </div> -->
+                                </template>
+                                <template #actions>
+                                    <v-btn @click='view[j] = false'> ok </v-btn>
+                                </template>
+                            </v-card>
+
+                        </v-dialog>
+                    </v-col>
+                </v-row>
+            </v-container>
+
+        </v-main>
+    </v-app>
+
     <site_footer></site_footer>
 </template>
 
@@ -206,7 +201,7 @@ export default {
 
 @keyframes carz {
     0% {
-        position: relative;
+        /* position: relative; */
     }
     100% {
         position: fixed;
@@ -217,5 +212,8 @@ export default {
 
 .test {
     animation: carz 1s;
+    position: fixed;
+    top: 50px;
+    left: 50px;
 }
 </style>

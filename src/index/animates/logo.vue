@@ -1,8 +1,9 @@
 <template>
     <div class = bs>
-        <v-card class = 'bs' id = two align = center justify = middle min-height="100vh">
+        <v-card class = 'bs' id = zero align = center justify = middle min-height="100vh">
             <v-img src = 'logo.svg' id = logo max-height = 50vh />
         </v-card>
+        <v-img src = 'img/cute.png' id = cute />
     </div>
 </template>
 
@@ -36,6 +37,32 @@ export default {
                 sync: true
             })
         })
+        animate('#logo', {
+            // transform: 'scale(0.1)',
+            y: '-3rem',
+            opacity: 0.5,
+            autoplay: onScroll({
+                enter: 'top top',
+                leave: 'top bottom',
+                sync: true
+            })
+        })
+        animate('#cute', {
+            y: '-10rem',
+            opacity: 0.3,
+            autoplay: onScroll({
+                enter: 'center-=200px top',
+                leave: 'top bottom',
+                sync: true
+            })
+        })
+        animate('#cute', {
+            x: [
+                {to: '5rem', duration: 1000},
+                {to: 0, duration: 500}
+            ],
+            loop: true
+        })
     },
     methods: {
     }
@@ -61,10 +88,17 @@ export default {
 #legs {
     filter: blur(50px);
 }
-#two {
+#zero {
     display: flex;
     justify-content: center;
     align-items: center;
     max-height: 50%;
+}
+#cute {
+    position: fixed;
+    top: 40vh;
+    left: 70vw;
+    width: 100px;
+    z-index: 1;
 }
 </style>

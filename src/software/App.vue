@@ -7,9 +7,10 @@
         <sidenav name = 'software' />
                 <v-row justify = end>
                     <v-col cols = 12 md = 8 class = 'pa-5'>
-                        <v-card class="wallpaper-card"
-                            id ='wallpaper'
-                            image = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp'>
+                        <v-card class = ma-4>
+                            <template #image>
+                                <v-img src = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp' />
+                            </template>
                             <template v-slot:text>
                                 <div class="wallpaper-text">
                                     A better way to create enzyme

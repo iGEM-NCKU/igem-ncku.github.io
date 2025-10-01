@@ -4,30 +4,20 @@
       <div class="circle-container">
         <v-btn class="circle-btn" @click="prevCard">Prev</v-btn>
         <div class="cards">
+          <!-- 顯示卡片標題及描述在卡片上方 -->
           <v-card
             v-for="(item, i) in items"
             :key="i"
             class="circle-card"
             :style="getCardStyle(i)"
-            @click="openDialog(item)"
           >
             <v-card-title>{{ item.title }}</v-card-title>
+            <v-card-text>{{ item.text }}</v-card-text>
           </v-card>
         </div>
         <v-btn class="circle-btn" @click="nextCard">Next</v-btn>
       </div>
     </v-container>
-
-    <!-- Dialog to display selected item details -->
-    <v-dialog v-model="dialog" max-width="500px">
-      <v-card>
-        <v-card-title class="headline">{{ selectedItem.title }}</v-card-title>
-        <v-card-text>{{ selectedItem.text }}</v-card-text>
-        <v-card-actions>
-          <v-btn color="primary" @click="dialog = false">Close</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
   </appLayout>
 </template>
 
@@ -37,13 +27,11 @@ import appLayout from '@/AppLayout.vue'
 export default {
   data() {
     return {
-      dialog: false,
-      selectedItem: {},  
       items: [
-        { title: 'Design', subtitle: 'Subtitle 1', text: 'This is some description for Design.' },
-        { title: 'Build', subtitle: 'Subtitle 2', text: 'This is some description for Build.' },
-        { title: 'Test', subtitle: 'Subtitle 3', text: 'This is some description for Test.' },
-        { title: 'Learn', subtitle: 'Subtitle 4', text: 'This is some description for Learn.' },
+        { title: 'Design', text: 'This is some description for Design.' },
+        { title: 'Build', text: 'This is some description for Build.' },
+        { title: 'Test', text: 'This is some description for Test.' },
+        { title: 'Learn', text: 'This is some description for Learn.' },
       ],
       totalCards: 4, 
       radius: 200,  
@@ -54,12 +42,6 @@ export default {
     appLayout
   },
   methods: {
-    getWrapperStyle() {
-      return {
-        transform: `rotateY(${this.angle}deg)`,
-        transition: 'transform 1s ease', 
-      };
-    },
     getCardStyle(index) {
       const angle = (index / this.totalCards) * 360; 
       const rotateY = angle + this.angle; 
@@ -74,31 +56,14 @@ export default {
     },
     prevCard() {
       this.angle += 90; 
-      this.updateSelectedItem();
     },
     nextCard() {
       this.angle -= 90; 
-      this.updateSelectedItem();
     },
-    updateSelectedItem() {
-      const index = Math.abs(Math.floor((this.angle / 360) * this.totalCards)) % this.totalCards;
-      this.selectedItem = this.items[index]; 
-    },
-    openDialog(item) {
-      this.selectedItem = item;  // 更新選中的項目
-      this.dialog = true;  // 打開對話框
-    }
   },
-  watch: {
-    angle() {
-      this.updateSelectedItem();
-    }
-  },
-  mounted() {
-    this.updateSelectedItem();
-  }
 };
 </script>
+
 
 <style scoped>
 .circle-container {
@@ -133,7 +98,7 @@ export default {
 
 .circle-btn {
   position: absolute;
-  top: 50%;
+  top: 20vw;
   transform: translateY(-50%);
   font-size: 24px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -145,7 +110,7 @@ export default {
 }
 
 .circle-btn:first-child {
-  left: -40px;
+  left: -280px;
 }
 
 .circle-btn:last-child {

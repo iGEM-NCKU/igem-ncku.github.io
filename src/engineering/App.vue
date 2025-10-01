@@ -40,10 +40,10 @@ export default {
       dialog: false,  // 控制 dialog 的顯示
       selectedItem: {},  // 用來存儲選中的卡片內容
       items: [
-        { title: 'Card 1', subtitle: 'Subtitle 1', text: 'This is some description for Card 1.' },
-        { title: 'Card 2', subtitle: 'Subtitle 2', text: 'This is some description for Card 2.' },
-        { title: 'Card 3', subtitle: 'Subtitle 3', text: 'This is some description for Card 3.' },
-        { title: 'Card 4', subtitle: 'Subtitle 4', text: 'This is some description for Card 4.' },
+        { title: 'Design', subtitle: 'Subtitle 1', text: 'This is some description for Design.' },
+        { title: 'Build', subtitle: 'Subtitle 2', text: 'This is some description for Build.' },
+        { title: 'Test', subtitle: 'Subtitle 3', text: 'This is some description for Test.' },
+        { title: 'Learn', subtitle: 'Subtitle 4', text: 'This is some description for Learn.' },
       ],
       totalCards: 4, 
       radius: 200,  

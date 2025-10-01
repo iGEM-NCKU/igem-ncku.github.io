@@ -3,7 +3,7 @@
         <v-card class = 'bs' id = zero align = center justify = middle min-height="100vh">
             <v-img src = 'logo.svg' id = logo max-height = 50vh />
         </v-card>
-        <v-img src = 'img/cute.png' id = cute />
+        <v-img src = 'img/cute.png' id = cute @click = cute />
     </div>
 </template>
 
@@ -65,6 +65,20 @@ export default {
         })
     },
     methods: {
+        cute() {
+            animate('#cute', {
+                // x: [
+                //     {to: '-100rem', duration: 1000},
+                //     {to: '0', duration: 1000}
+                // ],
+                y: [
+                    {to: '-25rem', duration: 500},
+                    // {to: '100rem', duration: 1000},
+                    {to: 0, duration: 500}
+                ],
+                rotate: '1turn'
+            })
+        }
     }
 }
 </script>

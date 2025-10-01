@@ -7,7 +7,7 @@
         <sidenav name = 'software' />
                 <v-row justify = end>
                     <v-col cols = 12 md = 8 class = 'pa-5'>
-                        <v-card class = ma-4 variant="plain">
+                        <v-card class = ma-4 variant = tonal color = primary>
                             <template #image>
                                 <v-img src = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp' />
                             </template>

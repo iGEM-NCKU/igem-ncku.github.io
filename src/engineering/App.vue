@@ -1,41 +1,44 @@
 <template>
   <appLayout>
-            <v-container class="d-flex justify-center" style="height: 35vh;">
-                <div class="circle-container">
-                    <v-btn class="circle-btn" @click="prevCard">Prev</v-btn>
-                    <div class="cards">
-                        <v-card
-                            v-for="(item, i) in items"
-                            :key="i"
-                            class="circle-card"
-                            :style="getCardStyle(i)"
-                        >
-                            <v-card-title>{{ item.title }}</v-card-title>
-                        </v-card>
-                    </div>
-                    <v-btn class="circle-btn" @click="nextCard">Next</v-btn>
-                </div>
-            </v-container>
+    <v-container class="d-flex justify-center" style="height: 35vh;">
+      <div class="circle-container">
+        <v-btn class="circle-btn" @click="prevCard">Prev</v-btn>
+        <div class="cards">
+          <v-card
+            v-for="(item, i) in items"
+            :key="i"
+            class="circle-card"
+            :style="getCardStyle(i)"
+            @click="openDialog(item)"
+          >
+            <v-card-title>{{ item.title }}</v-card-title>
+          </v-card>
+        </div>
+        <v-btn class="circle-btn" @click="nextCard">Next</v-btn>
+      </div>
+    </v-container>
 
-            <!-- Below container to display selected item details automatically -->
-            <v-container class="my-4 d-flex justify-center align-center">
-                <v-card v-if="selectedItem.title">
-                    <v-card-title>{{ selectedItem.title }}</v-card-title>
-                    <v-card-text>{{ selectedItem.text }}</v-card-text>
-                </v-card>
-            </v-container>
+    <!-- Dialog to display selected item details -->
+    <v-dialog v-model="dialog" max-width="500px">
+      <v-card>
+        <v-card-title class="headline">{{ selectedItem.title }}</v-card-title>
+        <v-card-text>{{ selectedItem.text }}</v-card-text>
+        <v-card-actions>
+          <v-btn color="primary" @click="dialog = false">Close</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </appLayout>
 </template>
 
 <script>
-
 import appLayout from '@/AppLayout.vue'
 
 export default {
   data() {
     return {
-      dialog: false,  
-      selectedItem: {},  
+      dialog: false,  // 控制 dialog 的顯示
+      selectedItem: {},  // 用來存儲選中的卡片內容
       items: [
         { title: 'Card 1', subtitle: 'Subtitle 1', text: 'This is some description for Card 1.' },
         { title: 'Card 2', subtitle: 'Subtitle 2', text: 'This is some description for Card 2.' },
@@ -80,6 +83,10 @@ export default {
     updateSelectedItem() {
       const index = Math.abs(Math.floor((this.angle / 360) * this.totalCards)) % this.totalCards;
       this.selectedItem = this.items[index]; 
+    },
+    openDialog(item) {
+      this.selectedItem = item;  // 更新選中的項目
+      this.dialog = true;  // 打開對話框
     }
   },
   watch: {
@@ -96,7 +103,7 @@ export default {
 <style scoped>
 .circle-container {
   position: absolute;
-  width: 400px;
+  width: 600px;
   height: 400px;
   display: flex;
   align-items: center;
@@ -108,13 +115,14 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  right: 10vw;
   transform-style: preserve-3d; 
   transform-origin: center center;
 }
 
 .circle-card {
-  width: 150px;
-  height: 100px;
+  width: 400px;
+  height: 200px;
   background-color: rgb(0, 80, 56);
   text-align: center;
   border-radius: 10px;

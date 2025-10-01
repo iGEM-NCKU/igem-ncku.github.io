@@ -142,6 +142,7 @@ export default {
                         {name: 'description', icon: undefined}, 
                         {name: 'engineering', icon: undefined}, 
                         {name: 'results', icon: undefined},
+                        {name: 'contribution', icon: undefined},
                     ]
                 },
             },

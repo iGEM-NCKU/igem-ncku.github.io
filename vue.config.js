@@ -13,6 +13,13 @@ module.exports = defineConfig({
     software: 'src/software/main.js',
     model: 'src/model/main.js',
     experiments: 'src/experiments/main.js',
-    engineering: 'src/engineering/main.js'
+    engineering: 'src/engineering/main.js',
+    description: 'src/description/main.js',
+    result: 'src/result/main.js',
+    notebook: 'src/notebook/main.js',
+    measurement: 'src/measurement/main.js',
+    'safety-and-security': 'src/safety-and-security/main.js',
+    attributions: 'src/attributions/main.js',
+    contribution: 'src/contribution/main.js'
     }
 })

@@ -19,6 +19,7 @@ module.exports = defineConfig({
     notebook: 'src/notebook/main.js',
     measurement: 'src/measurement/main.js',
     'safety-and-security': 'src/safety-and-security/main.js',
-    attributions: 'src/attributions/main.js'
+    attributions: 'src/attributions/main.js',
+    contribution: 'src/contribution/main.js'
     }
 })

@@ -8,7 +8,7 @@
         <sidenav name = 'software' />
                 <v-row justify = end>
                     <v-col cols = 12 md = 8 class = 'pa-5'>
-                        <v-card class="wallpaper-card"
+                        <v-card class="wallpaper-card" style="background-size: 100%;"
                             id ='wallpaper'
                             image = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp'>
                             <template v-slot:text>
@@ -17,7 +17,9 @@
                                 </div>
                             </template>
                         </v-card>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
+                        <br>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" >
+                                <v-card-title style="font-size: 24px;">Introduction</v-card-title>
                                 <div
                                 id="Introduction"
                                 title="Introduction"
@@ -39,7 +41,18 @@
                                     First, the machine learning model is employed to generate and optimize protein (enzyme) sequences. These sequences are then subjected to AlphaFold for structural prediction. Next, the predicted enzyme structures are docked with the ligand, followed by screening with a scoring function to evaluate binding performance. Through this pipeline, we are able to identify and obtain a functionally improved sequence within 20 minutes.
                                 </p>
                                 </div>
-                        </v-card>                        
+                        </v-card>
+                        <br>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" >
+                                <v-card-title style="font-size: 24px;">Machine learning Model</v-card-title>
+                                <div
+                                id="Machine learning Model"
+                                title="Machine learning Model"
+                                class="text-content"
+                                >
+                               Zymctrl is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over 37 M sequences. Given a user-defined Enzymatic Commission (EC) number, the model generates protein sequences that fulfil that catalytic reaction. The generated sequences are ordered, globular, and distant to natural ones, while their intended catalytic properties match those defined by users.
+                                </div>
+                        </v-card>                         
                     </v-col>
                     <v-col cols = 1 />
                 </v-row>
@@ -121,11 +134,10 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
 .wallpaper-card {
-    height: 300px;
-     background-color: transparent !important;
+    height:300px;
+    background-color: transparent !important;
     box-shadow: none !important;
-    background-position: center;     
-    background-size: cover;            
+    background-position: center;            
     background-repeat: no-repeat;      
 }
 

@@ -7,7 +7,7 @@
         <sidenav name = 'software' />
                 <v-row justify = end>
                     <v-col cols = 12 md = 8 class = 'pa-5'>
-                        <v-card class = ma-4>
+                        <v-card class = ma-4 variant="plain">
                             <template #image>
                                 <v-img src = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp' />
                             </template>
@@ -52,8 +52,16 @@
                                 >
                                Zymctrl is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over 37 M sequences. Given a user-defined Enzymatic Commission (EC) number, the model generates protein sequences that fulfil that catalytic reaction. The generated sequences are ordered, globular, and distant to natural ones, while their intended catalytic properties match those defined by users.
                                 </div>
-                        </v-card>                         
-                    </v-col>
+                                <v-expansion-panels>
+                                    <v-expansion-panel
+                                    title="How we use the Zymctrl"
+                                    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
+                                    >
+                                    </v-expansion-panel>
+                                </v-expansion-panels>  
+                        </v-card>
+                                               
+                        </v-col>
                     <v-col cols = 1 />
                 </v-row>
         </v-main>
@@ -138,10 +146,6 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     width: 65vw;
     background-color: transparent !important;
     box-shadow: none !important;
-    background-position: center;
-    background-size: cover; /* cover / contain / auto */
-    background-repeat:space;
-    background-position: center;
 }
 
 .wallpaper-text {

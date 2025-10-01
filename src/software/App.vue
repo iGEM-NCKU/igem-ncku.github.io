@@ -6,24 +6,11 @@
 
         <v-main>
         <sidenav name = 'software' />
-        <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-            <!-- <v-row class = 'text-center scroller' id = 'Design'>
-                <v-col>
-                    <v-card title = 'Design' :variant = 'alpha.card.theme'>
-                        <template v-slot:text>
-                            <p class = 'grey-text'>
-                                To efficiently degrade biofilms, we designed a system that combines the expression of
-                                three biofilm-degrading enzymes with a temperature-controlled cell lysis mechanism.
-                            </p>
-                        </template>
-                    </v-card>
-                </v-col>
-            </v-row> -->
-            <v-container>
-                <v-row>
-                    <v-col cols="12">
-                        <v-card class="d-flex justify-center wallpaper-card"
-                            id ='wallpaper'>
+                <v-row justify = end>
+                    <v-col cols = 12 md = 8 class = 'pa-5'>
+                        <v-card class="wallpaper-card"
+                            id ='wallpaper'
+                            image = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp'>
                             <template v-slot:text>
                                 <div class="wallpaper-text">
                                     A better way to create enzyme
@@ -54,9 +41,8 @@
                                 </div>
                         </v-card>                        
                     </v-col>
+                    <v-col cols = 1 />
                 </v-row>
-            </v-container>
-        </v-col><v-col cols = 1 /></v-row>
         </v-main>
     </v-app>
     
@@ -133,9 +119,6 @@ export default {
 }
 a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
-}
-#wallpaper{
-    background-image: url('https://static.igem.wiki/teams/6003/software/endzyme-logo.webp');
 }
 .wallpaper-card {
     height: 300px;

@@ -1,3 +1,4 @@
+
 <template>
     <v-app>
         <page_loader :loading = 'loading' />
@@ -7,8 +8,20 @@
         <sidenav name = 'software' />
             <v-container>
                 <v-row>
+                    <v-row class = 'text-center scroller' id = 'Design'>
+                        <v-col>
+                            <v-card title = 'Design' :variant = 'alpha.card.theme'>
+                                <template v-slot:text>
+                                    <p class = 'grey-text'>
+                                        To efficiently degrade biofilms, we designed a system that combines the expression of
+                                        three biofilm-degrading enzymes with a temperature-controlled cell lysis mechanism.
+                                    </p>
+                                </template>
+                            </v-card>
+                        </v-col>
+                    </v-row>
                     <v-col cols="12">
-                        <v-card class="wallpaper-card"
+                        <v-card class="d-flex justify-center wallpaper-card"
                             id ='wallpaper'>
                             <template v-slot:text>
                                 <div class="wallpaper-text">
@@ -123,20 +136,19 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     background-image: url('https://static.igem.wiki/teams/6003/software/endzyme-logo.webp');
 }
 .wallpaper-card {
-    height: 25vw;
-    width: 65vw;
+    height: 300px;
+    width: 800px;
     background-color: transparent !important;
     box-shadow: none !important;
     background-position: center;
     background-size: cover; /* cover / contain / auto */
     background-repeat:space;
-    background-position: center;
 }
 
 .wallpaper-text {
     position: absolute;
-    top:20vw;
-    left:19vw;           
+    top:260px;
+    left:350px;           
     transform: translateX(-50%); 
     color: black;
     font-size: 2rem;      

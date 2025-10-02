@@ -206,8 +206,22 @@ get_gridbox()
                         <v-card-title style="font-size: 24px;">DockingResult</v-card-title>
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Auto-gridbox'>
                              <v-card-title style="font-size: 24px;">Result</v-card-title>
+                             <v-row>
+                                <v-col cols = 12 md = 6>
+                                    <v-card class = ma-4>
+                                        <v-card-title style="font-size: 24px;">Manual</v-card-title>
+                        
+                                            <v-img src = 'https://static.igem.wiki/teams/6003/software/dsp-bs-artificial.webp' />
+                                      
+                                    </v-card>
+                                    <v-card class = ma-4>                        
+                                            <v-img src = 'https://static.igem.wiki/teams/6003/software/dspb-gridbox-artificial.webp' />
+                                      
+                                    </v-card>     
+                                </v-col>
+                            </v-row>
                         </v-card>
-
+                           
    
                         </v-card>
                         </v-col>

@@ -48,8 +48,12 @@
       <v-divider class="my-4 soft-divider" />
       <v-row class="text-center">
         <v-col cols="12" class="text-muted" style="font-size: 0.9rem;">
-          © {{ new Date().getFullYear() }} NCKU iGEM. Content licensed under
-          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.
+          © {{ new Date().getFullYear() }} - Content on this site is licensed under a 
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 International license</a>.
+        </v-col>
+        <v-col cols="12" class="text-muted" style="font-size: 0.9rem;">
+          The repository used to create this website is available at 
+          <a href="https://gitlab.igem.org/2025/ncku-tainan" target="_blank" rel="noopener">https://gitlab.igem.org/2025/ncku-tainan</a>.
         </v-col>
       </v-row>
     </v-container>

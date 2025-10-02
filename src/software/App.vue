@@ -43,7 +43,7 @@
                                 </div>
                         </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Machine Learning Model'>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Machine-Learning-Model'>
                                 <v-card-title style="font-size: 24px;">Machine learning Model</v-card-title>
                                 <div
                                 id="Machine learning Model"

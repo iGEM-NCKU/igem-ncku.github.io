@@ -33,7 +33,7 @@
                                         <a :href = '`#${i}`'>
                                             <v-list-item v-bind = props >
                                                 <!-- <b> {{ tmp[j] }} {{ j }} {{ j == this.scroller.now }} </b> -->
-                                                <b> {{ i }} </b>
+                                                <b> {{ title(i) }} </b>
                                             </v-list-item>
                                         </a>
                                     </template>
@@ -41,7 +41,7 @@
                                         <a :href = '`#${k}`'> <b> {{ k }} </b> </a>
                                     </v-list-item>
                                 </v-list-group>
-                                <v-list-item :value = i v-text = i @click = 'goto(`#${i}`)' v-else />
+                                <v-list-item :value = i v-text = title(i) @click = 'goto(`#${i}`)' v-else />
                             </template>
                         </v-list>
                     </template>
@@ -85,6 +85,14 @@ export default {
         }, 3000);
     },
     methods: {
+        title(x) {
+            while(x.indexOf('-') != -1) x = x.replace('-', ' ');
+            var f = [];
+            for(var i of x.split(' ')) {
+                f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
+            }
+            return (f.join(' '));
+        },
         init_scroller() {
             this.scroller.name = ($('.scroller').map(function(index) {
                 return this.id;

@@ -206,22 +206,89 @@ get_gridbox()
                         <v-card-title style="font-size: 24px;">DockingResult</v-card-title>
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Auto-gridbox'>
                              <v-card-title style="font-size: 24px;">Result</v-card-title>
-                             <v-row>
-                                <v-col cols = 12 md = 6>
+                 
+                               
                                     <v-card class = ma-4>
                                         <v-card-title style="font-size: 24px;">Manual</v-card-title>
-                        
                                             <v-img src = 'https://static.igem.wiki/teams/6003/software/dsp-bs-artificial.webp' />
-                                      
-                                    </v-card>
-                                    <v-card class = ma-4>                        
+                                            <div
+                                            id="artificial_dps"
+                                            title="artificial_dsp"
+                                            class="text-content"
+                                            >
+                                            <br>
+                                            - <b>Fig 1</b>. According to Role of active-site residues of dispersin B, a biofilm-releasing β-hexosaminidase from a periodontal pathogen, in substrate hydrolysis, We select the docking site of DspersinB 
+                                            </div>
+                                            <br>
                                             <v-img src = 'https://static.igem.wiki/teams/6003/software/dspb-gridbox-artificial.webp' />
-                                      
-                                    </v-card>     
-                                </v-col>
-                            </v-row>
+                                            <br>
+                                            - <b>Fig 2</b>. manual adjust the gridbox
+                                    </v-card> 
+                                    <div class='two-column-layout'>
+                                        <v-card-title style="font-size: 24px;">Manual</v-card-title>
+                                        <pre><code class = language-bash>
+mode |   affinity | dist from best mode
+     | (kcal/mol) | rmsd l.b.| rmsd u.b.
+-----+------------+----------+----------
+   1         -5.7      0.000      0.000
+   2         -5.5      1.433      2.844
+   3         -5.4     11.919     13.642
+   4         -5.4      1.941      4.863
+   5         -5.4      2.771      5.359
+   6         -5.4     25.826     26.550
+   7         -5.2      2.162      2.945
+   8         -5.2      9.677     11.046
+   9         -5.1     16.039     17.013
+Writing output ... done. 
+                                        </code></pre>
+                                        <v-card-title style="font-size: 24px;">Auto version</v-card-title>
+                                        <pre><code class = language-bash>
+mode |   affinity | dist from best mode
+     | (kcal/mol) | rmsd l.b.| rmsd u.b.
+-----+------------+----------+----------
+   1         -5.2      0.000      0.000
+   2         -5.0      1.341      2.641
+   3         -4.9      1.834      5.380
+   4         -4.7      2.187      4.892
+   5         -4.7      2.067      3.117
+   6         -4.7      1.938      5.493
+   7         -4.4      2.044      2.586
+   8         -4.1      1.590      1.674
+   9         -4.1      2.071      2.456
+Writing output ... done.                        
+                                        </code></pre>
+                                    </div>
                         </v-card>
-                           
+                        <br>
+                        <v-card :variant="alpha.card.theme">
+                        <v-card-title style="font-size: 24px;">Result</v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Result'>
+                                <div
+                                id="Result"
+                                title="Result"
+                                class="text-content"
+                                >
+We use <b>mmseqs2</b> as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.                                </div>
+                                <br>
+                                <b>How we use the mmseqs2</b>
+                                <pre><code class = language-bash>
+mmseqs search input.fasta ./swissprot result tmp
+
+mmseqs createtsv query.fasta ./swissprot result result.tsv
+                                </code></pre>    
+                        </v-card>
+                        <br>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Tools>
+                                <v-card-title style="font-size: 24px;">Tools</v-card-title>
+                                <div
+                                id="Tools"
+                                title="Tools"
+                                class="text-content"
+                                >
+                                - mmseqs2
+                                </div>
+                        </v-card>
+                        </v-card>
    
                         </v-card>
                         </v-col>
@@ -343,6 +410,47 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 }
 .text-content p {
   margin-bottom: 1.5em;
+}
+.two-column-layout {
+  column-count: 2; /* Set column number */
+  column-gap: 20px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .two-column-layout {
+    column-count: 1; /* Switch to single column on small screens */
+    column-gap: 0;   /* Optional: Set gap to 0 for single column */
+  }
+}
+
+.markdown-body, .ui-infobar {
+    max-width: unset !important;
+}
+
+.two-column-layout ul, 
+.two-column-layout ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.two-column-layout strong {
+  font-weight: bold;
+}
+
+.two-column-layout em {
+  font-style: italic;
+}
+    
+.two-column-layout h1,
+.two-column-layout h2,
+.two-column-layout h3,
+.two-column-layout h4,
+.two-column-layout h5,
+.two-column-layout h6 {
+    margin-top: 0;    
 }
 
 </style>

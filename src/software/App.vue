@@ -43,8 +43,9 @@
                                 </div>
                         </v-card>
                         <br>
+                        <v-card :variant="alpha.card.theme">
+                        <v-card-title style="font-size: 24px;">Machine learning Model</v-card-title>
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Machine-Learning-Model'>
-                                <v-card-title style="font-size: 24px;">Machine learning Model</v-card-title>
                                 <div
                                 id="Machine learning Model"
                                 title="Machine learning Model"
@@ -67,7 +68,112 @@ for output in generated_outputs:
     candidate_sequences.append(novel_sequence)
                                 </code></pre>    
                         </v-card>
-                                               
+                        <br>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'ColabFold'>
+                                <v-card-title style="font-size: 24px;">ColabFold</v-card-title>
+                                <div
+                                id="ColabFold"
+                                title="ColabFold"
+                                class="text-content"
+                                >
+                                <b>ColabFold</b> is an AlphaFold2-based module. Since AlphaFold3 currently lacks an API, we are using ColabFold to fulfill this part of the pipeline.
+                                </div>
+                                <br>
+                                <b>How we use Colabfold</b>
+                                <pre><code class = language-python>
+cmd = [
+        "colabfold_batch","--msa-mode", "single_sequence",       
+        str(csv_path), str(job_dir)
+    ]
+    if use_templates == "pdb100":
+        cmd.append("--templates")
+    elif use_templates == "custom" and custom_tpl_dir:
+        cmd += ["--templates", "--custom-template-path", str(Path(custom_tpl_dir).resolve())]
+
+    if amber:
+        cmd.append("--amber")
+
+    if isinstance(models, int):
+        cmd += ["--num-models", str(models)]   
+    if isinstance(recycles, int):
+        cmd += ["--num-recycle", str(recycles)]  
+
+    return cmd
+                                </code></pre>    
+                        </v-card>
+                        <br>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Tools>
+                                <v-card-title style="font-size: 24px;">Tools</v-card-title>
+                                <div
+                                id="Tools"
+                                title="Tools"
+                                class="text-content"
+                                >
+                                - Zymctrl<br>
+                                - Colabfold
+                                </div>
+                        </v-card>
+                        </v-card>
+                        <br>
+                        <v-card :variant="alpha.card.theme">
+                        <v-card-title style="font-size: 24px;">Screening</v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Screening'>
+                                <div
+                                id="Screening"
+                                title="Screening"
+                                class="text-content"
+                                >
+We use <b>mmseqs2</b> as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.                                </div>
+                                <br>
+                                <b>How we use the mmseqs2</b>
+                                <pre><code class = language-bash>
+mmseqs search input.fasta ./swissprot result tmp
+
+mmseqs createtsv query.fasta ./swissprot result result.tsv
+                                </code></pre>    
+                        </v-card>
+                        <br>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Tools>
+                                <v-card-title style="font-size: 24px;">Tools</v-card-title>
+                                <div
+                                id="Tools"
+                                title="Tools"
+                                class="text-content"
+                                >
+                                - mmseqs2
+                                </div>
+                        </v-card>
+                        </v-card>
+                        <br>
+                        <v-card :variant="alpha.card.theme">
+                        <v-card-title style="font-size: 24px;">Screening</v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Screening'>
+                                <div
+                                id="Screening"
+                                title="Screening"
+                                class="text-content"
+                                >
+We use <b>mmseqs2</b> as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.                                </div>
+                                <br>
+                                <b>How we use the mmseqs2</b>
+                                <pre><code class = language-bash>
+mmseqs search input.fasta ./swissprot result tmp
+
+mmseqs createtsv query.fasta ./swissprot result result.tsv
+                                </code></pre>    
+                        </v-card>
+                        <br>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Tools>
+                                <v-card-title style="font-size: 24px;">Tools</v-card-title>
+                                <div
+                                id="Tools"
+                                title="Tools"
+                                class="text-content"
+                                >
+                                - mmseqs2
+                                </div>
+                        </v-card>
+                        </v-card>
                         </v-col>
                     <v-col cols = 1 />
                 </v-row>

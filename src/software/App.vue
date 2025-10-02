@@ -19,7 +19,7 @@
                         </v-card>
                         <br>
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
-                                <v-card-title style="font-size: 24px;">Introduction</v-card-title>
+                                <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>
                                 <div
                                 id="Introduction"
                                 title="Introduction"
@@ -43,17 +43,17 @@
                                 </div>
                         </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme">
-                        <v-card-title style="font-size: 24px;">Machine learning Model</v-card-title>
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Machine-Learning-Model'>
+                            <v-card-title style="font-size: 32px;"><b>Machine learning Model</b></v-card-title>
                                 <div
                                 id="Machine learning Model"
                                 title="Machine learning Model"
                                 class="text-content"
                                 >
-                               Zymctrl is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over 37 M sequences. Given a user-defined Enzymatic Commission (EC) number, the model generates protein sequences that fulfil that catalytic reaction. The generated sequences are ordered, globular, and distant to natural ones, while their intended catalytic properties match those defined by users.
+                                Zymctrl is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over 37 M sequences. Given a user-defined Enzymatic Commission (EC) number, the model generates protein sequences that fulfil that catalytic reaction. The generated sequences are ordered, globular, and distant to natural ones, while their intended catalytic properties match those defined by users.
                                 </div>
                                 <br>
+                                <div class="text-content">
                                 <b>How we use Zymctrl</b>
                                 <pre><code class = language-python>
 generator = pipeline('text-generation', model='AI4PD/ZymCTRL')
@@ -66,11 +66,10 @@ for output in generated_outputs:
     raw_novel_sequence = output['generated_text']
     novel_sequence = raw_novel_sequence.replace("＜|endoftext|＞", "").replace(" ", "").strip()[:max_len]
     candidate_sequences.append(novel_sequence)
-                                </code></pre>    
-                        </v-card>
-                        <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'ColabFold'>
-                                <v-card-title style="font-size: 24px;">ColabFold</v-card-title>
+                                </code></pre>  
+                                </div> 
+                                <br>
+                                <v-card-subtitle id = Colabfold class="subtitle" style="font-size: 24px;">ColabFold</v-card-subtitle>
                                 <div
                                 id="ColabFold"
                                 title="ColabFold"
@@ -79,8 +78,9 @@ for output in generated_outputs:
                                 <b>ColabFold</b> is an AlphaFold2-based module. Since AlphaFold3 currently lacks an API, we are using ColabFold to fulfill this part of the pipeline.
                                 </div>
                                 <br>
-                                <b>How we use Colabfold</b>
-                                <pre><code class = language-python>
+                                <div class = "text-content">
+                                    <b>How we use Colabfold</b>
+                                    <pre><code class = language-python>
 cmd = [
         "colabfold_batch","--msa-mode", "single_sequence",       
         str(csv_path), str(job_dir)
@@ -99,25 +99,22 @@ cmd = [
         cmd += ["--num-recycle", str(recycles)]  
 
     return cmd
-                                </code></pre>    
-                        </v-card>
+                                    </code></pre>   
+                                    </div>
+                                    <br>   
+                                    <v-card-subtitle id = ML-Tools class='subtitle' style="font-size: 24px;">Tools</v-card-subtitle>
+                                    <div
+                                    id="Tools"
+                                    title="Tools"
+                                    class="text-content"
+                                    >
+                                    - Zymctrl<br>
+                                    - Colabfold
+                                    </div>
+                        </v-card>                                
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Tools>
-                                <v-card-title style="font-size: 24px;">Tools</v-card-title>
-                                <div
-                                id="Tools"
-                                title="Tools"
-                                class="text-content"
-                                >
-                                - Zymctrl<br>
-                                - Colabfold
-                                </div>
-                        </v-card>
-                        </v-card>
-                        <br>
-                        <v-card :variant="alpha.card.theme">
-                        <v-card-title style="font-size: 24px;">Screening</v-card-title>
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Screening'>
+                                <v-card-title style="font-size: 32px;"><b>Screening</b></v-card-title>
                                 <div
                                 id="Screening"
                                 title="Screening"
@@ -125,16 +122,16 @@ cmd = [
                                 >
 We use <b>mmseqs2</b> as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.                                </div>
                                 <br>
-                                <b>How we use the mmseqs2</b>
+                                <div class="text-content">
+                                    <b>How we use the mmseqs2</b>
                                 <pre><code class = language-bash>
 mmseqs search input.fasta ./swissprot result tmp
 
 mmseqs createtsv query.fasta ./swissprot result result.tsv
-                                </code></pre>    
-                        </v-card>
-                        <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Tools>
-                                <v-card-title style="font-size: 24px;">Tools</v-card-title>
+                                </code></pre> 
+                                </div>
+                                <br>
+                                <v-card-subtitle id = Screening-Tools class = 'subtitle' style="font-size: 24px;">Tools</v-card-subtitle>
                                 <div
                                 id="Tools"
                                 title="Tools"
@@ -143,11 +140,9 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                 - mmseqs2
                                 </div>
                         </v-card>
-                        </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme">
-                        <v-card-title style="font-size: 24px;">Docking</v-card-title>
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Docking'>
+                                <v-card-title style="font-size: 32px;"><b>Docking</b></v-card-title>
                                 <div
                                 id="Docking"
                                 title="Docking"
@@ -157,6 +152,7 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
 Furthermore, our goal is to make this software accessible to the broader scientific community. To achieve this, we have developed a Python script that automatically calculates the grid box, streamlining the docking process and enhancing the usability of the software for users without requiring manual configuration.
                                 </div>
                                 <br>
+                                <div class="text-content">
                                 <b>How we automatically set our gridbox in the pipeline</b>
                                 <pre><code class = language-python>
 from pymol import cmd
@@ -200,13 +196,11 @@ cmd.select("binding_site", "ligand around 10")
 
 
 get_gridbox()
-                                </code></pre>    
-                        </v-card>
-                        <br>
-                        <v-card-title style="font-size: 24px;">DockingResult</v-card-title>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Auto-gridbox'>
-
-                                        <v-card-title style="font-size: 24px;">Manual</v-card-title>
+                                </code></pre>
+                                </div>
+                                <br>
+                        <v-card-subtitle id = Docking-Result class = 'subtitle' style="font-size: 24px;">DockingResult</v-card-subtitle>
+                        <v-card-title style="font-size: 24px;">Manual calculate gridbox</v-card-title>
                                             <v-img src = 'https://static.igem.wiki/teams/6003/software/dsp-bs-artificial.webp' />
                                             <div
                                             class="text-content"
@@ -222,8 +216,7 @@ get_gridbox()
                                             >
                                             - <b>Fig 2</b>. manual adjust the gridbox
                                             </div>
-                                    </v-card> 
-                                    <div class='two-column-layout'>
+                                            <div class='two-column-layout'>
                                         <v-card-title style="font-size: 24px;">Manual</v-card-title>
                                         <pre><code class = language-bash>
 mode |   affinity | dist from best mode
@@ -257,11 +250,12 @@ mode |   affinity | dist from best mode
 Writing output ... done.                        
                                         </code></pre>
                                     </div>
+
                         </v-card>
-                        <br>
-                        <v-card :variant="alpha.card.theme">
-                        <v-card-title style="font-size: 24px;">Result</v-card-title>
+                        <br>                 
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Result'>
+                        <v-card-title style="font-size: 32px;"><b>Result</b></v-card-title>                                  
+
                                 <div
                                 id="Result"
                                 title="Result"
@@ -269,30 +263,28 @@ Writing output ... done.
                                 >
 We use <b>mmseqs2</b> as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.                                </div>
                                 <br>
+                                <div class="text-content">
                                 <b>How we use the mmseqs2</b>
                                 <pre><code class = language-bash>
 mmseqs search input.fasta ./swissprot result tmp
 
 mmseqs createtsv query.fasta ./swissprot result result.tsv
-                                </code></pre>    
-                        </v-card>
-                        <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Tools>
+                                </code></pre>  
+                                </div> 
                                 <v-card-title style="font-size: 24px;">Tools</v-card-title>
+
                                 <div
                                 id="Tools"
                                 title="Tools"
                                 class="text-content"
                                 >
                                 - mmseqs2
-                                </div>
+                                </div> 
                         </v-card>
-                        </v-card>
-                            <v-card class = ma-4 variant = transparent  v-ripple>
-                                <v-card-title style="font-size: 24px;"><b>How to use this software</b></v-card-title>
+                        <br> 
+                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Usage>
+                                <v-card-title style="font-size: 32px;"><b>How to use this software</b></v-card-title>
                                     <a href="https://github.com/iGEM-NCKU/endzyme">&nbsp;&nbsp;&nbsp;&nbsp;This is Our Github page</a>
-                            </v-card>
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Using>
                                 <v-card-title style="font-size: 32px;">Usage</v-card-title>
                                 <div
                                 id="Using"
@@ -307,7 +299,7 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                 <br>
                                 <b>Important:</b> To ensure proper functionality, the server stack must be started in the following order: <b>Gunicorn → Nginx</b>.
                                 </div>
-                                <v-card-title style="font-size: 24px;"><b>1. Environment Setup</b></v-card-title>
+                                <v-card-title id = Environment-Setup class = 'subtitle' style="font-size: 24px;"><b>1. Environment Setup</b></v-card-title>
                                 <div
                                 class="text-content">
                                     1. Create a Python environment (recommended: <i>conda</i> or <i>venv</i>):
@@ -325,7 +317,7 @@ sudo apt install nginx
 pip install gunicorn
                                 </code></pre>
                                 </div>
-                                <v-card-title style="font-size: 24px;"><b>2. Run Flask via Gunicorn</b></v-card-title>
+                                <v-card-title id = Run-Flask-via-Gunicorn class = 'subtitle' style="font-size: 24px;"><b>2. Run Flask via Gunicorn</b></v-card-title>
                                 <div
                                 class = "text-content">
                                 git clone our repo
@@ -341,7 +333,7 @@ cd /home/path/to/root
 gunicorn -w 4 -b 127.0.0.1:8001 main:app
                                 </code></pre>
                                 </div>
-                                <v-card-title style="font-size: 24px;"><b>3. Configure and Start Nginx</b></v-card-title>
+                                <v-card-title  id = Configure-and-Start-Nginx class = 'subtitle' style="font-size: 24px;"><b>3. Configure and Start Nginx</b></v-card-title>
                                 <div
                                 class = "text-content">
                                 <pre><code class = "language-nginx">
@@ -366,7 +358,9 @@ server {
     }
 }
                                 </code></pre>
+                                <br>
                                 Then restart Nginx:
+                                <br>
                             <pre><code class = "language-bash">
 sudo nginx -t        # test configuration
 sudo systemctl restart nginx
@@ -376,11 +370,11 @@ sudo systemctl restart nginx
                             </div>
                             </v-card>
                             <br>
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
+                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Reference>
                                 <v-card-title style="font-size: 32px;">Reference</v-card-title>
                                 <div
-                                id="Introduction"
-                                title="Introduction"
+                                id="Reference"
+                                title="Reference"
                                 class="text-content"
                                 >
                                 <p>

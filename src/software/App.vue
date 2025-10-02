@@ -7,7 +7,7 @@
         <sidenav name = 'software' />
                 <v-row justify = end>
                     <v-col cols = 12 md = 8 class = 'pa-5'>
-                        <v-card class = ma-4 variant = tonal color = primary>
+                        <v-card class = ma-4 variant = tonal color = primary v-ripple>
                             <template #image>
                                 <v-img src = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp' />
                             </template>
@@ -18,7 +18,7 @@
                             </template>
                         </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" >
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
                                 <v-card-title style="font-size: 24px;">Introduction</v-card-title>
                                 <div
                                 id="Introduction"
@@ -43,7 +43,7 @@
                                 </div>
                         </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" >
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Machine Learning Model'>
                                 <v-card-title style="font-size: 24px;">Machine learning Model</v-card-title>
                                 <div
                                 id="Machine learning Model"
@@ -57,13 +57,13 @@
                                 <pre><code class = language-python>
 generator = pipeline('text-generation', model='AI4PD/ZymCTRL')
 if maxLength == None:
-max_len = len(original_sequence)
+    max_len = len(original_sequence)
 else:
     max_len = maxLength
-generated_outputs = generator("<|endoftext|>", max_length=max_len, num_return_sequences=num_to_generate)
+generated_outputs = generator("＜|endoftext|＞", max_length=max_len, num_return_sequences=num_to_generate)
 for output in generated_outputs:
     raw_novel_sequence = output['generated_text']
-    novel_sequence = raw_novel_sequence.replace("<|endoftext|>", "").replace(" ", "").strip()[:max_len]
+    novel_sequence = raw_novel_sequence.replace("＜|endoftext|＞", "").replace(" ", "").strip()[:max_len]
     candidate_sequences.append(novel_sequence)
                                 </code></pre>    
                         </v-card>
@@ -78,7 +78,7 @@ for output in generated_outputs:
 </template>
 
 <script>
- /* eslint-disable */ 
+/* eslint-disable */
 import $ from 'jquery'
 import M from 'materialize-css'
 import hljs from 'highlight.js'

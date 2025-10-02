@@ -205,15 +205,10 @@ get_gridbox()
                         <br>
                         <v-card-title style="font-size: 24px;">DockingResult</v-card-title>
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Auto-gridbox'>
-                             <v-card-title style="font-size: 24px;">Result</v-card-title>
-                 
-                               
-                                    <v-card class = ma-4>
+
                                         <v-card-title style="font-size: 24px;">Manual</v-card-title>
                                             <v-img src = 'https://static.igem.wiki/teams/6003/software/dsp-bs-artificial.webp' />
                                             <div
-                                            id="artificial_dps"
-                                            title="artificial_dsp"
                                             class="text-content"
                                             >
                                             <br>
@@ -222,7 +217,11 @@ get_gridbox()
                                             <br>
                                             <v-img src = 'https://static.igem.wiki/teams/6003/software/dspb-gridbox-artificial.webp' />
                                             <br>
+                                            <div
+                                            class="text-content"
+                                            >
                                             - <b>Fig 2</b>. manual adjust the gridbox
+                                            </div>
                                     </v-card> 
                                     <div class='two-column-layout'>
                                         <v-card-title style="font-size: 24px;">Manual</v-card-title>
@@ -289,11 +288,137 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                 </div>
                         </v-card>
                         </v-card>
-   
+                            <v-card class = ma-4 variant = transparent  v-ripple>
+                                <v-card-title style="font-size: 24px;"><b>How to use this software</b></v-card-title>
+                                    <a href="https://github.com/iGEM-NCKU/endzyme">&nbsp;&nbsp;&nbsp;&nbsp;This is Our Github page</a>
+                            </v-card>
+                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Using>
+                                <v-card-title style="font-size: 32px;">Usage</v-card-title>
+                                <div
+                                id="Using"
+                                title="Using"
+                                class="text-content"
+                                >
+                                We Strongly recommand you to use read the readme file in our github first.
+                                </div>
+                                 <div
+                                class="text-content"
+                                >
+                                <br>
+                                <b>Important:</b> To ensure proper functionality, the server stack must be started in the following order: <b>Gunicorn → Nginx</b>.
+                                </div>
+                                <v-card-title style="font-size: 24px;"><b>1. Environment Setup</b></v-card-title>
+                                <div
+                                class="text-content">
+                                    1. Create a Python environment (recommended: <i>conda</i> or <i>venv</i>):
+                                <pre><code class = language-bash    >
+conda create -n endzyme python=3.10
+conda activate endzyme
+                                </code></pre>                 
+                                2. Install dependencies:      
+                                <pre><code class = language-bash    >
+pip install -r requirements.txt
+                                </code></pre>
+                                3. Ensure <i>nginx</i> and <i>gunicorn</i> are installed and accessible:
+                                <pre><code class = language-bash    >
+sudo apt install nginx
+pip install gunicorn
+                                </code></pre>
+                                </div>
+                                <v-card-title style="font-size: 24px;"><b>2. Run Flask via Gunicorn</b></v-card-title>
+                                <div
+                                class = "text-content">
+                                git clone our repo
+                                <pre><code class = language-bash >
+git clone https://github.com/iGEM-NCKU/endzyme.git
+                                </code></pre>    
+                                Navigate to the project root:
+                                <pre><code class = language-bash >
+cd /home/path/to/root
+                                </code></pre>
+                                Start Gunicorn (example: 4 workers, listening on port 8001):
+                                <pre><code class = language-bash >
+gunicorn -w 4 -b 127.0.0.1:8001 main:app
+                                </code></pre>
+                                </div>
+                                <v-card-title style="font-size: 24px;"><b>3. Configure and Start Nginx</b></v-card-title>
+                                <div
+                                class = "text-content">
+                                <pre><code class = "language-nginx">
+upstream endzyme {
+    server 127.0.0.1:8001;
+}
+
+server {
+    listen 80;
+    server_name _;
+    root /home/path/to/root;
+
+    location /static/ {
+        alias /home/path/to/root/static/;
+    }
+
+    location /api/ {
+        proxy_pass http://endzyme;
+        proxy_connect_timeout 600s;
+        proxy_send_timeout 600s;
+        proxy_read_timeout 600s;
+    }
+}
+                                </code></pre>
+                                Then restart Nginx:
+                            <pre><code class = "language-bash">
+sudo nginx -t        # test configuration
+sudo systemctl restart nginx
+                            </code></pre>
+                            <br>
+                            Now the Endzyme frontend and API are available at <b><i>http://&lt;server-ip&gt;/</i></b>.
+                            </div>
+                            </v-card>
+                            <br>
+                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
+                                <v-card-title style="font-size: 32px;">Reference</v-card-title>
+                                <div
+                                id="Introduction"
+                                title="Introduction"
+                                class="text-content"
+                                >
+                                <p>
+                                1. <b>Structural Analysis of Dispersin B, a Biofilm-releasing Glycoside Hydrolase from the Periodontopathogen Actinobacillus actinomycetemcomitans.</b> Ramasubbu, N., Thomas, L.M., Ragunath, C., Kaplan, J.B.(2005) J Mol Biology 349
+                                </p>
+                                <p>
+                                2. <b>What can be done with a good crystal and an accurate beamline?</b> Wang, J., Dauter, M., Dauter, Z.(2006) Acta Crystallogr D Biol Crystallogr 62
+                                </p>
+                                <p>
+                                3. <b>The Structure of Human DNase I Bound to Magnesium and Phosphate Ions Points to a Catalytic Mechanism Common to Members of the DNase I-Like Superfamily.</b> Parsiegla, G., Noguere, C., Santell, L., Lazarus, R.A., Bourne, Y.(2012) Biochemistry 51: 10250
+                                </p>
+                                <p>
+                                4. <b>Conditional language models enable the efficient design of proficient enzymes</b>  Geraldene Munsamy, Ramiro Illanes-Vicioso, Silvia Funcillo, Ioanna T. Nakou, Sebastian Lindner, Gavin Ayres, Lesley S. Sheehan, Steven Moss, Ulrich Eckhard, Philipp Lorenz, Noelia Ferruz(2024), biorxiv
+                                </p>
+                                <p>
+                                5. <b>ColabFold: Making protein folding accessible to all.</b> Mirdita M, Schütze K, Moriwaki Y, Heo L, Ovchinnikov S and Steinegger M.(2022) Nature Methods
+                                </p>
+                                <p>
+                                6. <b>Highly accurate protein structure prediction with AlphaFold.</b> Jumper et al.(2021) Nature 
+                                </p>
+                                <p>
+                                7. <b>MMseqs2 enables sensitive protein sequence searching for the analysis of massive data sets.</b> Steinegger M and Soeding J, (2017)Nature Biotechnology.
+                                </p>
+                                <p>
+                                8. <b>AutoDock Vina 1.2.0: New Docking Methods, Expanded Force Field, and Python Bindings.</b> J. Eberhardt, D. Santos-Martins, A. F. Tillack, and S. Forli. (2021). Journal of Chemical Information and Modeling.
+                                </p>
+                                <p>
+                                9. <b>AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization and multithreading</b>O. Trott, A. J. Olson, (2010) Journal of Computational Chemistry 31 
+                                </p>
+                                <p>
+                                10. <b>Role of active-site residues of dispersin B, a biofilm-releasing β-hexosaminidase from a periodontal pathogen, in substrate hydrolysis</b>Suba G. A. Manuel, Chandran Ragunath, Hameetha B. R. Sait, Era A. Izano, Jeffrey B. Kaplan, Narayanan Ramasubbu.(2007). The FBES journal, Volume274, Issue22
+                                </p>
+                                </div>
                         </v-card>
                         </v-col>
                     <v-col cols = 1 />
                 </v-row>
+                
         </v-main>
     </v-app>
     
@@ -407,6 +532,8 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
   font-size: 18px;      
   line-height: 1.6;    
   color: #333;     
+   padding-left: 30px; /* 這裡可以根據需要調整數值 */
+
 }
 .text-content p {
   margin-bottom: 1.5em;

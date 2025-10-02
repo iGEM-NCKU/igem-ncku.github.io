@@ -146,33 +146,69 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                         </v-card>
                         <br>
                         <v-card :variant="alpha.card.theme">
-                        <v-card-title style="font-size: 24px;">Screening</v-card-title>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Screening'>
+                        <v-card-title style="font-size: 24px;">Docking</v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Docking'>
                                 <div
-                                id="Screening"
-                                title="Screening"
+                                id="Docking"
+                                title="Docking"
                                 class="text-content"
                                 >
-We use <b>mmseqs2</b> as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.                                </div>
+                                In our project, we use <b>AutoDock Vina</b> to optimize the performance of proteins by evaluating their interactions with small molecules. Due to a limitation of AutoDock Vina, we are unable to use polymers as docking targets. As a result, we have chosen to utilize monomers as our docking targets.
+Furthermore, our goal is to make this software accessible to the broader scientific community. To achieve this, we have developed a Python script that automatically calculates the grid box, streamlining the docking process and enhancing the usability of the software for users without requiring manual configuration.
+                                </div>
                                 <br>
-                                <b>How we use the mmseqs2</b>
-                                <pre><code class = language-bash>
-mmseqs search input.fasta ./swissprot result tmp
+                                <b>How we automatically set our gridbox in the pipeline</b>
+                                <pre><code class = language-python>
+from pymol import cmd
+import sys
 
-mmseqs createtsv query.fasta ./swissprot result result.tsv
+ligand_input_file = sys.argv[1]
+receptor_input_file = sys.argv[2]
+
+def get_gridbox(selection="binding_site", receptor=receptor_input_file, ligand_file=ligand_input_file, exhaustiveness=16, output_conf="conf.txt"):
+    """
+    Calculate grid box from selection and write Vina config file
+    """
+    min_coord, max_coord = cmd.get_extent(selection)
+    center = [(min_coord[i] + max_coord[i]) / 2 for i in range(3)]
+    size = [max_coord[i] - min_coord[i] for i in range(3)]
+
+    print("Grid Box Center (center_x, center_y, center_z):")
+    print(f"{center[0]:.3f} {center[1]:.3f} {center[2]:.3f}")
+    print("Grid Box Size (size_x, size_y, size_z):")
+    print(f"{size[0]:.3f} {size[1]:.3f} {size[2]:.3f}")
+
+    with open(output_conf, "w") as f:
+        f.write(f"receptor = {receptor}\n")
+        f.write(f"ligand = {ligand_file}\n")
+        f.write(f"center_x = {center[0]:.3f}\n")
+        f.write(f"center_y = {center[1]:.3f}\n")
+        f.write(f"center_z = {center[2]:.3f}\n")
+        f.write(f"size_x = {size[0]:.3f}\n")
+        f.write(f"size_y = {size[1]:.3f}\n")
+        f.write(f"size_z = {size[2]:.3f}\n")
+        f.write(f"out = vina_out.pdbqt\n")
+        f.write(f"log = vina_log.txt\n")
+        f.write(f"exhaustiveness = {exhaustiveness}\n")
+
+# === PyMOL Command-line Execution ===
+cmd.load(receptor_input_file, "receptor")
+cmd.load(ligand_input_file, "ligand")
+
+
+cmd.select("binding_site", "ligand around 10")
+
+
+get_gridbox()
                                 </code></pre>    
                         </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Tools>
-                                <v-card-title style="font-size: 24px;">Tools</v-card-title>
-                                <div
-                                id="Tools"
-                                title="Tools"
-                                class="text-content"
-                                >
-                                - mmseqs2
-                                </div>
+                        <v-card-title style="font-size: 24px;">DockingResult</v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Auto-gridbox'>
+                             <v-card-title style="font-size: 24px;">Result</v-card-title>
                         </v-card>
+
+   
                         </v-card>
                         </v-col>
                     <v-col cols = 1 />

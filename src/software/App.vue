@@ -53,18 +53,19 @@
                                Zymctrl is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over 37 M sequences. Given a user-defined Enzymatic Commission (EC) number, the model generates protein sequences that fulfil that catalytic reaction. The generated sequences are ordered, globular, and distant to natural ones, while their intended catalytic properties match those defined by users.
                                 </div>
                                 <br>
-                                <b>How we use Zymctrl</b>                                   
-                                <ssh-pre language="python" label="Python">
-                                    generator = pipeline('text-generation', model='AI4PD/ZymCTRL')<br>if maxLength == None:
-                                    <!-- max_len = len(original_sequence)
-                                    else:
-                                        max_len = maxLength
-                                    generated_outputs = generator("<|endoftext|>", max_length=max_len, num_return_sequences=num_to_generate)
-                                    for output in generated_outputs:
-                                        raw_novel_sequence = output['generated_text']
-                                        novel_sequence = raw_novel_sequence.replace("<|endoftext|>", "").replace(" ", "").strip()[:max_len]
-                                        candidate_sequences.append(novel_sequence) -->
-                                </ssh-pre>      
+                                <b>How we use Zymctrl</b>
+                                <pre><code class = language-python>
+generator = pipeline('text-generation', model='AI4PD/ZymCTRL')
+if maxLength == None:
+max_len = len(original_sequence)
+else:
+    max_len = maxLength
+generated_outputs = generator("<|endoftext|>", max_length=max_len, num_return_sequences=num_to_generate)
+for output in generated_outputs:
+    raw_novel_sequence = output['generated_text']
+    novel_sequence = raw_novel_sequence.replace("<|endoftext|>", "").replace(" ", "").strip()[:max_len]
+    candidate_sequences.append(novel_sequence)
+                                </code></pre>    
                         </v-card>
                                                
                         </v-col>
@@ -80,8 +81,8 @@
  /* eslint-disable */ 
 import $ from 'jquery'
 import M from 'materialize-css'
-import SshPre from 'simple-syntax-highlighter'
-import 'simple-syntax-highlighter/dist/sshpre.css'
+import hljs from 'highlight.js'
+import '@/styles/code.css'
 
 
 import title_nav from '@/title.vue'
@@ -110,8 +111,7 @@ export default {
         title_nav,
         page_loader,
         sidenav,
-        site_footer,
-        SshPre
+        site_footer
     },
     mounted() {
         M.AutoInit();
@@ -121,8 +121,9 @@ export default {
         fetch('/drylab/endzyme.md')     
             .then(res => res.text())
             .then(text => {
-        this.endzyme = text
-      });
+            this.endzyme = text
+        });
+        hljs.highlightAll();
     },
     methods: {
         title(x) {

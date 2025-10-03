@@ -3,6 +3,9 @@
         <logo />
     </div>
     <div class = 'place_holder'>
+        <leaf />
+    </div>
+    <div class = 'place_holder'>
         <man_walking />
     </div>
     <div class = 'place_holder'>
@@ -18,13 +21,15 @@ import { animate, stagger, onScroll, text } from 'animejs';
 import logo from '@/index/animates/logo.vue';
 import man_walking from '@/index/animates/man_walking.vue';
 import legs from '@/index/animates/legs.vue';
+import leaf from '@/index/animates/leaf.vue'
 
 export default {   
     name: 'home_wallpaper',
     components: {
         man_walking,
         legs,
-        logo
+        logo,
+        leaf
     },
     mounted() {
         M.AutoInit();

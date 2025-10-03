@@ -67,6 +67,9 @@ export default {
     width: 100vw;
     /* text-align: center; */
 }
+.legs_title {
+    top: 200px;
+}
 /* #legs {
     filter: blur(50px);
 } */

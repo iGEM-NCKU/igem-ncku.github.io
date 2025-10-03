@@ -33,7 +33,7 @@ export default {
             filter: "blur(0px)",
             autoplay: onScroll({
                 enter: 'top+=200px top',
-                leave: 'top top',
+                leave: 'top-=200px top',
                 sync: true
             })
         })
@@ -42,7 +42,8 @@ export default {
             autoplay: onScroll({
                 enter: 'top top',
                 leave: 'top bottom',
-                sync: true
+                sync: true,
+                debug: true
             })
         })
     },
@@ -67,7 +68,7 @@ export default {
     width: 100vw;
     /* text-align: center; */
 }
-#legs {
+/* #legs {
     filter: blur(50px);
-}
+} */
 </style>

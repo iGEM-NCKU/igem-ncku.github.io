@@ -51,7 +51,7 @@ export default {
             y: '-10rem',
             opacity: 0.3,
             autoplay: onScroll({
-                enter: 'center-=200px top',
+                enter: 'center top',
                 leave: 'top bottom',
                 sync: true
             })

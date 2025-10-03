@@ -16,7 +16,7 @@
             <b> {{ i }} </b>
         </template>
      </v-card> -->
-    <navi class = 'block glass' @click = 'show_nav ^= 1' :class = '[show_nav ? `tmp fixed` : `sticky`, !$vuetify.display.mdAndUp ? `text-center` : undefined]' id = 'title'>
+    <navi class = 'block glass elevate' @click = 'show_nav ^= 1' :class = '[show_nav ? `tmp fixed` : `sticky`, !$vuetify.display.mdAndUp ? `text-center` : undefined]' id = 'title'>
         <img src = icon.png height = 20px />
         <!-- {{ alpha }} -->
         <a href = 'index.html' class = 'unfocused stroke'>

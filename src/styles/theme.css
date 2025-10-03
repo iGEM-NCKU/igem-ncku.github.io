@@ -92,7 +92,7 @@ a:hover { color: var(--color-primary-600); }
 .spinner-green { border-color: var(--color-primary) !important; }
 
 /* Vuetify adjustments */
-.v-card { border-radius: var(--radius); }
+.v-card { border-radius: var(--radius); background: linear-gradient(#B0DC91, white);}
 .v-card--variant-elevated { box-shadow: var(--shadow-sm); }
 .v-btn { border-radius: 999px; font-weight: 700; }
 .v-application { background: transparent !important; }

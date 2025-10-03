@@ -18,9 +18,9 @@
                     </template>
                     <template v-slot:text>
                         <!-- Place holder -->
-                         <!-- {{ this.scroller.name[this.scroller.now] }}
-                         {{ this.scroller.now }}
-                         {{ this.scroller.ns == -1 ? '' : this.scroller.subtitles[this.scroller.now][this.scroller.ns] }} -->
+                         {{ this.scroller.name[this.scroller.now] }}
+                         <!-- {{ this.scroller.now }} -->
+                         {{ this.scroller.ns == -1 ? '' : this.scroller.subtitles[this.scroller.now][this.scroller.ns] }}
                         <v-list>
                             <template v-for = 'i, j in scroller.name' :key = i>
                                 <v-list-group
@@ -32,7 +32,7 @@
                                     <template #activator = '{props}'>
                                         <a :href = '`#${i}`'>
                                             <v-list-item v-bind = props >
-                                                <!-- <b> {{ tmp[j] }} {{ j }} {{ j == this.scroller.now }} </b> -->
+                                                    <!-- <b> {{ tmp[j] }} {{ j }} {{ j == this.scroller.now }} </b> -->
                                                 <b> {{ title(i) }} </b>
                                             </v-list-item>
                                         </a>
@@ -130,7 +130,7 @@ export default {
             });
         },
         goto(x) {
-            // M.toast({html: `going to ${x}`, classes: 'amber rounded'});
+            M.toast({html: `going to ${x}`, classes: 'amber rounded'});
             this.goTo(x, {
                 container: 'html',
                 duration: 300,
@@ -144,8 +144,8 @@ export default {
 
 <style scoped>
 .stroke {
-    /* -webkit-text-stroke: .5px #efe4d1; */
-    /* text-stroke: 1.5px #efe4d1; */
+    -webkit-text-stroke: .5px #efe4d1;
+    text-stroke: 1.5px #efe4d1;
     text-shadow:
         -1px -1px 0 #fff,
         1px -1px 0 #fff,

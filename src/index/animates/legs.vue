@@ -4,11 +4,11 @@
             <template #image>
                 <video id = 'legs' src = 'assets/legs.mp4' control = false preload muted autoplay loop></video>
             </template>
-            <div class = 'title'>
+            <div class = 'legs_title'>
                 <h3> In US </h3>
                 <h1> 800, 000 </h1>
             </div>
-            <div class = 'text-grey title'>
+            <div class = 'text-grey legs_title'>
                 <h5> Total knee Arthroplasty (TKA) </h5>
             </div>
         </v-card>
@@ -30,20 +30,19 @@ export default {
     mounted() {
         M.AutoInit();
         animate('#legs', {
-            filter: "blur(0px)",
+            // filter: "blur(50px)",
             autoplay: onScroll({
                 enter: 'top+=200px top',
                 leave: 'top-=200px top',
                 sync: true
             })
         })
-        animate('.title', {
+        animate('.legs_title', {
             y: '50vh',
             autoplay: onScroll({
                 enter: 'top top',
                 leave: 'top bottom',
-                sync: true,
-                debug: true
+                sync: true
             })
         })
     },

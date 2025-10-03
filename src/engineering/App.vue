@@ -1,28 +1,43 @@
 <template>
-  <appLayout>
-    <v-container class="d-flex justify-center" style="height: 35vh;">
-      <div class="circle-container">
-        <v-btn class="circle-btn" @click="prevCard">Prev</v-btn>
-        <div class="cards">
-          <!-- 顯示卡片標題及描述在卡片上方 -->
-          <v-card
-            v-for="(item, i) in items"
-            :key="i"
-            class="circle-card"
-            :style="getCardStyle(i)"
-          >
-            <v-card-title>{{ item.title }}</v-card-title>
-            <v-card-text>{{ item.text }}</v-card-text>
-          </v-card>
-        </div>
-        <v-btn class="circle-btn" @click="nextCard">Next</v-btn>
-      </div>
-    </v-container>
-  </appLayout>
+    <v-app>
+      <page_loader :loading = 'loading' />
+      <title_nav />
+
+      <v-main>
+      <sidenav name = 'engineering' />
+      <v-row justify = end>
+        <v-col cols = 12 md = 8 class = 'pa-5'>
+          <v-container class="d-flex justify-center" style="height: 35vh;">
+            <div class="circle-container">
+              <v-btn class="circle-btn" @click="prevCard">Prev</v-btn>
+              <div class="cards">
+                <!-- 顯示卡片標題及描述在卡片上方 -->
+                <v-card
+                  v-for="(item, i) in items"
+                  :key="i"
+                  class="circle-card"
+                  :style="getCardStyle(i)"
+                >
+                  <v-card-title>{{ item.title }}</v-card-title>
+                  <v-card-text>{{ item.text }}</v-card-text>
+                </v-card>
+              </div>
+              <v-btn class="circle-btn" @click="nextCard">Next</v-btn>
+            </div>
+          </v-container>
+          </v-col>
+        </v-row>
+      </v-main>
+    </v-app>
+    <site_footer></site_footer>
 </template>
 
 <script>
-import appLayout from '@/AppLayout.vue'
+
+import title_nav from '@/title.vue'
+import page_loader from '@/loader.vue'
+import sidenav from '@/sidenav.vue'
+import site_footer from '@/footer.vue'
 
 export default {
   data() {
@@ -39,7 +54,10 @@ export default {
     };
   },
   components: {
-    appLayout
+    title_nav,
+    page_loader,
+    sidenav,
+    site_footer
   },
   methods: {
     getCardStyle(index) {
@@ -67,7 +85,7 @@ export default {
 
 <style scoped>
 .circle-container {
-  position: absolute;
+  position: relative;
   width: 600px;
   height: 400px;
   display: flex;
@@ -80,7 +98,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  right: 10vw;
+  right: 20vw;
   transform-style: preserve-3d; 
   transform-origin: center center;
 }

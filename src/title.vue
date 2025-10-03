@@ -132,7 +132,6 @@ export default {
                     subpages: [
                         {name: 'experiments', icon: undefined}, 
                         {name: 'notebook', icon: undefined}, 
-                        {name: 'measurement', icon: undefined},
                         {name: 'safety-and-security', icon: undefined}
                     ]
                 },

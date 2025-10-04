@@ -40,17 +40,19 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        animate('#leaf', {
-            filter: "blur(50px)",
-            autoplay: onScroll({
-                enter: 'center top',
-                leave: 'top middle',
-                sync: true,
-                // debug: true
-            })
-        })
+        // animate('#leaf', {
+        //     filter: "blur(50px)",
+        //     autoplay: onScroll({
+        //         enter: 'center top',
+        //         leave: 'top middle',
+        //         sync: true,
+        //         // debug: true
+        //     })
+        // })
         animate('#leaf_text', {
-            opacity: 1,
+            filter: "blur(10px)",
+            opacity: 0,
+            reversed: true,
             autoplay: onScroll({
                 enter: 'bottom top',
                 leave: 'center top',
@@ -85,7 +87,8 @@ export default {
 #leaf_text {
     color: white;
     font-size: x-large;
-    opacity: 10%;
+    opacity: 1;
+    filter: unset;
 }
 /* #legs {
     filter: blur(50px);

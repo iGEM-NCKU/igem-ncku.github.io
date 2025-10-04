@@ -1,54 +1,64 @@
 <template>
-  <appLayout>
-    <v-container class="d-flex justify-center" style="height: 35vh;">
-      <div class="circle-container">
-        <v-btn class="circle-btn" @click="prevCard">Prev</v-btn>
-        <div class="cards">
-          <!-- 顯示卡片標題及描述在卡片上方 -->
-          <v-card
-            v-for="(item, i) in items"
-            :key="i"
-            class="circle-card"
-            :style="getCardStyle(i)"
-          >
-            <v-card-title>{{ item.title }}</v-card-title>
-            <v-card-text>{{ item.text }}</v-card-text>
-          </v-card>
-        </div>
-        <v-btn class="circle-btn" @click="nextCard">Next</v-btn>
-      </div>
-    </v-container>
-    <div class="markmap">
-      <script type="text/template">
-        - markmap
-          - autoloader    
-          - transformer
-          - view
-      </script>
-    </div>
-
-  </appLayout>
+    <v-app>
+      <page_loader :loading = 'loading' />
+      <title_nav />
+      <sidenav name = 'software' />
+      <v-main>
+      <v-row justify = end>
+        <v-col cols = 12 md = 8 class = 'pa-5'>
+          
+            <div class="circle-container">
+              <div class="cards">
+                <v-card
+                  v-for="(item, i) in items"
+                  :key="i"
+                  class="circle-card"
+                  :style="getCardStyle(i)"
+                >
+                <v-card-actions style="justify-content: space-between;">
+                  <v-btn @click="prevCard">Prev</v-btn>
+                  <v-btn @click="nextCard">Next</v-btn>
+                </v-card-actions>
+                  <v-card-title>{{ item.title }}</v-card-title>
+                    <div class="text-content" v-html="item.text"></div>
+                  <v-card-text></v-card-text>
+                  
+                </v-card>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols = 1 />
+        </v-row>
+      </v-main>
+    </v-app>
+    <site_footer></site_footer>
 </template>
 
 <script>
-import appLayout from '@/AppLayout.vue'
 
+import title_nav from '@/title.vue'
+import page_loader from '@/loader.vue'
+import site_footer from '@/footer.vue'
+import sidenav from '@/sidenav.vue'
 export default {
   data() {
     return {
       items: [
-        { title: 'Design', text: 'This is some description for Design.' },
-        { title: 'Build', text: 'This is some description for Build.' },
+        { title: 'Design', text: 'hijou' },
+        { title: 'Build', text: '<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.' },
         { title: 'Test', text: 'This is some description for Test.' },
         { title: 'Learn', text: 'This is some description for Learn.' },
       ],
       totalCards: 4, 
-      radius: 200,  
+      radius: 400,  
       angle: 0,  
     };
   },
   components: {
-    appLayout
+    title_nav,
+    page_loader,
+    site_footer,
+    sidenav
   },
   methods: {
     getCardStyle(index) {
@@ -76,57 +86,45 @@ export default {
 
 <style>
 .circle-container {
-  position: absolute;
-  width: 600px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px; 
+  /* position: relative; */
+  /* width: 600px; */
+  /* height: 400px; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  perspective: 90vw; 
 }
 
 .cards {
-  position: relative;
-  width: 100%;
+  /* position: relative; */
+  width: 50vw;
   height: 100%;
-  right: 10vw;
   transform-style: preserve-3d; 
   transform-origin: center center;
 }
 
 .circle-card {
-  width: 400px;
-  height: 400px;
+  /* width: 800px; */
+  /* height: 800px; */
   background-color: rgb(0, 124, 27);
   text-align: center;
-  border-radius: 10px;
-  position: absolute;
+  /* border-radius: 10px; */
+  /* padding-left: 6em;
+  padding-right: 6em; */
+  /* position: relative; */
   transition: transform 1s ease;
-  cursor: pointer;
 }
 
-.circle-btn {
-  position: absolute;
-  top: 20vw;
-  transform: translateY(-50%);
-  font-size: 24px;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: white;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1;
+.left-btn {
+  position: relative;
+  bottom: 10px;
 }
 
-.circle-btn:first-child {
-  left: -280px;
+.right-btn {
+  position: relative;
+  bottom: 10px;
 }
-
-.circle-btn:last-child {
-  right: -200px;
-}
-
-.v-dialog .v-card {
+/* .v-dialog .v-card {
   transform: scale(1.1);
   transition: transform 0.3s ease;
 } 
@@ -136,5 +134,11 @@ export default {
 .markmap > svg {
   width: 100%;
   height: 300px;
-}
+
+} */
+/* .text-content p { */
+  /* max-width: 20%; */
+  /* padding: 2000px; */
+/* } */
+
 </style>

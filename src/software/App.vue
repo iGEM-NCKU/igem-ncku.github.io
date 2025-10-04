@@ -363,7 +363,7 @@ server {
                                 <br>
                             <pre><code class = "language-bash">
 sudo nginx -t        # test configuration
-sudo systemctl restart nginx
+sudo nginx -s reload
                             </code></pre>
                             <br>
                             Now the Endzyme frontend and API are available at <b><i>http://&lt;server-ip&gt;/</i></b>.

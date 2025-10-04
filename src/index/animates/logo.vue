@@ -1,7 +1,7 @@
 <template>
     <div class = bs>
         <v-card class = 'bs' id = zero align = center justify = middle min-height="100vh">
-            <v-img src = 'logo.svg' id = logo max-height = 50vh />
+            <v-img src = 'banner.png' id = logo max-height = 50vh />
         </v-card>
         <v-img src = 'img/cute.png' id = cute @click = cute />
     </div>
@@ -21,22 +21,6 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        animate('#legs', {
-            filter: "blur(0px)",
-            autoplay: onScroll({
-                enter: 'top top',
-                leave: 'top-=200px top',
-                sync: true
-            })
-        })
-        animate('.title', {
-            y: '50vh',
-            autoplay: onScroll({
-                enter: 'top top',
-                leave: 'top bottom',
-                sync: true
-            })
-        })
         animate('#logo', {
             // transform: 'scale(0.1)',
             y: '-3rem',
@@ -51,7 +35,7 @@ export default {
             y: '-10rem',
             opacity: 0.3,
             autoplay: onScroll({
-                enter: 'center-=200px top',
+                enter: 'center top',
                 leave: 'top bottom',
                 sync: true
             })
@@ -107,6 +91,7 @@ export default {
     justify-content: center;
     align-items: center;
     max-height: 50%;
+    background: linear-gradient(#B0DC91, #FBF7EF);
 }
 #cute {
     position: fixed;

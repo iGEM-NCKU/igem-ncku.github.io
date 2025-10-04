@@ -20,7 +20,7 @@
                             
                             <v-card width = 500px align = center justify = center :prepend-avatar = "`members_picture/${i}.jpg`">
                                 <template #image>
-                                    <v-img :src = "`members_picture/${i}.jpg`" class = 'align-end' cover style = 'filter: blur(10px); opacity: 50%' />
+                                    <!-- <v-img :src = "`members_picture/${i}.jpg`" class = 'align-end' cover style = 'filter: blur(10px); opacity: 30%' /> -->
                                 </template>
                                 
                                 <template #title>

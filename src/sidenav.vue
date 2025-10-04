@@ -18,30 +18,29 @@
                     </template>
                     <template v-slot:text>
                         <!-- Place holder -->
-                         <!-- {{ this.scroller.name[this.scroller.now] }}
-                         {{ this.scroller.now }}
-                         {{ this.scroller.ns == -1 ? '' : this.scroller.subtitles[this.scroller.now][this.scroller.ns] }} -->
-                        <v-list>
+                         <!-- {{ this.scroller.name[this.scroller.now] }} -->
+                         <!-- {{ this.scroller.now }} -->
+                         <!-- {{ this.scroller.ns == -1 ? '' : this.scroller.subtitles[this.scroller.now][this.scroller.ns] }} -->
+                        <v-list v-model:opened = 'open_controller'>
                             <template v-for = 'i, j in scroller.name' :key = i>
                                 <v-list-group
-                                    :key = '`${j}${tmp[j]}`'
-                                    :value = 'tmp[j]'
-                                    @update:opened = 'opened => this.tmp[j] = opened'
+                                    :value = 'i'
                                     v-if = 'scroller.subtitles[j].length != 0'
                                 >
+                                <!-- {{ i }} -->
                                     <template #activator = '{props}'>
-                                        <a :href = '`#${i}`'>
-                                            <v-list-item v-bind = props >
+                                        <!-- <a :href = '`#${i}`'> -->
+                                        <v-list-item v-bind = props @click = 'goto(`#${i}`)'>
                                                 <!-- <b> {{ tmp[j] }} {{ j }} {{ j == this.scroller.now }} </b> -->
-                                                <b> {{ title(i) }} </b>
-                                            </v-list-item>
-                                        </a>
+                                            <b class = 'text-primary'> {{ title(i) }} </b>
+                                        </v-list-item>
+                                        <!-- </a> -->
                                     </template>
-                                    <v-list-item v-for = 'k in scroller.subtitles[j]' :key = k>
-                                        <a :href = '`#${k}`'> <b> {{ k }} </b> </a>
+                                    <v-list-item v-for = 'k in scroller.subtitles[j]' :value = k :key = k>
+                                        <b @click = 'goto(`#${k}`)' class = 'text-primary'> <a> {{ title(k) }} </a> </b>
                                     </v-list-item>
                                 </v-list-group>
-                                <v-list-item :value = i v-text = title(i) @click = 'goto(`#${i}`)' v-else />
+                                <v-list-item :value = i  @click = 'goto(`#${i}`)' class = 'text-primary' v-else> <b> {{ title(i) }} </b> </v-list-item>
                             </template>
                         </v-list>
                     </template>
@@ -69,7 +68,8 @@ export default {
                 name: [],
                 subtitles: []
             },
-            goTo: useGoTo()
+            goTo: useGoTo(),
+            open_controller: ['Screening']
         }
     },
     props: {
@@ -106,7 +106,7 @@ export default {
             }
             // console.log(this.scroller.subtitles);
             window.addEventListener('scroll', () => {
-                var now = window.scrollY + 100;
+                var now = window.scrollY + 200;
                 var overed = (x) => {
                     if($(`#${x}`).first().position() == undefined) console.log(`ERROR -> ${x}`);
                     return $(`#${x}`).first().position().top < now;
@@ -127,6 +127,8 @@ export default {
 
                 this.scroller.now = order;
                 this.tmp = this.scroller.name.map((_, j) => (this.scroller.now == j));
+
+                this.open_controller = [this.scroller.name[this.scroller.now]];
             });
         },
         goto(x) {
@@ -144,8 +146,8 @@ export default {
 
 <style scoped>
 .stroke {
-    /* -webkit-text-stroke: .5px #efe4d1; */
-    /* text-stroke: 1.5px #efe4d1; */
+    -webkit-text-stroke: .5px #efe4d1;
+    text-stroke: 1.5px #efe4d1;
     text-shadow:
         -1px -1px 0 #fff,
         1px -1px 0 #fff,

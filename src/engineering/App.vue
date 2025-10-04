@@ -113,8 +113,6 @@ export default {
   background-color: rgb(0, 124, 27);
   text-align: center;
   transition: transform 1s ease;
-    overflow-y: auto;    /* 垂直出現滾動條 */
-  overflow-x: hidden; 
 }
 
 .left-btn {

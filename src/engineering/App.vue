@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       items: [
-        { title: 'Design', text: 'hijou' },
+        { title: 'Design 1- Plasmids Construction', text: '<p>Our project aimed to disrupt pathogenic biofilms by engineering <em>E. coli</em> to produce a cocktail of biofilm-degrading enzymes. Since the biofilm extracellular polymeric substance (EPS) is composed of polysaccharides, extracellular DNA, and proteins, we selected three enzymes to target these key components:</p><ul><li>Dispersin B: Degrades PNAG polysaccharides.</li><li>DNase I: Cleavages extracellular DNA that stabilizes the biofilm.</li><li>Proteinase K: Hydrolyzes adhesive biofilm protein.</li></ul>' },
         { title: 'Build', text: '<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.' },
         { title: 'Test', text: 'This is some description for Test.' },
         { title: 'Learn', text: 'This is some description for Learn.' },
@@ -64,13 +64,15 @@ export default {
     getCardStyle(index) {
       const angle = (index / this.totalCards) * 360; 
       const rotateY = angle + this.angle; 
+      const opacity = Math.abs(rotateY % 360) < 90 ? 1 : 0; 
       return {
         transform: `rotateY(${rotateY}deg) translateZ(${this.radius}px)`,
         position: 'absolute',
         top: '50%',
         left: '50%',
         transformOrigin: 'center center',
-        transition: 'transform 1s ease', 
+        transition: 'transform 1s ease, opacity 1s ease', 
+        opacity: opacity,
       };
     },
     prevCard() {
@@ -84,7 +86,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
 .circle-container {
   /* position: relative; */
   /* width: 600px; */
@@ -104,14 +106,10 @@ export default {
 }
 
 .circle-card {
-  /* width: 800px; */
-  /* height: 800px; */
+  width: 30vw;
+  height: 50vh;
   background-color: rgb(0, 124, 27);
   text-align: center;
-  /* border-radius: 10px; */
-  /* padding-left: 6em;
-  padding-right: 6em; */
-  /* position: relative; */
   transition: transform 1s ease;
 }
 
@@ -127,6 +125,13 @@ export default {
 /* .v-dialog .v-card {
   transform: scale(1.1);
   transition: transform 0.3s ease;
+} 
+.markmap {
+    position: relative;
+}
+.markmap > svg {
+  width: 100%;
+  height: 300px;
 
 } */
 /* .text-content p { */

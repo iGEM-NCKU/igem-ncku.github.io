@@ -4,12 +4,12 @@
             <template #image>
                 <video id = 'man_walking' src = 'assets/a man walking.mp4' control = false preload muted loop autoplay></video>
             </template>
-            <div class = 'center-align valign-center bs'>
+            <div class = 'center-align align-content-center bs'>
                 <div for = one>
                     <h1 id = 'title_knee_new_life'> <b> A new knee, A new life ? </b> </h1>
                     <div class = 'scroll container'>
                         <h2 id = 'not_always'> Not always </h2>
-                        {{ dock_observer.one }}
+                        <!-- {{ dock_observer.one }} -->
                     </div>
                 </div>
             </div>
@@ -56,12 +56,11 @@ export default {
         });
         animate('#title_knee_new_life', {
             y: '12rem',
-            color: '#FFFFFF',
+            color: '#000000',
             ease: 'linear',
-            delay: stagger(100, { from: 'last' }),
-            'text-decoration-thickness': '3px',
+            'text-decoration-thickness': '0px',
+            reversed: true,
             autoplay: onScroll({
-                container: '.scroll-container',
                 enter: 'center+=200px top',
                 leave: 'center bottom',
                 sync: true
@@ -70,8 +69,8 @@ export default {
         animate('#not_always', {
             y: '12rem',
             ease: 'linear',
-            delay: stagger(100, { from: 'last' }),
-            opacity: 1,
+            opacity: 0,
+            reversed: true,
             autoplay: onScroll({
                 container: '.scroll-container',
                 enter: 'center+=250px top',
@@ -110,7 +109,7 @@ export default {
 }
 .center-align {
     /* position: absolute; */
-    top: 20%;
+    /* top: 20%; */
     width: 100vw;
     text-align: center;
 }
@@ -118,12 +117,13 @@ export default {
     font-size: 75px;
     text-decoration: line-through;
     text-decoration-color: red;
-    text-decoration-thickness: 0px;
+    text-decoration-thickness: 3px;
+    color: white;
 }
 #not_always {
     color: red;
     font-weight: 900;
-    opacity: 0%;
+    opacity: 100%;
 }
 #one {
     /* opacity: 0; */

@@ -2,8 +2,8 @@
     <v-app>
       <page_loader :loading = 'loading' />
       <title_nav />
-      <sidenav name = 'software' />
       <v-main>
+        <sidenav name = 'software' />
       <v-row justify = end>
         <v-col cols = 12 md = 8 class = 'pa-5'>
         <div class = 'place_holder'>

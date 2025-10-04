@@ -21,14 +21,6 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        animate('#zero', {
-            'background-color': '#FBF7EF',
-            autoplay: onScroll({
-                enter: 'top top',
-                leave: 'top bottom',
-                sync: true
-            })
-        })
         animate('#logo', {
             // transform: 'scale(0.1)',
             y: '-3rem',
@@ -99,8 +91,7 @@ export default {
     justify-content: center;
     align-items: center;
     max-height: 50%;
-    /* background: linear-gradient(#B0DC91, #FBF7EF); */
-    background-color: #B0DC91;
+    background: linear-gradient(#B0DC91, #FBF7EF);
 }
 #cute {
     position: fixed;

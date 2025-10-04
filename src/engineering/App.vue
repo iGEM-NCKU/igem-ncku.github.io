@@ -27,6 +27,7 @@
               </div>
             </div>
           </v-col>
+          <v-col cols = 1 />
         </v-row>
       </v-main>
     </v-app>
@@ -85,32 +86,32 @@ export default {
 
 <style scoped>
 .circle-container {
-  position: relative;
-  width: 600px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px; 
+  /* position: relative; */
+  /* width: 600px; */
+  /* height: 400px; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  perspective: 90vw; 
 }
 
 .cards {
-  position: relative;
-  width: 100%;
+  /* position: relative; */
+  width: 50vw;
   height: 100%;
   transform-style: preserve-3d; 
   transform-origin: center center;
 }
 
 .circle-card {
-  width: 800px;
-  height: 800px;
+  /* width: 800px; */
+  /* height: 800px; */
   background-color: rgb(0, 124, 27);
   text-align: center;
-  border-radius: 10px;
-  padding-left: 6em;
-  padding-right: 6em;
-  position: relative;
+  /* border-radius: 10px; */
+  /* padding-left: 6em;
+  padding-right: 6em; */
+  /* position: relative; */
   transition: transform 1s ease;
 }
 
@@ -123,14 +124,14 @@ export default {
   position: relative;
   bottom: 10px;
 }
-.v-dialog .v-card {
+/* .v-dialog .v-card {
   transform: scale(1.1);
   transition: transform 0.3s ease;
 
-}
-.text-content p {
-  max-width: 20%;
-  padding: 2000px;
-}
+} */
+/* .text-content p { */
+  /* max-width: 20%; */
+  /* padding: 2000px; */
+/* } */
 
 </style>

@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       items: [
-        { title: 'Design', text: 'hijou' },
+        { title: 'Design 1- Plasmids Construction', text: '<p>Our project aimed to disrupt pathogenic biofilms by engineering <em>E. coli</em> to produce a cocktail of biofilm-degrading enzymes. Since the biofilm extracellular polymeric substance (EPS) is composed of polysaccharides, extracellular DNA, and proteins, we selected three enzymes to target these key components:</p><ul><li>Dispersin B: Degrades PNAG polysaccharides.</li><li>DNase I: Cleavages extracellular DNA that stabilizes the biofilm.</li><li>Proteinase K: Hydrolyzes adhesive biofilm protein.</li></ul>' },
         { title: 'Build', text: '<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.<strong>This</strong> is <em>some</em> <u>description</u> for <i>Card 1</i>.' },
         { title: 'Test', text: 'This is some description for Test.' },
         { title: 'Learn', text: 'This is some description for Learn.' },
@@ -106,14 +106,10 @@ export default {
 }
 
 .circle-card {
-  /* width: 800px; */
-  /* height: 800px; */
+  width: 30vw;
+  height: 50vh;
   background-color: rgb(0, 124, 27);
   text-align: center;
-  /* border-radius: 10px; */
-  /* padding-left: 6em;
-  padding-right: 6em; */
-  /* position: relative; */
   transition: transform 1s ease;
 }
 

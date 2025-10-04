@@ -64,13 +64,15 @@ export default {
     getCardStyle(index) {
       const angle = (index / this.totalCards) * 360; 
       const rotateY = angle + this.angle; 
+      const opacity = Math.abs(rotateY % 360) < 90 ? 1 : 0; 
       return {
         transform: `rotateY(${rotateY}deg) translateZ(${this.radius}px)`,
         position: 'absolute',
         top: '50%',
         left: '50%',
         transformOrigin: 'center center',
-        transition: 'transform 1s ease', 
+        transition: 'transform 1s ease, opacity 1s ease', 
+        opacity: opacity,
       };
     },
     prevCard() {

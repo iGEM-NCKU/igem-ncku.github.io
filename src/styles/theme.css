@@ -32,7 +32,7 @@
 body {
     font-family: 'font', sans-serif;
     /* background-image: linear-gradient(to bottom, #49a06f, wheat); */
-    background-color: #FBF7EF;
+    background: linear-gradient(#B0DC91, #FBF7EF);
 }
 @font-face {
     font-family: 'font';
@@ -42,7 +42,7 @@ body {
 body {
   font-family: 'font', 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
   color: var(--color-text);
-  background: var(--color-bg); /* solid cream for consistency */
+  /* background: var(--color-bg); solid cream for consistency */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -85,14 +85,14 @@ a:hover { color: var(--color-primary-600); }
 .elevate:hover { box-shadow: var(--shadow-md); }
 
 /* Materialize spinner – align with primary */
-.spinner-layer,
+/* .spinner-layer,
 .spinner-blue,
 .spinner-red,
 .spinner-yellow,
-.spinner-green { border-color: var(--color-primary) !important; }
+.spinner-green { border-color: var(--color-primary) !important; } */
 
 /* Vuetify adjustments */
-.v-card { border-radius: var(--radius); background: linear-gradient(#B0DC91, white);}
+.v-card { border-radius: var(--radius);}
 .v-card--variant-elevated { box-shadow: var(--shadow-sm); }
 .v-btn { border-radius: 999px; font-weight: 700; }
 .v-application { background: transparent !important; }

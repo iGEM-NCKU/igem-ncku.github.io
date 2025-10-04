@@ -6,6 +6,9 @@
         <leaf />
     </div>
     <div class = 'place_holder'>
+        <world_map />
+    </div>
+    <div class = 'place_holder'>
         <man_walking />
     </div>
     <div class = 'place_holder'>
@@ -21,7 +24,8 @@ import { animate, stagger, onScroll, text } from 'animejs';
 import logo from '@/index/animates/logo.vue';
 import man_walking from '@/index/animates/man_walking.vue';
 import legs from '@/index/animates/legs.vue';
-import leaf from '@/index/animates/leaf.vue'
+import leaf from '@/index/animates/leaf.vue';
+import world_map from '@/index/animates/map.vue';
 
 export default {   
     name: 'home_wallpaper',
@@ -29,7 +33,8 @@ export default {
         man_walking,
         legs,
         logo,
-        leaf
+        leaf,
+        world_map
     },
     mounted() {
         M.AutoInit();

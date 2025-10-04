@@ -30,7 +30,7 @@ import index_wallpaper from '@/index/wallpaper.vue'
 
 import { useDisplay } from 'vuetify'
 
-export default {   
+export default {
     name: 'App',
     data() {
         return {
@@ -172,18 +172,6 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     border: none !important;
 }
 
-#map {
-    background-image: url('/public/TGEM_NCKU-Tainan.jpg');
-}
-#bone {
-    background-image: url('/public/image\ \(10\).png');
-}
-#Taiwan {
-    background-image: url('/public/TGEM_TW-Tainan.jpg');
-}
-#black {
-    background-image: url('/public/black.jpg');
-}
 #filter-inside {
     background-color: rgba(255, 255, 255, .34);
     width: 45vw;

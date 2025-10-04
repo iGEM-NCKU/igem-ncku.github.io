@@ -40,7 +40,6 @@
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import site_footer from '@/footer.vue'
-import sidenav from '@/sidenav.vue'
 export default {
   data() {
     return {
@@ -59,7 +58,6 @@ export default {
     title_nav,
     page_loader,
     site_footer,
-    sidenav
   },
   methods: {
     getCardStyle(index) {

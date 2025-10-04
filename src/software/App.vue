@@ -249,20 +249,35 @@ mode |   affinity | dist from best mode
    9         -4.1      2.071      2.456
 Writing output ... done.                        
                                         </code></pre>
-                                    </div>
+                                        </div>
+                                        <br>
+                                        <img src="https://static.igem.wiki/teams/6003/software/docking-result.webp" style="width: 100%; height: 100%; object-fit: contain;"/>
+                                        <br>
+                                        <div
+                                            class="text-content"
+                                            >
+                                            - <b>Fig 4</b>. Average of docking score
+                                        </div>
+
+                                        <img src="https://static.igem.wiki/teams/6003/software/artificial-docking.webp"/>
+                                        <br>
+                                        <div
+                                            class="text-content"
+                                            >
+                                            - <b>Fig 5</b>. Result of manual autodocking
+                                        </div>
+                                        <img src="https://static.igem.wiki/teams/6003/software/pipline-docking.webp" />
+                                        <div
+                                            class="text-content"
+                                            >
+                                            - <b>Fig 6</b>. Result of pipline docking
+                                        </div>
 
                         </v-card>
                         <br>                 
                         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Result'>
                         <v-card-title style="font-size: 32px;"><b>Result</b></v-card-title>                                  
-
-                                <div
-                                id="Result"
-                                title="Result"
-                                class="text-content"
-                                >
-We use <b>mmseqs2</b> as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.                                </div>
-                                <br>
+                                
                                 <div class="text-content">
                                 <b>How we use the mmseqs2</b>
                                 <pre><code class = language-bash>
@@ -573,5 +588,13 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
 .two-column-layout h6 {
     margin-top: 0;    
 }
+
+.img-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
 
 </style>

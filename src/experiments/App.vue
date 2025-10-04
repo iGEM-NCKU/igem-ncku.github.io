@@ -4,11 +4,11 @@
         <title_nav />
         <v-main>
         <sidenav name = 'experiments' />
-            <v-card>
+            <v-row justify = end>
+            <v-col cols = 12 md = 8 class = 'pa-5'>
+                <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Protocol>
                 <v-toolbar color="primary">
-                    <div class = 'me-auto' style="font-size: 30px; font-weight: bold; color: yellowgreen; left: 1vw;">
-                    Protocol
-                    </div>
+                    <v-card-title style="font-size: 32px;"><b>Protocol</b></v-card-title>
                 </v-toolbar>
 
                 <div class="d-flex flex-row">
@@ -724,6 +724,8 @@
                 </v-tabs-window>
                 </div>
             </v-card>
+        </v-col>
+        </v-row>
         </v-main>
     </v-app>
   <site_footer></site_footer>

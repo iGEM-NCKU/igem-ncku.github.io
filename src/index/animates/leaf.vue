@@ -6,16 +6,19 @@
             </template>
             <template #text>
                 <div id = 'leaf_text'>
-                    <p>
+                    <h3>
                     Have you walked today?
-                    </p>
+                    </h3>
                     <p>
                     “In 2019, about <font :color = 'emphasize_color'> 528 million </font> people worldwide were living with osteoarthritis; an increase of 113% since 1990"
-                    World Health organization 2023
+                    <br>
+                    <b class = 'text-grey' style = 'font-size: smaller;'> World Health organization 2023 </b>
                     </p>
+                    <br>
                     <p>
                     “With <font :color = 'emphasize_color'> ageing populations </font> and increasing rates of obesity and injury, the <font :color = 'emphasize_color'> prevalence of osteoarthritis </font> is expected to continue to increase globally.”
-                    World Health organization 2023
+                    <br>
+                    <b class = 'text-grey' style = 'font-size: smaller;'> World Health organization 2023 </b>
                     </p>
                 </div>
             </template>

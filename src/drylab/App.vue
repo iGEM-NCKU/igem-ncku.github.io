@@ -318,4 +318,7 @@ export default {
 a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
+.place_holder {
+  height: 100vh;
+}
 </style>

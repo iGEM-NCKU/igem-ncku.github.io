@@ -36,8 +36,8 @@
                                         </v-list-item>
                                         <!-- </a> -->
                                     </template>
-                                    <v-list-item v-for = 'k in scroller.subtitles[j]' :key = k>
-                                        <b @click = 'goto(`#${k}`)' class = 'text-primary'> {{ title(k) }} </b>
+                                    <v-list-item v-for = 'k in scroller.subtitles[j]' :value = k :key = k>
+                                        <b @click = 'goto(`#${k}`)' class = 'text-primary'> <a> {{ title(k) }} </a> </b>
                                     </v-list-item>
                                 </v-list-group>
                                 <v-list-item :value = i  @click = 'goto(`#${i}`)' class = 'text-primary' v-else> <b> {{ title(i) }} </b> </v-list-item>

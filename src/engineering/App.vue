@@ -3,10 +3,10 @@
       <page_loader :loading = 'loading' />
       <title_nav />
       <v-main>
-        <sidenav name = 'software' />
-      <v-row justify = end>
+        <!-- <sidenav name = 'software' /> -->
+      <v-row justify = center>
         <v-col cols = 12 md = 8 class = 'pa-5'>
-        <div class = 'place_holder'>
+        <div class = 'place_holder' justify = center>
             <v-card-title style="font-size: 32px;"><b>Cycle 1</b></v-card-title>
             <div class="circle-container">
               <div class="cards">
@@ -29,7 +29,6 @@
               </div>
             </div>
           </v-col>
-          <v-col cols = 1 />
         </v-row>
       </v-main>
     </v-app>
@@ -101,14 +100,15 @@ export default {
 
 .cards {
   /* position: relative; */
-  width: 50vw;
+  width: 40vw;
   height: 100%;
   transform-style: preserve-3d; 
   transform-origin: center center;
+  margin-left: -20%;
 }
 
 .circle-card {
-  width: 30vw;
+  width: 50vw;
   height: 80vh;
   background-color: rgb(0, 124, 27);
   text-align: center;

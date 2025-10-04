@@ -18,6 +18,15 @@
         <v-btn class="circle-btn" @click="nextCard">Next</v-btn>
       </div>
     </v-container>
+    <div class="markmap">
+      <script type="text/template">
+        - markmap
+          - autoloader    
+          - transformer
+          - view
+      </script>
+    </div>
+
   </appLayout>
 </template>
 
@@ -65,7 +74,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
 .circle-container {
   position: absolute;
   width: 600px;
@@ -120,5 +129,12 @@ export default {
 .v-dialog .v-card {
   transform: scale(1.1);
   transition: transform 0.3s ease;
+} 
+.markmap {
+    position: relative;
+}
+.markmap > svg {
+  width: 100%;
+  height: 300px;
 }
 </style>

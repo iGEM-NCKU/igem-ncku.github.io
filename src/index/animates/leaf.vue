@@ -43,7 +43,7 @@ export default {
                 enter: 'center top',
                 leave: 'top middle',
                 sync: true,
-                debug: true
+                // debug: true
             })
         })
         animate('#leaf_text', {
@@ -52,7 +52,7 @@ export default {
                 enter: 'bottom top',
                 leave: 'center top',
                 sync: true,
-                debug: true
+                // debug: true
             })
         })
     },

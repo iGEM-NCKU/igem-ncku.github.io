@@ -11,7 +11,7 @@
     <div class = 'place_holder'>
         <man_walking />
     </div>
-    <div class = 'place_holder'>
+    <div class = 'place_holder_two'>
         <legs />
     </div>
 </template>

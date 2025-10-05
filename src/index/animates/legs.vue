@@ -1,16 +1,25 @@
 <template>
-    <div class = bs>
+    <div class = 'bs align-content-center'>
         <v-card class = 'bs' id = two align = start>
             <template #image>
-                <video id = 'legs' src = 'assets/legs.mp4' control = false preload muted autoplay loop></video>
+                <v-img src = 'img/knee_pain.png' cover id = knee />
             </template>
-            <div class = 'legs_title'>
-                <h3> In US </h3>
-                <h1> 800, 000 </h1>
+            <div id = knee_scale>
+                <v-img src = 'img/scale.png' />
+                <br>
+                <b class = right> Periprosthetic Joint Infection (PJI) </b>
             </div>
-            <div class = 'text-grey legs_title'>
-                <h5> Total knee Arthroplasty (TKA) </h5>
-            </div>
+        </v-card>
+        <v-card style = 'z-index: 10' variant = plain class = 'text-center' id = 'two_text'>
+            <template #title>
+                ouob
+            </template>
+            <template #text>
+                <div>
+                    Although the incidence of PJI reported after TKA is in the range of 0.5-2%, the overall global burden is substantial
+                    Once PJI occurs, its consequences can be catastrophic, causing significant impacts on society, families, and individuals.
+                </div>
+            </template>
         </v-card>
     </div>
 </template>
@@ -29,19 +38,43 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        animate('#legs', {
-            // filter: "blur(50px)",
+        var n = window.innerHeight;
+        var m = window.innerWidth;
+        animate('#knee', {
+            x: '-5rem',
+            reversed: true,
             autoplay: onScroll({
-                enter: 'top+=200px top',
-                leave: 'top-=200px top',
+                enter: 'center top',
+                leave: 'top top',
                 sync: true
             })
         })
-        animate('.legs_title', {
-            y: '50vh',
+        animate('#knee_scale', {
+            opacity: 0,
+            y: '-5rem',
+            reversed: true,
             autoplay: onScroll({
-                enter: 'top top',
-                leave: 'top bottom',
+                enter: `bottom center+=${n >> 1}`,
+                leave: `bottom center+=${n}`,
+                sync: true
+            })
+        })
+        animate('#two', {
+            filter: 'blur(20px)',
+            autoplay: onScroll({
+                enter: `bottom center+=${n * 1.5}`,
+                leave: `bottom center+=${n << 1}`,
+                sync: true,
+                onUpdate: (e) => $('#two').css({transform: `scale(${1 + e.progress / 3})`})
+            })
+        })
+        animate('#two_text', {
+            filter: 'blur(5px)',
+            opacity: 0,
+            reversed: true,
+            autoplay: onScroll({
+                enter: `bottom center+=${n}`,
+                leave: `bottom center+=${n << 1}`,
                 sync: true
             })
         })
@@ -69,6 +102,12 @@ export default {
 }
 .legs_title {
     top: 200px;
+}
+#knee_scale {
+    position: absolute;
+    top: 30vh;
+    left: 50vw;
+    width: 40vw;
 }
 /* #legs {
     filter: blur(50px);

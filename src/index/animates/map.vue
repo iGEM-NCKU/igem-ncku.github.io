@@ -32,7 +32,7 @@ By 2060, the number of TKAs is projected to be 2,917,959
 文獻:Projections and Epidemiology of Primary Hip and Knee Arthroplasty in Medicare Patients to 2040-2060
 </p>
                 </div>
-                <div id = ouob>
+                <div id = ouob v-if = $vuetify.display.mdAndUp>
                     <v-card variant = plain>
                         <template #title>
                             But now in Taiwan
@@ -99,8 +99,8 @@ export default {
                 leave: 'bottom-=100px bottom', 
                 sync: true,
                 onUpdate: (e) => {
-                    console.log(e.progress)
-                    console.log($('#taiwan').css);
+                    // console.log(e.progress)
+                    // console.log($('#taiwan').css);
                     $('#taiwan').css({
                         transform: `scale(${1 + e.progress})`
                     })

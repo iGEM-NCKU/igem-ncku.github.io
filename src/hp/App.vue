@@ -5,34 +5,45 @@
     
     <v-main>
     <sidenav name = 'Integrated Human Practice' />
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row class = text-center>
+    <v-row justify = end>
+        <v-col cols = 12 md = 8 class = 'pa-5'>
+        <v-row>
             <v-col>
-                <v-card :variant = 'alpha.card.theme' title = 'Introduction to Problem' class = scroller id = 'Introduction-to-Problem'>
-                    <template v-slot:text>
-                        <p> Total Knee Arthroplasty (TKA) is a widely performed surgical procedure designed to restore joint function and improve quality of life for patients with severe knee damage. In the United States alone, over 800,000 TKA surgeries are performed annually. However, despite the success of most procedures, some patients experience unexpected and severe complications. </p>
-                            <br>
-                        <p> One of the most serious complications is Periprosthetic Joint Infection (PJI). PJI occurs when bacteria infect the area surrounding the implanted joint. It is often not detected immediately. Early symptoms—such as mild swelling, joint warmth, or low-grade fever—can easily be mistaken for normal post-surgical responses. </p>
-                            <br>
-                        <p> The real danger behind PJI lies in the formation of bacterial biofilms on the implant surface. Biofilms are communities of bacteria enclosed within a protective matrix that adheres strongly to the implant. Once established, they are highly resistant to both antibiotics and the body’s immune system. </p>
-                            <br>
-                        <p> Among the bacterial species responsible, Staphylococcus aureus is the most common, accounting for nearly 60% of PJI cases. Overall, biofilm-associated infections are responsible for over 80% of chronic implant infections, making them a major clinical concern. </p>
-                            <br>
-                        <p> Treating PJI is difficult and often requires multiple surgeries, long-term intravenous antibiotics, and in some cases, complete removal of the implant. This leads to prolonged recovery, increased healthcare costs, and psychological stress for patients who expected a restored life, not a long-term battle with infection. </p>
-                            <br>
-                        <p> Given the limitations of current treatments, new approaches are urgently needed. Our iGEM team aims to develop a synthetic biology-based solution that targets and disrupts biofilm formation at the root—offering a potential alternative or complement to traditional antibiotic therapy. </p>
-                    </template>
+                <v-card :variant = 'alpha.card.theme' class = scroller id = 'Overview'>
+                    <v-card-title style="font-size: 40px;"><b>Overview</b></v-card-title>
+                    <div
+                                id="Introduction"
+                                title="Introduction"
+                                class="text-content"
+                    >
+                    <br>
+                    <p>The NCKU-Tainan 2025 iGEM team is proud to present <em>Byefilm</em>, a project designed to address the critical issue of periprosthetic joint infections (PJI) without resorting to invasive surgery. Our innovative approach uses engineered <em>Staphylococcus aureus</em> bacteria as a delivery system for enzymes that break down biofilms in infected joints. <strong>Through precise thermal control, the bacteria activate only when needed, ensuring targeted and safe treatment.</strong> From the outset, we placed a great emphasis on <strong>Human Practices</strong> to ensure that our work not only advanced science but also made a meaningful impact on society.</p>
+                    <p><em>Byefilm</em> began with an essential question: <strong>Could our technology really make a difference in the clinic?</strong> To answer this, we consulted orthopedic surgeons specializing in total knee arthroplasty, who confirmed that while PJIs are rare, they are devastating for both patients and healthcare professionals. This validation reaffirmed our belief in the potential clinical impact of our project and guided the development of our solution.</p>
+                    <p>However, medicine is not only about what happens in the lab or the operating room — it is also deeply connected to society. To align our work with real-world concerns, we engaged with the public through surveys and interviews, uncovering a significant knowledge gap about biofilms and biotechnology. Concerns about the safety of using genetically engineered bacteria for medical purposes were widespread, prompting us to consult with infectious disease experts and biosafety professionals. These crucial <strong>Human Practices</strong> insights were instrumental in refining the safety aspects of our project, ensuring it was both innovative and responsible. Please see our <strong>Integrated Human Practices</strong> section for more detailed information.</p>
+                    <p>As we continued to refine our design, we also placed a strong focus on educating the public about biofilms and synthetic biology. We organized <strong>workshops for high school students, created informative social media content, and even developed an educational game</strong>, all aimed at breaking down complex scientific topics and making them more accessible. We are thrilled by the positive response, with our educational efforts reaching over <strong>1,500 people worldwide</strong>. For more details, please refer to our <strong>Education</strong> section.</p>
+                    <p>The journey of <em>Byefilm</em> has shown us that science is not just about discovery but about creating a positive impact on both individuals and society. By listening to the needs of doctors, patients, and the public, we’ve developed a solution that balances innovation with responsibility, ensuring that our work has the potential to heal, educate, and inspire.</p>
+                    </div>
                 </v-card>
             </v-col>
         </v-row>
-        <div class = scroller id = 'Educational'>
-            <v-row class = text-center>
+        <div class = scroller id = 'Integrated-Human-Practice' >
+            <v-row>
                 <v-col>
-                    <v-card :variant = 'alpha.card.theme' title = 'Education' subtitle = 'Educational stuff'>
+                    <v-card :variant = 'alpha.card.theme'>
+                        <v-card-title style="font-size: 32px;"><b>Integrated-Human-Practice</b></v-card-title>
+                        <div
+                                id="Integrated-Human-Practice"
+                                title="Integrated-Human-Practice"
+                                class="text-content"
+                                >
+                                <br>
+                                <p>Human Practices has been integral to shaping <em>Byefilm</em>, influencing not only our scientific approach but also our project’s real-world impact. By engaging with stakeholders across various sectors, including orthopedic surgeons, infectious disease experts, and biosafety professionals, we optimized our design to ensure it was feasible, safe, and aligned with clinical and societal needs. Early consultations with healthcare professionals confirmed the clinical value of our project, while public surveys revealed a significant knowledge gap about biofilms and biotechnology, guiding us to focus on education and safety. This engagement allowed us to refine our solution, ensuring it addressed not just technical challenges but also public and ethical concerns.</p>
+                                <p>Throughout our journey, we applied a structured approach to <strong>Human Practices</strong>, primarily focusing on the core values emphasized by the iGEM Judging Handbook: <strong>Reflection</strong>, <strong>Responsibility</strong>, and <strong>Implementation</strong>. We continuously <strong>reflected</strong> on our design and assumptions, using tools such as the <strong>Reflection Loop</strong> to assess feedback and make iterative improvements. By doing so, we ensured that our project was not only scientifically robust but also adaptable to the evolving needs of stakeholders. We also took <strong>responsibility</strong> for the ethical implications of our technology, addressing concerns about the use of genetically modified bacteria through in-depth discussions with biosafety experts and ethicists. Finally, we focused on the <strong>implementation</strong> of our solution by translating our insights into actionable steps, such as the development of educational outreach programs to address public misconceptions about biotechnology. By integrating these three principles into our project, <em>Byefilm</em> evolved into a solution that not only tackles a critical medical issue but also considers its broader societal implications, making it both a scientifically innovative and socially responsible project.</p>
+                        </div>
                     </v-card>
                 </v-col>
             </v-row>
-            <v-row>
+            <!-- <v-row>
                 <v-col cols = 12 md = 6>
                     <v-card :variant = 'alpha.card.theme' title = 'Games' subtitle = 'Education' class = subtitle id = 'Games'>
                         <template v-slot:text>
@@ -59,8 +70,41 @@
                         </v-card>
                     </a>
                 </v-col>    
-            </v-row>
+            </v-row> -->
         </div>
+        <v-row>
+            <v-col>
+                <v-card :variant = 'alpha.card.theme' class = scroller id = 'Education'>
+                    <v-card-title style="font-size: 40px;"><b>Education</b></v-card-title>
+                    <div
+                                id="Education"
+                                title="Education"
+                                class="text-content"
+                    >
+                    <br>
+                <p>Through our surveys and questionnaires, we uncovered a significant gap in the public’s understanding of biofilms, biotechnology, and synthetic biology. This insight led us to make it a priority to <strong>break down the barriers that prevent people from accessing cutting-edge knowledge in these fields</strong>. We realized that many individuals, from high school students to adults, lacked even basic awareness about biofilms and their impact on healthcare, and this knowledge gap needed to be addressed.</p>
+                <p>To close this gap, we organized a c<strong>omprehensive educational workshop aimed at high school students</strong>. This workshop was designed to provide students with an in-depth understanding of biofilms, synthetic biology, and their real-world applications, ensuring that the content was accessible and engaging. At the conclusion of the workshop, we <strong>gathered valuable feedback</strong> from the participants to refine and improve our educational approach. We also sought additional insights to enhance the effectiveness of future educational initiatives. Our goal is not only to share knowledge but to <strong>create a more informed society</strong>, empowering the next generation to engage with and contribute to the advancements in synthetic biology.</p>
+                </div>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card :variant = 'alpha.card.theme' class = scroller id = 'Connecting-with-iGEMers'>
+                    <v-card-title style="font-size: 40px;"><b>Connecting with iGEMers</b></v-card-title>
+                    <div
+                                id="Connecting with iGEMers"
+                                title="Connecting with iGEMers"
+                                class="text-content"
+                    >
+                    <br>
+                    <p>We understood that achieving meaningful impact would not be possible on our own. That’s why we placed a strong emphasis on outreach and networking, recognizing that by connecting with others, we could amplify the reach of our project and create greater value. By engaging with fellow iGEMers, we not only shared our ideas but also supported others in their journey, helping to spread knowledge and inspire a broader collective effort in advancing biotechnology.</p>
+                </div>
+                </v-card>
+            </v-col>
+        </v-row>
+        
+
     </v-col><v-col cols = 1 /></v-row>
 
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
@@ -110,7 +154,7 @@
         </v-row>
     </v-col><v-col cols = 1 /></v-row>
     
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
+    <!-- <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = 'text-center'><v-col>
             <v-card :variant = 'alpha.card.theme' title = 'Outreach with other teams'></v-card>
         </v-col></v-row>
@@ -151,7 +195,7 @@
                 </v-card>
             </v-col>
         </v-row>
-    </v-col><v-col cols = 1 /></v-row>
+    </v-col><v-col cols = 1 /></v-row> -->
 
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row><v-col>
@@ -297,5 +341,11 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     100% {
         color: red;
     }
+}
+.text-content {
+  font-size: 24px;      
+  line-height: 1.6;    
+  color: #333;     
+  padding-left: 30px; 
 }
 </style>

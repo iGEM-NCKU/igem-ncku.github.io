@@ -27,7 +27,7 @@
                                 >
                                 <p>
                                     In our wet-lab experiments, we observed that the effect of enzyme treatment was not as pronounced as expected. This can be attributed to two main factors: 
-                                    (1) enzyme yield, and (2) enzyme activity and binding efficiency. To address the latter, we developed a computational pipeline aimed at optimizing enzyme activity and substrate binding efficiency.
+                                    <b>(1) enzyme yield</b>, and <b>(2) enzyme activity and binding efficiency</b>. To address the latter, we developed a computational pipeline aimed at optimizing enzyme activity and substrate binding efficiency.
                                 </p>
 
                                 <p>
@@ -541,7 +541,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
   font-size: 18px;      
   line-height: 1.6;    
   color: #333;     
-   padding-left: 30px; /* 這裡可以根據需要調整數值 */
+   padding-left: 30px; 
 
 }
 .text-content p {

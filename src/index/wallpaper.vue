@@ -5,7 +5,7 @@
     <div class = 'place_holder'>
         <leaf />
     </div>
-    <div class = 'place_holder'>
+    <div class = 'place_holder_two'>
         <world_map />
     </div>
     <div class = 'place_holder'>
@@ -48,6 +48,11 @@ export default {
 .place_holder {
     position: relative;
     height: 200vh;
+    width: 100vw;
+}
+.place_holder_two {
+    position: relative;
+    height: 400vh;
     width: 100vw;
 }
 </style>

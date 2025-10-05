@@ -32,6 +32,23 @@ By 2060, the number of TKAs is projected to be 2,917,959
 文獻:Projections and Epidemiology of Primary Hip and Knee Arthroplasty in Medicare Patients to 2040-2060
 </p>
                 </div>
+                <div id = ouob>
+                    <v-card variant = plain>
+                        <template #title>
+                            But now in Taiwan
+                        </template>
+                        <template #subtitle>
+                            20% of the population is above 65
+                        </template>
+                        <template #text>
+                            <br>
+                            <v-icon color = red> fa-fade fa-solid fa-person </v-icon>
+                            <v-icon v-for = 'i in 4' :key = i> fa-solid fa-person </v-icon>
+                            <br><br>
+                            <h4 class = 'red-text'> "1 in every 5 people is aged 65 or older." </h4>
+                        </template>
+                    </v-card>
+                </div>
             </template>
         </v-card>
     </div>
@@ -51,14 +68,28 @@ export default {
     },
     mounted() {
         M.AutoInit();
+        var n = window.innerHeight;
+        var m = window.innerWidth;
         animate('#map_text', {
+            x: '5rem',
+            opacity: 0,
+            // reversed: true,
+            autoplay: onScroll({
+                enter: 'center center',
+                leave: `center center+=${n}`,
+                sync: true,
+                // debug: true
+            })
+        })
+        animate('#ouob', {
             x: '-5rem',
-            opacity: .1,
+            opacity: 0,
             reversed: true,
             autoplay: onScroll({
-                enter: 'center+=200px top',
-                leave: 'top center',
-                sync: true
+                enter: `center center+=${n * 1.2}`,
+                leave: `center center+=${n * 2}`,
+                sync: true,
+                // debug: true
             })
         })
         animate('#taiwan', {
@@ -96,9 +127,6 @@ export default {
     top: 50%;
     width: 100vw;
     /* text-align: center; */
-}
-.legs_title {
-    top: 200px;
 }
 #leaf_text {
     color: white;

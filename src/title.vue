@@ -55,12 +55,18 @@
         <!-- <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b> -->
         <div :style = 'show_nav ? `font-size: 40px;` : `font-size: 0px`' @click = '() => {}'>
             <!-- {{ show_nav }} -->
-            <v-row v-if = show_nav class = ma-3>
+            <v-row v-if = show_nav class = ma-1>
                 <template v-if = $vuetify.display.mdAndUp>
                     <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j'>
                         <template v-slot:default = '{isHovering, props}'>
                             <v-col cols = 12 md = 4 lg = 3>
-                                <v-card :title = j :prepend-icon = '`fa-2xs fa-solid ${i.icon}`' v-if = show_nav :variant = 'isHovering ? undefined : `tonal`' :color = i.color v-bind = props>
+                                <v-card v-if = show_nav :variant = 'isHovering ? undefined : `tonal`' :color = i.color v-bind = props class = 'pa-1'>
+                                    <template #title>
+                                        <div class = 'text-center'>
+                                            <v-icon style = 'font-size: 15px'> fa-solid {{ i.icon }} </v-icon> <br>
+                                            {{ j }}
+                                        </div>
+                                    </template>
                                     <template #text>
                                         <v-list v-if = i.subpages style = 'border-radius: 10px;'>
                                             <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${url.name}.html`'> {{ title(url.name) }} </v-list-item>
@@ -75,7 +81,13 @@
                 <!-- Phone Version -->
                 <v-carousel id = expanded_phone height = 100vh hide-delimiters v-else>
                     <v-carousel-item v-for = 'i, j in f' :key = i>
-                        <v-card :title = j :prepend-icon = '`fa-2xs fa-solid ${i.icon}`' v-if = show_nav :variant = 'isHovering ? undefined : `tonal`' :color = i.color v-bind = props class = 'ma-3'>
+                        <v-card v-if = show_nav :variant = 'isHovering ? undefined : `tonal`' :color = i.color v-bind = props class = 'pa-1'>
+                            <template #title>
+                                <div class = 'text-center'>
+                                    <v-icon style = 'font-size: 15px'> fa-solid {{ i.icon }} </v-icon> <br>
+                                    {{ j }}
+                                </div>
+                            </template>
                             <template #text>
                                 <v-list v-if = i.subpages style = 'border-radius: 10px;'>
                                     <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${url.name}.html`'> {{ title(url.name) }} </v-list-item>

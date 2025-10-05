@@ -2,7 +2,8 @@
     <div id = one>
         <v-card class = 'bs'>
             <template #image>
-                <video id = 'man_walking' src = 'assets/a man walking.mp4' control = false preload muted loop autoplay></video>
+                <!-- <video id = 'man_walking' src = 'assets/a man walking.mp4' control = false preload muted loop autoplay></video> -->
+                <v-img src = 'https://static.igem.wiki/teams/6003/img/man-walking.webp' id = 'man_walking' cover />
             </template>
             <div class = 'center-align align-content-center bs'>
                 <div for = one>

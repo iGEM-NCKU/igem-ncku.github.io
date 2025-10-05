@@ -16,7 +16,7 @@
             <b> {{ i }} </b>
         </template>
      </v-card> -->
-    <navi class = 'block glass elevate' @click = 'show_nav ^= 1' :class = '[show_nav ? `tmp fixed` : `sticky`, !$vuetify.display.mdAndUp ? `text-center` : undefined]' id = 'title'>
+    <navi class = 'block glass elevate' @click = '($vuetify.display.mdAndUp ? show_nav ^= 1 : (show_nav ? () => {}: show_nav ^= 1))' :class = '[show_nav ? `tmp fixed` : `sticky`, !$vuetify.display.mdAndUp ? `text-center` : undefined]' id = 'title'>
         <img src = icon.png height = 20px />
         <!-- {{ alpha }} -->
         <a href = 'index.html' class = 'unfocused stroke'>
@@ -54,31 +54,56 @@
         <!-- <i class = 'material-icons right'> apps </i> -->
         <!-- <b class = right @mouseenter = show_subnav @mouseleave = hide_subnav id = menu> MENU </b> -->
         <div :style = 'show_nav ? `font-size: 40px;` : `font-size: 0px`' @click = '() => {}'>
-            <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j'>
-                <template v-slot:default = '{isHovering, props}'>
-                    <div v-bind = props @click = undefined>
-                        <!-- {{ k }} -->
-                        <v-icon> fa-sm fa-solid {{ i.icon }} </v-icon>&nbsp;
-                        <b> {{ j }} </b>
-                        <!-- <a :href = 'i' style = 'color: white; '> {{ title(i) }} </a> -->
-                        <div v-if = 'isHovering && show_nav'>
-                            <div v-for = 'url in i.subpages' :key = 'url' style = 'padding-left: 30px; font-size: medium'>
-                                <a :href = '`${url.name}.html`' style = 'color: white;'> {{ title(url.name) }} </a>
-                            </div>
-                        </div>
-                    </div>
-                </template>
-            </v-hover>
+            <!-- {{ show_nav }} -->
+            <v-row v-if = show_nav class = ma-3>
+                <v-hover v-for = 'i, j in f' :key = 'i' :value = 'j' v-if = $vuetify.display.mdAndUp>
+                    <template v-slot:default = '{isHovering, props}'>
+                        <v-col cols = 12 md = 4 lg = 3>
+                            <v-card :title = j :prepend-icon = '`fa-2xs fa-solid ${i.icon}`' v-if = show_nav :variant = 'isHovering ? undefined : `tonal`' :color = i.color v-bind = props>
+                                <template #text>
+                                    <v-list v-if = i.subpages style = 'border-radius: 10px;'>
+                                        <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${url.name}.html`'> {{ title(url.name) }} </v-list-item>
+                                    </v-list>
+                                </template>
+                            </v-card>
+                        </v-col>
+                    </template>
+                </v-hover>
+                
+                <!-- Phone Version -->
+                <v-carousel id = expanded_phone height = 100vh hide-delimiters v-else>
+                    <v-carousel-item v-for = 'i, j in f'>
+                        <v-card :title = j :prepend-icon = '`fa-2xs fa-solid ${i.icon}`' v-if = show_nav :variant = 'isHovering ? undefined : `tonal`' :color = i.color v-bind = props class = 'ma-3'>
+                            <template #text>
+                                <v-list v-if = i.subpages style = 'border-radius: 10px;'>
+                                    <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${url.name}.html`'> {{ title(url.name) }} </v-list-item>
+                                </v-list>
+                            </template>
+                        </v-card>
+                    </v-carousel-item>
+                </v-carousel>
+
+                <!-- <v-btn
+                v-if = '!$vuetify.display.mdAndUp' 
+                rounded = xl
+                icon = 'fa-solid fa-close'
+                size = small
+                style = 'position: fixed; top: 15px; left: calc(100vw - 70px);' /> -->
+                
+            </v-row>
         </div>
     </navi>
-
+    <v-fab key = app app color = primary location = 'right bottom' size = large icon @click = 'show_nav = false' v-if = show_nav>
+        <v-icon> fa-solid fa-close </v-icon>
+    </v-fab>
+    
     <transition name = scale>
-        <v-fab key = app app color = transparent location = 'right bottom' size = large icon @click = 'goto(0)' v-if = 'show_top'>
+        <v-fab key = app app color = transparent location = 'right bottom' size = large icon @click = 'real_goto(0)' v-if = 'show_top && !show_nav'>
             <!-- <v-icon> fa-solid fa-circle-up </v-icon> -->
-            <v-img src = 'img/up.png' width = 100px height = 100px />
+            <v-img src = 'img/up.png' width = 100px height = 100px id = gotop />
         </v-fab>
     </transition>
-
+    
     <!-- <div class = subnav>
             <a href = '#'> <b class = right> Link 1 </b> </a><br>
             <a href = '#'> <b class = right> Link 2 </b> </a>
@@ -96,6 +121,8 @@ import $ from 'jquery'
 import M from 'materialize-css'
 import { useGoTo } from 'vuetify/lib/composables/goto';
 
+import { animate } from 'animejs';
+
 export default {
     name: 'title_nav',
     data() {
@@ -104,13 +131,15 @@ export default {
             f: {
                 'sponser': {
                     icon: 'fa-solid fa-key',
+                    color: 'red'
                 },
                 'Team': {
                     icon: 'fa-solid fa-circle-user',
                     subpages: [
                         {name: 'attributions', icon: undefined}, 
                         {name: 'members', icon: undefined}
-                    ]
+                    ],
+                    color: 'cyan'
                 },
                 'HP': {
                     icon: 'fa-solid fa-person',
@@ -119,14 +148,16 @@ export default {
                         {name: 'education', icon: undefined}, 
                         {name: 'inclusivity', icon: undefined},
                         {name: 'sustainability', icon: undefined}
-                    ]
+                    ],
+                    color: 'primary'
                 },
                 'DRY': {
                     icon: 'fa-solid fa-computer',
                     subpages: [
                         {name: 'software', icon: undefined}, 
                         {name: 'model', icon: undefined}, 
-                    ]
+                    ],
+                    color: 'orange'
                 },
                 'WET': {
                     icon: 'fa-solid fa-flask',
@@ -134,7 +165,8 @@ export default {
                         {name: 'experiments', icon: undefined}, 
                         {name: 'notebook', icon: undefined}, 
                         {name: 'safety-and-security', icon: undefined}
-                    ]
+                    ],
+                    color: 'pink'
                 },
                 'Project': {
                     icon: 'fa-solid fa-bars-progress',
@@ -143,7 +175,8 @@ export default {
                         {name: 'engineering', icon: undefined}, 
                         {name: 'results', icon: undefined},
                         {name: 'contribution', icon: undefined},
-                    ]
+                    ],
+                    color: 'grey'
                 },
             },
             show_nav: false,
@@ -210,6 +243,14 @@ export default {
             addEventListener('scroll', () => {
                 this.show_top = window.scrollY >= 100;
             })
+        },
+        real_goto(x) {
+            animate('#gotop', {
+                y: '-30rem',
+                opacity: 0,
+                duration: 300
+            })
+            this.goto(x)
         }
     }
 }
@@ -375,5 +416,9 @@ navi>a:hover {
     opacity: 100%;
     max-height: 100vh;
     max-width: 100vw;
+}
+#expanded_phone {
+    margin-top: 30px;
+    height: calc(100vh - 30px);
 }
 </style>

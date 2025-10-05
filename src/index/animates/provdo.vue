@@ -2,7 +2,7 @@
     <div class = bs>
         <v-card class = 'bs align-content-center text-white' id = four align = middle justify = center min-height = 100vh>
             <template #image>
-                <v-img id = 'promotion' src = 'img/Byefilm.jpg' cover />
+                <v-img id = 'promotion' src = 'https://static.igem.wiki/teams/6003/img/byefilm.webp' cover />
             </template>
             <!-- <template #text>
                 <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]"
@@ -36,7 +36,7 @@
                 <v-col cols = 12 md = 5>
                     <v-hover>
                         <template #default = '{isHovering, props}'>
-                            <v-card v-bind = props :color = 'isHovering ? `primary` : `orange`' variant = tonal>
+                            <v-card v-bind = props :color = 'isHovering ? `primary` : `orange`' variant = tonal @click = 'shownav'>
                                 <v-icon> fa-solid fa-book fa-2xl fa-beat </v-icon>
                                 <v-card-title>
                                     Go to other pages
@@ -64,15 +64,6 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        // animate('#leaf', {
-        //     filter: "blur(50px)",
-        //     autoplay: onScroll({
-        //         enter: 'center top',
-        //         leave: 'top middle',
-        //         sync: true,
-        //         // debug: true
-        //     })
-        // })
         animate('#promotion', {
             filter: 'blur(50px)',
             autoplay: onScroll({
@@ -84,6 +75,9 @@ export default {
         })
     },
     methods: {
+        shownav() {
+            $('navi').first().click();
+        }
     }
 }
 </script>

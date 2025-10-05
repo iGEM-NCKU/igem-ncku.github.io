@@ -6,19 +6,33 @@
     <v-main>
     <sidenav name = 'WetLab' />
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row class = 'text-center scroller' id = 'Design'>
-            <v-col>
-                <v-card title = 'Design' :variant = 'alpha.card.theme'>
-                    <template v-slot:text>
-                        <p class = 'grey-text'>
-                            To efficiently degrade biofilms, we designed a system that combines the expression of
-                            three biofilm-degrading enzymes with a temperature-controlled cell lysis mechanism.
-                        </p>
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
+        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
+            <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>
+                <div
+                id="Introduction"
+                title="Introduction"
+                class="text-content"
+                >
+                <p>Biofilm-associated infections are a major challenge in clinical medicine, especially those occurring on medical implants and catheters. Once formed, biofilms provide bacteria with strong protection against antibiotics and host immune responses, often leading to chronic and recurrent infections. Conventional antibiotic treatments are insufficient because biofilms act as physical and biochemical barriers, preventing drug penetration and promoting resistance.</p>
+                <p>To address this issue, our project aims to engineer <em>Escherichia coli</em> strains capable of producing multiple biofilm-degrading enzymes and releasing them in a controlled, safe manner. Based on literature describing the structure of <em>Staphylococcus aureus</em> biofilms, we targeted the three major extracellular components (proteins, extracellular DNA, and polysaccharides) and selected corresponding enzymes (Proteinase K, DNase I, and Dispersin B) to degrade the biofilm component saperatly.</p>
+                <p>In addition, to ensure biosafety and controlled enzyme release, we integrated a λcI857 temperature-sensitive kill-switch system. This system allows the engineered bacteria to release accumulated enzymes upon heat induction while simultaneously undergoing self-lysis, preventing unwanted survival after treatment.</p>
+                <p>Through this design, we aim to create a controllable and safe multi-enzyme biofilm-degradation platform that can effectively disrupt mature <em>S. aureus</em> biofilms. Our ultimate goal is to provide a potential biological solution for managing and preventing medical-device-associated infections.</p>
+                </div>
+        </v-card>
+        <br>
         <v-row>
+            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Enzymes-plasmid-construction>
+            <v-card-title style="font-size: 32px;"><b>Enzymes plasmid construction</b></v-card-title>
+                                <div
+                                id="Enzymes-plasmid-construction"
+                                title="Enzymes-plasmid-construction"
+                                class="text-content"
+                                >
+                                <b>Aim:</b>
+                                <br>
+                                <p>To enable expression of our selected target enzyme genes, we aimed to construct IPTG-inducible plasmids carrying biofilm-degrading enzymes. Based on literature, we selected three enzymes that specifically target the key components of <em>Staphylococcus aureus</em> biofilms, proteins, extracellular DNA, and polysaccharides (PNAG). The enzymes chosen were Proteinase K, DNase I, and Dispersin B (DspB). We aim to clone these genes into IPTG-inducible plasmid so that each enzyme could be expressed upon induction.</p>
+                                </div>
+        </v-card>
             <v-col cols = 12 md = 6>
                 <v-card title = 'Three enzyme expression constructs' subtitle = 'Design' :variant = 'alpha.card.theme'>
                     <template v-slot:text>
@@ -295,4 +309,14 @@ export default {
 a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
+.text-content {
+  font-size: 18px;      
+  line-height: 1.6;    
+  color: #333;     
+   padding-left: 30px; 
+}
+.text-content p {
+  margin-bottom: 1.5em;
+}
+
 </style>

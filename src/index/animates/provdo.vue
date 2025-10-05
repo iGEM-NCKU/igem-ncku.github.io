@@ -2,7 +2,7 @@
     <div class = bs>
         <v-card class = 'bs align-content-center text-white' id = four align = middle justify = center min-height = 100vh>
             <template #image>
-                <v-img id = 'promotion' src = 'https://static.igem.wiki/teams/6003/img/byefilm.webp' cover />
+                <v-img id = 'prom' src = 'https://static.igem.wiki/teams/6003/img/byefilm.webp' cover />
             </template>
             <!-- <template #text>
                 <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]"
@@ -24,12 +24,14 @@
                 <v-col cols = 12 md = 5>
                     <v-hover>
                         <template #default = '{isHovering, props}'>
-                            <v-card v-bind = props :color = 'isHovering ? `primary` : `red`' variant = tonal>
-                                <v-icon> fa-solid fa-video fa-2xl fa-beat </v-icon>
-                                <v-card-title>
-                                    Promotion Video
-                                </v-card-title>
-                            </v-card>
+                            <a href = https://video.igem.org/w/sBDRwoa4gaBw365v6svKyc target = '_blank'>
+                                <v-card v-bind = props :color = 'isHovering ? `primary` : `red`' variant = tonal>
+                                    <v-icon> fa-solid fa-video fa-2xl fa-beat </v-icon>
+                                    <v-card-title>
+                                        Promotion Video
+                                    </v-card-title>
+                                </v-card>
+                            </a>
                         </template>
                     </v-hover>
                 </v-col>
@@ -64,12 +66,13 @@ export default {
     },
     mounted() {
         M.AutoInit();
-        animate('#promotion', {
+        animate('#prom', {
             filter: 'blur(50px)',
             autoplay: onScroll({
                 enter: 'bottom center',
                 leave: 'top center',
                 sync: true,
+                onUpdate: (e) => $('#prom').css({transform: `scale(${1.25 - e.progress / 4})`})
                 // debug: true
             })
         })
@@ -106,7 +109,7 @@ export default {
     opacity: 1;
     filter: unset;
 }
-#promotion {
+#prom {
     filter: blur(5px) brightness(-0.2);
 }
 /* #legs {

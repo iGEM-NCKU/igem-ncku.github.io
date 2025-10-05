@@ -11,14 +11,34 @@
             </div>
         </v-card>
         <v-card style = 'z-index: 10' variant = plain class = 'text-center' id = 'two_text'>
-            <template #title>
+            <!-- <template #title>
                 ouob
-            </template>
+            </template> -->
             <template #text>
-                <div>
+                <v-card variant = text>
                     Although the incidence of PJI reported after TKA is in the range of 0.5-2%, the overall global burden is substantial
                     Once PJI occurs, its consequences can be catastrophic, causing significant impacts on society, families, and individuals.
-                </div>
+                    <br>
+                    Even the surgical methods are available to treat PJI, they not only cause invasive harm to patients but also cannot guarantee that the infection will not recur.
+                </v-card>
+                    
+                <v-card variant = text>
+                    <template #title>
+                        In addition...
+                    </template>
+                    
+                    <template #text>
+                        <div style = 'font-size: 20px;'>
+                            Repeated implantation can lead to bone loss, making the replacement of artificial joints increasingly difficult.
+                            <br>
+                            To enhance local treatment efficacy, systemic antibiotic concentrations are increased.
+                            <br>
+                            Extensive use of antibiotics increases the risk of antibiotic resistance.
+                            <br>
+                            Certain patients, such as those with diabetes, are difficult to treat through surgery.
+                        </div>
+                    </template>
+                </v-card>
             </template>
         </v-card>
     </div>

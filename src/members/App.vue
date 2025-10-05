@@ -12,13 +12,13 @@
                         <v-dialog v-model='view[j]' class = 'text-center pa-4' width = auto>
                             <template #activator='{ props }'>
                                 <v-card v-bind="props" height="500px" class="glass-card elevate"
-                                    :image="`members_picture/${i.toLowerCase()}.webp`" :title="i"
+                                    :image="`members_picture/${i}.webp`" :title="i"
                                     :style = 'view[j] ? `opacity: 0%;` : undefined'
                                     v-ripple v-reveal>
                                 </v-card>
                             </template>
                             
-                            <v-card width = 500px align = center justify = center :prepend-avatar = "`members_picture/${i.toLowerCase()}.webp`">
+                            <v-card width = 500px align = center justify = center :prepend-avatar = "`members_picture/${i}.webp`">
                                 <template #image>
                                     <!-- <v-img :src = "`members_picture/${i}.jpg`" class = 'align-end' cover style = 'filter: blur(10px); opacity: 30%' /> -->
                                 </template>

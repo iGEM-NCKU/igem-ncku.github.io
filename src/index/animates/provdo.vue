@@ -15,6 +15,7 @@
             </template> -->
 
             <template #title>
+                <v-icon> fa-solid fa-home </v-icon><br>
                 You've done the homepage part
             </template>
             <template #subtitle>

@@ -542,7 +542,6 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
   line-height: 1.6;    
   color: #333;     
    padding-left: 30px; 
-
 }
 .text-content p {
   margin-bottom: 1.5em;

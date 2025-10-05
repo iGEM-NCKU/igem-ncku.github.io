@@ -2,7 +2,7 @@
     <div class = bs>
         <v-card class = 'bs align-content-center text-white' id = five align = middle justify = center min-height = 100vh>
             <template #image>
-                <v-img src = img/Taiwan.jpg cover id = taiwan />
+                <v-img src = https://static.igem.wiki/teams/6003/img/taiwan.webp cover id = taiwan />
             </template>
             <template #text>
                 <div :id = '$vuetify.display.mdAndUp ? `map_text` : undefined' class = 'align-content-center'>

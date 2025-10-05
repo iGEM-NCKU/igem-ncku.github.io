@@ -2,10 +2,10 @@
     <div class = 'bs align-content-center'>
         <v-card class = 'bs' id = two align = start>
             <template #image>
-                <v-img src = 'img/knee_pain.png' cover id = knee />
+                <v-img src = 'https://static.igem.wiki/teams/6003/img/knee-pain.webp' cover id = knee />
             </template>
             <div id = knee_scale>
-                <v-img src = 'img/scale.png' />
+                <v-img src = 'https://static.igem.wiki/teams/6003/img/scale.webp' />
                 <br>
                 <b class = right> Periprosthetic Joint Infection (PJI) </b>
             </div>

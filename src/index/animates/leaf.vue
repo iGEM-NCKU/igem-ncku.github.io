@@ -2,7 +2,7 @@
     <div class = bs>
         <v-card class = 'bs align-content-center text-white' id = four align = middle justify = center min-height = 100vh>
             <template #image>
-                <v-img id = 'leaf' src = 'img/cover.jpg' cover />
+                <v-img id = 'leaf' src = 'https://static.igem.wiki/teams/6003/img/cover.webp' cover />
             </template>
             <template #text>
                 <div id = 'leaf_text'>

@@ -70,7 +70,7 @@ export default {
         {name: 'MoE', popup: 'Good sponsor', url: 'https://english.moe.gov.tw/mp-1.html', logo: 'https://static.igem.wiki/teams/6003/logo/moe-logo.webp'},
         { name: 'IDT', popup: 'Also good sponsor:D', url: 'https://www.idtdna.com/', logo: 'https://static.igem.wiki/teams/6003/logo/idt-logo.webp' },
         { name: 'IV-Tech', popup: 'Excellent sponsor ouob', url: 'https://www.ivt.com.tw', logo: 'IV-tech.png' },
-        { name: 'DIKE', popup: 'Sponsor ouob', url: undefined, logo: 'DIKE.png'}
+        { name: 'DIKE', popup: 'Sponsor ouob', url: undefined, logo: 'https://static.igem.wiki/teams/6003/logo/dike.webp'}
       ],
     }
   },

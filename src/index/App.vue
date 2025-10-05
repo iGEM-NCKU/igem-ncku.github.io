@@ -6,11 +6,6 @@
     <!-- {{ mobile }} -->
     
     <v-main>
-        <v-container>
-            <v-card justify = center>
-                <iframe title="NCKU-Tainan: Byefilm – Breaking biofilms, empowering recovery (2025) - Project Promotion [English]" width="560" height="315" src="https://video.igem.org/videos/embed/sBDRwoa4gaBw365v6svKyc?autoplay=1" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
-            </v-card>
-        </v-container>
         <index_wallpaper />
     
 </v-main></v-app>

@@ -73,8 +73,9 @@
     </navi>
 
     <transition name = scale>
-        <v-fab key = app app color = primary location = 'right bottom' size = large icon @click = 'goto(0)' v-if = 'show_top'>
-            <v-icon> fa-solid fa-circle-up </v-icon>
+        <v-fab key = app app color = transparent location = 'right bottom' size = large icon @click = 'goto(0)' v-if = 'show_top'>
+            <!-- <v-icon> fa-solid fa-circle-up </v-icon> -->
+            <v-img src = 'img/up.png' width = 100px height = 100px />
         </v-fab>
     </transition>
 

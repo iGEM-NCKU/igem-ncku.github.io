@@ -14,6 +14,9 @@
     <div class = 'place_holder_two'>
         <legs />
     </div>
+    <div class = 'place_holder'>
+        <provdo />
+    </div>
 </template>
 
 <script>
@@ -26,6 +29,7 @@ import man_walking from '@/index/animates/man_walking.vue';
 import legs from '@/index/animates/legs.vue';
 import leaf from '@/index/animates/leaf.vue';
 import world_map from '@/index/animates/map.vue';
+import provdo from '@/index/animates/provdo.vue';
 
 export default {   
     name: 'home_wallpaper',
@@ -34,7 +38,8 @@ export default {
         legs,
         logo,
         leaf,
-        world_map
+        world_map,
+        provdo
     },
     mounted() {
         M.AutoInit();

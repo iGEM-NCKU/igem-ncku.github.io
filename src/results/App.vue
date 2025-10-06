@@ -25,7 +25,6 @@
                 @click="dialog = true"
                 style="cursor: zoom-in;"
                 />
-
                 <v-dialog v-model="dialog" max-width="90vw">
                     <v-card>
                         <v-img

@@ -1,7 +1,7 @@
 <template>
     <v-dialog v-model = preview max-width="90vw">
         <v-card justify = center>
-            <v-img class = preview
+            <v-img class = "preview mx-auto"
             :src = now_image
             contain
             max-height = 80vh

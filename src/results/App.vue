@@ -2,6 +2,7 @@
     <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
+    <image_previewer />
     
     <v-main>
     <sidenav name = 'Result' />
@@ -179,29 +180,6 @@
         
     </v-col><v-col cols = 1 /></v-row>
 
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row><v-col>
-            <v-card title = 'Testing Area' color = grey>
-                <template v-slot:text>
-                    <v-card title = 'Card theme' variant = outlined>
-                        <v-btn rounded = undefined v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.card.theme == i ? `green` : undefined' @click = 'alpha.card.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                    </v-card>
-                    <v-card title = 'Sub-Card theme' variant = outlined>
-                        <v-btn rounded = undefined v-for = 'i in alpha.subcard.f' :key = 'i' :color = 'alpha.subcard.theme == i ? `green` : undefined' @click = 'alpha.subcard.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                    </v-card>
-                </template>
-            </v-card>
-        </v-col></v-row>
-    </v-col><v-col cols = 1 /></v-row>
-
-    <v-dialog v-model = preview max-width="90vw">
-        <v-card>
-            <v-img class = preview
-            :src = now_image
-            contain
-            />
-        </v-card>
-    </v-dialog>
     
     <site_footer></site_footer>
 </v-main></v-app>
@@ -216,6 +194,8 @@ import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
 import site_footer from '@/footer.vue'
+
+import image_previewer from '@/preview.vue'
 
 export default {
     name: 'App',
@@ -239,27 +219,14 @@ export default {
         title_nav,
         page_loader,
         sidenav,
-        site_footer
+        site_footer,
+        image_previewer
     },
     mounted() {
         M.AutoInit();
         setTimeout(() => {
             this.loading = false;
         }, 100);
-        addEventListener('scroll', () => {
-            // $('img').map((a, b) => {console.log(b.getAttribute('src'))});
-            $('.preview img').map((a, b) => {
-                // console.log(b.getAttribute('listener'));
-                // if(!b.getAttribute('listener')) return;
-
-                b.addEventListener('click', () => {
-                    // console.log(b.getAttribute('src'));
-                    if(this.preview) return;
-                    this.now_image = b.getAttribute('src');
-                    this.preview = true;
-                });
-            });
-        });
     },
     methods: {
         title(x) {

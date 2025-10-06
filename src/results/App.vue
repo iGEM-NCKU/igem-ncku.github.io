@@ -20,11 +20,9 @@
                 <p>In addition, to ensure biosafety and controlled enzyme release, we integrated a λcI857 temperature-sensitive kill-switch system. This system allows the engineered bacteria to release accumulated enzymes upon heat induction while simultaneously undergoing self-lysis, preventing unwanted survival after treatment.</p>
                 <p>Through this design, we aim to create a controllable and safe multi-enzyme biofilm-degradation platform that can effectively disrupt mature <em>S. aureus</em> biofilms. Our ultimate goal is to provide a potential biological solution for managing and preventing medical-device-associated infections.</p>
                 </div>
-                <v-img
-                src="https://static.igem.wiki/teams/6003/results/results-introduction.webp"
-                class="mx-auto preview"
-                @click="dialog = true"
-                style="cursor: zoom-in;"
+                <v-img class="preview"
+                :max-width= "3000000"
+                src="https://static.igem.wiki/teams/6003/results/results-introduction.webp"               
                 />
         </v-card>
         </v-row>
@@ -58,8 +56,11 @@
                                 >
                                 <p>Colony PCR yielded fragments of the expected sizes for all three enzymes, and restriction digestion verified the correct orientation of each insert.</p>
                                 </div>
-                                <v-img class = preview src="https://static.igem.wiki/teams/6003/results/enzyme-result.webp"/>
-            <v-card-subtitle id = conclusion class = "subtitle  " style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
+                                <v-img class = "preview mx-auto" src="https://static.igem.wiki/teams/6003/results/enzyme-result.webp" 
+                                :max-width= "500"
+                                
+                                />
+            <v-card-subtitle id = conclusion class = "subtitle" style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
                                 <div
                                 id="Conclusion"
                                 title="Conclusion"
@@ -80,7 +81,9 @@
                                 <p>In previous experiments, we try to infected BL21(DE3) with λ phage CI857, so that we could have both function of T7 RNA polymerase to induce T7 promoter and λCI857 to induce host cell lysis while temperature raised to 43°C. However, we found that the λ phage and the DE3 prophage in BL21(DE3) could not coexist within the same genome, as λcI857 infection might displace the DE3 lysogen carrying T7RNAP.</p>
                                 <p>To overcome this, we redesigned our system to isolate the T7RNAP gene from BL21(DE3) and clone it into a low-copy-number plasmid pCL1920. This plasmid would then be transformed into <em>E. coli</em> MG1655 λcI857, allowing T7 promoter-driven enzyme plasmids to be induced in a host also containing the heat-inducible kill switch.</p>
                                 </div>
-                                <v-img class = preview src = "https://static.igem.wiki/teams/6003/results/t7-aim.webp"/>
+                                <v-img class = "preview mx-auto" 
+                                :max-width= "500"
+                                src = "https://static.igem.wiki/teams/6003/results/t7-aim.webp"/>
             <v-card-subtitle id = "Experimental-setup" class = "subtitle" style="font-size: 24px;"><b>Experimental setup:</b></v-card-subtitle>
                                 <div
                                 id="Experimental setup"
@@ -97,7 +100,9 @@
                                 >
                                 <p>After IPTG induction, the <em>E. coli</em> TOP10 strain carrying pCL1920/T7RNAP and T7GFP showed clear green fluorescence under UV illumination, demonstrating that the plasmid-expressed T7RNAP was functional.</p>
                                 </div>
-                                <v-img class = preview src="https://static.igem.wiki/teams/6003/results/t7-result.webp"/>
+                                <v-img class = "preview mx-auto"
+                                :max-width= "500"
+                                src="https://static.igem.wiki/teams/6003/results/t7-result.webp"/>
 
             <v-card-subtitle id = conclusion class = "subtitle  " style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
                                 <div
@@ -134,7 +139,9 @@
                                 class="text-content"
                                 >
                                 <p>From our biofilm growth curve, we observed that biofilm formation reached a stable phase after approximately 24 hours of incubation.  Therefore, we selected 24 hours ****as the standard growth time for all subsequent biofilm degradation experiments.</p>
-                                <v-img class = preview src = " https://static.igem.wiki/teams/6003/results/sa-result.webp"/>
+                                <v-img class = "preview mx-auto" 
+                                :max-width= "500"
+                                src = " https://static.igem.wiki/teams/6003/results/sa-result.webp"/>
                                 </div>
             <v-card-subtitle id = conclusion class = "subtitle  " style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
                                 <div

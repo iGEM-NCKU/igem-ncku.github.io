@@ -15,7 +15,7 @@ module.exports = defineConfig({
     experiments: 'src/experiments/main.js',
     engineering: 'src/engineering/main.js',
     description: 'src/description/main.js',
-    result: 'src/result/main.js',
+    results: 'src/results/main.js',
     notebook: 'src/notebook/main.js',
     'safety-and-security': 'src/safety-and-security/main.js',
     attributions: 'src/attributions/main.js',

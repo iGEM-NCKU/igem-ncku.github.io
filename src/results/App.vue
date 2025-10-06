@@ -183,7 +183,9 @@
                                 </div>
             </v-card>
             <br>
+
         </v-row>
+        
     </v-col><v-col cols = 1 /></v-row>
 
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>

@@ -4,7 +4,7 @@
         <title_nav />
         <v-main>
         <sidenav name = 'experiments' />
-            <v-row justify = end>
+            <v-row justify = center>
             <v-col cols = 12 md = 8 class = 'pa-5'>
                 <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Protocol>
                 <v-toolbar color="primary">
@@ -44,6 +44,18 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Miniprep</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• P1 buffer ( containing RNase A)</li>
+                            <li>• P2 buffer</li>
+                            <li>• P3 buffer</li>
+                            <li>• PD buffer</li>
+                            <li>• PW buffer ( containing ethanol)</li>
+                            <li>• EB buffer</li>
+                            <li>• CP3 spin column</li>
+                            <li>• Overnight bacterial culture (1.5 mL per centrifugation)</li>
+                            <li>• Collection tubes for spin column</li>
+                            </ul>
                             <p><strong>1.Centrifugation of Bacterial Culture</strong></p>
                             <p>Transfer 1.5 mL of bacterial culture into an Eppendorf tube and centrifuge it at 12,000 rpm for 1 minute at room temperature. After centrifugation, discard the supernatant. Repeat the process by adding another 1.5 mL of culture to the same tube, centrifuge again under the same conditions, and discard the supernatant.</p>
                             <p><strong>2.Resuspension</strong></p>
@@ -70,6 +82,12 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Agarose Gel Preparation</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• TBE buffer</li>
+                            <li>• Agarose powder</li>
+                            <li>• Safe dye</li>
+                            </ul>
                             <p><strong>1.Prepare Agarose Solution</strong></p>
                             <p>For a small gel, combine 20 mL of TBE buffer with 0.14 g of agarose. For a large gel, combine 50 mL of TBE buffer with 0.35 g of agarose. Weigh the agarose carefully and add the appropriate volume of TBE buffer into a conical flask.</p>
                             <p><strong>2.Dissolve Agarose</strong></p>
@@ -85,6 +103,14 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Electrophoresis</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• TBE buffer</li>
+                            <li>• Agarose gel</li>
+                            <li>• 10× DNA loading dye</li>
+                            <li>• DNA samples</li>
+                            <li>• DNA ladder</li>
+                            </ul>
                             <p><strong>1.Set Up Gel in Chamber</strong></p>
                             <p>Place the prepared agarose gel into the electrophoresis chamber and add enough TBE buffer to completely submerge the gel. Ensure that the gel is fully covered to allow proper conduction of the electric current.</p>
                             <p><strong>2.Prepare and Load Samples</strong></p>
@@ -99,6 +125,16 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>PCR</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• MQ water</li>
+                            <li>• dNTPs</li>
+                            <li>• PCR buffer</li>
+                            <li>• Forward primer</li>
+                            <li>• Reverse primer</li>
+                            <li>• Template DNA</li>
+                            <li>• DNA polymerase</li>
+                            </ul>
                             <p><strong>1.Thawing Components</strong></p>
                             <p>Thaw all components on ice except for the enzyme. Keep the enzyme in the freezer until immediately before use, as it must remain cold and stable.</p>
                             <p><strong>2.Preparation of Reaction Mix</strong></p>
@@ -205,6 +241,14 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>PCR purified</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• DS Buffer</li>
+                            <li>• DF Column</li>
+                            <li>• Wash Buffer</li>
+                            <li>• MQ water (preheated 60 °C)</li>
+                            <li>• Collection tubes for spin column</li>
+                            </ul>
                             <p><strong>1. Binding of PCR Product</strong></p>
                             <p>Mix the PCR reaction solution with five volumes of DS Buffer. The maximum PCR product volume is 100 µL. If the volume exceeds this limit, divide it into multiple tubes.</p>
                             <p><strong>2. Loading onto DF Column</strong></p>
@@ -224,6 +268,15 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Gel extraction</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• Agarose gel slice containing DNA</li>
+                            <li>• Binding Buffer</li>
+                            <li>• Washing Buffer</li>
+                            <li>• Spin column</li>
+                            <li>• MQ water (preheated 60 °C)</li>
+                            <li>• Collection tubes for spin column</li>
+                            </ul>
                             <p><strong>1.Excise and Dissolve Gel</strong></p>
                             <p>Excise the DNA fragment from the agarose gel. Weigh the gel slice. Add 100 µL of Binding Buffer for every 100 mg of gel.</p>
                             <p>Incubate the mixture at 60 °C for 5–15 minutes, vortexing every 2–3 minutes until the gel slice is completely dissolved. After the gel is fully dissolved, add five volumes of Binding Buffer relative to the original gel slice.</p>
@@ -243,6 +296,15 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Digestion</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• DNA sample</li>
+                            <li>• 10× restriction buffer</li>
+                            <li>•  Restriction enzyme(s)</li>
+                            <li>• Spin column</li>
+                            <li>• MQ water (preheated 60 °C)</li>
+                            <li>• MQ water</li>
+                            </ul>
                             <p><strong>1. Buffer Preparation</strong></p>
                             <p>Thaw the appropriate buffer on ice according to the restriction enzyme requirements. Keep enzymes in the freezer until immediately before use.</p>
                             <p><strong>2. Reaction Setup</strong></p>
@@ -292,6 +354,13 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>EtOH Precipitation</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• 3 M Sodium acetate (NaAc)</li>
+                            <li>• 99% Ethanol</li>
+                            <li>• 70% Ethanol</li>
+                            <li>• MQ water</li>
+                            </ul>
                             <p><strong>1. Precipitation</strong></p>
                             <p>Add 1/10 volume of 3 M NaAc and 2.5 volumes of 99% EtOH to the DNA sample. Mix gently and incubate at –20 °C for 1 hour.</p>
                             <p><strong>2. Pellet Collection</strong></p>
@@ -311,6 +380,14 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Transformation</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• Competent  cells</li>
+                            <li>• Plasmid DNA</li>
+                            <li>• SOB medium</li>
+                            <li>• SOC medium</li>
+                            <li>• 10% glycerol (ice-cold)</li>
+                            </ul>
                             <p><strong>1. Cuvette Preparation</strong></p>
                             <p>Rinse the cuvette with sterile water, remove residual liquid using a pipette, and place the cuvette in the fume hood to dry completely.</p>
                             <p><strong>2. Bacterial Culture</strong></p>
@@ -344,6 +421,12 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Ligation</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• DNA sample (vector + insert)</li>
+                            <li>• 10× T4 DNA ligation buffer</li>
+                            <li>• T4 DNA ligase</li>
+                            </ul>
                                 <p><strong>1. Reaction Setup</strong></p>
                                 <p>Prepare the ligation mixture on ice according to the table below:</p>
                                 <table>
@@ -383,6 +466,20 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>SDS-page</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• LB medium</li>
+                            <li>• IPTG</li>
+                            <li>• SDS sample buffer (1×)</li>
+                            <li>• 30% Acrylamide</li>
+                            <li>• Stacking buffer (pH 6.8)</li>
+                            <li>• Separation buffer (pH 8.8)</li>
+                            <li>• 10% SDS</li>
+                            <li>• 10% APS</li>
+                            <li>• TEMED</li>
+                            <li>• Ladder</li>
+                            <li>• Coomassie blue stain</li>
+                            </ul>
                             <p><strong>1.Cell Culture and Sample Preparation</strong></p>
                             <p>Inoculate a fresh tube with 5 mL LB medium and add 5 µL of overnight E. coli culture along with the appropriate antibiotic. Incubate at 25°C until the culture reaches an OD₆₀₀ of ~0.4–0.6. Add IPTG to induce protein expression, and continue incubation at 25°C for 3 hours.</p>
                             <p>Measure the OD₆₀₀ and calculate the volume of culture to harvest based on the formula:</p>
@@ -475,6 +572,19 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Western blot</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• SDS-PAGE gels and buffers (same as SDS-PAGE)</li>
+                            <li>• PVDF membrane</li>
+                            <li>• Methanol</li>
+                            <li>• Transfer buffer</li>
+                            <li>• Filter paper</li>
+                            <li>• 5% milk in PBST</li>
+                            <li>• PBST</li>
+                            <li>• Primary antibody</li>
+                            <li>• Secondary antibody (1:2000)</li>
+                            <li>• ECL solutions W & B</li>
+                            </ul>
                             <p><strong>1.Cell Culture and Sample Preparation</strong></p>
                             <p>Inoculate a fresh tube with 5 mL LB medium and add 5 µL of overnight E. coli culture along with the appropriate antibiotic. Incubate at 25°C until the culture reaches an OD₆₀₀ of ~0.4–0.6. Add IPTG to induce protein expression, and continue incubation at 25°C for 3 hours.</p>
                             <p>Measure the OD₆₀₀ and calculate the volume of culture to harvest based on the formula:</p>
@@ -580,6 +690,13 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>Red recombination</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• Overnight  culture</li>
+                            <li>• SOB medium</li>
+                            <li>• 10% glycerol (ice-cold)</li>
+                            <li>• DNA solution</li>
+                            </ul>
                             <p><strong>1. Culture Inoculation</strong></p>
                             <p>Inoculate 0.5 mL of overnight culture into 50 mL of fresh SOB medium without Mg²⁺. Grow the cells with shaking at 30 °C for 1.5 hours.</p>
                             <p><strong>2. Induction</strong></p>
@@ -609,6 +726,16 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>P1 preparation</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• Overnight  culture</li>
+                            <li>• LB-Ca plates </li>
+                            <li>• CaCl₂ (0.1 M or 5 mM)</li>
+                            <li>• Soft agar (0.3% LB-Ca)</li>
+                            <li>• P1 phage solution</li>
+                            <li>• Chloroform</li>
+                            <li>• 50% glycerol</li>
+                            </ul>
                             <p><strong>1. Host Culture</strong></p>
                             <p>Prepare an overnight culture of host E. coli in LB medium.</p>
                             <p><strong>2. Plate Preparation</strong></p>
@@ -638,6 +765,14 @@
                     <v-card flat>
                         <v-card-text>
                             <h3><strong>P1 transduction</strong></h3>
+                            <p><strong>Materials and Reagents</strong></p>
+                            <ul>
+                            <li>• Overnight  culture</li>
+                            <li>• LB medium</li>
+                            <li>• CaCl₂ (0.1 M)</li>
+                            <li>• P1 phage solution (~1×10⁷ pfu/µL)</li>
+                            <li>• LB-citrate medium</li>
+                            </ul>
                             <p><strong>1. Recipient Cell Preparation</strong></p>
                             <p>Prepare an overnight culture of your recipient E. coli in LB medium. In a sterile test tube, mix 1.4 mL of fresh LB medium, 0.1 mL of 0.1 M CaCl₂, and 0.5 mL of the overnight culture. Incubate the mixture with shaking at 37°C for 2 hours to make the cells competent for P1 infection.</p>
                             <p><strong>2. Infection with P1 Phage</strong></p>
@@ -655,6 +790,14 @@
                         <v-card flat>
                             <v-card-text>
                                 <h3><strong>Lambda phage infection</strong></h3>
+                                <p><strong>Materials and Reagents</strong></p>
+                                <ul>
+                                <li>• Overnight  culture in LB + 0.2% maltose</li>
+                                <li>• MgCl₂ (10 mM)</li>
+                                <li>• Soft agar (0.3%)</li>
+                                <li>• LB plate with glucose, CaCl₂, FeCl₃, MgSO₄</li>
+                                <li>• Lambda phage solution</li>
+                                </ul>
                                 <p><strong>1. Host Culture</strong></p>
                                 <p>Inoculate E. coli in 2 mL LB medium containing 0.2% maltose and incubate overnight.</p>
                                 <p><strong>2. Harvesting Cells</strong></p>
@@ -672,6 +815,18 @@
                         <v-card flat>
                             <v-card-text>
                                 <h3><strong>NautiaZ plasmid DNA midi</strong></h3>
+                                <p><strong>Materials and Reagents</strong></p>
+                                <ul>
+                                <li>• Bacterial culture (100 mL)</li>
+                                <li>• PL1 buffer with RNase A</li>
+                                <li>• PL2 buffer</li>
+                                <li>• PL3 buffer</li>
+                                <li>• PL Column</li>
+                                <li>• 50 ml centrifuge tube</li>
+                                <li>• W1 buffer</li>
+                                <li>• W2 buffer (with ethanol)</li>
+                                <li>• Elution Buffer</li>
+                                </ul>
                                 <p><strong>1.Harvesting Bacterial Culture</strong></p>
                                 <p>Transfer 100 mL of well-grown bacterial culture into a centrifuge tube. Centrifuge at 6,000 × g for 5 minutes to pellet the cells, then carefully discard the supernatant.</p>
                                 <p><strong>2.Cell Resuspension</strong></p>
@@ -693,6 +848,11 @@
                         <v-card flat>
                             <v-card-text>
                                 <h3><strong>Bioflim formation</strong></h3>
+                                <p><strong>Materials and Reagents</strong></p>
+                                <ul>
+                                <li>• Staphylococcus aureus overnight culture</li>
+                                <li>• 0.5× TSB with 1% glucose</li>
+                                </ul>
                                 <p><strong>1.Overnight Culture</strong></p>
                                 <p>Inoculate Staphylococcus aureus in 0.5xTSB (Tryptic Soy Broth) with 1% glucose and incubate overnight at 37°C to obtain a dense culture.</p>
                                 <p><strong>2.OD Measurement and Adjustment</strong></p>
@@ -708,6 +868,12 @@
                         <v-card flat>
                             <v-card-text>
                                 <h3><strong>Bioflim Quantification</strong></h3>
+                                <p><strong>Materials and Reagents</strong></p>
+                                <ul>
+                                <li>• RO water</li>
+                                <li>• 0.6% Crystal violet</li>
+                                <li>• 30% acetic acid</li>
+                                </ul>
                                 <p><strong>1.Washing and Drying</strong></p>
                                 <p>Carefully wash the wells of the 96-well plate with RO water three times to remove non-adherent cells. Allow the plate to air dry.</p>
                                 <p><strong>2.Heat Fixation</strong></p>
@@ -718,6 +884,33 @@
                                 <p>Wash the wells with RO water three times to remove excess dye. Allow the plate to air dry.</p>
                                 <p><strong>5.Dye Solubilization and Measurement</strong></p>
                                 <p>Add 200µL of 30% acetic acid to each well to dissolve the bound crystal violet. Transfer the solution to a new 96-well plate and measure the OD600 to quantify biofilm formation.</p>
+                            </v-card-text>
+                        </v-card>
+                        </v-tabs-window-item>
+                        <v-tabs-window-item value="Enzymatic Degradation of Biofilm">
+                        <v-card flat>
+                            <v-card-text>
+                                <h3><strong>Enzymatic Degradation of Biofilm</strong></h3>
+                                <p><strong>Materials and Reagents</strong></p>
+                                <ul>
+                                <li>• LB medium</li>
+                                <li>• IPTG (final concentration: 0.5 mM)</li>
+                                <li>• Overnight bacterial culture</li>
+                                <li>• Pre-formed biofilm in 96-well plates</li>
+                                </ul>
+                                <p><strong>Procedure</strong></p>
+                                <p><strong>1.Overnight Culture</strong></p>
+                                <p>Inoculate the bacterial strain and incubate overnight under appropriate conditions.</p>
+                                <p><strong>2.Inoculation into Fresh Medium</strong></p>
+                                <p>Dilute the overnight culture by adding 5 μL of culture into 4950 μL of fresh LB medium (1:1000 dilution).</p>
+                                <p>Incubate at 30°C with shaking until OD600 reaches approximately 0.6.</p>
+                                <p><strong>3.Enzyme Induction</strong></p>
+                                <p>When OD600 ≈ 0.6, add IPTG to a final concentration of 0.5 mM and continue incubation at 30°C for 3 hours to allow sufficient enzyme expression.</p>
+                                <p><strong>4.Adjust Culture Density</strong></p>
+                                <p>Adjust the culture OD600 to 1.0 to ensure consistent inoculation.</p>
+                                <p><strong>5.Treatment of Pre-formed Biofilm</strong></p>
+                                <p>Add the induced bacterial culture (containing expressed enzyme) to the wells of the 96-well plate containing pre-formed biofilm.</p>
+                                <p>incubate at 30°C for 3 hours to allow enzymatic degradation of the biofilm.</p>
                             </v-card-text>
                         </v-card>
                         </v-tabs-window-item>

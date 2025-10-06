@@ -6,8 +6,8 @@
     
     <v-main>
     <sidenav name = 'Result' />
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row>
+    <v-row justify = end><v-col cols = 12 md = 7 class = 'pa-5'>
+        <v-row><v-col>
         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
             <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>
                 <div
@@ -27,10 +27,9 @@
                 style="cursor: zoom-in;"
                 />
         </v-card>
-        </v-row>
-        <br>
-        <br>
-        <v-row>
+        </v-col></v-row>
+        
+        <v-row><v-col>
             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Enzymes-plasmid-construction>
             <v-card-title style="font-size: 32px;"><b>Enzymes plasmid construction</b></v-card-title>
             <v-card-subtitle id = "Aim" class = "subtitle" style="font-size: 24px;"><b>Aim:</b></v-card-subtitle>
@@ -68,7 +67,8 @@
                                 <p>We successfully constructed IPTG-inducible plasmids carrying DspB, DNase I, and Pro K, each ready for downstream protein expression and biofilm degradation assays.</p>
                                 </div>
             </v-card>
-            <br>
+        </v-col></v-row>
+        <v-row><v-col>
             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = T7-RNA-polymerase-plasmid>
             <v-card-title style="font-size: 32px;"><b>T7 RNA polymerase plasmid construction</b></v-card-title>
             <v-card-subtitle id = "Aim" class = "subtitle" style="font-size: 24px;"><b>Aim:</b></v-card-subtitle>
@@ -108,7 +108,8 @@
                                 <p>We successfully achieved functional T7RNAP expression using the low-copy plasmid pCL1920. The appearance of bright green fluorescence in TOP10 + pCL1920/T7RNAP + T7GFP confirmed that T7RNAP maintained its activity on this plasmid. Finally, we extracted the verified pCL1920/T7RNAP from this strain and introduced it into <em>E. coli</em> MG1655 λcI857. By subsequently transforming our previously constructed enzyme plasmids into this host, we successfully established an engineered strain capable of temperature-induced lysis and enzyme protein expression.</p>
                                 </div>
             </v-card>
-            <br>
+        </v-col></v-row>
+        <v-row><v-col>
             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = S-aureus-Biofilm-Formation>
             <v-card-title style="font-size: 32px;"><b><em>Staphylococcus aureus</em> Biofilm Formation</b></v-card-title>
             <v-card-subtitle id = "Aim" class = "subtitle" style="font-size: 24px;"><b>Aim:</b></v-card-subtitle>
@@ -145,7 +146,8 @@
                                 <p>A reproducible and mature <em>S. aureus</em> biofilm model was successfully established, and a 24-hour incubation period was identified as the optimal duration for achieving stable biofilm formation.</p>
                                 </div>
             </v-card>
-            <br>
+        </v-col></v-row>
+        <v-row><v-col>
             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Biofilm-Degradation>
             <v-card-title style="font-size: 32px;"><b>Biofilm Degradation</b></v-card-title>
             <v-card-subtitle id = "Aim" class = "subtitle" style="font-size: 24px;"><b>Aim:</b></v-card-subtitle>
@@ -176,7 +178,7 @@
             </v-card>
             <br>
 
-        </v-row>
+        </v-col></v-row>
         
     </v-col><v-col cols = 1 /></v-row>
 

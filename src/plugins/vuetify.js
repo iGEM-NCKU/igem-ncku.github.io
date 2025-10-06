@@ -2,14 +2,14 @@
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import { fa } from "vuetify/iconsets/fa";
-import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
+// import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
 // Load global theme CSS once per entry
 import '../styles/theme.css'
 
-import "@mdi/font/css/materialdesignicons.css";
+// import "@mdi/font/css/materialdesignicons.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 const vuetify = createVuetify({
@@ -23,8 +23,7 @@ const vuetify = createVuetify({
   },
   icons: {
     defaultSet: 'fa',
-    aliases,
-    sets: { mdi, fa },
+    sets: { fa },
   },
   theme: {
     defaultTheme: 'brand',

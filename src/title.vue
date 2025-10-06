@@ -114,7 +114,7 @@
     <transition name = scale>
         <v-fab key = app app color = transparent location = 'right bottom' size = large icon @click = 'real_goto(0)' v-if = 'show_top && !show_nav'>
             <!-- <v-icon> fa-solid fa-circle-up </v-icon> -->
-            <v-img src = 'img/up.png' width = 100px height = 100px id = gotop />
+            <v-img src = 'up.png' width = 100px height = 100px id = gotop />
         </v-fab>
     </transition>
     

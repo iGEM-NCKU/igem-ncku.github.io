@@ -2,6 +2,7 @@
     <v-app>
     <page_loader :loading = 'loading' />
     <title_nav />
+    <image_previewer />
     
     <v-main>
     <sidenav name = 'Result' />
@@ -21,18 +22,10 @@
                 </div>
                 <v-img
                 src="https://static.igem.wiki/teams/6003/results/results-introduction.webp"
-                class="mx-auto"
+                class="mx-auto preview"
                 @click="dialog = true"
                 style="cursor: zoom-in;"
                 />
-                <v-dialog v-model="dialog" max-width="90vw">
-                    <v-card>
-                        <v-img
-                        src="https://static.igem.wiki/teams/6003/results/results-introduction.webp"
-                        contain
-                        />
-                    </v-card>
-                </v-dialog>
         </v-card>
         </v-row>
         <br>
@@ -48,7 +41,7 @@
                                 >
                                 <p>To enable expression of our selected target enzyme genes, we aimed to construct IPTG-inducible plasmids carrying biofilm-degrading enzymes. Based on literature, we selected three enzymes that specifically target the key components of <em>Staphylococcus aureus</em> biofilms, proteins, extracellular DNA, and polysaccharides (PNAG). The enzymes chosen were Proteinase K, DNase I, and Dispersin B (DspB). We aim to clone these genes into IPTG-inducible plasmid so that each enzyme could be expressed upon induction.</p>
                                 </div>
-                                <v-img src = "https://static.igem.wiki/teams/6003/results/enzymes-plasmid-construction-aim.webp"/>
+                                <v-img class = preview src = "https://static.igem.wiki/teams/6003/results/enzymes-plasmid-construction-aim.webp"/>
             <v-card-subtitle id = "Experimental-setup" class = "subtitle" style="font-size: 24px;"><b>Experimental setup:</b></v-card-subtitle>
                                 <div
                                 id="Enzymes-plasmid-construction"
@@ -65,7 +58,7 @@
                                 >
                                 <p>Colony PCR yielded fragments of the expected sizes for all three enzymes, and restriction digestion verified the correct orientation of each insert.</p>
                                 </div>
-                                <v-img src="https://static.igem.wiki/teams/6003/results/enzyme-result.webp"/>
+                                <v-img class = preview src="https://static.igem.wiki/teams/6003/results/enzyme-result.webp"/>
             <v-card-subtitle id = conclusion class = "subtitle  " style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
                                 <div
                                 id="Conclusion"
@@ -87,7 +80,7 @@
                                 <p>In previous experiments, we try to infected BL21(DE3) with λ phage CI857, so that we could have both function of T7 RNA polymerase to induce T7 promoter and λCI857 to induce host cell lysis while temperature raised to 43°C. However, we found that the λ phage and the DE3 prophage in BL21(DE3) could not coexist within the same genome, as λcI857 infection might displace the DE3 lysogen carrying T7RNAP.</p>
                                 <p>To overcome this, we redesigned our system to isolate the T7RNAP gene from BL21(DE3) and clone it into a low-copy-number plasmid pCL1920. This plasmid would then be transformed into <em>E. coli</em> MG1655 λcI857, allowing T7 promoter-driven enzyme plasmids to be induced in a host also containing the heat-inducible kill switch.</p>
                                 </div>
-                                <v-img src = "https://static.igem.wiki/teams/6003/results/t7-aim.webp"/>
+                                <v-img class = preview src = "https://static.igem.wiki/teams/6003/results/t7-aim.webp"/>
             <v-card-subtitle id = "Experimental-setup" class = "subtitle" style="font-size: 24px;"><b>Experimental setup:</b></v-card-subtitle>
                                 <div
                                 id="Experimental setup"
@@ -104,7 +97,7 @@
                                 >
                                 <p>After IPTG induction, the <em>E. coli</em> TOP10 strain carrying pCL1920/T7RNAP and T7GFP showed clear green fluorescence under UV illumination, demonstrating that the plasmid-expressed T7RNAP was functional.</p>
                                 </div>
-                                <img src="https://static.igem.wiki/teams/6003/results/t7-result.webp"/>
+                                <v-img class = preview src="https://static.igem.wiki/teams/6003/results/t7-result.webp"/>
 
             <v-card-subtitle id = conclusion class = "subtitle  " style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
                                 <div
@@ -141,7 +134,7 @@
                                 class="text-content"
                                 >
                                 <p>From our biofilm growth curve, we observed that biofilm formation reached a stable phase after approximately 24 hours of incubation.  Therefore, we selected 24 hours ****as the standard growth time for all subsequent biofilm degradation experiments.</p>
-                                <v-img src = " https://static.igem.wiki/teams/6003/results/sa-result.webp"/>
+                                <v-img class = preview src = " https://static.igem.wiki/teams/6003/results/sa-result.webp"/>
                                 </div>
             <v-card-subtitle id = conclusion class = "subtitle  " style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
                                 <div
@@ -171,7 +164,7 @@
                                 >                
                                 <p>Overnight cultures of each engineered strain were subcultured until reaching OD600 ≈ 0.6, followed by induction with 0.5 mM IPTG at 30 °C for 4 hours to allow intracellular enzyme accumulation. After induction, cultures were normalized to OD600 = 1 to ensure equal cell density. The strains were then mixed in predetermined ratios to a total volume of 200 μL. Each mixture was added into 96-well plates containing 24-hour pre-formed <em>S. aureus</em> biofilms. The plates were incubated at 40 °C, which simultaneously activated the λcI857 kill-switch and triggered enzyme release from lysed cells. After incubation, the wells were washed with ddH2O, stained with 0.06% crystal violet, and the absorbance at 600nm was measured to quantify residual biofilm biomass.</p>
                                 </div>
-                                <v-img src = "https://static.igem.wiki/teams/6003/software/biofilm-20degraded-20flow.webp"/>
+                                <v-img class = preview src = "https://static.igem.wiki/teams/6003/software/biofilm-20degraded-20flow.webp"/>
             <v-card-subtitle id = result class = "subtitle" style="font-size: 24px;"><b>Result:</b></v-card-subtitle>
                                 <div
                                 id="Result"
@@ -187,20 +180,6 @@
         
     </v-col><v-col cols = 1 /></v-row>
 
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row><v-col>
-            <v-card title = 'Testing Area' color = grey>
-                <template v-slot:text>
-                    <v-card title = 'Card theme' variant = outlined>
-                        <v-btn rounded = undefined v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.card.theme == i ? `green` : undefined' @click = 'alpha.card.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                    </v-card>
-                    <v-card title = 'Sub-Card theme' variant = outlined>
-                        <v-btn rounded = undefined v-for = 'i in alpha.subcard.f' :key = 'i' :color = 'alpha.subcard.theme == i ? `green` : undefined' @click = 'alpha.subcard.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                    </v-card>
-                </template>
-            </v-card>
-        </v-col></v-row>
-    </v-col><v-col cols = 1 /></v-row>
     
     <site_footer></site_footer>
 </v-main></v-app>
@@ -216,6 +195,8 @@ import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
 import site_footer from '@/footer.vue'
 
+import image_previewer from '@/preview.vue'
+
 export default {
     name: 'App',
     data() {
@@ -230,14 +211,16 @@ export default {
                     theme: 'tonal',
                     f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
                 }
-            }
+            },
+            preview: false
         }
     },
     components: {
         title_nav,
         page_loader,
         sidenav,
-        site_footer
+        site_footer,
+        image_previewer
     },
     mounted() {
         M.AutoInit();

@@ -347,7 +347,7 @@ v-btn:hover {
     border-radius: 0px;
     margin: 0px;
     padding: 20px;
-    background-color: rgba(150, 150, 150, .3);
+    background-color: rgba(255, 255, 255, .3);
     text-decoration: none;
     font-weight: 900;
     backdrop-filter: blur(50px);

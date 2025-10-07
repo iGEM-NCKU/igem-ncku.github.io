@@ -178,4 +178,7 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     backdrop-filter: blur(30px);
     border-radius: 10px;
 }
+.v-card-text * {
+    font-size: 20px;
+}
 </style>

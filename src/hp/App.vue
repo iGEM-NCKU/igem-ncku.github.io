@@ -259,7 +259,6 @@ export default {
   background-color: rgba(255, 255, 255, .75);
   backdrop-filter: blur(5px);
   position: absolute;
-
 }
 a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;

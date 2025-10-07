@@ -156,7 +156,7 @@ export default {
         return {
             pre: ['education', 'integrated-human-practices', 'members', 'wetlab', 'introduction-to-problems', 'software', 'model', ],
             f: {
-                'sponser': {
+                'Sponsor': {
                     icon: 'fa-solid fa-key',
                     subpages: [{name: 'sponsor-Partnership', icon: undefined}],
                     color: 'red'

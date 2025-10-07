@@ -25,7 +25,6 @@
                       <div class="text-content" v-html="item.text"></div>
                     </div>
                     <v-card-text></v-card-text>
-                  
                 </v-card>
               </div>
               </div>
@@ -112,7 +111,7 @@ export default {
 .circle-card {
   width: 50vw;
   height: 80vh;
-  background-color: rgb(0, 124, 27);
+  background-color: rgb(243, 247, 244);
   text-align: center;
   transition: transform 1s ease;
 }

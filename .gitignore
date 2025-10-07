@@ -23,3 +23,7 @@ pnpm-debug.log*
 *.sw?
 *.bkp 
 *.tmp 
+
+hp.md
+core
+hp.pdf

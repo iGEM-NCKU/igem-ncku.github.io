@@ -7,7 +7,7 @@
     <sidenav name = 'Integrated Human Practice' />
     
     <v-row justify = end>
-        <v-col cols = 12 md = 8 class = 'pa-5'>
+        <v-col cols = 12 md = 7 class = 'pa-5'>
         <v-row>
             <v-col>
                 <v-card :variant = 'alpha.card.theme' class = scroller id = 'Overview'>
@@ -108,7 +108,7 @@
 
     </v-col><v-col cols = 1 /></v-row>
 
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
+    <v-row justify = end><v-col cols = 12 md = 7 class = 'pa-5'>
         <v-row class = text-center>
             <v-col>
                 <v-card :variant = 'alpha.card.theme' title = 'Intergrated Human Practice' subtitle = 'IHP stuff' class = scroller id = 'Intergrated-Human-Practice'>

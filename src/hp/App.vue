@@ -5,6 +5,7 @@
     
     <v-main>
     <sidenav name = 'Integrated Human Practice' />
+    
     <v-row justify = end>
         <v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row>
@@ -140,82 +141,27 @@
                     <template v-slot:text>
                         <v-col><v-card variant = tonal><template v-slot:text>
                             <p> To deepen our understanding of the real-world challenges behind Periprosthetic Joint Infection (PJI), we interviewed Dr. Lin, an experienced orthopedic surgeon, and had the rare opportunity to observe a Total Knee Arthroplasty (TKA) surgery firsthand. </p>
-
+                            
                             <v-row>
                                 <v-img src = 'https://hackmd.io/_uploads/HJcjBh38ee.png' />
                                 <v-img src = 'https://hackmd.io/_uploads/HJzaBh28eg.png' />
                             </v-row>
-
+                            
                             <p> This experience gave us valuable clinical insights into the complexity of implant infections and strengthened the relevance of our project. In addition, we reached out to NCKU iGEM alumni, including former team leaders Sabrina, to gather feedback on our project design and outreach strategy. Their guidance helped us refine our goals, avoid common pitfalls, and strengthen our approach through shared experience and mentorship. </p>
                         </template></v-card></v-col>
                     </template>
                 </v-card>
             </v-col>
         </v-row>
-    </v-col><v-col cols = 1 /></v-row>
     
-    <!-- <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row class = 'text-center'><v-col>
-            <v-card :variant = 'alpha.card.theme' title = 'Outreach with other teams'></v-card>
-        </v-col></v-row>
-        <v-row>
-            <v-col>
-                <v-card :variant = 'alpha.card.theme' title = 'Online idea exchange' subtitle = 'Outreach with other teams' class = scroller id = 'Outreach-with-other-teams' text = 'As part of our commitment to building a strong and collaborative synthetic biology community, we reached out to fellow iGEM teams to exchange ideas, share feedback, and explore opportunities for future collaboration. These conversations allowed us to learn from diverse perspectives, gain constructive input on our project design, and offer our support in return. Through open dialogue, we not only improved our scientific thinking but also built meaningful connections that reflect the true spirit of iGEM—innovation through cooperation.' />
-            </v-col>
-        </v-row>
-        <v-row align = end>
-            <v-col cols = 12 md = 6>
-                <v-card :variant = 'alpha.card.theme' title = 'NYCU Taiwan' subtitle = 'Online idea exchange'>
-                    <template v-slot:text>
-                        <v-img src = 'https://hackmd.io/_uploads/rJ7Sm2hLgg.png' />
-                    </template>
-                </v-card>
-            </v-col>
-            <v-col cols = 12 md = 6>
-                <v-card :variant = 'alpha.card.theme' title = 'CSMU Taiwan' subtitle = 'Online idea exchange'>
-                    <template v-slot:text>
-                        <v-img src = 'https://hackmd.io/_uploads/B10G4nhUee.png' />
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols = 12 md = 6>
-                <v-card :variant = 'alpha.card.theme' title = 'UTokyo' subtitle = 'Online idea exchange'>
-                    <template v-slot:text>
-                        <v-img src = 'https://hackmd.io/_uploads/B12rNnhIgg.png' />
-                    </template>
-                </v-card>
-            </v-col>
-            <v-col cols = 12 md = 6>
-                <v-card :variant = 'alpha.card.theme' title = 'CCU Taiwan' subtitle = 'Online idea exchange'>
-                    <template v-slot:text>
-                        <v-img src = 'https://hackmd.io/_uploads/r1pwVnh8xg.png' />
-                    </template>
-                </v-card>
-            </v-col>
-        </v-row>
-    </v-col><v-col cols = 1 /></v-row> -->
-
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row><v-col>
-            <v-card title = 'Testing Area'>
-                <template v-slot:text>
-                    <v-card title = 'Card Theme'>
-                        <template v-slot:text>
-                            <v-btn v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.card.theme == i ? `green` : undefined' @click = 'alpha.card.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                        </template>
-                    </v-card>
-                    <v-card title = 'Sidenav Theme'>
-                        <template v-slot:text>
-                            <v-btn v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.sidenav.style == i ? `green` : undefined' @click = 'alpha.sidenav.style = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                        </template>
-                    </v-card>
-                </template>
-            </v-card>
-        </v-col></v-row>
+        <div class = scroller id = 'IHP-Storyline'>
+            <v-row><v-col>
+                <v-card title = 'IHP Storyline' subtitle = 'Pre-Project Exploration — From Multiple Ideas to One Feasible Path' />
+            </v-col></v-row>
+            <hp_timeline />
+            <hp_long />
+        </div>
     </v-col><v-col cols = 1 /></v-row>
-
     </v-main></v-app>
     
     <site_footer></site_footer>
@@ -230,6 +176,9 @@ import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
 import site_footer from '@/footer.vue'
+
+import hp_timeline from '@/hp/timeline.vue'
+import hp_long from '@/hp/long.vue'
 
 export default {
     name: 'App',
@@ -255,7 +204,9 @@ export default {
         title_nav,
         page_loader,
         sidenav,
-        site_footer
+        site_footer,
+        hp_timeline,
+        hp_long
     },
     mounted() {
         M.AutoInit();

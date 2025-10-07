@@ -8,7 +8,52 @@
     
     <v-row justify = end>
         <v-col cols = 12 md = 7 class = 'pa-5'>
-            呱
+            <v-card class = 'ma-3' v-if = 'data[0][0].text !== ``'>
+                <template #text>
+                    <div v-html = 'data[0].map((e) => e.text).join(``)' />
+                </template>
+            </v-card>
+            <div v-for = 'i in data[1]' :key = i :id = 'tokenize(i.title)' class = scroller>
+                <v-card class = 'ma-3'>
+                    <template #title>
+                        <div v-html = 'i.title' />
+                    </template>
+                    <template #text>
+                        <div v-html = 'i.description.map((e) => e.text).join(``)' />
+                    </template>
+                </v-card>
+                <template v-if = i.text>
+                    <v-card v-for = 'j in i.text' :key = j class = 'ma-3 subtitle' :id = tokenize(j.title)>
+                        <template #title>
+                            <div v-html = 'j.title' />
+                        </template>
+                        <template #text>
+                            <div v-for = 'k in j.description' :key = k>
+                                <v-img v-if = 'k.type == `img`' v-text = '[Image]' />
+                                <div v-html = 'k.text' v-else />
+                            </div>
+                        </template>
+
+                        <v-row v-if = j.text>
+                            <v-col>
+                                <v-card v-for = 'k in j.text' :key = k variant = tonal class = 'ma-3'>
+                                    <template #title>
+                                        <div v-html = k.title />
+                                    </template>
+                                    <template #text>
+                                        <div v-for = 'l in k.description' :key = l>
+                                            <v-img v-if = 'l.type == `img`' v-text = '[Image]' />
+                                            <div v-html = 'l.text' v-else />
+                                        </div>
+                                    </template>
+                                    {{ k.text }}
+                                </v-card>
+                            </v-col>
+                        </v-row>
+                        <!-- {{ j.text }} -->
+                    </v-card>
+                </template>
+            </div>
         </v-col><v-col cols = 1 /></v-row>
     </v-main></v-app>
     
@@ -29,7 +74,8 @@ export default {
     name: 'App',
     data() {
         return {
-            loading: true
+            loading: true,
+            data: <data>
         }
     },
     components: {
@@ -47,7 +93,11 @@ export default {
     methods: {
         tokenize(x) {
             while(x.indexOf(' ') != -1) x = x.replace(' ', '-');
-            return x;
+            while(x.indexOf('<b>') != -1) x = x.replace('<b>', '-');
+            while(x.indexOf('</b>') != -1) x = x.replace('</b>', '-');
+            while(x.indexOf('<i>') != -1) x = x.replace('<i>', '-');
+            while(x.indexOf('</i>') != -1) x = x.replace('</i>', '-');
+            return x.toLowerCase();
         }
     }
 }

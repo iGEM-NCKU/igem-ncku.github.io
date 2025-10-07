@@ -8,7 +8,12 @@
     
     <v-row justify = end>
         <v-col cols = 12 md = 7 class = 'pa-5'>
-            呱
+            <v-card class = 'ma-3 scroller' title = 'Storyline' subtitle = 'Pre-Project Exploration — From Multiple Ideas to One Feasible Path' id = 'Pre-Project-Exploration'>
+                <hp_timeline />
+            </v-card>
+            <v-card class = 'ma-3 scroller' title = 'Storyline' subtitle = 'From Exploration to Reflection — How We Shaped Byefilm' id = 'From-Exploration-to-Reflection'>
+                <hp_long />
+            </v-card>
         </v-col><v-col cols = 1 /></v-row>
     </v-main></v-app>
     
@@ -25,18 +30,24 @@ import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
 import site_footer from '@/footer.vue'
 
+import hp_timeline from '@/hp/timeline.vue'
+import hp_long from '@/hp/long.vue'
+
 export default {
     name: 'App',
     data() {
         return {
-            loading: true
+            loading: true,
+            data: undefined
         }
     },
     components: {
         title_nav,
         page_loader,
         sidenav,
-        site_footer
+        site_footer,
+        hp_timeline,
+        hp_long
     },
     mounted() {
         M.AutoInit();

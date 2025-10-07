@@ -14,23 +14,68 @@
 As societies age, the demand for TKA continues to rise, offering hope to those who suffer from severe joint disease.
 </p>
 
-<p>
-In 2019, the annual volume of primary TKA was 480,958
-Between 2000 and 2019, the estimated annual volume 
-of TKA increased by 156% on average.
-</p>
-<p>
-By 2040, the number of TKA is projected to be 1,222,988
- (95% FI, 988,714 to 1,512,772). 
-</p>
-<p>
-By 2060, the number of TKAs is projected to be 2,917,959
- (95% FI, 2,160,951 to 3,940,156).
-</p>
 <br>
-<p class = 'text-grey'>
-文獻:Projections and Epidemiology of Primary Hip and Knee Arthroplasty in Medicare Patients to 2040-2060
-</p>
+<v-hover>
+    <template #default = '{isHovering, props}'>
+        <v-card title = 'The number of TKA predicted' variant = plain v-bind = props :style = 'isHovering ? `filter: blur(5px)` : undefined'>
+            <v-row>
+                <v-col>
+                    <v-card variant = plain>
+                        <template #title>
+                            <h5> 480,958 </h5>
+                        </template>
+                        <template #subtitle>
+                            2000 - 2019
+                        </template>
+                    </v-card>
+                </v-col>
+                <v-col>
+                    <v-card variant = plain>
+                        <template #title>
+                            <h5> 1,222,988 </h5>
+                        </template>
+                        <template #subtitle>
+                            2040
+                        </template>
+                    </v-card>
+                </v-col>
+                <v-col>
+                    <v-card variant = plain>
+                        <template #title>
+                            <h5> 2,917,959 </h5>
+                        </template>
+                        <template #subtitle>
+                            2060
+                        </template>
+                    </v-card>
+                </v-col>
+            </v-row>
+            <v-card-text>
+                <v-icon> fa-solid fa-arrow-pointer </v-icon>
+                Hover for details
+            </v-card-text>
+        </v-card>
+        <div v-if = isHovering style = 'margin-top: -200px'>
+            <p>
+            In 2019, the annual volume of primary TKA was 480,958
+            Between 2000 and 2019, the estimated annual volume 
+            of TKA increased by 156% on average.
+            </p>
+            <p>
+            By 2040, the number of TKA is projected to be 1,222,988
+            (95% FI, 988,714 to 1,512,772). 
+            </p>
+            <p>
+            By 2060, the number of TKAs is projected to be 2,917,959
+            (95% FI, 2,160,951 to 3,940,156).
+            </p>
+            <p class = 'text-grey'>
+            Reference: Projections and Epidemiology of Primary Hip and Knee Arthroplasty in Medicare Patients to 2040-2060
+            </p>
+        </div>
+    </template>
+</v-hover>
+
                 </div>
                 <div id = ouob v-if = $vuetify.display.mdAndUp>
                     <v-card variant = plain>

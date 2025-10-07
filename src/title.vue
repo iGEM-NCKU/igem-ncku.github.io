@@ -97,6 +97,19 @@
                     </v-carousel-item>
                 </v-carousel>
 
+                <div v-if = '!$vuetify.display.mdAndUp' id = touch_swipe_guide>
+                    <v-row justify = center>
+                        <v-col justify = center>
+                            <v-card variant = plain class = 'text-center text-grey' style = 'font-size: 20px;'>
+                                <v-icon> fa-sm fa-solid fa-arrow-left </v-icon>
+                                <v-icon> fa-sm fa-solid fa-arrow-pointer </v-icon>
+                                <v-icon> fa-sm fa-solid fa-arrow-right </v-icon><br>
+                                Swipe for navigation
+                            </v-card>
+                        </v-col>
+                    </v-row>
+                </div>
+
                 <!-- <v-btn
                 v-if = '!$vuetify.display.mdAndUp' 
                 rounded = xl
@@ -434,5 +447,12 @@ navi>a:hover {
 #expanded_phone {
     margin-top: 30px;
     height: calc(100vh - 30px);
+}
+#touch_swipe_guide {
+    position: fixed;
+    top: 80vh;
+    left: 0px;
+    width: 100vw;
+    height: 10vh;
 }
 </style>

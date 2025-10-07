@@ -27,7 +27,7 @@
                         <template #default = '{isHovering, props}'>
                             <a href = https://video.igem.org/w/sBDRwoa4gaBw365v6svKyc target = '_blank'>
                                 <v-card v-bind = props :color = 'isHovering ? `primary` : `red`' variant = tonal>
-                                    <v-icon> fa-solid fa-video fa-2xl fa-beat </v-icon>
+                                    <v-icon style = 'font-size: 30px;'> fa-solid fa-video fa-2xl fa-beat </v-icon>
                                     <v-card-title>
                                         Promotion Video
                                     </v-card-title>
@@ -40,7 +40,7 @@
                     <v-hover>
                         <template #default = '{isHovering, props}'>
                             <v-card v-bind = props :color = 'isHovering ? `primary` : `orange`' variant = tonal @click = 'shownav'>
-                                <v-icon> fa-solid fa-book fa-2xl fa-beat </v-icon>
+                                <v-icon style = 'font-size: 30px;'> fa-solid fa-book fa-2xl fa-beat </v-icon>
                                 <v-card-title>
                                     Go to other pages
                                 </v-card-title>

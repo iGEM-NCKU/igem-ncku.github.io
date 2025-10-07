@@ -15,7 +15,7 @@
                 ouob
             </template> -->
             <template #text>
-                <v-card variant = text>
+                <v-card variant = text class = stext>
                     Although the incidence of PJI reported after TKA is in the range of 0.5-2%, the overall global burden is substantial
                     Once PJI occurs, its consequences can be catastrophic, causing significant impacts on society, families, and individuals.
                     <br>

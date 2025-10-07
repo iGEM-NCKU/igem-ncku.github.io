@@ -13,7 +13,7 @@
                                 <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `70vh` : undefined' class = align-content-center :variant = '!isHovering ? `tonal` : `flat`' v-ripple>
                                     <template #text>
                                         <!-- <h1 v-if = '!isHovering' style = 'font-size: 100px;'> 1 </h1> -->
-                                        <p>
+                                        <p class = stext>
                                             To strengthen existing treatment methods and address the issue of high antibiotic resistance in biofilms, our team has proposed ByeFilm.
                                         </p>
                                     </template>
@@ -27,7 +27,7 @@
                                 <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `70vh` : undefined' class = align-content-center :variant = '!isHovering ? `tonal` : `flat`' v-ripple>
                                     <template #text>
                                         <!-- <h1 v-if = '!isHovering' style = 'font-size: 100px;'> 2 </h1> -->
-                                        <p>
+                                        <p class = stext>
                                         Our engineered <font :color = emphasize_color><i> E. coli </i></font> is equipped with three enzymes that degrade the major components of the biofilm produced by <i> Staphylococcus aureus </i>, the most common clinical pathogen causing PJI infections. These enzymes specifically target PNAG, proteins, and eDNA.
                                         <br>
                                         Since previous studies have failed to ensure efficient biofilm degradation due to the complexity of biofilm
@@ -44,7 +44,7 @@
                                 <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `70vh` : undefined' class = align-content-center :variant = '!isHovering ? `tonal` : `flat`' v-ripple>
                                     <template #text>
                                         <!-- <h1 v-if = '!isHovering' style = 'font-size: 100px;'> 3 </h1> -->
-                                        <p>
+                                        <p class = stext>
                                             We envision that biofilm-associated infections can be treated in the future using non-physical approaches, which will not only reduce reliance on antibiotics but also avoid prolonged and time-consuming hospitalization for patient observation.
                                         </p>
                                     </template>
@@ -56,7 +56,7 @@
                 <v-col cols = 12 id = 'white_hover_hint'>
                     <v-card variant = plain color = grey-darken-3 style = 'font-size: 10px;'>
                         <v-icon> fa-solid fa-arrow-pointer </v-icon>
-                        <b> Hover to view </b>
+                        <b class = stext> Hover to view </b>
                         <br>
                         <v-img src = logo.png max-height = 7vh class = 'ma-2' />
                     </v-card>

@@ -7,10 +7,10 @@
             <template #text>
                 <div :id = '$vuetify.display.mdAndUp ? `map_text` : undefined' class = 'align-content-center'>
 <h3> Total knee arthroplasty </h3>
-<p>
+<p class = 'mtext'>
 , or TKA, is one of the most common and effective surgeries in modern medicine.
 </p>
-<p>
+<p class = 'mtext'>
 As societies age, the demand for TKA continues to rise, offering hope to those who suffer from severe joint disease.
 </p>
 
@@ -55,7 +55,7 @@ As societies age, the demand for TKA continues to rise, offering hope to those w
                 Hover for details
             </v-card-text>
         </v-card>
-        <div v-if = isHovering style = 'margin-top: -200px'>
+        <div v-if = isHovering style = 'margin-top: -270px' class = 'stext'>
             <p>
             In 2019, the annual volume of primary TKA was 480,958
             Between 2000 and 2019, the estimated annual volume 

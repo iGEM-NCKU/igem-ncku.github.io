@@ -103,30 +103,31 @@
                                     </v-card-subtitle>
                                 </v-col>
                                 <v-col cols="12" md="6">
-                                    <!-- Sub-navigation for Biofilm sections -->
-                                    <v-chip-group class="biofilm-nav" color="primary">
-                                        <v-chip @click="scrollToSubSection('biofilm-intro')" variant="outlined">Introduction</v-chip>
-                                        <v-chip @click="scrollToSubSection('biofilm-why')" variant="outlined">Why This Matters</v-chip>
-                                        <v-chip @click="scrollToSubSection('biofilm-performance')" variant="outlined">Performance</v-chip>
-                                        <v-chip @click="scrollToSubSection('biofilm-approach')" variant="outlined">Approach</v-chip>
-                                        <v-chip @click="scrollToSubSection('biofilm-start')" variant="outlined">Get Started</v-chip>
-                                        <v-chip @click="scrollToSubSection('biofilm-architecture')" variant="outlined">Architecture</v-chip>
-                                        <v-chip @click="scrollToSubSection('biofilm-api')" variant="outlined">API</v-chip>
+                                    <!-- Sub-navigation for Enzymix sections -->
+                                    <v-chip-group class="biofilm-nav" color="primary" v-model="activeEnzymixChip">
+                                        <v-chip :value="'biofilm-intro'" @click="scrollToSubSection('biofilm-intro')" variant="outlined">Introduction</v-chip>
+                                        <v-chip :value="'biofilm-why'" @click="scrollToSubSection('biofilm-why')" variant="outlined">Why This Matters</v-chip>
+                                        <v-chip :value="'biofilm-performance'" @click="scrollToSubSection('biofilm-performance')" variant="outlined">Performance</v-chip>
+                                        <v-chip :value="'biofilm-approach'" @click="scrollToSubSection('biofilm-approach')" variant="outlined">Approach</v-chip>
+                                        <v-chip :value="'biofilm-start'" @click="scrollToSubSection('biofilm-start')" variant="outlined">Get Started</v-chip>
+                                        <v-chip :value="'biofilm-architecture'" @click="scrollToSubSection('biofilm-architecture')" variant="outlined">Architecture</v-chip>
+                                        <v-chip :value="'biofilm-api'" @click="scrollToSubSection('biofilm-api')" variant="outlined">API</v-chip>
                                     </v-chip-group>
                                 </v-col>
                             </v-row>
                         </v-card>
                         
                         <!-- Expandable Sections -->
-                        <v-expansion-panels class="mb-4" multiple>
+                        <v-expansion-panels class="mb-4" multiple v-model="openedPanelsEnzymix">
                             <!-- Introduction -->
+                            <div id="biofilm-intro" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-intro">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-information</v-icon>
                                     <span class="text-h6">Introduction</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="biofilm-intro">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <p class="text-h6 mb-4">
@@ -161,13 +162,14 @@
                             </v-expansion-panel>
 
                             <!-- Why This Matters -->
+                            <div id="biofilm-why" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-why">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-lightbulb</v-icon>
                                     <span class="text-h6">Why This Matters</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="biofilm-why">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <p>
@@ -183,13 +185,14 @@
                             </v-expansion-panel>
 
                             <!-- Model Performance -->
+                            <div id="biofilm-performance" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-performance">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-chart-areaspline</v-icon>
                                     <span class="text-h6">Model Performance</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="biofilm-performance">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <p class="text-h6 mb-4">
@@ -255,13 +258,14 @@
                             </v-expansion-panel>
 
                             <!-- Iterative Approach -->
+                            <div id="biofilm-approach" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-approach">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-sync</v-icon>
                                     <span class="text-h6">Our Iterative, Team-Centered Approach</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="biofilm-approach">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <p class="text-h6 mb-4">Every development step was designed around wet lab feedback to ensure real research impact:</p>
@@ -338,13 +342,14 @@
                             </v-expansion-panel>
 
                             <!-- Getting Started -->
+                            <div id="biofilm-start" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-start">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-rocket-launch</v-icon>
                                     <span class="text-h6">Getting Started in 3 Steps</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="biofilm-start">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <v-row>
@@ -422,13 +427,14 @@ chmod +x ./train.sh
                             </v-expansion-panel>
 
                             <!-- System Architecture -->
+                            <div id="biofilm-architecture" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-architecture">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-file-tree</v-icon>
                                     <span class="text-h6">System Architecture</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="biofilm-architecture">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <p class="text-h6 mb-4">The software is packaged as containerized components:</p>
@@ -578,13 +584,14 @@ chmod +x ./train.sh
                             </v-expansion-panel>
 
                             <!-- API Reference -->
+                            <div id="biofilm-api" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-api">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-api</v-icon>
                                     <span class="text-h6">API Reference</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="biofilm-api">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <v-row>
@@ -690,7 +697,8 @@ chmod +x ./train.sh
                             </v-expansion-panel>
 
                             <!-- Conclusion -->
-                            <v-expansion-panel>
+                            <div id="biofilm-conclusion" class="subtitle"></div>
+                            <v-expansion-panel value="biofilm-conclusion">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-check-circle</v-icon>
                                     <span class="text-h6">Conclusion</span>
@@ -787,13 +795,13 @@ chmod +x ./train.sh
                                 </v-col>
                                 <v-col cols="12" md="6">
                                     <!-- Sub-navigation for Endzyme sections -->
-                                    <v-chip-group class="endzyme-nav" color="secondary">
-                                        <v-chip @click="scrollToSubSection('endzyme-intro')" variant="outlined">Introduction</v-chip>
-                                        <v-chip @click="scrollToSubSection('endzyme-ml')" variant="outlined">ML Model</v-chip>
-                                        <v-chip @click="scrollToSubSection('endzyme-screening')" variant="outlined">Screening</v-chip>
-                                        <v-chip @click="scrollToSubSection('endzyme-docking')" variant="outlined">Docking</v-chip>
-                                        <v-chip @click="scrollToSubSection('endzyme-usage')" variant="outlined">Usage</v-chip>
-                                        <v-chip @click="scrollToSubSection('endzyme-refs')" variant="outlined">References</v-chip>
+                                    <v-chip-group class="endzyme-nav" color="secondary" v-model="activeEndzymeChip">
+                                        <v-chip :value="'endzyme-intro'" @click="scrollToSubSection('endzyme-intro')" variant="outlined">Introduction</v-chip>
+                                        <v-chip :value="'endzyme-ml'" @click="scrollToSubSection('endzyme-ml')" variant="outlined">ML Model</v-chip>
+                                        <v-chip :value="'endzyme-screening'" @click="scrollToSubSection('endzyme-screening')" variant="outlined">Screening</v-chip>
+                                        <v-chip :value="'endzyme-docking'" @click="scrollToSubSection('endzyme-docking')" variant="outlined">Docking</v-chip>
+                                        <v-chip :value="'endzyme-usage'" @click="scrollToSubSection('endzyme-usage')" variant="outlined">Usage</v-chip>
+                                        <v-chip :value="'endzyme-refs'" @click="scrollToSubSection('endzyme-refs')" variant="outlined">References</v-chip>
                                     </v-chip-group>
                                 </v-col>
                             </v-row>
@@ -805,15 +813,16 @@ chmod +x ./train.sh
                         </v-card>
                         
                         <!-- Expandable Sections for Endzyme -->
-                        <v-expansion-panels class="mb-4" multiple>
+                        <v-expansion-panels class="mb-4" multiple v-model="openedPanelsEndzyme">
                             <!-- Introduction -->
+                            <div id="endzyme-intro" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-intro">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-information</v-icon>
                                     <span class="text-h6">Introduction</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="endzyme-intro">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <v-alert type="warning" class="mb-4">
@@ -851,13 +860,14 @@ chmod +x ./train.sh
                             </v-expansion-panel>
 
                             <!-- Machine Learning Model -->
+                            <div id="endzyme-ml" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-ml">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-brain</v-icon>
                                     <span class="text-h6">Machine Learning Model</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="endzyme-ml">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <v-row>
@@ -962,13 +972,14 @@ if isinstance(recycles, int):
                             </v-expansion-panel>
 
                             <!-- Screening -->
+                            <div id="endzyme-screening" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-screening">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-filter</v-icon>
                                     <span class="text-h6">Screening</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="endzyme-screening">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <v-card variant="outlined" class="mb-4">
@@ -1042,13 +1053,14 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                             </v-expansion-panel>
 
                             <!-- Docking -->
+                            <div id="endzyme-docking" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-docking">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-puzzle</v-icon>
                                     <span class="text-h6">Molecular Docking</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="endzyme-docking">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <v-card variant="outlined" class="mb-4">
@@ -1158,13 +1170,14 @@ def get_gridbox(selection="binding_site",
                             </v-expansion-panel>
 
                             <!-- Usage -->
+                            <div id="endzyme-usage" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-usage">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-play-circle</v-icon>
                                     <span class="text-h6">Usage & Installation</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="endzyme-usage">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <v-alert type="info" class="mb-4">
@@ -1310,13 +1323,14 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                             </v-expansion-panel>
 
                             <!-- References -->
+                            <div id="endzyme-refs" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-refs">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3">mdi-book-open</v-icon>
                                     <span class="text-h6">References</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
-                                    <div id="endzyme-refs">
+                                    <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
                                                 <v-card variant="outlined" class="mb-4">
@@ -1505,6 +1519,12 @@ export default {
     data() {
         return {
             loading: true,
+            openedPanelsEnzymix: [],
+            openedPanelsEndzyme: [],
+            enzymixIds: [],
+            endzymeIds: [],
+            activeEnzymixChip: null,
+            activeEndzymeChip: null,
             alpha: {
                 card: {
                     theme: undefined,
@@ -1529,6 +1549,29 @@ export default {
             this.loading = false;
         }, 100);
         hljs.highlightAll();
+
+        // collect subsection anchors for sidenav + scroll sync
+        this.$nextTick(() => {
+            this.enzymixIds = Array.from(document.querySelectorAll('#Enzymix .subtitle[id]')).map(el => el.id);
+            this.endzymeIds = Array.from(document.querySelectorAll('#Endzyme .subtitle[id]')).map(el => el.id);
+
+            // Keep the main page (Enzymix) fully expanded by default
+            if (this.enzymixIds.length) {
+                this.openedPanelsEnzymix = [...this.enzymixIds];
+                this.activeEnzymixChip = this.enzymixIds[0];
+            }
+            // Endzyme: expand all by default except References
+            if (this.endzymeIds.length) {
+                this.openedPanelsEndzyme = this.endzymeIds.filter(id => id !== 'endzyme-refs');
+                const firstNonRefs = this.endzymeIds.find(id => id !== 'endzyme-refs') || this.endzymeIds[0];
+                this.activeEndzymeChip = firstNonRefs;
+            }
+
+            window.addEventListener('scroll', this.updatePanelsOnScroll, { passive: true });
+        });
+    },
+    beforeUnmount() {
+        window.removeEventListener('scroll', this.updatePanelsOnScroll);
     },
     methods: {
         title(x) {
@@ -1538,6 +1581,47 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+        },
+        updatePanelsOnScroll() {
+            const pickNearest = (ids) => {
+                let best = null;
+                let bestDist = Infinity;
+                const target = 160;
+                for (const id of ids) {
+                    const el = document.getElementById(id);
+                    if (!el) continue;
+                    const rect = el.getBoundingClientRect();
+                    const dist = Math.abs(rect.top - target);
+                    if (dist < bestDist) { bestDist = dist; best = id; }
+                }
+                return best;
+            };
+
+            const inView = (containerId) => {
+                const c = document.getElementById(containerId);
+                if (!c) return false;
+                const r = c.getBoundingClientRect();
+                return r.bottom > 0 && r.top < window.innerHeight;
+            };
+
+            if (inView('Enzymix') && this.enzymixIds.length) {
+                const id = pickNearest(this.enzymixIds);
+                if (id) {
+                    // Keep Enzymix expanded; just update active chip
+                    this.activeEnzymixChip = id;
+                    if (!this.openedPanelsEnzymix.includes(id)) this.openedPanelsEnzymix.push(id);
+                }
+            }
+            if (inView('Endzyme') && this.endzymeIds.length) {
+                const id = pickNearest(this.endzymeIds);
+                if (id) {
+                    // Endzyme: keep expanded, skip opening References
+                    this.activeEndzymeChip = id;
+                    if (id !== 'endzyme-refs' && !this.openedPanelsEndzyme.includes(id)) {
+                        this.openedPanelsEndzyme.push(id);
+                    }
+                }
+            }
         },
         openExternal(url) {
             try {

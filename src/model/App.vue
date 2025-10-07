@@ -4,28 +4,7 @@
     <title_nav />
 
     <v-main>
-      <v-container>
-        <v-hover>
-          <template #default = '{isHovering, props}'>
-            <a href = 'https://johan-susilo.github.io/biofilm-ml-model/' target = '_blank'>
-              <v-card v-bind = props :color = 'isHovering ? `primary` : undefined' v-ripple :variant = 'isHovering ? undefined : `tonal`' :class = 'isHovering ? undefined : `rainbow`'>
-                <template #title>
-                  <b> Byefilm Prediction Tool </b>
-                </template>
-                <template #subtitle>
-                  ML-model
-                </template>
-                <template #text>
-                  We have served out model on a website, Here you can see how it works.
-                </template>
-                <template #prepend>
-                  <v-icon> fa-solid fa-server </v-icon>
-                </template>
-              </v-card>
-            </a>
-          </template>
-        </v-hover>
-      </v-container>
+     
     </v-main>
 
     <site_footer />

@@ -15,6 +15,9 @@
         <legs />
     </div>
     <div class = 'place_holder'>
+        <white />
+    </div>
+    <div class = 'place_holder'>
         <provdo />
     </div>
 </template>
@@ -30,6 +33,7 @@ import legs from '@/index/animates/legs.vue';
 import leaf from '@/index/animates/leaf.vue';
 import world_map from '@/index/animates/map.vue';
 import provdo from '@/index/animates/provdo.vue';
+import white from '@/index/animates/white.vue'
 
 export default {   
     name: 'home_wallpaper',
@@ -39,7 +43,8 @@ export default {
         logo,
         leaf,
         world_map,
-        provdo
+        provdo,
+        white
     },
     mounted() {
         M.AutoInit();

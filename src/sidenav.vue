@@ -30,7 +30,7 @@
                                 <!-- {{ i }} -->
                                     <template #activator = '{props}'>
                                         <!-- <a :href = '`#${i}`'> -->
-                                        <v-list-item v-bind = props @click = 'goto(`#${i}`)'>
+                                        <v-list-item v-bind = props @click = 'goto(`#${i}`)' prepend-icon = 'fa-solid fa-star'>
                                                 <!-- <b> {{ tmp[j] }} {{ j }} {{ j == this.scroller.now }} </b> -->
                                             <b class = 'text-primary'> {{ title(i) }} </b>
                                         </v-list-item>
@@ -40,7 +40,7 @@
                                         <b @click = 'goto(`#${k}`)' class = 'text-primary'> <a> {{ title(k) }} </a> </b>
                                     </v-list-item>
                                 </v-list-group>
-                                <v-list-item :value = i  @click = 'goto(`#${i}`)' class = 'text-primary' v-else> <b> {{ title(i) }} </b> </v-list-item>
+                                <v-list-item :value = i  @click = 'goto(`#${i}`)' class = 'text-primary' prepend-icon = 'fa-solid fa-star' v-else> <b> {{ title(i) }} </b> </v-list-item>
                             </template>
                         </v-list>
                     </template>

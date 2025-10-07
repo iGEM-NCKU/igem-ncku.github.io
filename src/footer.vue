@@ -20,11 +20,10 @@
             NCKU iGEM — Tainan, Taiwan
           </div>
           <div class="mt-2">
-            <v-btn icon="mdi-instagram" variant="text" color="primary" href="https://www.instagram.com/igemncku/" target="_blank" aria-label="Instagram" />
-            <v-btn icon="mdi-linkedin" variant="text" color="primary" href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" />
-            <v-btn icon="mdi-github" variant="text" color="primary" href="https://github.com/" target="_blank" aria-label="GitHub" />
-            <v-btn icon="mdi-email-outline" variant="text" color="primary" href="mailto:igemncku@gmail.com" aria-label="Email" />
-            <v-btn icon="mdi-arrow-up" variant="text" color="primary" href="#top" aria-label="Back to top" @click.prevent="goTop" />
+            <v-btn text = 'Instagram' variant="text" color="primary" href="https://www.instagram.com/igemncku/" target="_blank" aria-label="Instagram" />
+            <v-btn text = 'GitHub' variant="text" color="primary" href="https://github.com/igem-ncku" target="_blank" aria-label="GitHub" />
+            <v-btn text = 'E-mail' variant="text" color="primary" href="mailto:igemncku@gmail.com" aria-label="Email" />
+            <v-btn text = 'Top' variant="text" color="primary" href="#top" aria-label="Back to top" @click.prevent="goTop" />
           </div>
         </v-col>
       </v-row>

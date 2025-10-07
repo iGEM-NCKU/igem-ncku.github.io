@@ -38,19 +38,19 @@
                                         @keydown.space.prevent="scrollToSection('Enzymix')"
                                         @click="scrollToSection('Enzymix')"
                                     >
-                                        <v-icon size="80" class="mb-4 tool-icon">mdi-chart-line</v-icon>
+                                        <v-icon size="80" class="mb-4 tool-icon"> fa-solid fa-chart-line </v-icon>
                                         <v-card-title class="text-h4 mb-3">Enzymix</v-card-title>
                                         <v-card-text class="text-h6 mb-4">
                                             XGBoost-powered machine learning for optimizing enzyme ratios in biofilm degradation experiments
                                         </v-card-text>
                                         <v-chip color="primary" size="large" class="mb-4" title="Open live Enzymix web app" @click.stop="openExternal('https://johan-susilo.github.io/enzymix/')">
-                                            <v-icon start>mdi-web</v-icon>
+                                            <v-icon start> fa-solid fa-globe </v-icon>
                                             Live Web App Available
                                         </v-chip>
                                         <br>
                                         <v-btn color="primary" variant="elevated" size="large" class="mt-4" @click.stop="openExternal('https://johan-susilo.github.io/enzymix/')" :aria-label="'Open Enzymix live app in new tab'">
                                             Explore Tool
-                                            <v-icon end>mdi-arrow-right</v-icon>
+                                            <v-icon end> fa-solid fa-arrow-right </v-icon>
                                         </v-btn>
                                     </v-card>
                                 </v-col>
@@ -68,19 +68,19 @@
                                         @keydown.space.prevent="scrollToSection('Endzyme')"
                                         @click="scrollToSection('Endzyme')"
                                     >
-                                        <v-icon size="80" class="mb-4 tool-icon">mdi-molecule</v-icon>
+                                        <v-icon size="80" class="mb-4 tool-icon"> fa-solid fa-atom </v-icon>
                                         <v-card-title class="text-h4 mb-3">Endzyme</v-card-title>
                                         <v-card-text class="text-h6 mb-4">
                                             AI-driven pipeline for generating, screening, and optimizing functional enzyme sequences
                                         </v-card-text>
                                         <v-chip color="secondary" size="large" class="mb-4" title="Open Endzyme GitHub repository" @click.stop="openExternal('https://github.com/iGEM-NCKU/endzyme')">
-                                            <v-icon start>mdi-github</v-icon>
+                                            <v-icon start> fa-brands fa-github </v-icon>
                                             Open Source
                                         </v-chip>
                                         <br>
                                         <v-btn color="secondary" variant="elevated" size="large" class="mt-4" @click.stop="scrollToSection('Endzyme')" :aria-label="'Scroll to Endzyme details'">
                                             Explore Tool
-                                            <v-icon end>mdi-arrow-right</v-icon>
+                                            <v-icon end> fa-solid fa-arrow-right </v-icon>
                                         </v-btn>
                                     </v-card>
                                 </v-col>
@@ -95,7 +95,7 @@
                             <v-row align="center">
                                 <v-col cols="12" md="6">
                                     <v-card-title class="text-h3">
-                                        <v-icon size="40" class="mr-3">mdi-chart-line</v-icon>
+                                        <v-icon size="40" class="mr-3"> fa-solid fa-chart-line </v-icon>
                                         <b>Enzymix</b>
                                     </v-card-title>
                                     <v-card-subtitle class="text-h6">
@@ -111,7 +111,7 @@
                             <div id="biofilm-intro" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-intro">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-information</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-circle-info </v-icon>
                                     <span class="text-h6">Introduction</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -153,7 +153,7 @@
                             <div id="biofilm-why" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-why">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-lightbulb</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-lightbulb </v-icon>
                                     <span class="text-h6">Why This Matters</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -176,7 +176,7 @@
                             <div id="biofilm-performance" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-performance">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-chart-areaspline</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-chart-area </v-icon>
                                     <span class="text-h6">Model Performance</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -189,16 +189,16 @@
                                                 
                                                 <v-card class="mb-4" variant="outlined">
                                                     <v-card-title class="text-h5 bg-primary">
-                                                        <v-icon class="mr-2">mdi-chart-line</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-chart-line </v-icon>
                                                         R² Learning Curve Analysis
                                                     </v-card-title>
                                                     <v-card-text>
                                                         <p>The R² learning curve shows:</p>
                                                         <v-list>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Training R²: ~0.73" subtitle="The model captures substantial variance in the training data."></v-list-item>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Validation R²: ~0.63" subtitle="Strong generalization to unseen data, explaining 63% of variance in biofilm degradation."></v-list-item>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Minimal overfitting gap" subtitle="R² difference between training and validation: ~0.10 - indicates learning generalizable patterns."></v-list-item>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Rapid convergence" subtitle="Performance stabilizes after approximately 10-15 boosting rounds."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Training R²: ~0.73" subtitle="The model captures substantial variance in the training data."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Validation R²: ~0.63" subtitle="Strong generalization to unseen data, explaining 63% of variance in biofilm degradation."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Minimal overfitting gap" subtitle="R² difference between training and validation: ~0.10 - indicates learning generalizable patterns."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Rapid convergence" subtitle="Performance stabilizes after approximately 10-15 boosting rounds."></v-list-item>
                                                         </v-list>
                                                         <v-img src="https://hackmd.io/_uploads/BJKZRmbael.png" alt="R² learning curve for Enzymix model" class="my-4 rounded"></v-img>
                                                     </v-card-text>
@@ -206,16 +206,16 @@
                                                 
                                                 <v-card class="mb-4" variant="outlined">
                                                     <v-card-title class="text-h5 bg-secondary">
-                                                        <v-icon class="mr-2">mdi-chart-bell-curve</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-chart-line </v-icon>
                                                         RMSE Learning Curve Analysis
                                                     </v-card-title>
                                                     <v-card-text>
                                                         <p>The RMSE learning curve confirms model reliability:</p>
                                                         <v-list>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Training RMSE: ~0.08" subtitle="Low prediction error on training data."></v-list-item>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Validation RMSE: ~0.09" subtitle="Predictions typically within 9% of actual degradation values."></v-list-item>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Stable validation performance" subtitle="Flat plateau after round 20 indicates consistent predictions."></v-list-item>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Narrow train-validation gap" subtitle="~0.01 difference shows excellent generalization."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Training RMSE: ~0.08" subtitle="Low prediction error on training data."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Validation RMSE: ~0.09" subtitle="Predictions typically within 9% of actual degradation values."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Stable validation performance" subtitle="Flat plateau after round 20 indicates consistent predictions."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Narrow train-validation gap" subtitle="~0.01 difference shows excellent generalization."></v-list-item>
                                                         </v-list>
                                                         <v-img src="https://hackmd.io/_uploads/S1tWRQZ6el.png" alt="RMSE learning curve for Enzymix model" class="my-4 rounded"></v-img>
                                                     </v-card-text>
@@ -223,15 +223,15 @@
 
                                                 <v-card variant="outlined">
                                                     <v-card-title class="text-h5 bg-success">
-                                                        <v-icon class="mr-2">mdi-flask</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-flask </v-icon>
                                                         What This Means for Wet Lab Teams
                                                     </v-card-title>
                                                     <v-card-text>
                                                         <p>These learning curves provide strong evidence that our model:</p>
                                                         <v-list>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Generalizes well to new experiments" subtitle="Predictions on untested enzyme ratios are reliable."></v-list-item>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Doesn't overfit the training data" subtitle="Captures true biological relationships rather than noise."></v-list-item>
-                                                            <v-list-item prepend-icon="mdi-check-circle" title="Converges efficiently" subtitle="Fast retraining when new data arrives."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Generalizes well to new experiments" subtitle="Predictions on untested enzyme ratios are reliable."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Doesn't overfit the training data" subtitle="Captures true biological relationships rather than noise."></v-list-item>
+                                                            <v-list-item prepend-icon="fa-solid fa-circle-check" title="Converges efficiently" subtitle="Fast retraining when new data arrives."></v-list-item>
                                                         </v-list>
                                                         
                                                         <v-alert type="success" class="mt-4">
@@ -249,7 +249,7 @@
                             <div id="biofilm-approach" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-approach">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-sync</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-arrows-rotate </v-icon>
                                     <span class="text-h6">Our Iterative, Team-Centered Approach</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -311,7 +311,7 @@
                                                     
                                                     <v-timeline-item dot-color="primary" size="small">
                                                         <template v-slot:opposite>
-                                                            <span class="text-caption">Step 6</span>
+                                                            <span class="text-caption">Next Step</span>
                                                         </template>
                                                         <v-card class="elevation-2">
                                                             <v-card-title class="text-h6">Comprehensive Modeling</v-card-title>
@@ -333,7 +333,7 @@
                             <div id="biofilm-start" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-start">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-rocket-launch</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-rocket </v-icon>
                                     <span class="text-h6">Getting Started in 3 Steps</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -345,17 +345,17 @@
                                                     <v-col cols="12" md="4">
                                                         <v-card class="h-100" variant="outlined" color="primary">
                                                             <v-card-title class="bg-primary text-white">
-                                                                <v-icon class="mr-2">mdi-web</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-globe </v-icon>
                                                                 Web Application (Recommended)
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <p><strong>Visit:</strong> <a href="https://johan-susilo.github.io/enzymix/" target="_blank">https://johan-susilo.github.io/enzymix/</a></p>
                                                                 <v-list>
-                                                                    <v-list-item prepend-icon="mdi-plus">Add experiment rows with enzyme ratios</v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-chart-line">Get predictions and uncertainty</v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-target">Find optimal enzyme mixes</v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-lightbulb">Get experiment suggestions</v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-download">Export results as CSV</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-plus">Add experiment rows with enzyme ratios</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-chart-line">Get predictions and uncertainty</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-bullseye">Find optimal enzyme mixes</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-lightbulb">Get experiment suggestions</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-download">Export results as CSV</v-list-item>
                                                                 </v-list>
                                                             </v-card-text>
                                                         </v-card>
@@ -365,7 +365,7 @@
                                                     <v-col cols="12" md="4">
                                                         <v-card class="h-100" variant="outlined" color="secondary">
                                                             <v-card-title class="bg-secondary text-white">
-                                                                <v-icon class="mr-2">mdi-docker</v-icon>
+                                                                <v-icon class="mr-2"> fa-brands fa-docker </v-icon>
                                                                 Local Installation
                                                             </v-card-title>
                                                             <v-card-text>
@@ -391,7 +391,7 @@ docker compose up --build -d
                                                     <v-col cols="12" md="4">
                                                         <v-card class="h-100" variant="outlined" color="success">
                                                             <v-card-title class="bg-success text-white">
-                                                                <v-icon class="mr-2">mdi-cog</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-gear </v-icon>
                                                                 Retraining (Optional)
                                                             </v-card-title>
                                                             <v-card-text>
@@ -418,7 +418,7 @@ chmod +x ./train.sh
                             <div id="biofilm-architecture" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-architecture">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-file-tree</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-sitemap </v-icon>
                                     <span class="text-h6">System Architecture</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -431,16 +431,16 @@ chmod +x ./train.sh
                                                     <v-col cols="12" md="6">
                                                         <v-card variant="outlined" class="mb-4">
                                                             <v-card-title class="bg-primary text-white">
-                                                                <v-icon class="mr-2">mdi-brain</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-brain </v-icon>
                                                                 ML Models
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <v-list>
-                                                                    <v-list-item prepend-icon="mdi-file">
+                                                                    <v-list-item prepend-icon="fa-solid fa-file">
                                                                         <v-list-item-title>XGBoost Model</v-list-item-title>
                                                                         <v-list-item-subtitle>xgb_biofilm_model.json</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-file">
+                                                                    <v-list-item prepend-icon="fa-solid fa-file">
                                                                         <v-list-item-title>Uncertainty Model</v-list-item-title>
                                                                         <v-list-item-subtitle>rf_uncertainty_model.joblib</v-list-item-subtitle>
                                                                     </v-list-item>
@@ -450,14 +450,14 @@ chmod +x ./train.sh
                                                         
                                                         <v-card variant="outlined">
                                                             <v-card-title class="bg-secondary text-white">
-                                                                <v-icon class="mr-2">mdi-api</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-plug </v-icon>
                                                                 FastAPI Backend
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <v-list>
-                                                                    <v-list-item prepend-icon="mdi-server">Serves REST endpoints</v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-web">Static UI hosting</v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-upload">Model loading on startup</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-server">Serves REST endpoints</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-globe">Static UI hosting</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-upload">Model loading on startup</v-list-item>
                                                                 </v-list>
                                                             </v-card-text>
                                                         </v-card>
@@ -466,14 +466,14 @@ chmod +x ./train.sh
                                                     <v-col cols="12" md="6">
                                                         <v-card variant="outlined" class="mb-4">
                                                             <v-card-title class="bg-success text-white">
-                                                                <v-icon class="mr-2">mdi-web</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-globe </v-icon>
                                                                 Static Web UI
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <v-list>
-                                                                    <v-list-item prepend-icon="mdi-folder">HTML/CSS/JS bundle</v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-link">/ui shortcut redirect</v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-responsive">Responsive design</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-folder">HTML/CSS/JS bundle</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-link">/ui shortcut redirect</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-display">Responsive design</v-list-item>
                                                                 </v-list>
                                                             </v-card-text>
                                                         </v-card>
@@ -495,7 +495,7 @@ chmod +x ./train.sh
                             <!-- Model Design & Training Pipeline -->
                             <v-expansion-panel>
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-cog</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-gear </v-icon>
                                     <span class="text-h6">Model Design & Training Pipeline</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -529,8 +529,8 @@ chmod +x ./train.sh
                                                         <v-card-text>
                                                             <p><strong>Models:</strong></p>
                                                             <v-list density="compact">
-                                                                <v-list-item prepend-icon="mdi-chart-areaspline">XGBoost regressor (Primary predictor)</v-list-item>
-                                                                <v-list-item prepend-icon="mdi-chart-bell-curve">Random Forest (Uncertainty estimation)</v-list-item>
+                                                                <v-list-item prepend-icon="fa-solid fa-chart-area">XGBoost regressor (Primary predictor)</v-list-item>
+                                                                <v-list-item prepend-icon="fa-solid fa-chart-line">Random Forest (Uncertainty estimation)</v-list-item>
                                                             </v-list>
                                                             
                                                             <p><strong>Validation & Tuning:</strong></p>
@@ -552,15 +552,15 @@ chmod +x ./train.sh
                                                         <v-card-text>
                                                             <p><strong>Model Interpretability:</strong></p>
                                                             <v-list density="compact">
-                                                                <v-list-item prepend-icon="mdi-lightbulb">SHAP explanations</v-list-item>
-                                                                <v-list-item prepend-icon="mdi-chart-bar">Feature importance</v-list-item>
-                                                                <v-list-item prepend-icon="mdi-account">Individual predictions</v-list-item>
+                                                                <v-list-item prepend-icon="fa-solid fa-lightbulb">SHAP explanations</v-list-item>
+                                                                <v-list-item prepend-icon="fa-solid fa-chart-bar">Feature importance</v-list-item>
+                                                                <v-list-item prepend-icon="fa-solid fa-user">Individual predictions</v-list-item>
                                                             </v-list>
                                                             
                                                             <p><strong>Training Entry Points:</strong></p>
                                                             <v-list density="compact">
-                                                                <v-list-item prepend-icon="mdi-file-code">Script: ml-model/train.py</v-list-item>
-                                                                <v-list-item prepend-icon="mdi-export">Output: model files in ml-model/</v-list-item>
+                                                                <v-list-item prepend-icon="fa-solid fa-file-code">Script: ml-model/train.py</v-list-item>
+                                                                <v-list-item prepend-icon="fa-solid fa-file-export">Output: model files in ml-model/</v-list-item>
                                                             </v-list>
                                                         </v-card-text>
                                                     </v-card>
@@ -575,7 +575,7 @@ chmod +x ./train.sh
                             <div id="biofilm-api" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-api">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-api</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-plug </v-icon>
                                     <span class="text-h6">API Reference</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -588,23 +588,23 @@ chmod +x ./train.sh
                                                             <v-card-title class="bg-primary text-white">Backend Package Structure</v-card-title>
                                                             <v-card-text>
                                                                 <v-list density="compact">
-                                                                    <v-list-item prepend-icon="mdi-file-code">
+                                                                    <v-list-item prepend-icon="fa-solid fa-file-code">
                                                                         <v-list-item-title>api/main.py</v-list-item-title>
                                                                         <v-list-item-subtitle>App factory, mounts /static, loads models</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-cog">
+                                                                    <v-list-item prepend-icon="fa-solid fa-gear">
                                                                         <v-list-item-title>api/core/config.py</v-list-item-title>
                                                                         <v-list-item-subtitle>Model paths and feature names</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-schema">
+                                                                    <v-list-item prepend-icon="fa-solid fa-diagram-project">
                                                                         <v-list-item-title>api/core/models_io.py</v-list-item-title>
                                                                         <v-list-item-subtitle>Pydantic request/response schemas</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-engine">
+                                                                    <v-list-item prepend-icon="fa-solid fa-gears">
                                                                         <v-list-item-title>api/ml/engine.py</v-list-item-title>
                                                                         <v-list-item-subtitle>Model loading, predictions, uncertainty</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-target">
+                                                                    <v-list-item prepend-icon="fa-solid fa-bullseye">
                                                                         <v-list-item-title>api/optimization/optimizer.py</v-list-item-title>
                                                                         <v-list-item-subtitle>Optimal mixture search, suggestions</v-list-item-subtitle>
                                                                     </v-list-item>
@@ -616,19 +616,19 @@ chmod +x ./train.sh
                                                             <v-card-title class="bg-secondary text-white">API Routers</v-card-title>
                                                             <v-card-text>
                                                                 <v-list density="compact">
-                                                                    <v-list-item prepend-icon="mdi-heart-pulse">
+                                                                    <v-list-item prepend-icon="fa-solid fa-heart-pulse">
                                                                         <v-list-item-title>health.py</v-list-item-title>
                                                                         <v-list-item-subtitle>GET /health, GET /</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-information">
+                                                                    <v-list-item prepend-icon="fa-solid fa-circle-info">
                                                                         <v-list-item-title>misc.py</v-list-item-title>
                                                                         <v-list-item-subtitle>GET /training-schema-stats</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-chart-line">
+                                                                    <v-list-item prepend-icon="fa-solid fa-chart-line">
                                                                         <v-list-item-title>predict.py</v-list-item-title>
                                                                         <v-list-item-subtitle>POST /predict, GET /feature-importance</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-target">
+                                                                    <v-list-item prepend-icon="fa-solid fa-bullseye">
                                                                         <v-list-item-title>optimize.py</v-list-item-title>
                                                                         <v-list-item-subtitle>POST /optimal-mix, POST /suggest-experiments</v-list-item-subtitle>
                                                                     </v-list-item>
@@ -646,9 +646,9 @@ chmod +x ./train.sh
                                                                         <v-expansion-panel-title>Health & Status</v-expansion-panel-title>
                                                                         <v-expansion-panel-text>
                                                                             <v-list density="compact">
-                                                                                <v-list-item prepend-icon="mdi-check-circle">GET /health – Liveness probe</v-list-item>
-                                                                                <v-list-item prepend-icon="mdi-information">GET / – Status and model availability</v-list-item>
-                                                                                <v-list-item prepend-icon="mdi-chart-box">GET /training-schema-stats – UI validation ranges</v-list-item>
+                                                                                <v-list-item prepend-icon="fa-solid fa-circle-check">GET /health – Liveness probe</v-list-item>
+                                                                                <v-list-item prepend-icon="fa-solid fa-circle-info">GET / – Status and model availability</v-list-item>
+                                                                                <v-list-item prepend-icon="fa-solid fa-chart-bar">GET /training-schema-stats – UI validation ranges</v-list-item>
                                                                             </v-list>
                                                                         </v-expansion-panel-text>
                                                                     </v-expansion-panel>
@@ -657,8 +657,8 @@ chmod +x ./train.sh
                                                                         <v-expansion-panel-title>Predictions</v-expansion-panel-title>
                                                                         <v-expansion-panel-text>
                                                                             <v-list density="compact">
-                                                                                <v-list-item prepend-icon="mdi-chart-line">POST /predict – Mean prediction, 95% interval, uncertainty</v-list-item>
-                                                                                <v-list-item prepend-icon="mdi-chart-bar">GET /feature-importance – Feature names/values</v-list-item>
+                                                                                <v-list-item prepend-icon="fa-solid fa-chart-line">POST /predict – Mean prediction, 95% interval, uncertainty</v-list-item>
+                                                                                <v-list-item prepend-icon="fa-solid fa-chart-bar">GET /feature-importance – Feature names/values</v-list-item>
                                                                             </v-list>
                                                                         </v-expansion-panel-text>
                                                                     </v-expansion-panel>
@@ -667,9 +667,9 @@ chmod +x ./train.sh
                                                                         <v-expansion-panel-title>Optimization</v-expansion-panel-title>
                                                                         <v-expansion-panel-text>
                                                                             <v-list density="compact">
-                                                                                <v-list-item prepend-icon="mdi-target">POST /optimal-mix – Ratio and time recommendations</v-list-item>
-                                                                                <v-list-item prepend-icon="mdi-equal">GET /optimal-mix – Default equal-ratio mix</v-list-item>
-                                                                                <v-list-item prepend-icon="mdi-lightbulb">POST /suggest-experiments – Active learning suggestions</v-list-item>
+                                                                                <v-list-item prepend-icon="fa-solid fa-bullseye">POST /optimal-mix – Ratio and time recommendations</v-list-item>
+                                                                                <v-list-item prepend-icon="fa-solid fa-equals">GET /optimal-mix – Default equal-ratio mix</v-list-item>
+                                                                                <v-list-item prepend-icon="fa-solid fa-lightbulb">POST /suggest-experiments – Active learning suggestions</v-list-item>
                                                                             </v-list>
                                                                         </v-expansion-panel-text>
                                                                     </v-expansion-panel>
@@ -688,7 +688,7 @@ chmod +x ./train.sh
                             <div id="biofilm-conclusion" class="subtitle"></div>
                             <v-expansion-panel value="biofilm-conclusion">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-check-circle</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-circle-check </v-icon>
                                     <span class="text-h6">Conclusion</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -701,7 +701,7 @@ chmod +x ./train.sh
                                             
                                             <v-card variant="outlined" class="mt-4">
                                                 <v-card-title class="bg-info text-white">
-                                                    <v-icon class="mr-2">mdi-earth</v-icon>
+                                                    <v-icon class="mr-2"> fa-solid fa-earth-americas </v-icon>
                                                     Broader Applicability
                                                 </v-card-title>
                                                 <v-card-text>
@@ -718,44 +718,44 @@ chmod +x ./train.sh
                             <!-- References -->
                             <v-expansion-panel>
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-book-open-variant</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-book-open </v-icon>
                                     <span class="text-h6">References</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
                                     <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                         <div class="text-content">
                                             <v-list>
-                                                <v-list-item prepend-icon="mdi-book">
+                                                <v-list-item prepend-icon="fa-solid fa-book">
                                                     <v-list-item-title>[1] Chen, T., & Guestrin, C. (2016)</v-list-item-title>
                                                     <v-list-item-subtitle>XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794.</v-list-item-subtitle>
                                                 </v-list-item>
                                                 
-                                                <v-list-item prepend-icon="mdi-book">
+                                                <v-list-item prepend-icon="fa-solid fa-book">
                                                     <v-list-item-title>[2] Lundberg, S. M., & Lee, S. I. (2017)</v-list-item-title>
                                                     <v-list-item-subtitle>A Unified Approach to Interpreting Model Predictions. Advances in Neural Information Processing Systems 30, 4765-4774.</v-list-item-subtitle>
                                                 </v-list-item>
                                                 
-                                                <v-list-item prepend-icon="mdi-book">
+                                                <v-list-item prepend-icon="fa-solid fa-book">
                                                     <v-list-item-title>[3] Settles, B. (2009)</v-list-item-title>
                                                     <v-list-item-subtitle>Active Learning Literature Survey. Computer Sciences Technical Report 1648, University of Wisconsin-Madison.</v-list-item-subtitle>
                                                 </v-list-item>
                                                 
-                                                <v-list-item prepend-icon="mdi-web">
+                                                <v-list-item prepend-icon="fa-solid fa-globe">
                                                     <v-list-item-title>[4] FastAPI Documentation (2024)</v-list-item-title>
                                                     <v-list-item-subtitle>FastAPI framework, high performance, easy to learn, fast to code, ready for production. Retrieved from https://fastapi.tiangolo.com/</v-list-item-subtitle>
                                                 </v-list-item>
                                                 
-                                                <v-list-item prepend-icon="mdi-docker">
+                                                <v-list-item prepend-icon="fa-brands fa-docker">
                                                     <v-list-item-title>[5] Docker Documentation (2024)</v-list-item-title>
                                                     <v-list-item-subtitle>Docker Compose overview. Retrieved from https://docs.docker.com/compose/.</v-list-item-subtitle>
                                                 </v-list-item>
                                                 
-                                                <v-list-item prepend-icon="mdi-book">
+                                                <v-list-item prepend-icon="fa-solid fa-book">
                                                     <v-list-item-title>[6] Akiba, T., et al. (2019)</v-list-item-title>
                                                     <v-list-item-subtitle>Optuna: A Next-generation Hyperparameter Optimization Framework. Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2623-2631.</v-list-item-subtitle>
                                                 </v-list-item>
                                                 
-                                                <v-list-item prepend-icon="mdi-book">
+                                                <v-list-item prepend-icon="fa-solid fa-book">
                                                     <v-list-item-title>[7] Varma, S., & Simon, R. (2006)</v-list-item-title>
                                                     <v-list-item-subtitle>Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.</v-list-item-subtitle>
                                                 </v-list-item>
@@ -774,7 +774,7 @@ chmod +x ./train.sh
                             <v-row align="center">
                                 <v-col cols="12" md="6">
                                     <v-card-title class="text-h3">
-                                        <v-icon size="40" class="mr-3">mdi-molecule</v-icon>
+                                        <v-icon size="40" class="mr-3"> fa-solid fa-atom </v-icon>
                                         <b>Endzyme</b>
                                     </v-card-title>
                                     <v-card-subtitle class="text-h6">
@@ -795,7 +795,7 @@ chmod +x ./train.sh
                             <div id="endzyme-intro" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-intro">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-information</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-circle-info </v-icon>
                                     <span class="text-h6">Introduction</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -813,7 +813,7 @@ chmod +x ./train.sh
                                                 
                                                 <v-card variant="outlined" class="mb-4">
                                                     <v-card-title class="bg-secondary text-white">
-                                                        <v-icon class="mr-2">mdi-lightbulb</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-lightbulb </v-icon>
                                                         Our Solution
                                                     </v-card-title>
                                                     <v-card-text>
@@ -840,7 +840,7 @@ chmod +x ./train.sh
                             <div id="endzyme-ml" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-ml">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-brain</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-brain </v-icon>
                                     <span class="text-h6">Machine Learning Model</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -851,22 +851,22 @@ chmod +x ./train.sh
                                                     <v-col cols="12" md="8">
                                                         <v-card variant="outlined" class="mb-4">
                                                             <v-card-title class="bg-secondary text-white">
-                                                                <v-icon class="mr-2">mdi-brain</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-brain </v-icon>
                                                                 ZymCTRL: Conditional Language Model
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <p><strong>ZymCTRL</strong> is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over <strong>37 M sequences</strong>.</p>
                                                                 
                                                                 <v-list class="mt-3">
-                                                                    <v-list-item prepend-icon="mdi-database">
+                                                                    <v-list-item prepend-icon="fa-solid fa-database">
                                                                         <v-list-item-title>Training Data</v-list-item-title>
                                                                         <v-list-item-subtitle>37M+ sequences from UniProt with EC annotations</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-target">
+                                                                    <v-list-item prepend-icon="fa-solid fa-bullseye">
                                                                         <v-list-item-title>Input</v-list-item-title>
                                                                         <v-list-item-subtitle>User-defined Enzymatic Commission (EC) number</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-output">
+                                                                    <v-list-item prepend-icon="fa-solid fa-square-arrow-up-right">
                                                                         <v-list-item-title>Output</v-list-item-title>
                                                                         <v-list-item-subtitle>Protein sequences that fulfill the catalytic reaction</v-list-item-subtitle>
                                                                     </v-list-item>
@@ -876,14 +876,14 @@ chmod +x ./train.sh
                                                         
                                                         <v-card variant="outlined" class="mb-4">
                                                             <v-card-title class="bg-primary text-white">
-                                                                <v-icon class="mr-2">mdi-molecule</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-atom </v-icon>
                                                                 ColabFold Integration
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <p><strong>ColabFold</strong> is an AlphaFold2-based module. Since AlphaFold3 currently lacks an API, we are using ColabFold to fulfill this part of the pipeline.</p>
                                                                 
                                                                 <v-list class="mt-3">
-                                                                    <v-list-item prepend-icon="mdi-tools">Tools: ZymCTRL, ColabFold</v-list-item>
+                                                                    <v-list-item prepend-icon="fa-solid fa-screwdriver-wrench">Tools: ZymCTRL, ColabFold</v-list-item>
                                                                 </v-list>
                                                             </v-card-text>
                                                         </v-card>
@@ -892,7 +892,7 @@ chmod +x ./train.sh
                                                     <v-col cols="12" md="4">
                                                         <v-card variant="outlined">
                                                             <v-card-title class="bg-success text-white">
-                                                                <v-icon class="mr-2">mdi-code-tags</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-code </v-icon>
                                                                 Implementation
                                                             </v-card-title>
                                                             <v-card-text>
@@ -952,7 +952,7 @@ if isinstance(recycles, int):
                             <div id="endzyme-screening" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-screening">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-filter</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-filter </v-icon>
                                     <span class="text-h6">Screening</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -961,7 +961,7 @@ if isinstance(recycles, int):
                                             <div class="text-content">
                                                 <v-card variant="outlined" class="mb-4">
                                                     <v-card-title class="bg-secondary text-white">
-                                                        <v-icon class="mr-2">mdi-filter-variant</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-filter </v-icon>
                                                         Screening Process
                                                     </v-card-title>
                                                     <v-card-text>
@@ -975,20 +975,20 @@ if isinstance(recycles, int):
                                                             <v-col cols="12" md="6">
                                                                 <v-card variant="outlined">
                                                                     <v-card-title class="bg-primary text-white">
-                                                                        <v-icon class="mr-2">mdi-database</v-icon>
+                                                                        <v-icon class="mr-2"> fa-solid fa-database </v-icon>
                                                                         Database Search
                                                                     </v-card-title>
                                                                     <v-card-text>
                                                                         <v-list>
-                                                                            <v-list-item prepend-icon="mdi-database">
+                                                                            <v-list-item prepend-icon="fa-solid fa-database">
                                                                                 <v-list-item-title>Reference Database</v-list-item-title>
                                                                                 <v-list-item-subtitle>UniProt/SwissProt</v-list-item-subtitle>
                                                                             </v-list-item>
-                                                                            <v-list-item prepend-icon="mdi-tools">
+                                                                            <v-list-item prepend-icon="fa-solid fa-screwdriver-wrench">
                                                                                 <v-list-item-title>Search Tool</v-list-item-title>
                                                                                 <v-list-item-subtitle>MMseqs2 sequence search</v-list-item-subtitle>
                                                                             </v-list-item>
-                                                                            <v-list-item prepend-icon="mdi-target">
+                                                                            <v-list-item prepend-icon="fa-solid fa-bullseye">
                                                                                 <v-list-item-title>Purpose</v-list-item-title>
                                                                                 <v-list-item-subtitle>Functionality validation</v-list-item-subtitle>
                                                                             </v-list-item>
@@ -1000,7 +1000,7 @@ if isinstance(recycles, int):
                                                             <v-col cols="12" md="6">
                                                                 <v-card variant="outlined">
                                                                     <v-card-title class="bg-success text-white">
-                                                                        <v-icon class="mr-2">mdi-code-brackets</v-icon>
+                                                                        <v-icon class="mr-2"> fa-solid fa-code </v-icon>
                                                                         Implementation
                                                                     </v-card-title>
                                                                     <v-card-text>
@@ -1013,9 +1013,9 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                                                         
                                                                         <p class="mt-3"><strong>Filtering Criteria:</strong></p>
                                                                         <v-list density="compact">
-                                                                            <v-list-item prepend-icon="mdi-percent">E-value threshold</v-list-item>
-                                                                            <v-list-item prepend-icon="mdi-chart-line">Sequence identity</v-list-item>
-                                                                            <v-list-item prepend-icon="mdi-ruler">Coverage percentage</v-list-item>
+                                                                            <v-list-item prepend-icon="fa-solid fa-percent">E-value threshold</v-list-item>
+                                                                            <v-list-item prepend-icon="fa-solid fa-chart-line">Sequence identity</v-list-item>
+                                                                            <v-list-item prepend-icon="fa-solid fa-ruler">Coverage percentage</v-list-item>
                                                                         </v-list>
                                                                     </v-card-text>
                                                                 </v-card>
@@ -1033,7 +1033,7 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                             <div id="endzyme-docking" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-docking">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-puzzle</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-puzzle-piece </v-icon>
                                     <span class="text-h6">Molecular Docking</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -1042,7 +1042,7 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                             <div class="text-content">
                                                 <v-card variant="outlined" class="mb-4">
                                                     <v-card-title class="bg-secondary text-white">
-                                                        <v-icon class="mr-2">mdi-puzzle</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-puzzle-piece </v-icon>
                                                         Docking Analysis Pipeline
                                                     </v-card-title>
                                                     <v-card-text>
@@ -1057,20 +1057,20 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                                             <v-col cols="12" md="6">
                                                                 <v-card variant="outlined">
                                                                     <v-card-title class="bg-primary text-white">
-                                                                        <v-icon class="mr-2">mdi-tools</v-icon>
+                                                                        <v-icon class="mr-2"> fa-solid fa-screwdriver-wrench </v-icon>
                                                                         Docking Tools
                                                                     </v-card-title>
                                                                     <v-card-text>
                                                                         <v-list>
-                                                                            <v-list-item prepend-icon="mdi-auto-fix">
+                                                                            <v-list-item prepend-icon="fa-solid fa-wand-magic-sparkles">
                                                                                 <v-list-item-title>AutoDock Vina</v-list-item-title>
                                                                                 <v-list-item-subtitle>Primary docking engine</v-list-item-subtitle>
                                                                             </v-list-item>
-                                                                            <v-list-item prepend-icon="mdi-cube-outline">
+                                                                            <v-list-item prepend-icon="fa-solid fa-cube">
                                                                                 <v-list-item-title>PyMOL</v-list-item-title>
                                                                                 <v-list-item-subtitle>Structure processing & gridbox setup</v-list-item-subtitle>
                                                                             </v-list-item>
-                                                                            <v-list-item prepend-icon="mdi-chemistry">
+                                                                            <v-list-item prepend-icon="fa-solid fa-flask">
                                                                                 <v-list-item-title>Target</v-list-item-title>
                                                                                 <v-list-item-subtitle>Monomer molecules</v-list-item-subtitle>
                                                                             </v-list-item>
@@ -1082,20 +1082,20 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                                             <v-col cols="12" md="6">
                                                                 <v-card variant="outlined">
                                                                     <v-card-title class="bg-success text-white">
-                                                                        <v-icon class="mr-2">mdi-chart-line</v-icon>
+                                                                        <v-icon class="mr-2"> fa-solid fa-chart-line </v-icon>
                                                                         Scoring Metrics
                                                                     </v-card-title>
                                                                     <v-card-text>
                                                                         <v-list>
-                                                                            <v-list-item prepend-icon="mdi-thermometer">
+                                                                            <v-list-item prepend-icon="fa-solid fa-temperature-half">
                                                                                 <v-list-item-title>Binding Energy (ΔG)</v-list-item-title>
                                                                                 <v-list-item-subtitle>kcal/mol</v-list-item-subtitle>
                                                                             </v-list-item>
-                                                                            <v-list-item prepend-icon="mdi-cube-scan">
+                                                                            <v-list-item prepend-icon="fa-solid fa-cubes">
                                                                                 <v-list-item-title>Grid Box</v-list-item-title>
                                                                                 <v-list-item-subtitle>Automated generation</v-list-item-subtitle>
                                                                             </v-list-item>
-                                                                            <v-list-item prepend-icon="mdi-target">
+                                                                            <v-list-item prepend-icon="fa-solid fa-bullseye">
                                                                                 <v-list-item-title>Binding Site</v-list-item-title>
                                                                                 <v-list-item-subtitle>Active site targeting</v-list-item-subtitle>
                                                                             </v-list-item>
@@ -1109,7 +1109,7 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                                 
                                                 <v-card variant="outlined">
                                                     <v-card-title class="bg-warning text-white">
-                                                        <v-icon class="mr-2">mdi-code-brackets</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-code </v-icon>
                                                         Automated Grid Box Setup
                                                     </v-card-title>
                                                     <v-card-text>
@@ -1150,7 +1150,7 @@ def get_gridbox(selection="binding_site",
                             <div id="endzyme-usage" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-usage">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-play-circle</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-circle-play </v-icon>
                                     <span class="text-h6">Usage & Installation</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -1159,7 +1159,7 @@ def get_gridbox(selection="binding_site",
                                             <div class="text-content">
                                                 <v-alert type="info" class="mb-4">
                                                     <v-alert-title>
-                                                        <v-icon class="mr-2">mdi-github</v-icon>
+                                                        <v-icon class="mr-2"> fa-brands fa-github </v-icon>
                                                         GitHub Repository
                                                     </v-alert-title>
                                                     <a href="https://github.com/iGEM-NCKU/endzyme" target="_blank" class="text-decoration-none">
@@ -1170,7 +1170,7 @@ def get_gridbox(selection="binding_site",
                                                 
                                                 <v-card variant="outlined" class="mb-4">
                                                     <v-card-title class="bg-secondary text-white">
-                                                        <v-icon class="mr-2">mdi-download</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-download </v-icon>
                                                         Installation Steps
                                                     </v-card-title>
                                                     <v-card-text>
@@ -1178,19 +1178,19 @@ def get_gridbox(selection="binding_site",
                                                             <v-stepper-header>
                                                                 <v-stepper-item value="1" title="Environment">
                                                                     <template v-slot:icon>
-                                                                        <v-icon>mdi-cog</v-icon>
+                                                                        <v-icon> fa-solid fa-gear </v-icon>
                                                                     </template>
                                                                 </v-stepper-item>
                                                                 <v-divider></v-divider>
                                                                 <v-stepper-item value="2" title="Clone">
                                                                     <template v-slot:icon>
-                                                                        <v-icon>mdi-download</v-icon>
+                                                                        <v-icon> fa-solid fa-download </v-icon>
                                                                     </template>
                                                                 </v-stepper-item>
                                                                 <v-divider></v-divider>
                                                                 <v-stepper-item value="3" title="Run">
                                                                     <template v-slot:icon>
-                                                                        <v-icon>mdi-play</v-icon>
+                                                                        <v-icon> fa-solid fa-play </v-icon>
                                                                     </template>
                                                                 </v-stepper-item>
                                                             </v-stepper-header>
@@ -1246,20 +1246,20 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                                                     <v-col cols="12" md="6">
                                                         <v-card variant="outlined">
                                                             <v-card-title class="bg-primary text-white">
-                                                                <v-icon class="mr-2">mdi-server</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-server </v-icon>
                                                                 Server Configuration
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <v-list>
-                                                                    <v-list-item prepend-icon="mdi-language-python">
+                                                                    <v-list-item prepend-icon="fa-brands fa-python">
                                                                         <v-list-item-title>Flask Application</v-list-item-title>
                                                                         <v-list-item-subtitle>main:app entry point</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-worker">
+                                                                    <v-list-item prepend-icon="fa-solid fa-person-digging">
                                                                         <v-list-item-title>Gunicorn Workers</v-list-item-title>
                                                                         <v-list-item-subtitle>4 worker processes</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-web">
+                                                                    <v-list-item prepend-icon="fa-solid fa-globe">
                                                                         <v-list-item-title>Bind Address</v-list-item-title>
                                                                         <v-list-item-subtitle>127.0.0.1:8001</v-list-item-subtitle>
                                                                     </v-list-item>
@@ -1271,20 +1271,20 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                                                     <v-col cols="12" md="6">
                                                         <v-card variant="outlined">
                                                             <v-card-title class="bg-success text-white">
-                                                                <v-icon class="mr-2">mdi-package-variant</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-box-open </v-icon>
                                                                 Dependencies
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <v-list>
-                                                                    <v-list-item prepend-icon="mdi-language-python">
+                                                                    <v-list-item prepend-icon="fa-brands fa-python">
                                                                         <v-list-item-title>Python 3.10</v-list-item-title>
                                                                         <v-list-item-subtitle>Base environment</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-brain">
+                                                                    <v-list-item prepend-icon="fa-solid fa-brain">
                                                                         <v-list-item-title>Transformers</v-list-item-title>
                                                                         <v-list-item-subtitle>ZymCTRL model support</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-dna">
+                                                                    <v-list-item prepend-icon="fa-solid fa-dna">
                                                                         <v-list-item-title>BioPython</v-list-item-title>
                                                                         <v-list-item-subtitle>Sequence analysis</v-list-item-subtitle>
                                                                     </v-list-item>
@@ -1303,7 +1303,7 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                             <div id="endzyme-refs" class="subtitle"></div>
                             <v-expansion-panel value="endzyme-refs">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3">mdi-book-open</v-icon>
+                                    <v-icon class="mr-3"> fa-solid fa-book-open </v-icon>
                                     <span class="text-h6">References</span>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
@@ -1312,7 +1312,7 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                                             <div class="text-content">
                                                 <v-card variant="outlined" class="mb-4">
                                                     <v-card-title class="bg-secondary text-white">
-                                                        <v-icon class="mr-2">mdi-library</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-book </v-icon>
                                                         Scientific References
                                                     </v-card-title>
                                                     <v-card-text>
@@ -1392,24 +1392,24 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                                                     <v-col cols="12" md="6">
                                                         <v-card variant="outlined">
                                                             <v-card-title class="bg-primary text-white">
-                                                                <v-icon class="mr-2">mdi-tools</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-screwdriver-wrench </v-icon>
                                                                 Software Tools
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <v-list>
-                                                                    <v-list-item prepend-icon="mdi-brain">
+                                                                    <v-list-item prepend-icon="fa-solid fa-brain">
                                                                         <v-list-item-title>ZymCTRL</v-list-item-title>
                                                                         <v-list-item-subtitle>AI4PD/ZymCTRL</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-molecule">
+                                                                    <v-list-item prepend-icon="fa-solid fa-atom">
                                                                         <v-list-item-title>ColabFold</v-list-item-title>
                                                                         <v-list-item-subtitle>Structure prediction</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-auto-fix">
+                                                                    <v-list-item prepend-icon="fa-solid fa-wand-magic-sparkles">
                                                                         <v-list-item-title>AutoDock Vina</v-list-item-title>
                                                                         <v-list-item-subtitle>Molecular docking</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-database">
+                                                                    <v-list-item prepend-icon="fa-solid fa-database">
                                                                         <v-list-item-title>MMseqs2</v-list-item-title>
                                                                         <v-list-item-subtitle>Sequence search</v-list-item-subtitle>
                                                                     </v-list-item>
@@ -1421,24 +1421,24 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                                                     <v-col cols="12" md="6">
                                                         <v-card variant="outlined">
                                                             <v-card-title class="bg-success text-white">
-                                                                <v-icon class="mr-2">mdi-code-tags</v-icon>
+                                                                <v-icon class="mr-2"> fa-solid fa-code </v-icon>
                                                                 Programming Frameworks
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <v-list>
-                                                                    <v-list-item prepend-icon="mdi-language-python">
+                                                                    <v-list-item prepend-icon="fa-brands fa-python">
                                                                         <v-list-item-title>Python</v-list-item-title>
                                                                         <v-list-item-subtitle>Core language</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-web">
+                                                                    <v-list-item prepend-icon="fa-solid fa-globe">
                                                                         <v-list-item-title>Flask</v-list-item-title>
                                                                         <v-list-item-subtitle>Web framework</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-fire">
+                                                                    <v-list-item prepend-icon="fa-solid fa-fire">
                                                                         <v-list-item-title>PyTorch</v-list-item-title>
                                                                         <v-list-item-subtitle>ML framework</v-list-item-subtitle>
                                                                     </v-list-item>
-                                                                    <v-list-item prepend-icon="mdi-dna">
+                                                                    <v-list-item prepend-icon="fa-solid fa-dna">
                                                                         <v-list-item-title>BioPython</v-list-item-title>
                                                                         <v-list-item-subtitle>Bioinformatics</v-list-item-subtitle>
                                                                     </v-list-item>
@@ -1450,7 +1450,7 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                                                 
                                                 <v-card variant="outlined" class="mt-4">
                                                     <v-card-title class="bg-info text-white">
-                                                        <v-icon class="mr-2">mdi-heart</v-icon>
+                                                        <v-icon class="mr-2"> fa-solid fa-heart </v-icon>
                                                         Acknowledgments
                                                     </v-card-title>
                                                     <v-card-text>

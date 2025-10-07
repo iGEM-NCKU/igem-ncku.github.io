@@ -102,18 +102,6 @@
                                         Machine Learning-Based Enzyme Ratio Optimization
                                     </v-card-subtitle>
                                 </v-col>
-                                <v-col cols="12" md="6">
-                                    <!-- Sub-navigation for Enzymix sections -->
-                                    <v-chip-group class="biofilm-nav" color="primary" v-model="activeEnzymixChip">
-                                        <v-chip :value="'biofilm-intro'" @click="scrollToSubSection('biofilm-intro')" variant="outlined">Introduction</v-chip>
-                                        <v-chip :value="'biofilm-why'" @click="scrollToSubSection('biofilm-why')" variant="outlined">Why This Matters</v-chip>
-                                        <v-chip :value="'biofilm-performance'" @click="scrollToSubSection('biofilm-performance')" variant="outlined">Performance</v-chip>
-                                        <v-chip :value="'biofilm-approach'" @click="scrollToSubSection('biofilm-approach')" variant="outlined">Approach</v-chip>
-                                        <v-chip :value="'biofilm-start'" @click="scrollToSubSection('biofilm-start')" variant="outlined">Get Started</v-chip>
-                                        <v-chip :value="'biofilm-architecture'" @click="scrollToSubSection('biofilm-architecture')" variant="outlined">Architecture</v-chip>
-                                        <v-chip :value="'biofilm-api'" @click="scrollToSubSection('biofilm-api')" variant="outlined">API</v-chip>
-                                    </v-chip-group>
-                                </v-col>
                             </v-row>
                         </v-card>
                         
@@ -792,17 +780,6 @@ chmod +x ./train.sh
                                     <v-card-subtitle class="text-h6">
                                         AI-Powered Enzyme Design Pipeline
                                     </v-card-subtitle>
-                                </v-col>
-                                <v-col cols="12" md="6">
-                                    <!-- Sub-navigation for Endzyme sections -->
-                                    <v-chip-group class="endzyme-nav" color="secondary" v-model="activeEndzymeChip">
-                                        <v-chip :value="'endzyme-intro'" @click="scrollToSubSection('endzyme-intro')" variant="outlined">Introduction</v-chip>
-                                        <v-chip :value="'endzyme-ml'" @click="scrollToSubSection('endzyme-ml')" variant="outlined">ML Model</v-chip>
-                                        <v-chip :value="'endzyme-screening'" @click="scrollToSubSection('endzyme-screening')" variant="outlined">Screening</v-chip>
-                                        <v-chip :value="'endzyme-docking'" @click="scrollToSubSection('endzyme-docking')" variant="outlined">Docking</v-chip>
-                                        <v-chip :value="'endzyme-usage'" @click="scrollToSubSection('endzyme-usage')" variant="outlined">Usage</v-chip>
-                                        <v-chip :value="'endzyme-refs'" @click="scrollToSubSection('endzyme-refs')" variant="outlined">References</v-chip>
-                                    </v-chip-group>
                                 </v-col>
                             </v-row>
                         </v-card>

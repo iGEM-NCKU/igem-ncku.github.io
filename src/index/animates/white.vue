@@ -1,12 +1,15 @@
 <template>
     <div class = bs>
         <v-card class = 'bs align-content-center text-white' id = seven align = middle justify = center min-height = 100vh variant = text>
+            <template #image>
+                <v-img src = https://static.igem.wiki/teams/6003/img/team.webp cover id = 'seven_img' />
+            </template>
             <template #text>
                 <v-row>
                     <v-col cols = 12 md = 4>
                         <v-hover>
                             <template #default = '{isHovering, props}'>
-                                <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `50vh` : undefined' class = align-content-center variant = flat v-ripple>
+                                <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `50vh` : undefined' class = align-content-center :variant = '!isHovering ? `tonal` : `flat`' v-ripple>
                                     <template #text>
                                         <h1 v-if = '!isHovering' style = 'font-size: 100px;'> 1 </h1>
                                         <p v-else>
@@ -20,7 +23,7 @@
                     <v-col cols = 12 md = 4>
                         <v-hover>
                             <template #default = '{isHovering, props}'>
-                                <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `50vh` : undefined' class = align-content-center variant = flat v-ripple>
+                                <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `50vh` : undefined' class = align-content-center :variant = '!isHovering ? `tonal` : `flat`' v-ripple>
                                     <template #text>
                                         <h1 v-if = '!isHovering' style = 'font-size: 100px;'> 2 </h1>
                                         <p v-else>
@@ -37,7 +40,7 @@
                     <v-col cols = 12 md = 4>
                         <v-hover>
                             <template #default = '{isHovering, props}'>
-                                <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `50vh` : undefined' class = align-content-center variant = flat v-ripple>
+                                <v-card :color = 'isHovering ? `primary` : undefined' v-bind = props :min-height = '$vuetify.display.mdAndUp ? `50vh` : undefined' class = align-content-center :variant = '!isHovering ? `tonal` : `flat`' v-ripple>
                                     <template #text>
                                         <h1 v-if = '!isHovering' style = 'font-size: 100px;'> 3 </h1>
                                         <p v-else>
@@ -76,6 +79,15 @@ export default {
     },
     mounted() {
         M.AutoInit();
+
+        animate('#seven_img', {
+            filter: 'blur(50px)',
+            autoplay: onScroll({
+                enter: 'center top',
+                leave: 'top top',
+                sync: true
+            })
+        })
     },
     methods: {
     }

@@ -18,7 +18,7 @@
                                 Computational Solutions for Biofilm Research and Enzyme Design
                             </v-card-subtitle>
                             
-                            <v-card-text class="text-h6 text-center mb-8">
+                            <v-card-text class="text-h6 text-left mb-8">
                                 Our software suite combines machine learning, computational biology, and AI to accelerate research in biofilm degradation and enzyme optimization. 
                                 These tools bridge the gap between wet lab experiments and computational predictions, enabling data-driven decisions and reducing experimental costs.
                             </v-card-text>
@@ -40,7 +40,7 @@
                                     >
                                         <v-icon size="80" class="mb-4 tool-icon"> fa-solid fa-chart-line </v-icon>
                                         <v-card-title class="text-h4 mb-3">Enzymix</v-card-title>
-                                        <v-card-text class="text-h6 mb-4">
+                                        <v-card-text class="text-subtitle-1 mb-4 text-left">
                                             XGBoost-powered machine learning for optimizing enzyme ratios in biofilm degradation experiments
                                         </v-card-text>
                                         <v-chip color="primary" size="large" class="mb-4" title="Open live Enzymix web app" @click.stop="openExternal('https://johan-susilo.github.io/enzymix/')">
@@ -70,7 +70,7 @@
                                     >
                                         <v-icon size="80" class="mb-4 tool-icon"> fa-solid fa-atom </v-icon>
                                         <v-card-title class="text-h4 mb-3">Endzyme</v-card-title>
-                                        <v-card-text class="text-h6 mb-4">
+                                        <v-card-text class="text-subtitle-1 mb-4 text-left">
                                             AI-driven pipeline for generating, screening, and optimizing functional enzyme sequences
                                         </v-card-text>
                                         <v-chip color="secondary" size="large" class="mb-4" title="Open Endzyme GitHub repository" @click.stop="openExternal('https://github.com/iGEM-NCKU/endzyme')">
@@ -99,7 +99,7 @@
                                         <b>Enzymix</b>
                                     </v-card-title>
                                     <v-card-subtitle class="text-h6">
-                                        Machine Learning-Based Enzyme Ratio Optimization
+                                        ML-Based Enzyme Ratio Optimization
                                     </v-card-subtitle>
                                 </v-col>
                             </v-row>
@@ -108,19 +108,34 @@
                         <!-- Expandable Sections -->
                         <v-expansion-panels class="mb-4" multiple v-model="openedPanelsEnzymix">
                             <!-- Introduction -->
-                            <div id="biofilm-intro" class="subtitle"></div>
-                            <v-expansion-panel value="biofilm-intro">
+                            <div id="Why-Enzymix" class="subtitle"></div>
+                            <v-expansion-panel value="Why-Enzymix">
                                 <v-expansion-panel-title>
-                                    <v-icon class="mr-3"> fa-solid fa-circle-info </v-icon>
-                                    <span class="text-h6">Introduction</span>
+                                  <v-card-title class="text-h5 d-flex align-center">
+                                    <v-icon size="x-small" class="mr-3"> fa-solid fa-circle-info </v-icon>
+                                    <b>Why do we make Enzymix?</b>
+                                  </v-card-title>
                                 </v-expansion-panel-title>
                                 <v-expansion-panel-text>
                                     <div>
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
-                                                <p class="text-h6 mb-4">
-                                                    Testing and experimenting to find the optimal enzyme ratio for biofilm degradation is time-consuming and costly. Our web tool helps wet lab teams and experts by suggesting the optimal enzyme ratio and suggesting what to experiment with next based on promising enzyme ratios.
+                                                <p class="text-body-1 mb-4">
+                                                   Testing and experimenting just to find best enzyme ratio for biofilm degradation takes tremendous time and it can be costly. Our web tool help wet lab team and experts by suggesting optimal enzyme ratio and give suggestion on what to experiment next, based on promising enzymes ratio.
                                                 </p>
+                                                
+                                                <p class="text-body-1 mb-4">
+                                                   However, predicting the ratio of three enzymes is a challenging task. It's not only inherently non-linear and interactive, but also requires a flexible model. 
+                                                </p>
+                                                <p class="text-body-1 mb-4">
+                                                    We chose XGBoost because:
+                                                </p>
+
+                                                <p class="text-body-1 mb-4">- It captures nonlinear enzyme interactions.</p>
+                                                <p class="text-body-1 mb-4">- It remains robust with limited data. [1]</p>
+                                                <p class="text-body-1 mb-4">- It iterates quickly.</p>
+                                                <p class="text-body-1 mb-4">- It provides interpretable signals for future experiments. [2]</p>
+
                                                 <v-container>
                                                  <v-hover>
                                                    <template #default = '{isHovering, props}'>
@@ -149,32 +164,9 @@
                                 </v-expansion-panel-text>
                             </v-expansion-panel>
 
-                            <!-- Why This Matters -->
-                            <div id="biofilm-why" class="subtitle"></div>
-                            <v-expansion-panel value="biofilm-why">
-                                <v-expansion-panel-title>
-                                    <v-icon class="mr-3"> fa-solid fa-lightbulb </v-icon>
-                                    <span class="text-h6">Why This Matters</span>
-                                </v-expansion-panel-title>
-                                <v-expansion-panel-text>
-                                    <div>
-                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
-                                            <div class="text-content">
-                                                <p>
-                                                    Predicting the optimal ratio of three enzymes is inherently challenging. Biofilm degradation is nonlinear and interactive, and it is influenced by multiple factors, such as pH, temperature, and reaction time. Traditional trial-and-error testing is time-consuming and costly.
-                                                </p>
-                                                <p>
-                                                    We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [1], iterates quickly, and provides interpretable signals for future experiments [2].
-                                                </p>
-                                            </div>
-                                        </v-card>
-                                    </div>
-                                </v-expansion-panel-text>
-                            </v-expansion-panel>
-
                             <!-- Model Performance -->
-                            <div id="biofilm-performance" class="subtitle"></div>
-                            <v-expansion-panel value="biofilm-performance">
+                            <div id="Model-Performance" class="subtitle"></div>
+                            <v-expansion-panel value="Model-Performance">
                                 <v-expansion-panel-title>
                                     <v-icon class="mr-3"> fa-solid fa-chart-area </v-icon>
                                     <span class="text-h6">Model Performance</span>
@@ -193,7 +185,6 @@
                                                         R² Learning Curve Analysis
                                                     </v-card-title>
                                                     <v-card-text>
-                                                        <p>The R² learning curve shows:</p>
                                                         <v-list>
                                                             <v-list-item prepend-icon="fa-solid fa-circle-check" title="Training R²: ~0.73" subtitle="The model captures substantial variance in the training data."></v-list-item>
                                                             <v-list-item prepend-icon="fa-solid fa-circle-check" title="Validation R²: ~0.63" subtitle="Strong generalization to unseen data, explaining 63% of variance in biofilm degradation."></v-list-item>

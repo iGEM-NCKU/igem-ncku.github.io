@@ -1,47 +1,52 @@
 <template>
     <div><v-row><v-col><v-card title = 'From Exploration to Reflection — How We Shaped Byefilm' class = subtitle id = 'From-Exploration-to-Reflection'>
         <v-timeline>
-            <v-timeline-item v-for = 'i in data' :key = i><v-card :title = i.title>
-                <template #text>
-                    <v-dialog v-for = 'j in i.data' :key = j>
-                        <template #activator = {props}>
-                            <v-card :key = j variant = tonal class = 'ma-2' v-bind = props>
-                                <template #text>
-                                    <div v-html = j.title />
-                                </template>
-                            </v-card>
-                        </template>
-                        
-                        <v-card :title = i.title>
-                            <v-row>
-                                <template v-for = 'k, l in j' :key = k>
-                                    <v-col cols = 12 md = 4 v-if = 'l != `title` && l != `text`'>
-                                        <v-card variant = tonal :title = l v-bind = props :color = color[l] :prepend-icon = icons[l] v-ripple>
-                                            <template #text>
-                                                <div v-html = k />
-                                            </template>
-                                        </v-card>
-                                    </v-col>
-                                </template>
-                            </v-row>
-                            <v-row>
-                                <!-- {{ j.text }} -->
-                                <v-col v-for = 'k in j.text' :key = k>
-                                    <v-hover>
-                                        <template #default = '{isHovering, props}'>
-                                            <v-card :title = k[0] v-bind = props :color = 'isHovering ? `primary` : undefined'>
+            <v-timeline-item v-for = 'i in data' :key = i>
+                <template #opposite>
+                    <div v-html = i.reflection />
+                </template>
+                <v-card :title = i.title>
+                    <template #text>
+                        <v-dialog v-for = 'j in i.data' :key = j>
+                            <template #activator = {props}>
+                                <v-card :key = j variant = tonal class = 'ma-2' v-bind = props>
+                                    <template #text>
+                                        <div v-html = j.title />
+                                    </template>
+                                </v-card>
+                            </template>
+                            
+                            <v-card :title = i.title>
+                                <v-row>
+                                    <template v-for = 'k, l in j' :key = k>
+                                        <v-col cols = 12 md = 4 v-if = 'l != `title` && l != `text`'>
+                                            <v-card variant = tonal :title = l v-bind = props :color = color[l] :prepend-icon = icons[l] v-ripple>
                                                 <template #text>
-                                                    <div v-html = k[1] />
+                                                    <div v-html = k />
                                                 </template>
                                             </v-card>
-                                        </template>
-                                    </v-hover>
-                                </v-col>
-                            </v-row>
-                        </v-card>
-                    </v-dialog>
-                </template>
-            </v-card></v-timeline-item>
+                                        </v-col>
+                                    </template>
+                                </v-row>
+                                <v-row>
+                                    <!-- {{ j.text }} -->
+                                    <v-col v-for = 'k in j.text' :key = k>
+                                        <v-hover>
+                                            <template #default = '{isHovering, props}'>
+                                                <v-card :title = k[0] v-bind = props :color = 'isHovering ? `primary` : undefined'>
+                                                    <template #text>
+                                                        <div v-html = k[1] />
+                                                    </template>
+                                                </v-card>
+                                            </template>
+                                        </v-hover>
+                                    </v-col>
+                                </v-row>
+                            </v-card>
+                        </v-dialog>
+                    </template>
+                </v-card>
+            </v-timeline-item>
         </v-timeline>
     </v-card></v-col></v-row></div>
 </template>
@@ -121,9 +126,9 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     }
 }
 .text-content {
-  font-size: 24px;      
-  line-height: 1.6;    
+  /* font-size: 24px;       */
+  /* line-height: 1.6;     */
   color: #333;     
-  padding-left: 30px; 
+  /* padding-left: 30px;  */
 }
 </style>

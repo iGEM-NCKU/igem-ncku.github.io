@@ -1,7 +1,7 @@
 <template>
     <div><v-row><v-col>
                 <v-card>
-                    <div class='subtitle' id='Pre-project-exploration' />
+                    <div />
                     <v-timeline align=center>
                         <v-timeline-item v-for='i in people' :key=i>
                             <v-card @click='i.operator = true'>
@@ -266,7 +266,7 @@ import $ from 'jquery'
 import M from 'materialize-css'
 
 export default {
-    name: 'App',
+    name: 'hp_timeline',
     data() {
         return {
             people: [
@@ -335,11 +335,5 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     100% {
         color: red;
     }
-}
-.text-content {
-  font-size: 24px;      
-  line-height: 1.6;    
-  color: #333;     
-  padding-left: 30px; 
 }
 </style>

@@ -87,6 +87,8 @@ export default {
     methods: {
         title(x) {
             while(x.indexOf('-') != -1) x = x.replace('-', ' ');
+            while(x[0] == ' ') x = x.substr(1);
+            while(x[x.length - 1] == ' ') x = x.substr(0, x.length - 1);
             var f = [];
             for(var i of x.split(' ')) {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());

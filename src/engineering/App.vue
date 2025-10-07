@@ -1,160 +1,599 @@
-<template>
-    <v-app>
-      <page_loader :loading = 'loading' />
-      <title_nav />
-      <v-main>
-        <!-- <sidenav name = 'software' /> -->
-      <v-row justify = center>
-        <v-col cols = 12 md = 8 class = 'pa-5'>
-        <div class = 'place_holder' justify = center>
-            <v-card-title style="font-size: 32px;"><b>Cycle 1.</b></v-card-title>
-            <div class="circle-container">
-              <div class="cards">
-                <v-card
-                  v-for="(item, i) in items"
-                  :key="i"
-                  class="circle-card"
-                  :style="getCardStyle(i)"
-                >
-                <v-card-actions style="justify-content: space-between;">
-                  <v-btn @click="prevCard">Prev</v-btn>
-                  <v-btn @click="nextCard">Next</v-btn>
-                </v-card-actions>
-                  <v-card-title style="font-size: 32px;">{{ item.title }}</v-card-title>
-                    <div class="scroll-body">
-                      <div class="text-content" v-html="item.text"></div>
-                    </div>
-                    <v-card-text></v-card-text>
-                </v-card>
-              </div>
-              </div>
-              </div>
-              </v-col>
+\<template>
+  <v-app>
+    <page_loader :loading="loading" />
+    <title_nav />
+    
+    <v-main class="with-sidenav">
+      <sidenav name="engineering"/>
+      <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = Enzyme-Plasmid-Engineering style="font-size: 32px; margin-left:25%;"><b>Enzyme Plasmid Engineering</b></v-card-title>
+          </v-col>
         </v-row>
-      </v-main>
-    </v-app>
-    <v-footer app height="64">
-    </v-footer>
+      </v-row>
+
+      <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(0,4)"
+            :key="`cycle1-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = C2 style="font-size: 32px; margin-left:25%;"><b>C2</b></v-card-title>
+          </v-col>
+        </v-row>
+      </v-row>
+        <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(4,8)"
+            :key="`cycle2-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i+4)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i+4)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = C3 style="font-size: 32px; margin-left:25%;"><b>C2</b></v-card-title>
+          </v-col>
+        </v-row>
+      </v-row>
+        <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(8,12)"
+            :key="`cycle2-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i+8)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i+8)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = C4 style="font-size: 32px; margin-left:25%;"><b>C2</b></v-card-title>
+          </v-col>
+        </v-row>
+      </v-row>
+        <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(12,16)"
+            :key="`cycle2-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i+12)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i+12)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = C5 style="font-size: 32px; margin-left:25%;"><b>C2</b></v-card-title>
+          </v-col>
+        </v-row>
+      </v-row>
+        <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(16,20)"
+            :key="`cycle2-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i+16)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i+16)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = C6 style="font-size: 32px; margin-left:25%;"><b>C2</b></v-card-title>
+          </v-col>
+        </v-row>
+      </v-row>
+        <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(20,24)"
+            :key="`cycle2-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i+20)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i+20)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = C7 style="font-size: 32px; margin-left:25%;"><b>C2</b></v-card-title>
+          </v-col>
+        </v-row>
+      </v-row>
+        <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(24,28)"
+            :key="`cycle2-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i+24)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i+24)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = C8 style="font-size: 32px; margin-left:25%;"><b>C2</b></v-card-title>
+          </v-col>
+        </v-row>
+      </v-row>
+        <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(28,32)"
+            :key="`cycle2-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i+28)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i+28)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row justify="end">
+        <v-row>
+          <v-col cols="12" md="8" class="mx-auto">
+            <v-card-title class = scroller id = C9 style="font-size: 32px; margin-left:25%;"><b>C2</b></v-card-title>
+          </v-col>
+        </v-row>
+      </v-row>
+        <v-row justify="end">
+        <v-row>
+        </v-row>
+          <v-col
+            v-for="(cycle, i) in cycles.slice(32,36)"
+            :key="`cycle2-${i}`"
+            cols="12" md="8"
+          >
+            <v-card class="cycle-card" @click="openDialog(i+32)" role="button" tabindex="0">
+              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+              <v-card-text class="line-clamp">
+                <div v-html="cycle.summary"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn variant="flat" @click.stop="openDialog(i+32)">Click Me</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+
+        
+
+        <v-dialog
+          v-model="dialog"
+          max-width="900"
+          :scrim="true"
+        >
+          <v-card class="dialog-card">
+            <v-card-title class="d-flex align-center justify-space-between">
+              <span class="text-h6">{{ currentCycle?.title }}</span>
+              <v-btn icon="mdi-close" variant="text" @click="closeDialog" aria-label="close"></v-btn>
+            </v-card-title>
+
+            <v-divider></v-divider>
+
+            <v-card-text class="dialog-body">
+              <div v-if="currentCycle" v-html="currentCycle.detail"></div>
+            </v-card-text>
+
+            <v-divider></v-divider>
+
+            <v-card-actions class="justify-end">
+              <v-btn color="primary" @click="closeDialog">close</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+    </v-main>
     <site_footer></site_footer>
+  </v-app>
 </template>
 
 <script>
+/* eslint-disable */
+import $ from 'jquery'
+import M from 'materialize-css'
+import hljs from 'highlight.js'
+import '@/styles/code.css'
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
+import sidenav from '@/sidenav.vue'
 import site_footer from '@/footer.vue'
+
 export default {
   data() {
     return {
-      items: [
-        { title: 'Enzyme Plasmid Engineering', text: '<p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>' },
-        { title: 'Build', text: '<p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>' },
-        { title: 'Test', text: '<p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>' },
-        { title: 'Learn', text: '<p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp"></img>' },
+      dialog: false,
+      currentIndex: null,
+      cycles: [
+        {
+          title: 'Cycle 1 — Design',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>
+          `,
+        },
+        {
+          title: 'Cycle 1 — Build',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+          `,
+        },
+        {
+          title: 'Cycle 1 — Test',
+          summary: '<p>Colony PCR / SDS-PAGE / 活性測試…</p>',
+          detail: `
+            <p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
+          `,
+        },
+        {
+          title: 'Cycle 1 — Learn',
+          summary: '<p>瓶頸回顧與下一步策略…</p>',
+          detail: `
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          `,
+        },
+        { title: 'Cycle2-Design',
+          summary: '<p>設計重點…</p>', 
+          detail: '<p>詳細內容</p>' },
+      { title: 'Cycle2-Build', 
+          summary: '<p>構建重點…</p>', 
+          detail: '<p>詳細內容</p>' },
+      { title: 'Cycle2-Test', summary: '<p>測試重點…</p>', detail: '<p>詳細內容</p>' },
+      { title: 'Cycle2-Learn', summary: '<p>學習重點…</p>', detail: '<p>詳細內容</p>' },
+      {
+          title: 'Cycle 3 — Design',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>
+          `,
+        },
+        {
+          title: 'Cycle 3 — Build',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+          `,
+        },
+        {
+          title: 'Cycle 3 — Test',
+          summary: '<p>Colony PCR / SDS-PAGE / 活性測試…</p>',
+          detail: `
+            <p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
+          `,
+        },
+        {
+          title: 'Cycle 3 — Learn',
+          summary: '<p>瓶頸回顧與下一步策略…</p>',
+          detail: `
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          `,
+        },
+        {
+          title: 'Cycle 4 — Design',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>
+          `,
+        },
+        {
+          title: 'Cycle 4 — Build',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+          `,
+        },
+        {
+          title: 'Cycle 4 — Test',
+          summary: '<p>Colony PCR / SDS-PAGE / 活性測試…</p>',
+          detail: `
+            <p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
+          `,
+        },
+        {
+          title: 'Cycle 4 — Learn',
+          summary: '<p>瓶頸回顧與下一步策略…</p>',
+          detail: `
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          `,
+        },
+        {
+          title: 'Cycle 5 — Design',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>
+          `,
+        },
+        {
+          title: 'Cycle 5 — Build',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+          `,
+        },
+        {
+          title: 'Cycle 5 — Test',
+          summary: '<p>Colony PCR / SDS-PAGE / 活性測試…</p>',
+          detail: `
+            <p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
+          `,
+        },
+        {
+          title: 'Cycle 5 — Learn',
+          summary: '<p>瓶頸回顧與下一步策略…</p>',
+          detail: `
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          `,
+        },
+        {
+          title: 'Cycle 6 — Design',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>
+          `,
+        },
+        {
+          title: 'Cycle 6 — Build',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+          `,
+        },
+        {
+          title: 'Cycle 6 — Test',
+          summary: '<p>Colony PCR / SDS-PAGE / 活性測試…</p>',
+          detail: `
+            <p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
+          `,
+        },
+        {
+          title: 'Cycle 6 — Learn',
+          summary: '<p>瓶頸回顧與下一步策略…</p>',
+          detail: `
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          `,
+        },
+        {
+          title: 'Cycle 7 — Design',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>
+          `,
+        },
+        {
+          title: 'Cycle 7 — Build',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+          `,
+        },
+        {
+          title: 'Cycle 7 — Test',
+          summary: '<p>Colony PCR / SDS-PAGE / 活性測試…</p>',
+          detail: `
+            <p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
+          `,
+        },
+        {
+          title: 'Cycle 7 — Learn',
+          summary: '<p>瓶頸回顧與下一步策略…</p>',
+          detail: `
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          `,
+        },
+        {
+          title: 'Cycle 8 — Design',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>
+          `,
+        },
+        {
+          title: 'Cycle 8 — Build',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+          `,
+        },
+        {
+          title: 'Cycle 8 — Test',
+          summary: '<p>Colony PCR / SDS-PAGE / 活性測試…</p>',
+          detail: `
+            <p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
+          `,
+        },
+        {
+          title: 'Cycle 8 — Learn',
+          summary: '<p>瓶頸回顧與下一步策略…</p>',
+          detail: `
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          `,
+        },
+        {
+          title: 'Cycle 9 — Design',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>To degrade the biofilm formed by <em>Staphylococcus aureus</em>, we first conducted a literature review to identify suitable enzymes capable of disrupting its extracellular polymeric substances (EPS). The <em>S. aureus</em> biofilm matrix is mainly composed of polysaccharides, extracellular DNA, and proteins, which provide structural stability and protection to the bacterial community.</p><p>Based on these components, we selected three enzymes that specifically target different elements of the EPS:</p><ul><li><strong>Dispersin B</strong> – Degrades poly-β-1,6-N-acetylglucosamine (PNAG), a major polysaccharide in the biofilm matrix.</li><li><strong>DNase I</strong> – Cleaves extracellular DNA that serves as a scaffold within the biofilm.</li><li><strong>Proteinase K</strong> – Hydrolyzes adhesive and structural proteins, weakening the biofilm integrity.</li></ul><p>By combining these enzymes, our engineered <em>E. coli</em> is designed to produce a synergistic biofilm-degrading cocktail capable of efficiently dispersing <em>S. aureus</em> biofilms.</p> <img class = img src = "https://static.igem.wiki/teams/6003/engineering/1-t.webp"></img>
+          `,
+        },
+        {
+          title: 'Cycle 9 — Build',
+          summary: '<p>Enzyme Plasmid Engineering</p>',
+          detail: `
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into E. coli TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli</em> MG1655 λ cI857 for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+          `,
+        },
+        {
+          title: 'Cycle 9 — Test',
+          summary: '<p>Colony PCR / SDS-PAGE / 活性測試…</p>',
+          detail: `
+            <p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:45%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/prok-20colony-20pcr.webp" style="width:45%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 2.PCR Amplification of Proteinase K Gene</figcaption></figure> <figure style="width:40%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" style="width:40%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of Proteinase K Expression</figcaption></figure></div><p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in E. coli MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE. However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the MG1655 λ cI857 control, suggesting low expression or poor solubility under the tested conditions.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp"><p>figue 4.Growth and Enzymatic Activity of Proteinase K on Milk Agar Plate</p><p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
+          `,
+        },
+        {
+          title: 'Cycle 9 — Learn',
+          summary: '<p>瓶頸回顧與下一步策略…</p>',
+          detail: `
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          `,
+        },
+
+      
+
       ],
-      totalCards: 4, 
-      radius: 320,  
-      angle: 0,  
     };
   },
   components: {
-    title_nav,
-    page_loader,
-    site_footer,
+        title_nav,
+        page_loader,
+        sidenav,
+        site_footer
+    },
+  computed: {
+    currentCycle() {
+      return this.currentIndex != null ? this.cycles[this.currentIndex] : null;
+    },
   },
   methods: {
-    getCardStyle(index) {
-      const angle = (index / this.totalCards) * 360; 
-      const rotateY = angle + this.angle; 
-      const opacity = Math.abs(rotateY % 360) < 90 ? 1 : 0; 
-      return {
-        transform: `rotateY(${rotateY}deg) translateZ(${this.radius}px)`,
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transformOrigin: 'center center',
-        transition: 'transform 1s ease, opacity 1s ease', 
-        opacity: opacity,
-      };
+    openDialog(i) {
+      this.currentIndex = i;
+      this.dialog = true;
     },
-    prevCard() {
-      this.angle += 90; 
-    },
-    nextCard() {
-      this.angle -= 90; 
+    closeDialog() {
+      this.dialog = false;
+      this.currentIndex = null;
     },
   },
 };
 </script>
 
-
 <style>
-.circle-container {
-  /* position: relative; */
-  /* width: 600px; */
-  /* height: 400px; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  perspective: 90vw; 
+.cycle-card {
+  cursor: pointer;
+  height: 220px;              /* 卡片高度可調 */
+  display: flex;
+  flex-direction: column;
+}
+.cycle-card .line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;      /* 摘要顯示最多 4 行 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.cards {
-  position: relative;
-  width: 40vw;
-  height: 100%;
-  transform-style: preserve-3d; 
-  transform-origin: center center;
-  margin-left: -20%;
+/* Dialog 內文可滾動 */
+.dialog-card {
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
 }
-
-.circle-card {
-  width: 50vw;
-  height: 80vh;
-  background-color: rgb(243, 247, 244);
-  text-align: center;
-  transition: transform 1s ease;
-}
-
-.left-btn {
-  position: relative;
-  bottom: 10px;
-}
-
-.right-btn {
-  position: relative;
-  bottom: 10px;
-}
-/* .v-dialog .v-card {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-} 
-.markmap {
-    position: relative;
-}
-.markmap > svg {
-  width: 100%;
-  height: 300px;
-
-} */
-/* .text-content p { */
-  /* max-width: 20%; */
-  /* padding: 2000px; */
-/* } */
-.place_holder {
-  height: 200vh;
-}
-.text-content {
-  font-size: 18px;
-  text-align: justify; 
-  text-justify: inter-word;
-}
-.img {
-  max-width: 100%;
-}
-.scroll-body {
+.dialog-body {
   overflow: auto;
-  padding: 8px 16px 16px;
-  max-height: calc(80vh - 56px - 48px - 16px);
+  max-height: calc(85vh - 56px - 52px - 56px); /* title + divider + actions 的預留 */
 }
+.dialog-body img { max-width: 100%; height: auto; }
+.dialog-body figure { margin: 12px 0; text-align: center; }
+.dialog-body figcaption { font-size: 13px; color:#666; margin-top:6px; }
+/* 固定側欄在左邊上層 */
+.sidenav-fixed {
+  position: fixed;
+  top: 0;                        /* 若有 app-bar 就用 top: var(--appbar-height) */
+  left: 0;
+  width: var(--sidenav-width);
+  height: 100vh;
+  z-index: 2000;                 /* 高於內容 */
+  overflow: auto;
+  background: inherit;           /* 視你的側欄風格 */
+}
+
+/* 讓主內容避開側欄 */
+.with-sidenav {
+  padding-left: var(--sidenav-width);
+}
+
 </style>

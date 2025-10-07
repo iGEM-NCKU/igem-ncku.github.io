@@ -158,6 +158,7 @@ export default {
             f: {
                 'Sponsor': {
                     icon: 'fa-solid fa-key',
+                    subpages: [{name: 'sponsor-Partnership', icon: undefined}],
                     color: 'red'
                 },
                 'Team': {

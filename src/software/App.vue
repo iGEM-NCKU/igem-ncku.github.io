@@ -1,433 +1,1477 @@
 <template>
     <v-app>
-        <page_loader :loading = 'loading' />
+        <page_loader :loading="loading" />
         <title_nav />
 
         <v-main>
-        <sidenav name = 'software' />
-                <v-row justify = end>
-                    <v-col cols = 12 md = 8 class = 'pa-5'>
-                        <v-card class = ma-4 variant = tonal color = primary v-ripple>
-                            <template #image>
-                                <v-img src = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp' />
-                            </template>
-                            <template v-slot:text>
-                                <div class="wallpaper-text">
-                                    A better way to create enzyme
-                                </div>
-                            </template>
-                        </v-card>
-                        <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
-                                <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>
-                                <div
-                                id="Introduction"
-                                title="Introduction"
-                                class="text-content"
-                                >
-                                <p>
-                                    In our wet-lab experiments, we observed that the effect of enzyme treatment was not as pronounced as expected. This can be attributed to two main factors: 
-                                    <b>(1) enzyme yield</b>, and <b>(2) enzyme activity and binding efficiency</b>. To address the latter, we developed a computational pipeline aimed at optimizing enzyme activity and substrate binding efficiency.
-                                </p>
+            <sidenav name="software" />
+            <v-row justify="end">
+                <v-col cols="12" md="8" class="pa-5">
+                    
+                    <!-- Introduction Section -->
+                    <div id="Introduction" class="section-container scroller">
+                        <v-card class="ma-4 pa-8 intro-card" variant="elevated" elevation="8">
+                            <v-card-title class="text-h2 text-center mb-6">
+                                <b>Software Tools</b>
+                            </v-card-title>
+                            <v-card-subtitle class="text-h5 text-center mb-8 text-grey-darken-1">
+                                Computational Solutions for Biofilm Research and Enzyme Design
+                            </v-card-subtitle>
+                            
+                            <v-card-text class="text-h6 text-center mb-8">
+                                Our software suite combines machine learning, computational biology, and AI to accelerate research in biofilm degradation and enzyme optimization. 
+                                These tools bridge the gap between wet lab experiments and computational predictions, enabling data-driven decisions and reducing experimental costs.
+                            </v-card-text>
 
-                                <p>
-                                    The design and optimization of enzymes for specific functions have always been a critical aspect of biotechnology. Traditional methods for enzyme engineering are often labor-intensive, requiring iterative rounds of mutation, expression, and screening. In recent years, the integration of artificial intelligence (AI) and computational biology has revolutionized this process, allowing for the in silico prediction of enzyme structures, stability, and functionality. By combining cutting-edge AI models, molecular modeling tools, and computational docking, this software provides an automated platform for novel enzyme sequence generation and efficiency analysis.
-                                </p>
-
-                                <p>
-                                    The pipeline consists of two major components: 
-                                    (1) a machine learning model, and 
-                                    (2) screening and docking score-based evaluation. 
-                                    First, the machine learning model is employed to generate and optimize protein (enzyme) sequences. These sequences are then subjected to AlphaFold for structural prediction. Next, the predicted enzyme structures are docked with the ligand, followed by screening with a scoring function to evaluate binding performance. Through this pipeline, we are able to identify and obtain a functionally improved sequence within 20 minutes.
-                                </p>
-                                </div>
+                            <!-- Tool Selection Buttons -->
+                            <v-row justify="center" class="mt-8">
+                                <v-col cols="12" sm="6" md="5" class="text-center">
+                                    <v-card 
+                                        class="tool-card pa-8 elevation-4" 
+                                        variant="tonal" 
+                                        color="primary" 
+                                        hover
+                                        @click="scrollToSection('biofilm-section')"
+                                    >
+                                        <v-icon size="80" class="mb-4 tool-icon">mdi-chart-line</v-icon>
+                                        <v-card-title class="text-h4 mb-3">Enzymix</v-card-title>
+                                        <v-card-text class="text-h6 mb-4">
+                                            XGBoost-powered machine learning for optimizing enzyme ratios in biofilm degradation experiments
+                                        </v-card-text>
+                                        <v-chip color="primary" size="large" class="mb-4">
+                                            <v-icon start>mdi-web</v-icon>
+                                            Live Web App Available
+                                        </v-chip>
+                                        <br>
+                                        <v-btn color="primary" variant="elevated" size="large" class="mt-4">
+                                            Explore Tool
+                                            <v-icon end>mdi-arrow-right</v-icon>
+                                        </v-btn>
+                                    </v-card>
+                                </v-col>
+                                
+                                <v-col cols="12" sm="6" md="5" class="text-center">
+                                    <v-card 
+                                        class="tool-card pa-8 elevation-4" 
+                                        variant="tonal" 
+                                        color="secondary" 
+                                        hover
+                                        @click="scrollToSection('endzyme-section')"
+                                    >
+                                        <v-icon size="80" class="mb-4 tool-icon">mdi-molecule</v-icon>
+                                        <v-card-title class="text-h4 mb-3">Endzyme</v-card-title>
+                                        <v-card-text class="text-h6 mb-4">
+                                            AI-driven pipeline for generating, screening, and optimizing functional enzyme sequences
+                                        </v-card-text>
+                                        <v-chip color="secondary" size="large" class="mb-4">
+                                            <v-icon start>mdi-github</v-icon>
+                                            Open Source
+                                        </v-chip>
+                                        <br>
+                                        <v-btn color="secondary" variant="elevated" size="large" class="mt-4">
+                                            Explore Tool
+                                            <v-icon end>mdi-arrow-right</v-icon>
+                                        </v-btn>
+                                    </v-card>
+                                </v-col>
+                            </v-row>
                         </v-card>
-                        <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Machine-Learning-Model'>
-                            <v-card-title style="font-size: 32px;"><b>Machine learning Model</b></v-card-title>
-                                <div
-                                id="Machine learning Model"
-                                title="Machine learning Model"
-                                class="text-content"
-                                >
-                                Zymctrl is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over 37 M sequences. Given a user-defined Enzymatic Commission (EC) number, the model generates protein sequences that fulfil that catalytic reaction. The generated sequences are ordered, globular, and distant to natural ones, while their intended catalytic properties match those defined by users.
-                                </div>
-                                <br>
-                                <div class="text-content">
-                                <b>How we use Zymctrl</b>
-                                <pre><code class = language-python>
-generator = pipeline('text-generation', model='AI4PD/ZymCTRL')
+                    </div>
+
+                    <!-- Enzymix Section -->
+                    <div id="Enzymix" class="section-container scroller">
+                        <!-- Section Header with Sub-navigation -->
+                        <v-card class="ma-4 pa-6 section-header" variant="tonal" color="primary">
+                            <v-row align="center">
+                                <v-col cols="12" md="6">
+                                    <v-card-title class="text-h3">
+                                        <v-icon size="40" class="mr-3">mdi-chart-line</v-icon>
+                                        <b>Enzymix</b>
+                                    </v-card-title>
+                                    <v-card-subtitle class="text-h6">
+                                        Machine Learning-Based Enzyme Ratio Optimization
+                                    </v-card-subtitle>
+                                </v-col>
+                                <v-col cols="12" md="6">
+                                    <!-- Sub-navigation for Biofilm sections -->
+                                    <v-chip-group class="biofilm-nav" color="primary">
+                                        <v-chip @click="scrollToSubSection('biofilm-intro')" variant="outlined">Introduction</v-chip>
+                                        <v-chip @click="scrollToSubSection('biofilm-why')" variant="outlined">Why This Matters</v-chip>
+                                        <v-chip @click="scrollToSubSection('biofilm-performance')" variant="outlined">Performance</v-chip>
+                                        <v-chip @click="scrollToSubSection('biofilm-approach')" variant="outlined">Approach</v-chip>
+                                        <v-chip @click="scrollToSubSection('biofilm-start')" variant="outlined">Get Started</v-chip>
+                                        <v-chip @click="scrollToSubSection('biofilm-architecture')" variant="outlined">Architecture</v-chip>
+                                        <v-chip @click="scrollToSubSection('biofilm-api')" variant="outlined">API</v-chip>
+                                    </v-chip-group>
+                                </v-col>
+                            </v-row>
+                        </v-card>
+                        
+                        <!-- Expandable Sections -->
+                        <v-expansion-panels class="mb-4" multiple>
+                            <!-- Introduction -->
+                            <v-expansion-panel value="biofilm-intro">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-information</v-icon>
+                                    <span class="text-h6">Introduction</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="biofilm-intro">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <p class="text-h6 mb-4">
+                                                    Testing and experimenting to find the optimal enzyme ratio for biofilm degradation is time-consuming and costly. Our web tool helps wet lab teams and experts by suggesting the optimal enzyme ratio and suggesting what to experiment with next based on promising enzyme ratios.
+                                                </p>
+                                                <v-container>
+                                                 <v-hover>
+                                                   <template #default = '{isHovering, props}'>
+                                                     <a href = 'https://johan-susilo.github.io/biofilm-ml-model/' target = '_blank'>
+                                                       <v-card v-bind = props :color = 'isHovering ? `primary` : undefined' v-ripple :variant = 'isHovering ? undefined : `tonal`' :class = 'isHovering ? undefined : `rainbow`'>
+                                                         <template #title>
+                                                           <b> Enzymix </b>
+                                                         </template>
+                                                         <template #subtitle>
+                                                           Optimize enzyme ratios for smarter biofilm breakdown
+                                                         </template>
+                                                         <template #text>
+                                                           You can try Enzymix here!
+                                                         </template>
+                                                         <template #prepend>
+                                                           <v-icon> fa-solid fa-server </v-icon>
+                                                         </template>
+                                                       </v-card>
+                                                     </a>
+                                                   </template>
+                                                 </v-hover>
+                                               </v-container>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Why This Matters -->
+                            <v-expansion-panel value="biofilm-why">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-lightbulb</v-icon>
+                                    <span class="text-h6">Why This Matters</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="biofilm-why">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <p>
+                                                    Predicting the optimal ratio of three enzymes is inherently challenging. Biofilm degradation is nonlinear and interactive, and it is influenced by multiple factors, such as pH, temperature, and reaction time. Traditional trial-and-error testing is time-consuming and costly.
+                                                </p>
+                                                <p>
+                                                    We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [1], iterates quickly, and provides interpretable signals for future experiments [2].
+                                                </p>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Model Performance -->
+                            <v-expansion-panel value="biofilm-performance">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-chart-areaspline</v-icon>
+                                    <span class="text-h6">Model Performance</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="biofilm-performance">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <p class="text-h6 mb-4">
+                                                    Our XGBoost model demonstrates robust performance and strong generalization capability:
+                                                </p>
+                                                
+                                                <v-card class="mb-4" variant="outlined">
+                                                    <v-card-title class="text-h5 bg-primary">
+                                                        <v-icon class="mr-2">mdi-chart-line</v-icon>
+                                                        R² Learning Curve Analysis
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <p>The R² learning curve shows:</p>
+                                                        <v-list>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Training R²: ~0.73" subtitle="The model captures substantial variance in the training data."></v-list-item>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Validation R²: ~0.63" subtitle="Strong generalization to unseen data, explaining 63% of variance in biofilm degradation."></v-list-item>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Minimal overfitting gap" subtitle="R² difference between training and validation: ~0.10 - indicates learning generalizable patterns."></v-list-item>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Rapid convergence" subtitle="Performance stabilizes after approximately 10-15 boosting rounds."></v-list-item>
+                                                        </v-list>
+                                                        <v-img src="https://hackmd.io/_uploads/BJKZRmbael.png" class="my-4 rounded"></v-img>
+                                                    </v-card-text>
+                                                </v-card>
+                                                
+                                                <v-card class="mb-4" variant="outlined">
+                                                    <v-card-title class="text-h5 bg-secondary">
+                                                        <v-icon class="mr-2">mdi-chart-bell-curve</v-icon>
+                                                        RMSE Learning Curve Analysis
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <p>The RMSE learning curve confirms model reliability:</p>
+                                                        <v-list>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Training RMSE: ~0.08" subtitle="Low prediction error on training data."></v-list-item>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Validation RMSE: ~0.09" subtitle="Predictions typically within 9% of actual degradation values."></v-list-item>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Stable validation performance" subtitle="Flat plateau after round 20 indicates consistent predictions."></v-list-item>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Narrow train-validation gap" subtitle="~0.01 difference shows excellent generalization."></v-list-item>
+                                                        </v-list>
+                                                        <v-img src="https://hackmd.io/_uploads/S1tWRQZ6el.png" class="my-4 rounded"></v-img>
+                                                    </v-card-text>
+                                                </v-card>
+
+                                                <v-card variant="outlined">
+                                                    <v-card-title class="text-h5 bg-success">
+                                                        <v-icon class="mr-2">mdi-flask</v-icon>
+                                                        What This Means for Wet Lab Teams
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <p>These learning curves provide strong evidence that our model:</p>
+                                                        <v-list>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Generalizes well to new experiments" subtitle="Predictions on untested enzyme ratios are reliable."></v-list-item>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Doesn't overfit the training data" subtitle="Captures true biological relationships rather than noise."></v-list-item>
+                                                            <v-list-item prepend-icon="mdi-check-circle" title="Converges efficiently" subtitle="Fast retraining when new data arrives."></v-list-item>
+                                                        </v-list>
+                                                        
+                                                        <v-alert type="success" class="mt-4">
+                                                            <strong>Statistical Significance:</strong> Results obtained through rigorous 5-fold nested cross-validation with fixed random seed (SEED=42) for reproducibility.
+                                                        </v-alert>
+                                                    </v-card-text>
+                                                </v-card>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Iterative Approach -->
+                            <v-expansion-panel value="biofilm-approach">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-sync</v-icon>
+                                    <span class="text-h6">Our Iterative, Team-Centered Approach</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="biofilm-approach">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <p class="text-h6 mb-4">Every development step was designed around wet lab feedback to ensure real research impact:</p>
+                                                
+                                                <v-timeline direction="vertical" class="mb-4">
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 1</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Data Analysis & Visualization</v-card-title>
+                                                            <v-card-text>Analyzed experiment data, cleaned it, and suggested improvements through visualization.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 2</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Base Model Development</v-card-title>
+                                                            <v-card-text>Base model trained on enzyme ratios and degradation features.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 3</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Web Interface</v-card-title>
+                                                            <v-card-text>Website for quick degradation predictions based on enzyme ratios.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 4</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Enhanced Features</v-card-title>
+                                                            <v-card-text>Added reaction time feature and optimal enzyme mix finder.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 5</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Smart Suggestions</v-card-title>
+                                                            <v-card-text>Experiment suggestions based on model uncertainty and promising ratios — enabling targeted experiments.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 6</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Comprehensive Modeling</v-card-title>
+                                                            <v-card-text>Additional features (temperature, biofilm age, pH) for more comprehensive modeling.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                </v-timeline>
+                                                
+                                                <v-alert type="success" class="mt-4">
+                                                    This ensures every software iteration directly benefits wet lab progress.
+                                                </v-alert>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Getting Started -->
+                            <v-expansion-panel value="biofilm-start">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-rocket-launch</v-icon>
+                                    <span class="text-h6">Getting Started in 3 Steps</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="biofilm-start">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <v-row>
+                                                    <!-- Web Application -->
+                                                    <v-col cols="12" md="4">
+                                                        <v-card class="h-100" variant="outlined" color="primary">
+                                                            <v-card-title class="bg-primary text-white">
+                                                                <v-icon class="mr-2">mdi-web</v-icon>
+                                                                Web Application (Recommended)
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <p><strong>Visit:</strong> <a href="https://johan-susilo.github.io/biofilm-ml-model/" target="_blank">https://johan-susilo.github.io/biofilm-ml-model/</a></p>
+                                                                <v-list>
+                                                                    <v-list-item prepend-icon="mdi-plus">Add experiment rows with enzyme ratios</v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-chart-line">Get predictions and uncertainty</v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-target">Find optimal enzyme mixes</v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-lightbulb">Get experiment suggestions</v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-download">Export results as CSV</v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                    
+                                                    <!-- Local Installation -->
+                                                    <v-col cols="12" md="4">
+                                                        <v-card class="h-100" variant="outlined" color="secondary">
+                                                            <v-card-title class="bg-secondary text-white">
+                                                                <v-icon class="mr-2">mdi-docker</v-icon>
+                                                                Local Installation
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <p><strong>Requirements:</strong> Docker and Git</p>
+                                                                <v-code class="code-block">
+# 1. Clone repository
+git clone https://gitlab.igem.org/2025/software-tools/ncku-tainan
+cd ncku-tainan
+
+# 2. Build and run
+docker compose up --build -d
+
+# 3. Access the application
+# Web UI: http://localhost:8000/ui
+# API docs: http://localhost:8000/docs
+# Health: http://localhost:8000/health
+                                                                </v-code>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                    
+                                                    <!-- Retraining -->
+                                                    <v-col cols="12" md="4">
+                                                        <v-card class="h-100" variant="outlined" color="success">
+                                                            <v-card-title class="bg-success text-white">
+                                                                <v-icon class="mr-2">mdi-cog</v-icon>
+                                                                Retraining (Optional)
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <p>Retrain with your own data:</p>
+                                                                <v-code class="code-block">
+# Place your CSV as data/polished.csv
+# Required columns: dspb, dnase, prok, reaction_time, degrade
+
+chmod +x ./train.sh 
+./train.sh
+                                                                </v-code>
+                                                                <p class="mt-2">This runs the training pipeline and saves updated models in <code>ml-model/</code>.</p>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                </v-row>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- System Architecture -->
+                            <v-expansion-panel value="biofilm-architecture">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-file-tree</v-icon>
+                                    <span class="text-h6">System Architecture</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="biofilm-architecture">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <p class="text-h6 mb-4">The software is packaged as containerized components:</p>
+                                                
+                                                <v-row>
+                                                    <v-col cols="12" md="6">
+                                                        <v-card variant="outlined" class="mb-4">
+                                                            <v-card-title class="bg-primary text-white">
+                                                                <v-icon class="mr-2">mdi-brain</v-icon>
+                                                                ML Models
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <v-list>
+                                                                    <v-list-item prepend-icon="mdi-file">
+                                                                        <v-list-item-title>XGBoost Model</v-list-item-title>
+                                                                        <v-list-item-subtitle>xgb_biofilm_model.json</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-file">
+                                                                        <v-list-item-title>Uncertainty Model</v-list-item-title>
+                                                                        <v-list-item-subtitle>rf_uncertainty_model.joblib</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                        
+                                                        <v-card variant="outlined">
+                                                            <v-card-title class="bg-secondary text-white">
+                                                                <v-icon class="mr-2">mdi-api</v-icon>
+                                                                FastAPI Backend
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <v-list>
+                                                                    <v-list-item prepend-icon="mdi-server">Serves REST endpoints</v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-web">Static UI hosting</v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-upload">Model loading on startup</v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                    
+                                                    <v-col cols="12" md="6">
+                                                        <v-card variant="outlined" class="mb-4">
+                                                            <v-card-title class="bg-success text-white">
+                                                                <v-icon class="mr-2">mdi-web</v-icon>
+                                                                Static Web UI
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <v-list>
+                                                                    <v-list-item prepend-icon="mdi-folder">HTML/CSS/JS bundle</v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-link">/ui shortcut redirect</v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-responsive">Responsive design</v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                        
+                                                        <v-img src="https://hackmd.io/_uploads/HywquNg6gl.png" class="rounded" aspect-ratio="16/9"></v-img>
+                                                        <p class="text-center mt-2"><em>Fig. 1. Overall software workflow</em></p>
+                                                    </v-col>
+                                                </v-row>
+                                                
+                                                <v-alert type="info" class="mt-4">
+                                                    The API exposes OpenAPI docs at <code>/docs</code> and provides JSON endpoints for UI and programmatic access.
+                                                </v-alert>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Model Design & Training Pipeline -->
+                            <v-expansion-panel>
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-cog</v-icon>
+                                    <span class="text-h6">Model Design & Training Pipeline</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                        <div class="text-content">
+                                            <v-row>
+                                                <v-col cols="12" md="6">
+                                                    <v-card variant="outlined" class="mb-4">
+                                                        <v-card-title class="bg-primary text-white">Dataset & Features</v-card-title>
+                                                        <v-card-text>
+                                                            <p><strong>Dataset:</strong> <code>data/polished.csv</code></p>
+                                                            <p><strong>Required columns:</strong> <code>dspb</code>, <code>dnase</code>, <code>prok</code>, <code>reaction_time</code>, <code>degrade</code></p>
+                                                            
+                                                            <v-divider class="my-3"></v-divider>
+                                                            
+                                                            <p><strong>Feature Preparation:</strong></p>
+                                                            <v-list density="compact">
+                                                                <v-list-item>• Enzyme ratios normalized to sum to 1.0</v-list-item>
+                                                                <v-list-item>• reaction_time used as numeric feature</v-list-item>
+                                                            </v-list>
+                                                            
+                                                            <p><strong>Target Handling:</strong></p>
+                                                            <v-list density="compact">
+                                                                <v-list-item>• Original scale preserved (0-100 → 0-1)</v-list-item>
+                                                            </v-list>
+                                                        </v-card-text>
+                                                    </v-card>
+                                                    
+                                                    <v-card variant="outlined">
+                                                        <v-card-title class="bg-secondary text-white">Models & Validation</v-card-title>
+                                                        <v-card-text>
+                                                            <p><strong>Models:</strong></p>
+                                                            <v-list density="compact">
+                                                                <v-list-item prepend-icon="mdi-chart-areaspline">XGBoost regressor (Primary predictor)</v-list-item>
+                                                                <v-list-item prepend-icon="mdi-chart-bell-curve">Random Forest (Uncertainty estimation)</v-list-item>
+                                                            </v-list>
+                                                            
+                                                            <p><strong>Validation & Tuning:</strong></p>
+                                                            <v-list density="compact">
+                                                                <v-list-item>• 5×5 nested cross-validation</v-list-item>
+                                                                <v-list-item>• Optuna hyperparameter optimization</v-list-item>
+                                                                <v-list-item>• Early stopping prevention</v-list-item>
+                                                            </v-list>
+                                                        </v-card-text>
+                                                    </v-card>
+                                                </v-col>
+                                                
+                                                <v-col cols="12" md="6">
+                                                    <v-img src="https://hackmd.io/_uploads/rkQRFPWpxg.png" class="rounded mb-4" aspect-ratio="16/12"></v-img>
+                                                    <p class="text-center"><em>Fig. 2. Machine learning training workflow</em></p>
+                                                    
+                                                    <v-card variant="outlined" class="mt-4">
+                                                        <v-card-title class="bg-success text-white">Interpretability & Output</v-card-title>
+                                                        <v-card-text>
+                                                            <p><strong>Model Interpretability:</strong></p>
+                                                            <v-list density="compact">
+                                                                <v-list-item prepend-icon="mdi-lightbulb">SHAP explanations</v-list-item>
+                                                                <v-list-item prepend-icon="mdi-chart-bar">Feature importance</v-list-item>
+                                                                <v-list-item prepend-icon="mdi-account">Individual predictions</v-list-item>
+                                                            </v-list>
+                                                            
+                                                            <p><strong>Training Entry Points:</strong></p>
+                                                            <v-list density="compact">
+                                                                <v-list-item prepend-icon="mdi-file-code">Script: ml-model/train.py</v-list-item>
+                                                                <v-list-item prepend-icon="mdi-export">Output: model files in ml-model/</v-list-item>
+                                                            </v-list>
+                                                        </v-card-text>
+                                                    </v-card>
+                                                </v-col>
+                                            </v-row>
+                                        </div>
+                                    </v-card>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- API Reference -->
+                            <v-expansion-panel value="biofilm-api">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-api</v-icon>
+                                    <span class="text-h6">API Reference</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="biofilm-api">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <v-row>
+                                                    <v-col cols="12" md="6">
+                                                        <v-card variant="outlined" class="mb-4">
+                                                            <v-card-title class="bg-primary text-white">Backend Package Structure</v-card-title>
+                                                            <v-card-text>
+                                                                <v-list density="compact">
+                                                                    <v-list-item prepend-icon="mdi-file-code">
+                                                                        <v-list-item-title>api/main.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>App factory, mounts /static, loads models</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-cog">
+                                                                        <v-list-item-title>api/core/config.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>Model paths and feature names</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-schema">
+                                                                        <v-list-item-title>api/core/models_io.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>Pydantic request/response schemas</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-engine">
+                                                                        <v-list-item-title>api/ml/engine.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>Model loading, predictions, uncertainty</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-target">
+                                                                        <v-list-item-title>api/optimization/optimizer.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>Optimal mixture search, suggestions</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                        
+                                                        <v-card variant="outlined">
+                                                            <v-card-title class="bg-secondary text-white">API Routers</v-card-title>
+                                                            <v-card-text>
+                                                                <v-list density="compact">
+                                                                    <v-list-item prepend-icon="mdi-heart-pulse">
+                                                                        <v-list-item-title>health.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>GET /health, GET /</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-information">
+                                                                        <v-list-item-title>misc.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>GET /training-schema-stats</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-chart-line">
+                                                                        <v-list-item-title>predict.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>POST /predict, GET /feature-importance</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-target">
+                                                                        <v-list-item-title>optimize.py</v-list-item-title>
+                                                                        <v-list-item-subtitle>POST /optimal-mix, POST /suggest-experiments</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                    
+                                                    <v-col cols="12" md="6">
+                                                        <v-card variant="outlined">
+                                                            <v-card-title class="bg-success text-white">Key JSON Endpoints</v-card-title>
+                                                            <v-card-text>
+                                                                <v-expansion-panels variant="accordion">
+                                                                    <v-expansion-panel>
+                                                                        <v-expansion-panel-title>Health & Status</v-expansion-panel-title>
+                                                                        <v-expansion-panel-text>
+                                                                            <v-list density="compact">
+                                                                                <v-list-item prepend-icon="mdi-check-circle">GET /health – Liveness probe</v-list-item>
+                                                                                <v-list-item prepend-icon="mdi-information">GET / – Status and model availability</v-list-item>
+                                                                                <v-list-item prepend-icon="mdi-chart-box">GET /training-schema-stats – UI validation ranges</v-list-item>
+                                                                            </v-list>
+                                                                        </v-expansion-panel-text>
+                                                                    </v-expansion-panel>
+                                                                    
+                                                                    <v-expansion-panel>
+                                                                        <v-expansion-panel-title>Predictions</v-expansion-panel-title>
+                                                                        <v-expansion-panel-text>
+                                                                            <v-list density="compact">
+                                                                                <v-list-item prepend-icon="mdi-chart-line">POST /predict – Mean prediction, 95% interval, uncertainty</v-list-item>
+                                                                                <v-list-item prepend-icon="mdi-chart-bar">GET /feature-importance – Feature names/values</v-list-item>
+                                                                            </v-list>
+                                                                        </v-expansion-panel-text>
+                                                                    </v-expansion-panel>
+                                                                    
+                                                                    <v-expansion-panel>
+                                                                        <v-expansion-panel-title>Optimization</v-expansion-panel-title>
+                                                                        <v-expansion-panel-text>
+                                                                            <v-list density="compact">
+                                                                                <v-list-item prepend-icon="mdi-target">POST /optimal-mix – Ratio and time recommendations</v-list-item>
+                                                                                <v-list-item prepend-icon="mdi-equal">GET /optimal-mix – Default equal-ratio mix</v-list-item>
+                                                                                <v-list-item prepend-icon="mdi-lightbulb">POST /suggest-experiments – Active learning suggestions</v-list-item>
+                                                                            </v-list>
+                                                                        </v-expansion-panel-text>
+                                                                    </v-expansion-panel>
+                                                                </v-expansion-panels>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                </v-row>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Conclusion -->
+                            <v-expansion-panel>
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-check-circle</v-icon>
+                                    <span class="text-h6">Conclusion</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                        <div class="text-content">
+                                            <v-alert type="success" class="mb-4">
+                                                <v-alert-title>Key Benefits</v-alert-title>
+                                                This tool integrates predictive modeling and experiment design into a single interface, lowering lab iteration time through immediate estimates, principled optimization, and targeted enzyme ratio suggestions.
+                                            </v-alert>
+                                            
+                                            <v-card variant="outlined" class="mt-4">
+                                                <v-card-title class="bg-info text-white">
+                                                    <v-icon class="mr-2">mdi-earth</v-icon>
+                                                    Broader Applicability
+                                                </v-card-title>
+                                                <v-card-text>
+                                                    <p>Compatible with multiple biofilm types beyond S. aureus, making it accessible for experts and other iGEM teams. The model can be further trained and improved with additional high-quality data.</p>
+                                                    
+                                                    <p>The modular design makes it straightforward to update models as new data arrive, ensuring the tool remains current and accurate.</p>
+                                                </v-card-text>
+                                            </v-card>
+                                        </div>
+                                    </v-card>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- References -->
+                            <v-expansion-panel>
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-book-open-variant</v-icon>
+                                    <span class="text-h6">References</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                        <div class="text-content">
+                                            <v-list>
+                                                <v-list-item prepend-icon="mdi-book">
+                                                    <v-list-item-title>[1] Chen, T., & Guestrin, C. (2016)</v-list-item-title>
+                                                    <v-list-item-subtitle>XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794.</v-list-item-subtitle>
+                                                </v-list-item>
+                                                
+                                                <v-list-item prepend-icon="mdi-book">
+                                                    <v-list-item-title>[2] Lundberg, S. M., & Lee, S. I. (2017)</v-list-item-title>
+                                                    <v-list-item-subtitle>A Unified Approach to Interpreting Model Predictions. Advances in Neural Information Processing Systems 30, 4765-4774.</v-list-item-subtitle>
+                                                </v-list-item>
+                                                
+                                                <v-list-item prepend-icon="mdi-book">
+                                                    <v-list-item-title>[3] Settles, B. (2009)</v-list-item-title>
+                                                    <v-list-item-subtitle>Active Learning Literature Survey. Computer Sciences Technical Report 1648, University of Wisconsin-Madison.</v-list-item-subtitle>
+                                                </v-list-item>
+                                                
+                                                <v-list-item prepend-icon="mdi-web">
+                                                    <v-list-item-title>[4] FastAPI Documentation (2024)</v-list-item-title>
+                                                    <v-list-item-subtitle>FastAPI framework, high performance, easy to learn, fast to code, ready for production. Retrieved from https://fastapi.tiangolo.com/</v-list-item-subtitle>
+                                                </v-list-item>
+                                                
+                                                <v-list-item prepend-icon="mdi-docker">
+                                                    <v-list-item-title>[5] Docker Documentation (2024)</v-list-item-title>
+                                                    <v-list-item-subtitle>Docker Compose overview. Retrieved from https://docs.docker.com/compose/.</v-list-item-subtitle>
+                                                </v-list-item>
+                                                
+                                                <v-list-item prepend-icon="mdi-book">
+                                                    <v-list-item-title>[6] Akiba, T., et al. (2019)</v-list-item-title>
+                                                    <v-list-item-subtitle>Optuna: A Next-generation Hyperparameter Optimization Framework. Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2623-2631.</v-list-item-subtitle>
+                                                </v-list-item>
+                                                
+                                                <v-list-item prepend-icon="mdi-book">
+                                                    <v-list-item-title>[7] Varma, S., & Simon, R. (2006)</v-list-item-title>
+                                                    <v-list-item-subtitle>Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.</v-list-item-subtitle>
+                                                </v-list-item>
+                                            </v-list>
+                                        </div>
+                                    </v-card>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+                        </v-expansion-panels>
+                    </div>
+
+                    <!-- Endzyme Section -->
+                    <div id="Endzyme" class="section-container scroller">
+                        <!-- Section Header with Sub-navigation -->
+                        <v-card class="ma-4 pa-6 section-header" variant="tonal" color="secondary">
+                            <v-row align="center">
+                                <v-col cols="12" md="6">
+                                    <v-card-title class="text-h3">
+                                        <v-icon size="40" class="mr-3">mdi-molecule</v-icon>
+                                        <b>Endzyme</b>
+                                    </v-card-title>
+                                    <v-card-subtitle class="text-h6">
+                                        AI-Powered Enzyme Design Pipeline
+                                    </v-card-subtitle>
+                                </v-col>
+                                <v-col cols="12" md="6">
+                                    <!-- Sub-navigation for Endzyme sections -->
+                                    <v-chip-group class="endzyme-nav" color="secondary">
+                                        <v-chip @click="scrollToSubSection('endzyme-intro')" variant="outlined">Introduction</v-chip>
+                                        <v-chip @click="scrollToSubSection('endzyme-ml')" variant="outlined">ML Model</v-chip>
+                                        <v-chip @click="scrollToSubSection('endzyme-screening')" variant="outlined">Screening</v-chip>
+                                        <v-chip @click="scrollToSubSection('endzyme-docking')" variant="outlined">Docking</v-chip>
+                                        <v-chip @click="scrollToSubSection('endzyme-usage')" variant="outlined">Usage</v-chip>
+                                        <v-chip @click="scrollToSubSection('endzyme-refs')" variant="outlined">References</v-chip>
+                                    </v-chip-group>
+                                </v-col>
+                            </v-row>
+                        </v-card>
+                        
+                        <!-- Endzyme Logo -->
+                        <v-card class="ma-4 mb-6" variant="tonal" color="secondary">
+                            <v-img src="https://static.igem.wiki/teams/6003/software/endzyme-logo.webp" aspect-ratio="16/9" class="rounded"></v-img>
+                        </v-card>
+                        
+                        <!-- Expandable Sections for Endzyme -->
+                        <v-expansion-panels class="mb-4" multiple>
+                            <!-- Introduction -->
+                            <v-expansion-panel value="endzyme-intro">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-information</v-icon>
+                                    <span class="text-h6">Introduction</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="endzyme-intro">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <v-alert type="warning" class="mb-4">
+                                                    <v-alert-title>Problem Statement</v-alert-title>
+                                                    In our wet-lab experiments, we observed that the effect of enzyme treatment was not as pronounced as expected. This can be attributed to two main factors: <strong>(1) enzyme yield</strong>, and <strong>(2) enzyme activity and binding efficiency</strong>.
+                                                </v-alert>
+                                                
+                                                <p class="text-h6 mb-4">
+                                                    To address the latter, we developed a computational pipeline aimed at optimizing enzyme activity and substrate binding efficiency.
+                                                </p>
+                                                
+                                                <v-card variant="outlined" class="mb-4">
+                                                    <v-card-title class="bg-secondary text-white">
+                                                        <v-icon class="mr-2">mdi-lightbulb</v-icon>
+                                                        Our Solution
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <p>The design and optimization of enzymes for specific functions have always been a critical aspect of biotechnology. Traditional methods for enzyme engineering are often labor-intensive, requiring iterative rounds of mutation, expression, and screening.</p>
+                                                        
+                                                        <p>In recent years, the integration of artificial intelligence (AI) and computational biology has revolutionized this process, allowing for the in silico prediction of enzyme structures, stability, and functionality.</p>
+                                                        
+                                                        <p><strong>By combining cutting-edge AI models, molecular modeling tools, and computational docking, this software provides an automated platform for novel enzyme sequence generation and efficiency analysis.</strong></p>
+                                                    </v-card-text>
+                                                </v-card>
+                                                
+                                                <v-alert type="info">
+                                                    <v-alert-title>Pipeline Overview</v-alert-title>
+                                                    The pipeline consists of two major components: <strong>(1) a machine learning model</strong>, and <strong>(2) screening and docking score-based evaluation</strong>. 
+                                                    Through this pipeline, we are able to identify and obtain a functionally improved sequence within 20 minutes.
+                                                </v-alert>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Machine Learning Model -->
+                            <v-expansion-panel value="endzyme-ml">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-brain</v-icon>
+                                    <span class="text-h6">Machine Learning Model</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="endzyme-ml">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <v-row>
+                                                    <v-col cols="12" md="8">
+                                                        <v-card variant="outlined" class="mb-4">
+                                                            <v-card-title class="bg-secondary text-white">
+                                                                <v-icon class="mr-2">mdi-brain</v-icon>
+                                                                ZymCTRL: Conditional Language Model
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <p><strong>ZymCTRL</strong> is a conditional language model for the generation of artificial functional enzymes. It was trained on the UniProt database of sequences containing (Enzyme Commission) EC annotations, comprising over <strong>37 M sequences</strong>.</p>
+                                                                
+                                                                <v-list class="mt-3">
+                                                                    <v-list-item prepend-icon="mdi-database">
+                                                                        <v-list-item-title>Training Data</v-list-item-title>
+                                                                        <v-list-item-subtitle>37M+ sequences from UniProt with EC annotations</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-target">
+                                                                        <v-list-item-title>Input</v-list-item-title>
+                                                                        <v-list-item-subtitle>User-defined Enzymatic Commission (EC) number</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-output">
+                                                                        <v-list-item-title>Output</v-list-item-title>
+                                                                        <v-list-item-subtitle>Protein sequences that fulfill the catalytic reaction</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                        
+                                                        <v-card variant="outlined" class="mb-4">
+                                                            <v-card-title class="bg-primary text-white">
+                                                                <v-icon class="mr-2">mdi-molecule</v-icon>
+                                                                ColabFold Integration
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <p><strong>ColabFold</strong> is an AlphaFold2-based module. Since AlphaFold3 currently lacks an API, we are using ColabFold to fulfill this part of the pipeline.</p>
+                                                                
+                                                                <v-list class="mt-3">
+                                                                    <v-list-item prepend-icon="mdi-tools">Tools: ZymCTRL, ColabFold</v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                    
+                                                    <v-col cols="12" md="4">
+                                                        <v-card variant="outlined">
+                                                            <v-card-title class="bg-success text-white">
+                                                                <v-icon class="mr-2">mdi-code-tags</v-icon>
+                                                                Implementation
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <p><strong>ZymCTRL Usage:</strong></p>
+                                                                <v-code class="code-block text-caption">
+generator = pipeline('text-generation', 
+    model='AI4PD/ZymCTRL')
+
 if maxLength == None:
     max_len = len(original_sequence)
 else:
     max_len = maxLength
-generated_outputs = generator("＜|endoftext|＞", max_length=max_len, num_return_sequences=num_to_generate)
+
+generated_outputs = generator(
+    "＜|endoftext|＞", 
+    max_length=max_len, 
+    num_return_sequences=num_to_generate)
+
 for output in generated_outputs:
     raw_novel_sequence = output['generated_text']
-    novel_sequence = raw_novel_sequence.replace("＜|endoftext|＞", "").replace(" ", "").strip()[:max_len]
+    novel_sequence = raw_novel_sequence.replace(
+        "＜|endoftext|＞", "").replace(" ", "").strip()[:max_len]
     candidate_sequences.append(novel_sequence)
-                                </code></pre>  
-                                </div> 
-                                <br>
-                                <v-card-subtitle id = Colabfold class="subtitle" style="font-size: 24px;">ColabFold</v-card-subtitle>
-                                <div
-                                id="ColabFold"
-                                title="ColabFold"
-                                class="text-content"
-                                >
-                                <b>ColabFold</b> is an AlphaFold2-based module. Since AlphaFold3 currently lacks an API, we are using ColabFold to fulfill this part of the pipeline.
-                                </div>
-                                <br>
-                                <div class = "text-content">
-                                    <b>How we use Colabfold</b>
-                                    <pre><code class = language-python>
-cmd = [
-        "colabfold_batch","--msa-mode", "single_sequence",       
-        str(csv_path), str(job_dir)
-    ]
-    if use_templates == "pdb100":
-        cmd.append("--templates")
-    elif use_templates == "custom" and custom_tpl_dir:
-        cmd += ["--templates", "--custom-template-path", str(Path(custom_tpl_dir).resolve())]
+                                                                </v-code>
+                                                                
+                                                                <p class="mt-3"><strong>ColabFold Usage:</strong></p>
+                                                                <v-code class="code-block text-caption">
+cmd = ["colabfold_batch",
+    "--msa-mode", "single_sequence",       
+    str(csv_path), str(job_dir)]
 
-    if amber:
-        cmd.append("--amber")
+if use_templates == "pdb100":
+    cmd.append("--templates")
+elif use_templates == "custom" and custom_tpl_dir:
+    cmd += ["--templates", "--custom-template-path", 
+        str(Path(custom_tpl_dir).resolve())]
 
-    if isinstance(models, int):
-        cmd += ["--num-models", str(models)]   
-    if isinstance(recycles, int):
-        cmd += ["--num-recycle", str(recycles)]  
+if amber:
+    cmd.append("--amber")
 
-    return cmd
-                                    </code></pre>   
+if isinstance(models, int):
+    cmd += ["--num-models", str(models)]   
+if isinstance(recycles, int):
+    cmd += ["--num-recycle", str(recycles)]
+                                                                </v-code>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                </v-row>
+                                            </div>
+                                        </v-card>
                                     </div>
-                                    <br>   
-                                    <v-card-subtitle id = ML-Tools class='subtitle' style="font-size: 24px;">Tools</v-card-subtitle>
-                                    <div
-                                    id="Tools"
-                                    title="Tools"
-                                    class="text-content"
-                                    >
-                                    - Zymctrl<br>
-                                    - Colabfold
-                                    </div>
-                        </v-card>                                
-                        <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Screening'>
-                                <v-card-title style="font-size: 32px;"><b>Screening</b></v-card-title>
-                                <div
-                                id="Screening"
-                                title="Screening"
-                                class="text-content"
-                                >
-We use <b>mmseqs2</b> as our selection mechanism, utilizing UniProt/SwissProt as our database. Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein. We also check the homology to ensure that the protein can successfully fold into its tertiary structure. In our project, we generate 110 novel sequences by using Dnase1 as the template. We use homology to predict the function of the protein, identify stable structures that are similar, and further confirm its function using AutoDock.                                </div>
-                                <br>
-                                <div class="text-content">
-                                    <b>How we use the mmseqs2</b>
-                                <pre><code class = language-bash>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Screening -->
+                            <v-expansion-panel value="endzyme-screening">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-filter</v-icon>
+                                    <span class="text-h6">Screening</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="endzyme-screening">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <v-card variant="outlined" class="mb-4">
+                                                    <v-card-title class="bg-secondary text-white">
+                                                        <v-icon class="mr-2">mdi-filter-variant</v-icon>
+                                                        Screening Process
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <p>After generating candidate enzyme sequences, we employ a comprehensive screening pipeline to identify the most promising variants. We use <strong>mmseqs2</strong> as our selection mechanism, utilizing UniProt/SwissProt as our database.</p>
+                                                        
+                                                        <v-alert type="info" class="my-4">
+                                                            Considering that artificial proteins may not be stable or reliable enough, we employ mmseqs2 to ensure the functionality and accuracy of the protein.
+                                                        </v-alert>
+                                                        
+                                                        <v-row class="mt-4">
+                                                            <v-col cols="12" md="6">
+                                                                <v-card variant="outlined">
+                                                                    <v-card-title class="bg-primary text-white">
+                                                                        <v-icon class="mr-2">mdi-database</v-icon>
+                                                                        Database Search
+                                                                    </v-card-title>
+                                                                    <v-card-text>
+                                                                        <v-list>
+                                                                            <v-list-item prepend-icon="mdi-database">
+                                                                                <v-list-item-title>Reference Database</v-list-item-title>
+                                                                                <v-list-item-subtitle>UniProt/SwissProt</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                            <v-list-item prepend-icon="mdi-tools">
+                                                                                <v-list-item-title>Search Tool</v-list-item-title>
+                                                                                <v-list-item-subtitle>MMseqs2 sequence search</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                            <v-list-item prepend-icon="mdi-target">
+                                                                                <v-list-item-title>Purpose</v-list-item-title>
+                                                                                <v-list-item-subtitle>Functionality validation</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                        </v-list>
+                                                                    </v-card-text>
+                                                                </v-card>
+                                                            </v-col>
+                                                            
+                                                            <v-col cols="12" md="6">
+                                                                <v-card variant="outlined">
+                                                                    <v-card-title class="bg-success text-white">
+                                                                        <v-icon class="mr-2">mdi-code-brackets</v-icon>
+                                                                        Implementation
+                                                                    </v-card-title>
+                                                                    <v-card-text>
+                                                                        <p><strong>MMseqs2 Usage:</strong></p>
+                                                                        <v-code class="code-block text-caption">
 mmseqs search input.fasta ./swissprot result tmp
 
 mmseqs createtsv query.fasta ./swissprot result result.tsv
-                                </code></pre> 
-                                </div>
-                                <br>
-                                <v-card-subtitle id = Screening-Tools class = 'subtitle' style="font-size: 24px;">Tools</v-card-subtitle>
-                                <div
-                                id="Tools"
-                                title="Tools"
-                                class="text-content"
-                                >
-                                - mmseqs2
-                                </div>
-                        </v-card>
-                        <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Docking'>
-                                <v-card-title style="font-size: 32px;"><b>Docking</b></v-card-title>
-                                <div
-                                id="Docking"
-                                title="Docking"
-                                class="text-content"
-                                >
-                                In our project, we use <b>AutoDock Vina</b> to optimize the performance of proteins by evaluating their interactions with small molecules. Due to a limitation of AutoDock Vina, we are unable to use polymers as docking targets. As a result, we have chosen to utilize monomers as our docking targets.
-Furthermore, our goal is to make this software accessible to the broader scientific community. To achieve this, we have developed a Python script that automatically calculates the grid box, streamlining the docking process and enhancing the usability of the software for users without requiring manual configuration.
-                                </div>
-                                <br>
-                                <div class="text-content">
-                                <b>How we automatically set our gridbox in the pipeline</b>
-                                <pre><code class = language-python>
+                                                                        </v-code>
+                                                                        
+                                                                        <p class="mt-3"><strong>Filtering Criteria:</strong></p>
+                                                                        <v-list density="compact">
+                                                                            <v-list-item prepend-icon="mdi-percent">E-value threshold</v-list-item>
+                                                                            <v-list-item prepend-icon="mdi-chart-line">Sequence identity</v-list-item>
+                                                                            <v-list-item prepend-icon="mdi-ruler">Coverage percentage</v-list-item>
+                                                                        </v-list>
+                                                                    </v-card-text>
+                                                                </v-card>
+                                                            </v-col>
+                                                        </v-row>
+                                                    </v-card-text>
+                                                </v-card>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+
+                            <!-- Docking -->
+                            <v-expansion-panel value="endzyme-docking">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-puzzle</v-icon>
+                                    <span class="text-h6">Molecular Docking</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="endzyme-docking">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <v-card variant="outlined" class="mb-4">
+                                                    <v-card-title class="bg-secondary text-white">
+                                                        <v-icon class="mr-2">mdi-puzzle</v-icon>
+                                                        Docking Analysis Pipeline
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <p>In our project, we use <strong>AutoDock Vina</strong> to optimize the performance of proteins by evaluating their interactions with small molecules. Due to a limitation of AutoDock Vina, we are unable to use polymers as docking targets. As a result, we have chosen to utilize monomers as our docking targets.</p>
+                                                        
+                                                        <v-alert type="warning" class="my-4">
+                                                            <v-alert-title>Important Note</v-alert-title>
+                                                            AutoDock Vina limitation: Cannot use polymers as docking targets, so we utilize monomers instead.
+                                                        </v-alert>
+                                                        
+                                                        <v-row class="mt-4">
+                                                            <v-col cols="12" md="6">
+                                                                <v-card variant="outlined">
+                                                                    <v-card-title class="bg-primary text-white">
+                                                                        <v-icon class="mr-2">mdi-tools</v-icon>
+                                                                        Docking Tools
+                                                                    </v-card-title>
+                                                                    <v-card-text>
+                                                                        <v-list>
+                                                                            <v-list-item prepend-icon="mdi-auto-fix">
+                                                                                <v-list-item-title>AutoDock Vina</v-list-item-title>
+                                                                                <v-list-item-subtitle>Primary docking engine</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                            <v-list-item prepend-icon="mdi-cube-outline">
+                                                                                <v-list-item-title>PyMOL</v-list-item-title>
+                                                                                <v-list-item-subtitle>Structure processing & gridbox setup</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                            <v-list-item prepend-icon="mdi-chemistry">
+                                                                                <v-list-item-title>Target</v-list-item-title>
+                                                                                <v-list-item-subtitle>Monomer molecules</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                        </v-list>
+                                                                    </v-card-text>
+                                                                </v-card>
+                                                            </v-col>
+                                                            
+                                                            <v-col cols="12" md="6">
+                                                                <v-card variant="outlined">
+                                                                    <v-card-title class="bg-success text-white">
+                                                                        <v-icon class="mr-2">mdi-chart-line</v-icon>
+                                                                        Scoring Metrics
+                                                                    </v-card-title>
+                                                                    <v-card-text>
+                                                                        <v-list>
+                                                                            <v-list-item prepend-icon="mdi-thermometer">
+                                                                                <v-list-item-title>Binding Energy (ΔG)</v-list-item-title>
+                                                                                <v-list-item-subtitle>kcal/mol</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                            <v-list-item prepend-icon="mdi-cube-scan">
+                                                                                <v-list-item-title>Grid Box</v-list-item-title>
+                                                                                <v-list-item-subtitle>Automated generation</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                            <v-list-item prepend-icon="mdi-target">
+                                                                                <v-list-item-title>Binding Site</v-list-item-title>
+                                                                                <v-list-item-subtitle>Active site targeting</v-list-item-subtitle>
+                                                                            </v-list-item>
+                                                                        </v-list>
+                                                                    </v-card-text>
+                                                                </v-card>
+                                                            </v-col>
+                                                        </v-row>
+                                                    </v-card-text>
+                                                </v-card>
+                                                
+                                                <v-card variant="outlined">
+                                                    <v-card-title class="bg-warning text-white">
+                                                        <v-icon class="mr-2">mdi-code-brackets</v-icon>
+                                                        Automated Grid Box Setup
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <p><strong>How we automatically set our gridbox in the pipeline:</strong></p>
+                                                        <v-code class="code-block">
 from pymol import cmd
 import sys
 
 ligand_input_file = sys.argv[1]
 receptor_input_file = sys.argv[2]
 
-def get_gridbox(selection="binding_site", receptor=receptor_input_file, ligand_file=ligand_input_file, exhaustiveness=16, output_conf="conf.txt"):
-    """
-    Calculate grid box from selection and write Vina config file
-    """
+def get_gridbox(selection="binding_site", 
+               receptor=receptor_input_file, 
+               ligand_file=ligand_input_file, 
+               exhaustiveness=16, 
+               output_conf="conf.txt"):
+    
     min_coord, max_coord = cmd.get_extent(selection)
     center = [(min_coord[i] + max_coord[i]) / 2 for i in range(3)]
     size = [max_coord[i] - min_coord[i] for i in range(3)]
-
-    print("Grid Box Center (center_x, center_y, center_z):")
-    print(f"{center[0]:.3f} {center[1]:.3f} {center[2]:.3f}")
-    print("Grid Box Size (size_x, size_y, size_z):")
-    print(f"{size[0]:.3f} {size[1]:.3f} {size[2]:.3f}")
-
+    
     with open(output_conf, "w") as f:
         f.write(f"receptor = {receptor}\n")
         f.write(f"ligand = {ligand_file}\n")
         f.write(f"center_x = {center[0]:.3f}\n")
         f.write(f"center_y = {center[1]:.3f}\n")
         f.write(f"center_z = {center[2]:.3f}\n")
-        f.write(f"size_x = {size[0]:.3f}\n")
-        f.write(f"size_y = {size[1]:.3f}\n")
-        f.write(f"size_z = {size[2]:.3f}\n")
-        f.write(f"out = vina_out.pdbqt\n")
-        f.write(f"log = vina_log.txt\n")
-        f.write(f"exhaustiveness = {exhaustiveness}\n")
-
-# === PyMOL Command-line Execution ===
-cmd.load(receptor_input_file, "receptor")
-cmd.load(ligand_input_file, "ligand")
-
-
-cmd.select("binding_site", "ligand around 10")
-
-
-get_gridbox()
-                                </code></pre>
-                                </div>
-                                <br>
-                        <v-card-subtitle id = Docking-Result class = 'subtitle' style="font-size: 24px;">DockingResult</v-card-subtitle>
-                        <v-card-title style="font-size: 24px;">Manual calculate gridbox</v-card-title>
-                                            <v-img src = 'https://static.igem.wiki/teams/6003/software/dsp-bs-artificial.webp' />
-                                            <div
-                                            class="text-content"
-                                            >
-                                            <br>
-                                            - <b>Fig 1</b>. According to Role of active-site residues of dispersin B, a biofilm-releasing β-hexosaminidase from a periodontal pathogen, in substrate hydrolysis, We select the docking site of DspersinB 
+                                                        </v-code>
+                                                    </v-card-text>
+                                                </v-card>
                                             </div>
-                                            <br>
-                                            <v-img src = 'https://static.igem.wiki/teams/6003/software/dspb-gridbox-artificial.webp' />
-                                            <br>
-                                            <div
-                                            class="text-content"
-                                            >
-                                            - <b>Fig 2</b>. manual adjust the gridbox
-                                            </div>
-                                            <div class='two-column-layout'>
-                                        <v-card-title style="font-size: 24px;">Manual</v-card-title>
-                                        <pre><code class = language-bash>
-mode |   affinity | dist from best mode
-     | (kcal/mol) | rmsd l.b.| rmsd u.b.
------+------------+----------+----------
-   1         -5.7      0.000      0.000
-   2         -5.5      1.433      2.844
-   3         -5.4     11.919     13.642
-   4         -5.4      1.941      4.863
-   5         -5.4      2.771      5.359
-   6         -5.4     25.826     26.550
-   7         -5.2      2.162      2.945
-   8         -5.2      9.677     11.046
-   9         -5.1     16.039     17.013
-Writing output ... done. 
-                                        </code></pre>
-                                        <v-card-title style="font-size: 24px;">Auto version</v-card-title>
-                                        <pre><code class = language-bash>
-mode |   affinity | dist from best mode
-     | (kcal/mol) | rmsd l.b.| rmsd u.b.
------+------------+----------+----------
-   1         -5.2      0.000      0.000
-   2         -5.0      1.341      2.641
-   3         -4.9      1.834      5.380
-   4         -4.7      2.187      4.892
-   5         -4.7      2.067      3.117
-   6         -4.7      1.938      5.493
-   7         -4.4      2.044      2.586
-   8         -4.1      1.590      1.674
-   9         -4.1      2.071      2.456
-Writing output ... done.                        
-                                        </code></pre>
-                                        </div>
-                                        <br>
-                                        <img src="https://static.igem.wiki/teams/6003/software/docking-result.webp" style="width: 100%; height: 100%; object-fit: contain;"/>
-                                        <br>
-                                        <div
-                                            class="text-content"
-                                            >
-                                            - <b>Fig 4</b>. Average of docking score
-                                        </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
 
-                                        <img src="https://static.igem.wiki/teams/6003/software/artificial-docking.webp"/>
-                                        <br>
-                                        <div
-                                            class="text-content"
-                                            >
-                                            - <b>Fig 5</b>. Result of manual autodocking
-                                        </div>
-                                        <img src="https://static.igem.wiki/teams/6003/software/pipline-docking.webp" />
-                                        <div
-                                            class="text-content"
-                                            >
-                                            - <b>Fig 6</b>. Result of pipline docking
-                                        </div>
-
-                        </v-card>
-                        <br>                 
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Result'>
-                        <v-card-title style="font-size: 32px;"><b>Result</b></v-card-title>                                  
-                                
-                                <div class="text-content">
-                                <b>How we use the mmseqs2</b>
-                                <pre><code class = language-bash>
-mmseqs search input.fasta ./swissprot result tmp
-
-mmseqs createtsv query.fasta ./swissprot result result.tsv
-                                </code></pre>  
-                                </div> 
-                                <v-card-title style="font-size: 24px;">Tools</v-card-title>
-
-                                <div
-                                id="Tools"
-                                title="Tools"
-                                class="text-content"
-                                >
-                                - mmseqs2
-                                </div> 
-                        </v-card>
-                        <br> 
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Usage>
-                                <v-card-title style="font-size: 32px;"><b>How to use this software</b></v-card-title>
-                                    <a href="https://github.com/iGEM-NCKU/endzyme">&nbsp;&nbsp;&nbsp;&nbsp;This is Our Github page</a>
-                                <v-card-title style="font-size: 32px;">Usage</v-card-title>
-                                <div
-                                id="Using"
-                                title="Using"
-                                class="text-content"
-                                >
-                                We Strongly recommand you to use read the readme file in our github first.
-                                </div>
-                                 <div
-                                class="text-content"
-                                >
-                                <br>
-                                <b>Important:</b> To ensure proper functionality, the server stack must be started in the following order: <b>Gunicorn → Nginx</b>.
-                                </div>
-                                <v-card-title id = Environment-Setup class = 'subtitle' style="font-size: 24px;"><b>1. Environment Setup</b></v-card-title>
-                                <div
-                                class="text-content">
-                                    1. Create a Python environment (recommended: <i>conda</i> or <i>venv</i>):
-                                <pre><code class = language-bash    >
+                            <!-- Usage -->
+                            <v-expansion-panel value="endzyme-usage">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-play-circle</v-icon>
+                                    <span class="text-h6">Usage & Installation</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="endzyme-usage">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <v-alert type="info" class="mb-4">
+                                                    <v-alert-title>
+                                                        <v-icon class="mr-2">mdi-github</v-icon>
+                                                        GitHub Repository
+                                                    </v-alert-title>
+                                                    <a href="https://github.com/iGEM-NCKU/endzyme" target="_blank" class="text-decoration-none">
+                                                        Visit our GitHub page for complete documentation
+                                                    </a>
+                                                    <p class="mt-2 mb-0">We strongly recommend you read the README file in our GitHub first.</p>
+                                                </v-alert>
+                                                
+                                                <v-card variant="outlined" class="mb-4">
+                                                    <v-card-title class="bg-secondary text-white">
+                                                        <v-icon class="mr-2">mdi-download</v-icon>
+                                                        Installation Steps
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <v-stepper non-linear>
+                                                            <v-stepper-header>
+                                                                <v-stepper-item value="1" title="Environment">
+                                                                    <template v-slot:icon>
+                                                                        <v-icon>mdi-cog</v-icon>
+                                                                    </template>
+                                                                </v-stepper-item>
+                                                                <v-divider></v-divider>
+                                                                <v-stepper-item value="2" title="Clone">
+                                                                    <template v-slot:icon>
+                                                                        <v-icon>mdi-download</v-icon>
+                                                                    </template>
+                                                                </v-stepper-item>
+                                                                <v-divider></v-divider>
+                                                                <v-stepper-item value="3" title="Run">
+                                                                    <template v-slot:icon>
+                                                                        <v-icon>mdi-play</v-icon>
+                                                                    </template>
+                                                                </v-stepper-item>
+                                                            </v-stepper-header>
+                                                            
+                                                            <v-stepper-window>
+                                                                <v-stepper-window-item value="1">
+                                                                    <v-card variant="outlined">
+                                                                        <v-card-title>Environment Setup</v-card-title>
+                                                                        <v-card-text>
+                                                                            <v-code class="code-block">
 conda create -n endzyme python=3.10
 conda activate endzyme
-                                </code></pre>                 
-                                2. Install dependencies:      
-                                <pre><code class = language-bash    >
 pip install -r requirements.txt
-                                </code></pre>
-                                3. Ensure <i>nginx</i> and <i>gunicorn</i> are installed and accessible:
-                                <pre><code class = language-bash    >
-sudo apt install nginx
-pip install gunicorn
-                                </code></pre>
-                                </div>
-                                <v-card-title id = Run-Flask-via-Gunicorn class = 'subtitle' style="font-size: 24px;"><b>2. Run Flask via Gunicorn</b></v-card-title>
-                                <div
-                                class = "text-content">
-                                git clone our repo
-                                <pre><code class = language-bash >
+                                                                            </v-code>
+                                                                        </v-card-text>
+                                                                    </v-card>
+                                                                </v-stepper-window-item>
+                                                                
+                                                                <v-stepper-window-item value="2">
+                                                                    <v-card variant="outlined">
+                                                                        <v-card-title>Clone Repository</v-card-title>
+                                                                        <v-card-text>
+                                                                            <v-code class="code-block">
 git clone https://github.com/iGEM-NCKU/endzyme.git
-                                </code></pre>    
-                                Navigate to the project root:
-                                <pre><code class = language-bash >
+cd endzyme
+                                                                            </v-code>
+                                                                        </v-card-text>
+                                                                    </v-card>
+                                                                </v-stepper-window-item>
+                                                                
+                                                                <v-stepper-window-item value="3">
+                                                                    <v-card variant="outlined">
+                                                                        <v-card-title>Run Flask via Gunicorn</v-card-title>
+                                                                        <v-card-text>
+                                                                            <v-code class="code-block">
 cd /home/path/to/root
-                                </code></pre>
-                                Start Gunicorn (example: 4 workers, listening on port 8001):
-                                <pre><code class = language-bash >
 gunicorn -w 4 -b 127.0.0.1:8001 main:app
-                                </code></pre>
-                                </div>
-                                <v-card-title  id = Configure-and-Start-Nginx class = 'subtitle' style="font-size: 24px;"><b>3. Configure and Start Nginx</b></v-card-title>
-                                <div
-                                class = "text-content">
-                                <pre><code class = "language-nginx">
-upstream endzyme {
-    server 127.0.0.1:8001;
-}
+                                                                            </v-code>
+                                                                        </v-card-text>
+                                                                    </v-card>
+                                                                </v-stepper-window-item>
+                                                            </v-stepper-window>
+                                                        </v-stepper>
+                                                    </v-card-text>
+                                                </v-card>
+                                                
+                                                <v-alert type="warning" class="mb-4">
+                                                    <v-alert-title>Important Startup Order</v-alert-title>
+                                                    To ensure proper functionality, the server stack must be started in the following order: <strong>Gunicorn → Nginx</strong>.
+                                                </v-alert>
+                                                
+                                                <v-row>
+                                                    <v-col cols="12" md="6">
+                                                        <v-card variant="outlined">
+                                                            <v-card-title class="bg-primary text-white">
+                                                                <v-icon class="mr-2">mdi-server</v-icon>
+                                                                Server Configuration
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <v-list>
+                                                                    <v-list-item prepend-icon="mdi-language-python">
+                                                                        <v-list-item-title>Flask Application</v-list-item-title>
+                                                                        <v-list-item-subtitle>main:app entry point</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-worker">
+                                                                        <v-list-item-title>Gunicorn Workers</v-list-item-title>
+                                                                        <v-list-item-subtitle>4 worker processes</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-web">
+                                                                        <v-list-item-title>Bind Address</v-list-item-title>
+                                                                        <v-list-item-subtitle>127.0.0.1:8001</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                    
+                                                    <v-col cols="12" md="6">
+                                                        <v-card variant="outlined">
+                                                            <v-card-title class="bg-success text-white">
+                                                                <v-icon class="mr-2">mdi-package-variant</v-icon>
+                                                                Dependencies
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <v-list>
+                                                                    <v-list-item prepend-icon="mdi-language-python">
+                                                                        <v-list-item-title>Python 3.10</v-list-item-title>
+                                                                        <v-list-item-subtitle>Base environment</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-brain">
+                                                                        <v-list-item-title>Transformers</v-list-item-title>
+                                                                        <v-list-item-subtitle>ZymCTRL model support</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-dna">
+                                                                        <v-list-item-title>BioPython</v-list-item-title>
+                                                                        <v-list-item-subtitle>Sequence analysis</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                </v-row>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
 
-server {
-    listen 80;
-    server_name _;
-    root /home/path/to/root;
+                            <!-- References -->
+                            <v-expansion-panel value="endzyme-refs">
+                                <v-expansion-panel-title>
+                                    <v-icon class="mr-3">mdi-book-open</v-icon>
+                                    <span class="text-h6">References</span>
+                                </v-expansion-panel-title>
+                                <v-expansion-panel-text>
+                                    <div id="endzyme-refs">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                                <v-card variant="outlined" class="mb-4">
+                                                    <v-card-title class="bg-secondary text-white">
+                                                        <v-icon class="mr-2">mdi-library</v-icon>
+                                                        Scientific References
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <v-list class="references-list">
+                                                            <v-list-item class="reference-item">
+                                                                <v-list-item-content>
+                                                                    <v-list-item-title class="text-subtitle-1">
+                                                                        <strong>1. Structural Analysis of Dispersin B</strong>
+                                                                    </v-list-item-title>
+                                                                    <v-list-item-subtitle class="text-body-2 mt-2">
+                                                                        Ramasubbu, N., Thomas, L.M., Ragunath, C., Kaplan, J.B. (2005). Structural Analysis of Dispersin B, a Biofilm-releasing Glycoside Hydrolase from the Periodontopathogen Actinobacillus actinomycetemcomitans. <em>Journal of Molecular Biology</em>, 349.
+                                                                    </v-list-item-subtitle>
+                                                                    <v-chip size="small" color="primary" class="mt-2">Dispersin B Structure</v-chip>
+                                                                </v-list-item-content>
+                                                            </v-list-item>
+                                                            
+                                                            <v-divider class="my-3"></v-divider>
+                                                            
+                                                            <v-list-item class="reference-item">
+                                                                <v-list-item-content>
+                                                                    <v-list-item-title class="text-subtitle-1">
+                                                                        <strong>2. Conditional language models enable efficient enzyme design</strong>
+                                                                    </v-list-item-title>
+                                                                    <v-list-item-subtitle class="text-body-2 mt-2">
+                                                                        Geraldene Munsamy, Ramiro Illanes-Vicioso, Silvia Funcillo, Ioanna T. Nakou, Sebastian Lindner, Gavin Ayres, Lesley S. Sheehan, Steven Moss, Ulrich Eckhard, Philipp Lorenz, Noelia Ferruz. (2024). Conditional language models enable the efficient design of proficient enzymes. <em>bioRxiv</em>.
+                                                                    </v-list-item-subtitle>
+                                                                    <v-chip size="small" color="primary" class="mt-2">ZymCTRL Model</v-chip>
+                                                                </v-list-item-content>
+                                                            </v-list-item>
+                                                            
+                                                            <v-divider class="my-3"></v-divider>
+                                                            
+                                                            <v-list-item class="reference-item">
+                                                                <v-list-item-content>
+                                                                    <v-list-item-title class="text-subtitle-1">
+                                                                        <strong>3. ColabFold: Making protein folding accessible to all</strong>
+                                                                    </v-list-item-title>
+                                                                    <v-list-item-subtitle class="text-body-2 mt-2">
+                                                                        Mirdita M, Schütze K, Moriwaki Y, Heo L, Ovchinnikov S and Steinegger M. (2022). ColabFold: Making protein folding accessible to all. <em>Nature Methods</em>.
+                                                                    </v-list-item-subtitle>
+                                                                    <v-chip size="small" color="primary" class="mt-2">DOI: 10.1038/s41592-022-01488-1</v-chip>
+                                                                </v-list-item-content>
+                                                            </v-list-item>
+                                                            
+                                                            <v-divider class="my-3"></v-divider>
+                                                            
+                                                            <v-list-item class="reference-item">
+                                                                <v-list-item-content>
+                                                                    <v-list-item-title class="text-subtitle-1">
+                                                                        <strong>4. AutoDock Vina: Improving docking speed and accuracy</strong>
+                                                                    </v-list-item-title>
+                                                                    <v-list-item-subtitle class="text-body-2 mt-2">
+                                                                        Trott, O., & Olson, A. J. (2010). AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading. <em>Journal of Computational Chemistry</em>, 31(2), 455-461.
+                                                                    </v-list-item-subtitle>
+                                                                    <v-chip size="small" color="primary" class="mt-2">DOI: 10.1002/jcc.21334</v-chip>
+                                                                </v-list-item-content>
+                                                            </v-list-item>
+                                                            
+                                                            <v-divider class="my-3"></v-divider>
+                                                            
+                                                            <v-list-item class="reference-item">
+                                                                <v-list-item-content>
+                                                                    <v-list-item-title class="text-subtitle-1">
+                                                                        <strong>5. MMseqs2: Ultra-fast sequence search and clustering</strong>
+                                                                    </v-list-item-title>
+                                                                    <v-list-item-subtitle class="text-body-2 mt-2">
+                                                                        Steinegger, M., & Söding, J. (2017). MMseqs2 enables sensitive protein sequence searching for the analysis of massive data sets. <em>Nature Biotechnology</em>, 35(11), 1026-1028.
+                                                                    </v-list-item-subtitle>
+                                                                    <v-chip size="small" color="primary" class="mt-2">DOI: 10.1038/nbt.3988</v-chip>
+                                                                </v-list-item-content>
+                                                            </v-list-item>
+                                                        </v-list>
+                                                    </v-card-text>
+                                                </v-card>
+                                                
+                                                <v-row>
+                                                    <v-col cols="12" md="6">
+                                                        <v-card variant="outlined">
+                                                            <v-card-title class="bg-primary text-white">
+                                                                <v-icon class="mr-2">mdi-tools</v-icon>
+                                                                Software Tools
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <v-list>
+                                                                    <v-list-item prepend-icon="mdi-brain">
+                                                                        <v-list-item-title>ZymCTRL</v-list-item-title>
+                                                                        <v-list-item-subtitle>AI4PD/ZymCTRL</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-molecule">
+                                                                        <v-list-item-title>ColabFold</v-list-item-title>
+                                                                        <v-list-item-subtitle>Structure prediction</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-auto-fix">
+                                                                        <v-list-item-title>AutoDock Vina</v-list-item-title>
+                                                                        <v-list-item-subtitle>Molecular docking</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-database">
+                                                                        <v-list-item-title>MMseqs2</v-list-item-title>
+                                                                        <v-list-item-subtitle>Sequence search</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                    
+                                                    <v-col cols="12" md="6">
+                                                        <v-card variant="outlined">
+                                                            <v-card-title class="bg-success text-white">
+                                                                <v-icon class="mr-2">mdi-code-tags</v-icon>
+                                                                Programming Frameworks
+                                                            </v-card-title>
+                                                            <v-card-text>
+                                                                <v-list>
+                                                                    <v-list-item prepend-icon="mdi-language-python">
+                                                                        <v-list-item-title>Python</v-list-item-title>
+                                                                        <v-list-item-subtitle>Core language</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-web">
+                                                                        <v-list-item-title>Flask</v-list-item-title>
+                                                                        <v-list-item-subtitle>Web framework</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-fire">
+                                                                        <v-list-item-title>PyTorch</v-list-item-title>
+                                                                        <v-list-item-subtitle>ML framework</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                    <v-list-item prepend-icon="mdi-dna">
+                                                                        <v-list-item-title>BioPython</v-list-item-title>
+                                                                        <v-list-item-subtitle>Bioinformatics</v-list-item-subtitle>
+                                                                    </v-list-item>
+                                                                </v-list>
+                                                            </v-card-text>
+                                                        </v-card>
+                                                    </v-col>
+                                                </v-row>
+                                                
+                                                <v-card variant="outlined" class="mt-4">
+                                                    <v-card-title class="bg-info text-white">
+                                                        <v-icon class="mr-2">mdi-heart</v-icon>
+                                                        Acknowledgments
+                                                    </v-card-title>
+                                                    <v-card-text>
+                                                        <p class="text-body-1">
+                                                            We thank the developers of ZymCTRL, ColabFold, AutoDock Vina, and MMseqs2 for making their tools freely available to the research community. Special appreciation goes to the open-source community that enables cutting-edge computational biology research.
+                                                        </p>
+                                                        <p class="text-body-1 mt-3">
+                                                            This work leverages state-of-the-art AI and computational methods to advance enzyme engineering and design.
+                                                        </p>
+                                                    </v-card-text>
+                                                </v-card>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                                </v-expansion-panel-text>
+                            </v-expansion-panel>
+                        </v-expansion-panels>
+                    </div>
 
-    location /static/ {
-        alias /home/path/to/root/static/;
-    }
-
-    location /api/ {
-        proxy_pass http://endzyme;
-        proxy_connect_timeout 600s;
-        proxy_send_timeout 600s;
-        proxy_read_timeout 600s;
-    }
-}
-                                </code></pre>
-                                <br>
-                                Then restart Nginx:
-                                <br>
-                            <pre><code class = "language-bash">
-sudo nginx -t        # test configuration
-sudo nginx -s reload
-                            </code></pre>
-                            <br>
-                            Now the Endzyme frontend and API are available at <b><i>http://&lt;server-ip&gt;/</i></b>.
-                            </div>
-                            </v-card>
-                            <br>
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Reference>
-                                <v-card-title style="font-size: 32px;">Reference</v-card-title>
-                                <div
-                                id="Reference"
-                                title="Reference"
-                                class="text-content"
-                                >
-                                <p>
-                                1. <b>Structural Analysis of Dispersin B, a Biofilm-releasing Glycoside Hydrolase from the Periodontopathogen Actinobacillus actinomycetemcomitans.</b> Ramasubbu, N., Thomas, L.M., Ragunath, C., Kaplan, J.B.(2005) J Mol Biology 349
-                                </p>
-                                <p>
-                                2. <b>What can be done with a good crystal and an accurate beamline?</b> Wang, J., Dauter, M., Dauter, Z.(2006) Acta Crystallogr D Biol Crystallogr 62
-                                </p>
-                                <p>
-                                3. <b>The Structure of Human DNase I Bound to Magnesium and Phosphate Ions Points to a Catalytic Mechanism Common to Members of the DNase I-Like Superfamily.</b> Parsiegla, G., Noguere, C., Santell, L., Lazarus, R.A., Bourne, Y.(2012) Biochemistry 51: 10250
-                                </p>
-                                <p>
-                                4. <b>Conditional language models enable the efficient design of proficient enzymes</b>  Geraldene Munsamy, Ramiro Illanes-Vicioso, Silvia Funcillo, Ioanna T. Nakou, Sebastian Lindner, Gavin Ayres, Lesley S. Sheehan, Steven Moss, Ulrich Eckhard, Philipp Lorenz, Noelia Ferruz(2024), biorxiv
-                                </p>
-                                <p>
-                                5. <b>ColabFold: Making protein folding accessible to all.</b> Mirdita M, Schütze K, Moriwaki Y, Heo L, Ovchinnikov S and Steinegger M.(2022) Nature Methods
-                                </p>
-                                <p>
-                                6. <b>Highly accurate protein structure prediction with AlphaFold.</b> Jumper et al.(2021) Nature 
-                                </p>
-                                <p>
-                                7. <b>MMseqs2 enables sensitive protein sequence searching for the analysis of massive data sets.</b> Steinegger M and Soeding J, (2017)Nature Biotechnology.
-                                </p>
-                                <p>
-                                8. <b>AutoDock Vina 1.2.0: New Docking Methods, Expanded Force Field, and Python Bindings.</b> J. Eberhardt, D. Santos-Martins, A. F. Tillack, and S. Forli. (2021). Journal of Chemical Information and Modeling.
-                                </p>
-                                <p>
-                                9. <b>AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization and multithreading</b>O. Trott, A. J. Olson, (2010) Journal of Computational Chemistry 31 
-                                </p>
-                                <p>
-                                10. <b>Role of active-site residues of dispersin B, a biofilm-releasing β-hexosaminidase from a periodontal pathogen, in substrate hydrolysis</b>Suba G. A. Manuel, Chandran Ragunath, Hameetha B. R. Sait, Era A. Izano, Jeffrey B. Kaplan, Narayanan Ramasubbu.(2007). The FBES journal, Volume274, Issue22
-                                </p>
-                                </div>
-                        </v-card>
-                        </v-col>
-                    <v-col cols = 1 />
-                </v-row>
-                
+                </v-col>
+                <v-col cols="1" />
+            </v-row>
         </v-main>
     </v-app>
     
@@ -440,7 +1484,6 @@ import $ from 'jquery'
 import M from 'materialize-css'
 import hljs from 'highlight.js'
 import '@/styles/code.css'
-
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
@@ -474,12 +1517,7 @@ export default {
         M.AutoInit();
         setTimeout(() => {
             this.loading = false;
-        }, 100),
-        fetch('/drylab/endzyme.md')     
-            .then(res => res.text())
-            .then(text => {
-            this.endzyme = text
-        });
+        }, 100);
         hljs.highlightAll();
     },
     methods: {
@@ -490,6 +1528,35 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+        },
+        scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        },
+        scrollToSubSection(subsectionId) {
+            const element = document.getElementById(subsectionId);
+            if (element) {
+                // First scroll to the main section to ensure it's visible
+                const parentSection = element.closest('.section-container');
+                if (parentSection) {
+                    parentSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Then scroll to the specific subsection with a small delay
+                setTimeout(() => {
+                    element.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }, 500);
+            }
         }
     },
 }
@@ -497,15 +1564,25 @@ export default {
 
 <style>
 * {
-  transition: 1s all;
+  transition: 0.3s all;
 }
 .blur {
   z-index: 10;
   background-color: rgba(255, 255, 255, .75);
   backdrop-filter: blur(5px);
   position: absolute;
-
 }
+
+/* Tool Cards with hover effect */
+.tool-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tool-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+}
+
 a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
@@ -541,10 +1618,39 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
   font-size: 18px;      
   line-height: 1.6;    
   color: #333;     
-   padding-left: 30px; 
+  padding-left: 30px; 
 }
 .text-content p {
   margin-bottom: 1.5em;
+}
+.text-content ul, .text-content ol {
+  margin-bottom: 1.5em;
+  padding-left: 20px;
+}
+.text-content li {
+  margin-bottom: 0.5em;
+}
+.text-content a {
+  color: #1976d2;
+  text-decoration: none;
+}
+.text-content a:hover {
+  text-decoration: underline;
+}
+.text-content pre {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 15px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+.text-content code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+.subtitle {
+  margin-top: 20px;
+  color: #1976d2 !important;
 }
 .two-column-layout {
   column-count: 2; /* Set column number */
@@ -558,6 +1664,9 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
   .two-column-layout {
     column-count: 1; /* Switch to single column on small screens */
     column-gap: 0;   /* Optional: Set gap to 0 for single column */
+  }
+  .wallpaper-text {
+    font-size: 1.2rem;
   }
 }
 
@@ -595,5 +1704,71 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
   overflow: hidden;
 }
 
+/* Navigation styling for enzymix and endzyme sections */
+.biofilm-nav .v-chip,
+.endzyme-nav .v-chip {
+  margin: 2px 4px;
+  transition: all 0.3s ease;
+}
 
+.biofilm-nav .v-chip:hover,
+.endzyme-nav .v-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Section headers */
+.section-header {
+  position: sticky;
+  top: 16px; /* no app bar, smaller offset */
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Section containers */
+.section-container {
+  scroll-margin-top: 88px; /* account for sticky section header */
+}
+
+/* Code blocks styling */
+.code-block {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* Reference list styling */
+.references-list .reference-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.references-list .reference-item:last-child {
+  border-bottom: none;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 768px) {
+  .section-header {
+    position: relative;
+    top: 0;
+  }
+  
+  .biofilm-nav,
+  .endzyme-nav {
+    justify-content: center;
+  }
+  
+  .biofilm-nav .v-chip,
+  .endzyme-nav .v-chip {
+    margin: 2px;
+    font-size: 0.75rem;
+  }
+}
 </style>

@@ -31,19 +31,24 @@
                                         variant="tonal" 
                                         color="primary" 
                                         hover
-                                        @click="scrollToSection('biofilm-section')"
+                                        role="button"
+                                        tabindex="0"
+                                        :aria-label="'Explore Enzymix section'"
+                                        @keydown.enter.prevent="scrollToSection('Enzymix')"
+                                        @keydown.space.prevent="scrollToSection('Enzymix')"
+                                        @click="scrollToSection('Enzymix')"
                                     >
                                         <v-icon size="80" class="mb-4 tool-icon">mdi-chart-line</v-icon>
                                         <v-card-title class="text-h4 mb-3">Enzymix</v-card-title>
                                         <v-card-text class="text-h6 mb-4">
                                             XGBoost-powered machine learning for optimizing enzyme ratios in biofilm degradation experiments
                                         </v-card-text>
-                                        <v-chip color="primary" size="large" class="mb-4">
+                                        <v-chip color="primary" size="large" class="mb-4" title="Open live Enzymix web app" @click.stop="openExternal('https://johan-susilo.github.io/enzymix/')">
                                             <v-icon start>mdi-web</v-icon>
                                             Live Web App Available
                                         </v-chip>
                                         <br>
-                                        <v-btn color="primary" variant="elevated" size="large" class="mt-4">
+                                        <v-btn color="primary" variant="elevated" size="large" class="mt-4" @click.stop="openExternal('https://johan-susilo.github.io/enzymix/')" :aria-label="'Open Enzymix live app in new tab'">
                                             Explore Tool
                                             <v-icon end>mdi-arrow-right</v-icon>
                                         </v-btn>
@@ -56,19 +61,24 @@
                                         variant="tonal" 
                                         color="secondary" 
                                         hover
-                                        @click="scrollToSection('endzyme-section')"
+                                        role="button"
+                                        tabindex="0"
+                                        :aria-label="'Explore Endzyme section'"
+                                        @keydown.enter.prevent="scrollToSection('Endzyme')"
+                                        @keydown.space.prevent="scrollToSection('Endzyme')"
+                                        @click="scrollToSection('Endzyme')"
                                     >
                                         <v-icon size="80" class="mb-4 tool-icon">mdi-molecule</v-icon>
                                         <v-card-title class="text-h4 mb-3">Endzyme</v-card-title>
                                         <v-card-text class="text-h6 mb-4">
                                             AI-driven pipeline for generating, screening, and optimizing functional enzyme sequences
                                         </v-card-text>
-                                        <v-chip color="secondary" size="large" class="mb-4">
+                                        <v-chip color="secondary" size="large" class="mb-4" title="Open Endzyme GitHub repository" @click.stop="openExternal('https://github.com/iGEM-NCKU/endzyme')">
                                             <v-icon start>mdi-github</v-icon>
                                             Open Source
                                         </v-chip>
                                         <br>
-                                        <v-btn color="secondary" variant="elevated" size="large" class="mt-4">
+                                        <v-btn color="secondary" variant="elevated" size="large" class="mt-4" @click.stop="scrollToSection('Endzyme')" :aria-label="'Scroll to Endzyme details'">
                                             Explore Tool
                                             <v-icon end>mdi-arrow-right</v-icon>
                                         </v-btn>
@@ -125,7 +135,7 @@
                                                 <v-container>
                                                  <v-hover>
                                                    <template #default = '{isHovering, props}'>
-                                                     <a href = 'https://johan-susilo.github.io/biofilm-ml-model/' target = '_blank'>
+                                                     <a href = 'https://johan-susilo.github.io/enzymix/' target = '_blank'>
                                                        <v-card v-bind = props :color = 'isHovering ? `primary` : undefined' v-ripple :variant = 'isHovering ? undefined : `tonal`' :class = 'isHovering ? undefined : `rainbow`'>
                                                          <template #title>
                                                            <b> Enzymix </b>
@@ -199,7 +209,7 @@
                                                             <v-list-item prepend-icon="mdi-check-circle" title="Minimal overfitting gap" subtitle="R² difference between training and validation: ~0.10 - indicates learning generalizable patterns."></v-list-item>
                                                             <v-list-item prepend-icon="mdi-check-circle" title="Rapid convergence" subtitle="Performance stabilizes after approximately 10-15 boosting rounds."></v-list-item>
                                                         </v-list>
-                                                        <v-img src="https://hackmd.io/_uploads/BJKZRmbael.png" class="my-4 rounded"></v-img>
+                                                        <v-img src="https://hackmd.io/_uploads/BJKZRmbael.png" alt="R² learning curve for Enzymix model" class="my-4 rounded"></v-img>
                                                     </v-card-text>
                                                 </v-card>
                                                 
@@ -216,7 +226,7 @@
                                                             <v-list-item prepend-icon="mdi-check-circle" title="Stable validation performance" subtitle="Flat plateau after round 20 indicates consistent predictions."></v-list-item>
                                                             <v-list-item prepend-icon="mdi-check-circle" title="Narrow train-validation gap" subtitle="~0.01 difference shows excellent generalization."></v-list-item>
                                                         </v-list>
-                                                        <v-img src="https://hackmd.io/_uploads/S1tWRQZ6el.png" class="my-4 rounded"></v-img>
+                                                        <v-img src="https://hackmd.io/_uploads/S1tWRQZ6el.png" alt="RMSE learning curve for Enzymix model" class="my-4 rounded"></v-img>
                                                     </v-card-text>
                                                 </v-card>
 
@@ -346,7 +356,7 @@
                                                                 Web Application (Recommended)
                                                             </v-card-title>
                                                             <v-card-text>
-                                                                <p><strong>Visit:</strong> <a href="https://johan-susilo.github.io/biofilm-ml-model/" target="_blank">https://johan-susilo.github.io/biofilm-ml-model/</a></p>
+                                                                <p><strong>Visit:</strong> <a href="https://johan-susilo.github.io/enzymix/" target="_blank">https://johan-susilo.github.io/enzymix/</a></p>
                                                                 <v-list>
                                                                     <v-list-item prepend-icon="mdi-plus">Add experiment rows with enzyme ratios</v-list-item>
                                                                     <v-list-item prepend-icon="mdi-chart-line">Get predictions and uncertainty</v-list-item>
@@ -367,7 +377,7 @@
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <p><strong>Requirements:</strong> Docker and Git</p>
-                                                                <v-code class="code-block">
+                                                                <pre><code class="code-block language-bash">
 # 1. Clone repository
 git clone https://gitlab.igem.org/2025/software-tools/ncku-tainan
 cd ncku-tainan
@@ -379,7 +389,7 @@ docker compose up --build -d
 # Web UI: http://localhost:8000/ui
 # API docs: http://localhost:8000/docs
 # Health: http://localhost:8000/health
-                                                                </v-code>
+                                                                </code></pre>
                                                             </v-card-text>
                                                         </v-card>
                                                     </v-col>
@@ -393,13 +403,13 @@ docker compose up --build -d
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <p>Retrain with your own data:</p>
-                                                                <v-code class="code-block">
+                                                                <pre><code class="code-block language-bash">
 # Place your CSV as data/polished.csv
 # Required columns: dspb, dnase, prok, reaction_time, degrade
 
 chmod +x ./train.sh 
 ./train.sh
-                                                                </v-code>
+                                                                </code></pre>
                                                                 <p class="mt-2">This runs the training pipeline and saves updated models in <code>ml-model/</code>.</p>
                                                             </v-card-text>
                                                         </v-card>
@@ -474,7 +484,7 @@ chmod +x ./train.sh
                                                             </v-card-text>
                                                         </v-card>
                                                         
-                                                        <v-img src="https://hackmd.io/_uploads/HywquNg6gl.png" class="rounded" aspect-ratio="16/9"></v-img>
+                                                        <v-img src="https://hackmd.io/_uploads/HywquNg6gl.png" alt="Architecture diagram of Enzymix system" class="rounded" aspect-ratio="16/9"></v-img>
                                                         <p class="text-center mt-2"><em>Fig. 1. Overall software workflow</em></p>
                                                     </v-col>
                                                 </v-row>
@@ -540,7 +550,7 @@ chmod +x ./train.sh
                                                 </v-col>
                                                 
                                                 <v-col cols="12" md="6">
-                                                    <v-img src="https://hackmd.io/_uploads/rkQRFPWpxg.png" class="rounded mb-4" aspect-ratio="16/12"></v-img>
+                                                    <v-img src="https://hackmd.io/_uploads/rkQRFPWpxg.png" alt="API endpoints diagram and flow" class="rounded mb-4" aspect-ratio="16/12"></v-img>
                                                     <p class="text-center"><em>Fig. 2. Machine learning training workflow</em></p>
                                                     
                                                     <v-card variant="outlined" class="mt-4">
@@ -791,7 +801,7 @@ chmod +x ./train.sh
                         
                         <!-- Endzyme Logo -->
                         <v-card class="ma-4 mb-6" variant="tonal" color="secondary">
-                            <v-img src="https://static.igem.wiki/teams/6003/software/endzyme-logo.webp" aspect-ratio="16/9" class="rounded"></v-img>
+                            <v-img src="https://static.igem.wiki/teams/6003/software/endzyme-logo.webp" alt="Endzyme logo" aspect-ratio="16/9" class="rounded"></v-img>
                         </v-card>
                         
                         <!-- Expandable Sections for Endzyme -->
@@ -900,7 +910,7 @@ chmod +x ./train.sh
                                                             </v-card-title>
                                                             <v-card-text>
                                                                 <p><strong>ZymCTRL Usage:</strong></p>
-                                                                <v-code class="code-block text-caption">
+                                                                <pre><code class="code-block text-caption language-python">
 generator = pipeline('text-generation', 
     model='AI4PD/ZymCTRL')
 
@@ -919,10 +929,10 @@ for output in generated_outputs:
     novel_sequence = raw_novel_sequence.replace(
         "＜|endoftext|＞", "").replace(" ", "").strip()[:max_len]
     candidate_sequences.append(novel_sequence)
-                                                                </v-code>
+                                                                </code></pre>
                                                                 
                                                                 <p class="mt-3"><strong>ColabFold Usage:</strong></p>
-                                                                <v-code class="code-block text-caption">
+                                                                <pre><code class="code-block text-caption language-python">
 cmd = ["colabfold_batch",
     "--msa-mode", "single_sequence",       
     str(csv_path), str(job_dir)]
@@ -940,7 +950,7 @@ if isinstance(models, int):
     cmd += ["--num-models", str(models)]   
 if isinstance(recycles, int):
     cmd += ["--num-recycle", str(recycles)]
-                                                                </v-code>
+                                                                </code></pre>
                                                             </v-card-text>
                                                         </v-card>
                                                     </v-col>
@@ -1007,11 +1017,11 @@ if isinstance(recycles, int):
                                                                     </v-card-title>
                                                                     <v-card-text>
                                                                         <p><strong>MMseqs2 Usage:</strong></p>
-                                                                        <v-code class="code-block text-caption">
+                                                                        <pre><code class="code-block text-caption language-bash">
 mmseqs search input.fasta ./swissprot result tmp
 
 mmseqs createtsv query.fasta ./swissprot result result.tsv
-                                                                        </v-code>
+                                                                        </code></pre>
                                                                         
                                                                         <p class="mt-3"><strong>Filtering Criteria:</strong></p>
                                                                         <v-list density="compact">
@@ -1115,7 +1125,7 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                                     </v-card-title>
                                                     <v-card-text>
                                                         <p><strong>How we automatically set our gridbox in the pipeline:</strong></p>
-                                                        <v-code class="code-block">
+                                                        <pre><code class="code-block language-python">
 from pymol import cmd
 import sys
 
@@ -1138,7 +1148,7 @@ def get_gridbox(selection="binding_site",
         f.write(f"center_x = {center[0]:.3f}\n")
         f.write(f"center_y = {center[1]:.3f}\n")
         f.write(f"center_z = {center[2]:.3f}\n")
-                                                        </v-code>
+                                                        </code></pre>
                                                     </v-card-text>
                                                 </v-card>
                                             </div>
@@ -1200,11 +1210,11 @@ def get_gridbox(selection="binding_site",
                                                                     <v-card variant="outlined">
                                                                         <v-card-title>Environment Setup</v-card-title>
                                                                         <v-card-text>
-                                                                            <v-code class="code-block">
+                                                                            <pre><code class="code-block language-bash">
 conda create -n endzyme python=3.10
 conda activate endzyme
 pip install -r requirements.txt
-                                                                            </v-code>
+                                                                            </code></pre>
                                                                         </v-card-text>
                                                                     </v-card>
                                                                 </v-stepper-window-item>
@@ -1213,10 +1223,10 @@ pip install -r requirements.txt
                                                                     <v-card variant="outlined">
                                                                         <v-card-title>Clone Repository</v-card-title>
                                                                         <v-card-text>
-                                                                            <v-code class="code-block">
+                                                                            <pre><code class="code-block language-bash">
 git clone https://github.com/iGEM-NCKU/endzyme.git
 cd endzyme
-                                                                            </v-code>
+                                                                            </code></pre>
                                                                         </v-card-text>
                                                                     </v-card>
                                                                 </v-stepper-window-item>
@@ -1225,10 +1235,10 @@ cd endzyme
                                                                     <v-card variant="outlined">
                                                                         <v-card-title>Run Flask via Gunicorn</v-card-title>
                                                                         <v-card-text>
-                                                                            <v-code class="code-block">
+                                                                            <pre><code class="code-block language-bash">
 cd /home/path/to/root
 gunicorn -w 4 -b 127.0.0.1:8001 main:app
-                                                                            </v-code>
+                                                                            </code></pre>
                                                                         </v-card-text>
                                                                     </v-card>
                                                                 </v-stepper-window-item>
@@ -1529,6 +1539,13 @@ export default {
             }
             return (f.join(' '));
         },
+        openExternal(url) {
+            try {
+                window.open(url, '_blank', 'noopener');
+            } catch (e) {
+                console.error('Failed to open', url, e);
+            }
+        },
         scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (element) {
@@ -1573,14 +1590,19 @@ export default {
   position: absolute;
 }
 
-/* Tool Cards with hover effect */
+/* Tool Cards with hover and focus */
 .tool-card {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
 }
 .tool-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+}
+.tool-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.35), 0 6px 18px rgba(0,0,0,0.12) !important;
 }
 
 a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {

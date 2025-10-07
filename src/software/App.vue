@@ -612,27 +612,30 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                 class="text-content"
                                 >
                                 <br>
-                                <b>Important:</b> To ensure proper functionality, the server stack must be started in the following order: <b>Gunicorn → Nginx</b>.
+                                <p>⚠️ <strong>Important:</strong> To ensure proper functionality, Please download <a href="https://github.com/YoshitakaMo/localcolabfold">localcolabfold</a> before building env.</p>
                                 </div>
                                 <v-card-title id = Environment-Setup class = 'subtitle' style="font-size: 24px;"><b>1. Environment Setup</b></v-card-title>
                                 <div
                                 class="text-content">
-                                    1. Create a Python environment (recommended: <i>conda</i> or <i>venv</i>):
-                                <pre><code class = language-bash    >
-conda create -n endzyme python=3.10
-conda activate endzyme
-                                </code></pre>                 
-                                2. Install dependencies:      
-                                <pre><code class = language-bash    >
-pip install -r requirements.txt
+                                    For Windows User :
+                                    <ol>
+                                </ol>
+                                <pre><code class="language-bash">git clone https://github.com/iGEM-NCKU/endzyme.git
+cd endzyme
+./windows_conda_install.ps1
                                 </code></pre>
-                                3. Ensure <i>nginx</i> and <i>gunicorn</i> are installed and accessible:
-                                <pre><code class = language-bash    >
-sudo apt install nginx
-pip install gunicorn
-                                </code></pre>
+                                    For Linux User :
+<pre><code class="language-bash">git clone https://github.com/iGEM-NCKU/endzyme.git
+cd endzyme
+./linux_conda_install.sh
+</code></pre>               
+                                    For Mac User :
+<pre><code class="language-bash">git clone https://github.com/iGEM-NCKU/endzyme.git
+cd endzyme
+./mac_conda_install.sh
+</code></pre>            
                                 </div>
-                                <v-card-title id = Run-Flask-via-Gunicorn class = 'subtitle' style="font-size: 24px;"><b>2. Run Flask via Gunicorn</b></v-card-title>
+                                <v-card-title id = Run-Flask-via-Gunicorn class = 'subtitle' style="font-size: 24px;"><b>2. Run Flask via Gunicorn (optional)</b></v-card-title>
                                 <div
                                 class = "text-content">
                                 git clone our repo
@@ -649,6 +652,18 @@ gunicorn -w 4 -b 127.0.0.1:8001 main:app
                                 </code></pre>
                                 </div>
                                 <v-card-title  id = Configure-and-Start-Nginx class = 'subtitle' style="font-size: 24px;"><b>3. Configure and Start Nginx</b></v-card-title>
+                                <div
+                                class = "text-content">
+                                <p>⚠️ <strong>Important:</strong>  if you want let the server run it continuously, Please uncommit these</p>
+<pre><code class="language-python">
+# for setting server
+# CORS(app,resources={
+#     r&quot;/api/*&quot;:{&quot;origins&quot; : [&quot;http://localhost:4000&quot;, &quot;http://54.237.111.117&quot;]},
+#     r&quot;/static/*&quot;: {&quot;origins&quot;: [&quot;http://localhost:4000&quot;, &quot;http://54.237.111.117&quot;]
+#     }})
+</code></pre>
+                                </div>
+                                <br>
                                 <div
                                 class = "text-content">
                                 <pre><code class = "language-nginx">
@@ -682,6 +697,29 @@ sudo nginx -s reload
                             </code></pre>
                             <br>
                             Now the Endzyme frontend and API are available at <b><i>http://&lt;server-ip&gt;/</i></b>.
+                            </div>
+                            <v-card-title  id = Run-flask class = 'subtitle' style="font-size: 24px;"><b>3. Run Flask</b></v-card-title>
+                            <div class = text-content>
+                                <pre><code class="language-bash">
+python main.py
+                             </code></pre>
+                            </div>
+                            <v-card-title id="API_INTRODUCTION" class="subtitle" style="font-size: 32px;">4. API introduction</v-card-title>
+                            <div class = text-content>
+<strong>1. This will get the ligand feom your input &lt;filename&gt;</strong>
+                            <p><code>@app.route('/api/pdb/&lt;filename&gt;')</code></p>
+<strong>2. This will start the ML model, create new enzyme base on the your ligand, due to the database limit, you can put your <code>.cif</code> file in the folder <code>/static/&lt;filename&gt;_pdb_files/</code></strong>
+                            <p><code>@app.route('/api/ligand', methods=['POST'])</code></p>
+<strong>3. This method will find the ligand, due to the database limit, you can put your <code>.sdf</code> file in the folder <code>enzyme_ligand_structures</code></strong>
+
+                            <p><code>@app.route('/api/dockLigand', methods=['POST'])</code></p>
+<strong>4. it will start the AutoDocking process</strong>
+                            <p><code>@app.route('/api/startDocking', methods=['POST'])</code></p>
+<strong>5. it will do the alignment</strong>
+<p><code>@app.route(&quot;/api/alignment&quot;, methods=[&quot;POST&quot;,&quot;OPTIONS&quot;])</code></p>
+<strong>6. runing AF2 local</strong>
+<p><code>@app.route('/api/confirm', methods=['POST'])</code></p>
+
                             </div>
                             </v-card>
                             <br>

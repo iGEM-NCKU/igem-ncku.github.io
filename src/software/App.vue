@@ -1,4 +1,4 @@
-wik<template>
+<template>
     <v-app>
         <page_loader :loading = 'loading' />
         <title_nav />
@@ -7,6 +7,278 @@ wik<template>
         <sidenav name = 'software' />
                 <v-row justify = end>
                     <v-col cols = 12 md = 8 class = 'pa-5'>
+                         <!-- Introduction Section -->
+                        <div id="Intro" class="section-container scroller">
+                            <v-card class="ma-4 pa-8 intro-card" variant="elevated" elevation="8">
+                                <v-card-title class="text-h2 text-center mb-6">
+                                    <b>Software Tools</b>
+                                </v-card-title>
+                                <v-card-subtitle class="text-h5 text-center mb-8 text-grey-darken-1">
+                                    Computational Solutions for Biofilm Research and Enzyme Design
+                                </v-card-subtitle>
+                                
+                                <v-card-text class="text-h6 text-left mb-8">
+                                    Our software suite combines machine learning, computational biology, and AI to accelerate research in biofilm degradation and enzyme optimization. 
+                                    These tools bridge the gap between wet lab experiments and computational predictions, enabling data-driven decisions and reducing experimental costs.
+                                </v-card-text>
+                                <!-- Tool Selection Buttons -->
+                                <v-row justify="center" class="mt-8">
+                                    <v-col cols="12" sm="6" md="5" class="text-center">
+                                        <v-card 
+                                            class="tool-card pa-8 elevation-4" 
+                                            variant="tonal" 
+                                            color="primary" 
+                                            hover
+                                            role="button"
+                                            tabindex="0"
+                                            :aria-label="'Explore Enzymix section'"
+                                            @keydown.enter.prevent="scrollToSection('Enzymix')"
+                                            @keydown.space.prevent="scrollToSection('Enzymix')"
+                                            @click="scrollToSection('Enzymix')"
+                                        >
+                                            <v-icon size="80" class="mb-4 tool-icon"> fa-solid fa-chart-line </v-icon>
+                                            <v-card-title class="text-h4 mb-3">Enzymix</v-card-title>
+                                            <v-card-text class="text-subtitle-1 mb-4 text-left">
+                                                XGBoost-powered machine learning for optimizing enzyme ratios in biofilm degradation experiments
+                                            </v-card-text>
+                                            <v-chip color="primary" size="large" class="mb-4" title="Open live Enzymix web app" @click.stop="openExternal('https://johan-susilo.github.io/enzymix/')">
+                                                <v-icon start> fa-solid fa-globe </v-icon>
+                                                Live Web App Available
+                                            </v-chip>
+                                            <br>
+                                            <v-btn color="primary" variant="elevated" size="large" class="mt-4" @click.stop="openExternal('https://johan-susilo.github.io/enzymix/')" :aria-label="'Open Enzymix live app in new tab'">
+                                                Explore Tool
+                                                <v-icon end> fa-solid fa-arrow-right </v-icon>
+                                            </v-btn>
+                                        </v-card>
+                                    </v-col>
+                                    
+                                    <v-col cols="12" sm="6" md="5" class="text-center">
+                                        <v-card 
+                                            class="tool-card pa-8 elevation-4" 
+                                            variant="tonal" 
+                                            color="secondary" 
+                                            hover
+                                            role="button"
+                                            tabindex="0"
+                                            :aria-label="'Explore Endzyme section'"
+                                            @keydown.enter.prevent="scrollToSection('Endzyme')"
+                                            @keydown.space.prevent="scrollToSection('Endzyme')"
+                                            @click="scrollToSection('Endzyme')"
+                                        >
+                                            <v-icon size="80" class="mb-4 tool-icon"> fa-solid fa-atom </v-icon>
+                                            <v-card-title class="text-h4 mb-3">Endzyme</v-card-title>
+                                            <v-card-text class="text-subtitle-1 mb-4 text-left">
+                                                AI-driven pipeline for generating, screening, and optimizing functional enzyme sequences
+                                            </v-card-text>
+                                            <v-chip color="secondary" size="large" class="mb-4" title="Open Endzyme GitHub repository" @click.stop="openExternal('https://github.com/iGEM-NCKU/endzyme')">
+                                                <v-icon start> fa-brands fa-github </v-icon>
+                                                Open Source
+                                            </v-chip>
+                                            <br>
+                                            <v-btn color="secondary" variant="elevated" size="large" class="mt-4" @click.stop="scrollToSection('Endzyme')" :aria-label="'Scroll to Endzyme details'">
+                                                Explore Tool
+                                                <v-icon end> fa-solid fa-arrow-right </v-icon>
+                                            </v-btn>
+                                        </v-card>
+                                    </v-col>
+                                </v-row>
+                            </v-card>
+                        </div>
+                        <!-- Enzymix Section (from ML (4).md) -->
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id="Enzymix">
+                            <v-card-title style="font-size: 32px;"><b>Enzymix</b></v-card-title>
+                            <v-card-subtitle id="Enzymix-Introduction" class="subtitle" style="font-size: 24px;">Introduction</v-card-subtitle>
+                            <div class="text-content">
+                                <p>
+                                    Testing and experimenting to find the optimal enzyme ratio for biofilm degradation is time-consuming and costly. Our web tool helps wet lab teams and experts by suggesting the optimal enzyme ratio and suggesting what to experiment with next based on promising enzyme ratios.
+                                </p>
+                                <p>
+                                    Predicting the optimal ratio of three enzymes is inherently challenging. Biofilm degradation is nonlinear and interactive, and it is influenced by multiple factors, such as pH, temperature, and reaction time. Traditional trial-and-error testing is time-consuming and costly.
+                                </p>
+                                <p>
+                                    We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [1], iterates quickly, and provides interpretable signals for future experiments [2].
+                                </p>
+                            </div>
+                            <v-card-title id="Enzymix-Model-Performance" class="subtitle" style="font-size: 24px;"><b>Model Performance</b></v-card-title>
+                            <v-card-subtitle id="Enzymix-R2-Learning-Curve" class="subtitle" style="font-size: 24px;">R² Learning Curve Analysis</v-card-subtitle>
+                            <div class="text-content">
+                                <ul>
+                                    <li><b>Training R²: ~0.73</b> - The model captures substantial variance in the training data.</li>
+                                    <li><b>Validation R²: ~0.63</b> - Strong generalization to unseen data, explaining 63% of variance in biofilm degradation.</li>
+                                    <li><b>Minimal overfitting gap</b> (~0.10) - Small difference between training and validation R² indicates generalizable learning.</li>
+                                    <li><b>Rapid convergence</b> - Performance stabilizes after ~10–15 boosting rounds.</li>
+                                </ul>
+                                <v-img src="https://hackmd.io/_uploads/BJKZRmbael.png" alt="R² learning curve" class="my-4" />
+                            </div>
+                            <v-card-subtitle id="Enzymix-RMSE-Learning-Curve" class="subtitle" style="font-size: 24px;">RMSE Learning Curve Analysis</v-card-subtitle>
+                            <div class="text-content">
+                                <p>The RMSE learning curve confirms model reliability:</p>
+                                <ul>
+                                    <li><b>Training RMSE: ~0.08</b> - Low prediction error on training data.</li>
+                                    <li><b>Validation RMSE: ~0.09</b> - Predictions on new enzyme combinations typically within 9% of actual values.</li>
+                                    <li><b>Stable validation performance</b> - Flat plateau after round 20 indicates consistent predictions.</li>
+                                    <li><b>Narrow train-validation gap (~0.01)</b> - Excellent generalization with minimal overfitting.</li>
+                                </ul>
+                                <v-img src="https://hackmd.io/_uploads/S1tWRQZ6el.png" alt="RMSE learning curve" class="my-4" />
+                            </div>
+                            <v-card-subtitle id="Enzymix-Wetlab-Implications" class="subtitle" style="font-size: 24px;">What This Means for Wet Lab Teams</v-card-subtitle>
+                            <div class="text-content">
+                                <p>These learning curves provide strong evidence that our model:</p>
+                                <ol>
+                                    <li><b>Generalizes well to new experiments</b> - Reliable predictions on untested enzyme ratios.</li>
+                                    <li><b>Doesn't overfit the training data</b> - Captures true biological relationships rather than noise.</li>
+                                    <li><b>Converges efficiently</b> - Retraining is fast when new data arrives.</li>
+                                </ol>
+                            </div>
+                            <v-card-subtitle id="Enzymix-Statistical-Significance" class="subtitle" style="font-size: 24px;">Statistical Significance</v-card-subtitle>
+                            <div class="text-content">
+                                <ul>
+                                    <li><b>5-fold nested cross-validation</b> for unbiased performance estimates.</li>
+                                    <li><b>Reproducibility</b> with fixed random seed (SEED=42).</li>
+                                    <li><b>Robust hyperparameter selection</b> with inner CV optimization.</li>
+                                </ul>
+                            </div>
+                            <v-card-title id="Enzymix-Iterative-Approach" class="subtitle" style="font-size: 24px;"><b>Our Iterative, Team-Centered Approach</b></v-card-title>
+                            <div class="text-content">
+                                <ul>
+                                    <li><b>Step 1:</b> Analyze experiment data, clean it, and visualize improvements.</li>
+                                    <li><b>Step 2:</b> Train base model on enzyme ratios and degradation features.</li>
+                                    <li><b>Step 3:</b> Provide website for quick degradation predictions.</li>
+                                    <li><b>Step 4:</b> Add reaction time feature and optimal enzyme mix finder.</li>
+                                    <li><b>Step 5:</b> Suggest experiments based on model uncertainty and promising ratios.</li>
+                                    <li><b>Next step:</b> Add temperature, biofilm age, and pH for richer modeling.</li>
+                                </ul>
+                            </div>
+                            <v-card-title id="Enzymix-Getting-Started" class="subtitle" style="font-size: 24px;"><b>Getting Started in 3 Steps</b></v-card-title>
+                            <v-card-subtitle id="Enzymix-Web-App" class="subtitle" style="font-size: 24px;">Web Application (Recommended)</v-card-subtitle>
+                            <div class="text-content">
+                                Visit <b>https://johan-susilo.github.io/biofilm-ml-model/</b> to:
+                                <ul>
+                                    <li>Add experiment rows with enzyme ratios and reaction time</li>
+                                    <li>Click Predict to obtain predicted removal and uncertainty</li>
+                                    <li>Use Find Optimal Mix for optimization recommendations</li>
+                                    <li>Get Suggested Experiments for informative follow-ups</li>
+                                    <li>Export results as CSV and visualize feature importances</li>
+                                </ul>
+                            </div>
+                            <v-card-subtitle id="Enzymix-Local-Installation" class="subtitle" style="font-size: 24px;">Local Installation</v-card-subtitle>
+                            <div class="text-content">
+                                <p><b>Requirements:</b> Docker [5] and Git</p>
+                                <pre><code class="language-bash"># 1. Clone repository
+git clone https://gitlab.igem.org/2025/software-tools/ncku-tainan
+cd ncku-tainan
+# 2. Build and run
+docker compose up --build -d
+# 3. Access the application
+# Web UI: http://localhost:8000/ui
+# API docs: http://localhost:8000/docs
+# Health check: http://localhost:8000/health</code></pre>
+                            </div>
+                            <v-card-subtitle id="Enzymix-Retraining" class="subtitle" style="font-size: 24px;">Retraining with Your Data (Optional)</v-card-subtitle>
+                            <div class="text-content">
+                                <pre><code class="language-bash"># Place your CSV as data/polished.csv
+# Required columns: dspb, dnase, prok, reaction_time, degrade
+chmod +x ./train.sh 
+./train.sh</code></pre>
+                                <p>This runs the training pipeline and saves updated models in <code>ml-model/</code>.</p>
+                            </div>
+                            <v-card-title id="Enzymix-System-Architecture" class="subtitle" style="font-size: 24px;"><b>System Architecture</b></v-card-title>
+                            <div class="text-content">
+                                <p>The software is packaged as containerized components:</p>
+                                <p><b>ML Models</b><br>Stored under <code>ml-model/</code> as <code>xgb_biofilm_model.json</code> and <code>rf_uncertainty_model.joblib</code></p>
+                                <p><b>FastAPI Backend</b> [4]<br>Serves REST endpoints and static UI; loads models on startup</p>
+                                <p><b>Static Web UI</b><br>HTML/CSS/JS bundled under <code>static/</code> and mounted at <code>/static</code>; shortcut <code>/ui</code> redirects to <code>static/index.html</code></p>
+                                <p>The API exposes OpenAPI docs at <code>/docs</code> and provides JSON endpoints for UI and programmatic access.</p>
+                                <v-img src="https://hackmd.io/_uploads/HywquNg6gl.png" alt="Overall workflow" class="my-4" />
+                                <div class="text-content"><i>Fig. 1. Overall software workflow</i></div>
+                            </div>
+                            <v-card-title id="Enzymix-Model-Design" class="subtitle" style="font-size: 24px;"><b>Model Design &amp; Training Pipeline</b></v-card-title>
+                            <div class="text-content">
+                                <p><b>Dataset:</b> <code>data/polished.csv</code><br><b>Required columns:</b> <code>dspb</code>, <code>dnase</code>, <code>prok</code>, <code>reaction_time</code>, <code>degrade</code></p>
+                                <p><b>Feature Preparation</b></p>
+                                <ul>
+                                    <li>Enzyme ratios normalized to sum to 1.0</li>
+                                    <li><code>reaction_time</code> used as numeric feature</li>
+                                </ul>
+                                <p><b>Target Handling</b></p>
+                                <ul>
+                                    <li>Original scale and sign preserved (0–100 rescaled to 0–1)</li>
+                                </ul>
+                                <p><b>Models</b></p>
+                                <ul>
+                                    <li><b>XGBoost regressor:</b> Primary predictor [1]</li>
+                                    <li><b>Random Forest regressor:</b> Uncertainty via standard deviation across estimators</li>
+                                </ul>
+                                <p><b>Validation &amp; Tuning</b></p>
+                                <ul>
+                                    <li>Nested cross-validation (5×5) with Optuna-driven tuning [6][7]</li>
+                                    <li>Early stopping prevents overfitting</li>
+                                    <li>Final models retrained on all data with tuned rounds</li>
+                                </ul>
+                                <p><b>Model Interpretability</b></p>
+                                <ul>
+                                    <li>SHAP provides feature importance and explanations [2]</li>
+                                </ul>
+                                <p><b>Training Entry Points</b></p>
+                                <ul>
+                                    <li>Script: <code>ml-model/train.py</code></li>
+                                    <li>Outputs: <code>ml-model/xgb_biofilm_model.json</code>, <code>ml-model/rf_uncertainty_model.joblib</code></li>
+                                </ul>
+                                <v-img src="https://hackmd.io/_uploads/rkQRFPWpxg.png" alt="Training workflow" class="my-4" />
+                                <div class="text-content"><i>Fig. 2. Machine learning training workflow</i></div>
+                            </div>
+                            <v-card-title id="Enzymix-API-Reference" class="subtitle" style="font-size: 24px;"><b>API Reference</b></v-card-title>
+                            <div class="text-content">
+                                <p><b>Backend Package Structure (<code>api/</code>):</b></p>
+                                <ul>
+                                    <li><code>api/main.py</code>: App factory, mounts <code>/static</code>, includes routers, loads models at startup</li>
+                                    <li><code>api/core/config.py</code>: Model paths and canonical feature names</li>
+                                    <li><code>api/core/models_io.py</code>: Pydantic request/response schemas</li>
+                                    <li><code>api/ml/engine.py</code>: Model loading, feature building, predictions with uncertainty, feature importance</li>
+                                    <li><code>api/optimization/optimizer.py</code>: Optimal mixture search and active-learning suggestions</li>
+                                    <li><b>Routers</b> (<code>api/routers/*</code>):
+                                        <ul>
+                                            <li><code>health.py</code>: <code>GET /health</code>, <code>GET /</code></li>
+                                            <li><code>misc.py</code>: <code>GET /training-schema-stats</code></li>
+                                            <li><code>predict.py</code>: <code>POST /predict</code>, <code>GET /feature-importance</code></li>
+                                            <li><code>optimize.py</code>: <code>POST /optimal-mix</code>, <code>GET /optimal-mix</code>, <code>POST /suggest-experiments</code></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p><b>Key JSON Endpoints:</b></p>
+                                <ul>
+                                    <li><code>GET /health</code> – Liveness probe</li>
+                                    <li><code>GET /</code> – Status and model availability flags</li>
+                                    <li><code>GET /training-schema-stats</code> – Numeric ranges for UI client-side validation</li>
+                                    <li><code>POST /predict</code> – Returns mean prediction, 95% interval, epistemic uncertainty</li>
+                                    <li><code>GET /feature-importance</code> – Feature names/values [2]</li>
+                                    <li><code>POST /optimal-mix</code> – Recommends ratios and reaction time via prediction+uncertainty acquisition [3]</li>
+                                    <li><code>GET /optimal-mix</code> – Default equal-ratio mix for UI</li>
+                                    <li><code>POST /suggest-experiments</code> – Suggests diverse, high-uncertainty experiments using active learning [3]</li>
+                                </ul>
+                            </div>
+                            <v-card-title id="Enzymix-Conclusion" class="subtitle" style="font-size: 24px;"><b>Conclusion</b></v-card-title>
+                            <div class="text-content">
+                                <p>
+                                    This tool integrates predictive modeling and experiment design into a single interface, lowering lab iteration time through immediate estimates, principled optimization, and targeted enzyme ratio suggestions. The modular design makes it straightforward to update models as new data arrive.
+                                </p>
+                                <p>
+                                    <b>Broader Applicability:</b> Compatible with multiple biofilm types beyond <i>S. aureus</i>, making it accessible for experts and other iGEM teams. The model can be further trained and improved with additional high-quality data.
+                                </p>
+                            </div>
+                            <v-card-title id="Enzymix-References" class="subtitle" style="font-size: 24px;"><b>References</b></v-card-title>
+                            <div class="text-content">
+                                <p>[1] Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794.</p>
+                                <p>[2] Lundberg, S. M., &amp; Lee, S. I. (2017). A Unified Approach to Interpreting Model Predictions. Advances in Neural Information Processing Systems 30, 4765-4774.</p>
+                                <p>[3] Settles, B. (2009). Active Learning Literature Survey. Computer Sciences Technical Report 1648, University of Wisconsin-Madison.</p>
+                                <p>[4] FastAPI Documentation. (2024). FastAPI framework, high performance, easy to learn, fast to code, ready for production. Retrieved from https://fastapi.tiangolo.com/</p>
+                                <p>[5] Docker Documentation. (2024). Docker Compose overview. Retrieved from https://docs.docker.com/compose/.</p>
+                            </div>
+                        </v-card>
+                        <!-- Endzyme section wrapper for sidenav top-level -->
+                        <div id="Endzyme" class="section-container scroller">
+
                         <v-card class = ma-4 variant = tonal color = primary v-ripple>
                             <template #image>
                                 <v-img src = 'https://static.igem.wiki/teams/6003/software/endzyme-logo.webp' />
@@ -18,8 +290,8 @@ wik<template>
                             </template>
                         </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
-                                <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" id = Introduction>
+                                <v-card-title id="Endzyme-Introduction" class="subtitle" style="font-size: 32px;"><b>Introduction</b></v-card-title>
                                 <div
                                 id="Introduction"
                                 title="Introduction"
@@ -43,8 +315,8 @@ wik<template>
                                 </div>
                         </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Machine-Learning-Model'>
-                            <v-card-title style="font-size: 32px;"><b>Machine learning Model</b></v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" id = 'Machine-Learning-Model'>
+                            <v-card-title id="Endzyme-ML-Model" class="subtitle" style="font-size: 32px;"><b>Machine learning Model</b></v-card-title>
                                 <div
                                 id="Machine learning Model"
                                 title="Machine learning Model"
@@ -113,8 +385,8 @@ cmd = [
                                     </div>
                         </v-card>                                
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Screening'>
-                                <v-card-title style="font-size: 32px;"><b>Screening</b></v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" id = 'Screening'>
+                                <v-card-title id="Endzyme-Screening" class="subtitle" style="font-size: 32px;"><b>Screening</b></v-card-title>
                                 <div
                                 id="Screening"
                                 title="Screening"
@@ -141,8 +413,8 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                 </div>
                         </v-card>
                         <br>
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Docking'>
-                                <v-card-title style="font-size: 32px;"><b>Docking</b></v-card-title>
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" id = 'Docking'>
+                                <v-card-title id="Endzyme-Docking" class="subtitle" style="font-size: 32px;"><b>Docking</b></v-card-title>
                                 <div
                                 id="Docking"
                                 title="Docking"
@@ -275,8 +547,8 @@ Writing output ... done.
 
                         </v-card>
                         <br>                 
-                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = 'Result'>
-                        <v-card-title style="font-size: 32px;"><b>Result</b></v-card-title>                                  
+                        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" id = 'Result'>
+                        <v-card-title id="Endzyme-Result" class="subtitle" style="font-size: 32px;"><b>Result</b></v-card-title>                                  
                                 
                                 <div class="text-content">
                                 <b>How we use the mmseqs2</b>
@@ -297,8 +569,8 @@ mmseqs createtsv query.fasta ./swissprot result result.tsv
                                 </div> 
                         </v-card>
                         <br> 
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Usage>
-                                <v-card-title style="font-size: 32px;"><b>How to use this software</b></v-card-title>
+                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" id = Usage>
+                                <v-card-title id="Endzyme-Usage" class="subtitle" style="font-size: 32px;"><b>How to use this software</b></v-card-title>
                                     <a href="https://github.com/iGEM-NCKU/endzyme">&nbsp;&nbsp;&nbsp;&nbsp;This is Our Github page</a>
                                 <v-card-title style="font-size: 32px;">Usage</v-card-title>
                                 <div
@@ -385,8 +657,8 @@ sudo nginx -s reload
                             </div>
                             </v-card>
                             <br>
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Reference>
-                                <v-card-title style="font-size: 32px;">Reference</v-card-title>
+                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box" id = Reference>
+                                <v-card-title id="Endzyme-Reference" class="subtitle" style="font-size: 32px;">Reference</v-card-title>
                                 <div
                                 id="Reference"
                                 title="Reference"
@@ -424,6 +696,7 @@ sudo nginx -s reload
                                 </p>
                                 </div>
                         </v-card>
+                        </div>
                         </v-col>
                     <v-col cols = 1 />
                 </v-row>
@@ -490,6 +763,19 @@ export default {
                 f.push(i[0].toUpperCase() + i.substr(1).toLowerCase());
             }
             return (f.join(' '));
+               },
+        scrollToSection(sectionId) {
+            const el = document.getElementById(sectionId);
+            if (el && el.scrollIntoView) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        },
+        openExternal(url) {
+            try {
+                window.open(url, '_blank', 'noopener');
+            } catch (e) {
+                console.error('Failed to open external link:', e);
+            }
         }
     },
 }

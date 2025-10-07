@@ -21,36 +21,15 @@
                   <v-btn @click="nextCard">Next</v-btn>
                 </v-card-actions>
                   <v-card-title style="font-size: 32px;">{{ item.title }}</v-card-title>
-                    <div class="text-content" v-html="item.text"></div>
-                  <v-card-text></v-card-text>
-                  
+                    <div class="scroll-body">
+                      <div class="text-content" v-html="item.text"></div>
+                    </div>
+                    <v-card-text></v-card-text>
                 </v-card>
               </div>
               </div>
               </div>
-              <div class = 'place_holder' justify = center>
-              <v-card-title style="font-size: 32px;"><b>Cycle 1.</b></v-card-title>
-              <div class="circle-container">
-                <div class="cards">
-                  <v-card
-                    v-for="(item, i) in items"
-                    :key="i"
-                    class="circle-card"
-                    :style="getCardStyle(i)"
-                  >
-                  <v-card-actions style="justify-content: space-between;">
-                    <v-btn @click="prevCard">Prev</v-btn>
-                    <v-btn @click="nextCard">Next</v-btn>
-                  </v-card-actions>
-                    <v-card-title style="font-size: 32px;">{{ item.title }}</v-card-title>
-                      <div class="text-content" v-html="item.text"></div>
-                    <v-card-text></v-card-text>
-                    
-                  </v-card>
-                </div>
-                </div>
-              </div>
-            </v-col>
+              </v-col>
         </v-row>
       </v-main>
     </v-app>
@@ -121,7 +100,7 @@ export default {
 }
 
 .cards {
-  /* position: relative; */
+  position: relative;
   width: 40vw;
   height: 100%;
   transform-style: preserve-3d; 
@@ -131,8 +110,8 @@ export default {
 
 .circle-card {
   width: 50vw;
-  height: 200vh;
-  background-color: rgb(0, 124, 27);
+  height: 80vh;
+  background-color: rgb(243, 247, 244);
   text-align: center;
   transition: transform 1s ease;
 }
@@ -167,8 +146,15 @@ export default {
 }
 .text-content {
   font-size: 18px;
+  text-align: justify; 
+  text-justify: inter-word;
 }
 .img {
   max-width: 100%;
+}
+.scroll-body {
+  overflow: auto;
+  padding: 8px 16px 16px;
+  max-height: calc(80vh - 56px - 48px - 16px);
 }
 </style>

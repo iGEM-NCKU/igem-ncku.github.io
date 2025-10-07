@@ -25,7 +25,7 @@
         <v-row>
             <v-col cols = 12 md = 6>
                 <v-card title = '1. Experimental Contribution' subtitle = '' :variant = 'alpha.card.theme'>
-                    <v-card-subtitle id = Discovery from the Red Recombination System class="subtitle" style="font-size: 24px;">🔬 Discovery from the Red Recombination System</v-card-subtitle>
+                    <v-card-subtitle id = Discovery from the Red Recombination System class="subtitle" style="font-size: 24px;">Discovery from the Red Recombination System</v-card-subtitle>
                          <div
                         id="Contribution"
                         title="Contribution"
@@ -75,7 +75,7 @@
             </v-col>
              <v-col cols = 12 md = 6>
                 <v-card title = '4. Computational Tool Improvement' subtitle = '' :variant = 'alpha.card.theme'>
-                        <v-card-subtitle id = Discovery from the Red Recombination System class="subtitle" style="font-size: 24px;">⚙️ Automated Grid Box Selection for AutoDock</v-card-subtitle>
+                        <v-card-subtitle id = Discovery from the Red Recombination System class="subtitle" style="font-size: 24px;">Automated Grid Box Selection for AutoDock</v-card-subtitle>
                         <div
                         id="Contribution"
                         title="Contribution"

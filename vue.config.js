@@ -20,6 +20,12 @@ module.exports = defineConfig({
     'safety-and-security': 'src/safety-and-security/main.js',
     attributions: 'src/attributions/main.js',
     contribution: 'src/contribution/main.js',
+    hp_overview: 'src/hp/overview/main.js',
+    'hp_integrated-human-practice': 'src/hp/integrated-human-practice/main.js',
+    hp_education: 'src/hp/education/main.js',
+    'hp_connecting-with-igemers': 'src/hp/connecting-with-igemers/main.js',
+    hp_entrepreneurship: 'src/hp/entrepreneurship/main.js',
+    hp_fundraising: 'src/hp/fundraising/main.js',
     'sponsor-Partnership': 'src/sponsor/main.js'
     }
 })

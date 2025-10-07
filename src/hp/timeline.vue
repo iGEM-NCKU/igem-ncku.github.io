@@ -336,10 +336,4 @@ a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
         color: red;
     }
 }
-.text-content {
-  font-size: 24px;      
-  line-height: 1.6;    
-  color: #333;     
-  padding-left: 30px; 
-}
 </style>

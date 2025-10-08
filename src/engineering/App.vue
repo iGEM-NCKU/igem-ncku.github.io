@@ -1,254 +1,111 @@
-\<template>
+<template>
   <v-app>
     <page_loader :loading="loading" />
     <title_nav />
-    
-    <v-main class="with-sidenav">
-      <sidenav name="engineering"/>
-      <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-            <v-card-title class = scroller id = Enzyme-Plasmid-Engineering style="font-size: 32px; margin-left:25%;"><b>Cycle 1. Enzyme Plasmid Engineering</b></v-card-title>
-          </v-col>
-        </v-row>
-      </v-row>
 
-      <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(0,4)"
-            :key="`cycle1-${i}`"
-            cols="12" md="8"
-          >
-            <v-card class="cycle-card" @click="openDialog(i)" role="button" tabindex="0">
-              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
-              <v-card-text class="line-clamp">
-                <div v-html="cycle.summary"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn variant="flat" @click.stop="openDialog(i)">Click Me</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-          </v-col>
-        </v-row>
-      </v-row>
-        <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(4,8)"
-            :key="`cycle2-${i}`"
-            cols="12" md="8"
-          >
-            <v-card class="cycle-card" @click="openDialog(i+4)" role="button" tabindex="0">
-              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
-              <v-card-text class="line-clamp">
-                <div v-html="cycle.summary"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn variant="flat" @click.stop="openDialog(i+4)">Click Me</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-          </v-col>
-        </v-row>
-      </v-row>
-        <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(8,12)"
-            :key="`cycle2-${i}`"
-            cols="12" md="8"
-          >
-            <v-card class="cycle-card" @click="openDialog(i+8)" role="button" tabindex="0">
-              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
-              <v-card-text class="line-clamp">
-                <div v-html="cycle.summary"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn variant="flat" @click.stop="openDialog(i+8)">Click Me</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-            <v-card-title class = scroller id = Host-Engineering style="font-size: 32px; margin-left:25%;"><b>Cycle 2. Host Engineering for <br>T7 RNAP–λcI857 System</b></v-card-title>
-          </v-col>
-        </v-row>
-      </v-row>
-        <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(12,16)"
-            :key="`cycle2-${i}`"
-            cols="12" md="8"
-          >
-            <v-card class="cycle-card" @click="openDialog(i+12)" role="button" tabindex="0">
-              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
-              <v-card-text class="line-clamp">
-                <div v-html="cycle.summary"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn variant="flat" @click.stop="openDialog(i+12)">Click Me</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-          </v-col>
-        </v-row>
-      </v-row>
-        <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(16,20)"
-            :key="`cycle2-${i}`"
-            cols="12" md="8"
-          >
-            <v-card class="cycle-card" @click="openDialog(i+16)" role="button" tabindex="0">
-              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
-              <v-card-text class="line-clamp">
-                <div v-html="cycle.summary"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn variant="flat" @click.stop="openDialog(i+16)">Click Me</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-          </v-col>
-        </v-row>
-      </v-row>
-        <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(20,24)"
-            :key="`cycle2-${i}`"
-            cols="12" md="8"
-          >
-            <v-card class="cycle-card" @click="openDialog(i+20)" role="button" tabindex="0">
-              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
-              <v-card-text class="line-clamp">
-                <div v-html="cycle.summary"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn variant="flat" @click.stop="openDialog(i+20)">Click Me</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-            <v-card-title class = scroller id = Biofilm-Degradation-Assay  style="font-size: 32px; margin-left:25%;"><b>Biofilm Degradation Assay Development</b></v-card-title>
-          </v-col>
-        </v-row>
-      </v-row>
-        <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(24,28)"
-            :key="`cycle2-${i}`"
-            cols="12" md="8"
-          >
-            <v-card class="cycle-card" @click="openDialog(i+24)" role="button" tabindex="0">
-              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
-              <v-card-text class="line-clamp">
-                <div v-html="cycle.summary"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn variant="flat" @click.stop="openDialog(i+24)">Click Me</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-          </v-col>
-        </v-row>
-      </v-row>
-        <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(28,32)"
-            :key="`cycle2-${i}`"
-            cols="12" md="8"
-          >
-            <v-card class="cycle-card" @click="openDialog(i+28)" role="button" tabindex="0">
-              <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
-              <v-card-text class="line-clamp">
-                <div v-html="cycle.summary"></div>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn variant="flat" @click.stop="openDialog(i+28)">Click Me</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row justify="end">
-        <v-row>
-          <v-col cols="12" md="8" class="mx-auto">
-          </v-col>
-        </v-row>
-      </v-row>
-        <v-row justify="end">
-        <v-row>
-        </v-row>
-          <v-col
-            v-for="(cycle, i) in cycles.slice(32,36)"
-            :key="`cycle2-${i}`"
-            cols="12" md="8"
-          >
-          </v-col>
-        </v-row>
-        <v-dialog
-          v-model="dialog"
-          max-width="900"
-          :scrim="true"
-        >
-          <v-card class="dialog-card">
-            <v-card-title class="d-flex align-center justify-space-between">
-              <span class="text-h6">{{ currentCycle?.title }}</span>
-              <v-btn icon="mdi-close" variant="text" @click="closeDialog" aria-label="close"></v-btn>
-            </v-card-title>
+    <v-main>
+      <sidenav name="engineering" />
+      <v-row justify=end><v-col cols=12 md=7>
+        <div class=scroller id=Enzyme-Plasmid-Engineering>
+          <v-card-title style="font-size: 32px;"><b>Enzyme Plasmid
+              Engineering</b></v-card-title>
 
-            <v-divider></v-divider>
+          <v-row justify="end">
+            <v-col v-for="(cycle, i) in cycles.slice(0, 12)" :key="`cycle1-${i}`" cols="12" md="6">
+              <v-hover>
+                <template #default = '{isHovering, props}'>
+                  <v-card class="cycle-card ma-3" @click="openDialog(i)" role="button" tabindex="0" v-bind = props :color = 'isHovering ? `primary` : undefined'>
+                    <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+                    <v-card-text class="line-clamp">
+                      <div v-html="cycle.summary"></div>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-divider />
+                      <!-- <v-icon> fa-solid fa-arrow-pointer fa-2xs </v-icon> -->
+                      <v-btn variant="flat" @click.stop="openDialog(i)">Click Me</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </template>
+              </v-hover>
+            </v-col>
+          </v-row>
+          </div>
+          <div class=scroller id=Host-Engineering>
+          <v-card-title style="font-size: 32px;"><b>Host Engineering for T7 RNAP–λcI857 System</b></v-card-title>
+          <v-row justify="end">
+            <v-col v-for="(cycle, i) in cycles.slice(12, 24)" :key="`cycle2-${i}`" cols="12" md="6">
+              <v-hover>
+                <template #default = '{isHovering, props}'>
+                  <v-card class="cycle-card ma-3" @click="openDialog(i + 12)" role="button" tabindex="0" v-bind = props :color = "isHovering ? `primary` : undefined">
+                    <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+                    <v-card-text class="line-clamp">
+                      <div v-html="cycle.summary"></div>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-divider />
+                      <!-- <v-icon> fa-solid fa-arrow-pointer fa-2xs </v-icon> -->
+                      <v-btn variant="flat" @click.stop="openDialog(i + 12)">Click Me</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </template>
+              </v-hover>
+            </v-col>
+          </v-row>
+          </div>
+          <div class=scroller id=Biofilm-Degradation-Assay>
+          <v-card-title style="font-size: 32px;d"><b>Biofilm
+              Degradation Assay Development</b></v-card-title>
+          <v-row justify="end">
+            <v-row>
+            </v-row>
+            <v-col v-for="(cycle, i) in cycles.slice(24)" :key="`cycle2-${i}`" cols="12" md="6">
+              <v-hover>
+                <template #default = '{isHovering, props}'>
+                  <v-card class="cycle-card ma-3" @click="openDialog(i + 24)" role="button" tabindex="0" v-bind = props :color = "isHovering ? `primary` : undefined">
+                    <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+                    <v-card-text class="line-clamp">
+                      <div v-html="cycle.summary"></div>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-divider />
+                      <!-- <v-icon> fa-solid fa-arrow-pointer fa-2xs </v-icon> -->
+                      <v-btn variant="flat" @click.stop="openDialog(i + 24)">Click Me</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </template>
+              </v-hover>
+            </v-col>
+          </v-row>
+          <v-row justify="end">
+            <v-row>
+              <v-col cols="12" md="8" class="mx-auto">
+              </v-col>
+            </v-row>
+          </v-row>
+          </div>
 
-            <v-card-text class="dialog-body">
-              <div v-if="currentCycle"  class = "note-block panel-html text-content" v-html="currentCycle.detail"></div>
-            </v-card-text>
 
-            <v-divider></v-divider>
+          <v-dialog v-model="dialog" max-width="900" :scrim="true">
+            <v-card class="dialog-card">
+              <v-card-title class="d-flex align-center justify-space-between">
+                <span class="text-h6">{{ currentCycle?.title }}</span>
+                <v-btn icon="mdi-close" variant="text" @click="closeDialog" aria-label="close"></v-btn>
+              </v-card-title>
 
-            <v-card-actions class="justify-end">
-              <v-btn color="primary" @click="closeDialog">close</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+              <v-divider></v-divider>
+
+              <v-card-text class="dialog-body">
+                <div v-if="currentCycle" class="note-block panel-html text-content" v-html="currentCycle.detail"></div>
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-actions class="justify-end">
+                <v-btn color="primary" @click="closeDialog">close</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </v-col><v-col cols=0 md=1 /></v-row>
     </v-main>
     <site_footer></site_footer>
   </v-app>
@@ -628,10 +485,6 @@ Overall, these findings highlight that (1) 24-hour biofilm growth provides a rel
   background: inherit;    
 }
 
-/* 讓主內容避開側欄 */
-.with-sidenav {
-  padding-left: var(--sidenav-width);
-}
 .img{
   max-width: 100%;
 }

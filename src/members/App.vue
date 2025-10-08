@@ -119,7 +119,7 @@ export default {
                     'Major': 'Electrical Engineering',
                     'Group': ['Dry Lab'],
                     'Position': 'Member'
-                },
+                }
             },
             flippedCard: null,
             view: [],

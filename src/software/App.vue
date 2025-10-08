@@ -282,7 +282,10 @@
                             <v-card-title id="API-Implementation" class="subtitle" style="font-size: 32px;"><b>How ML Model Prediction Delivered to User?</b></v-card-title>
                             <div class="text-content">
                               <p>
-                             We developed a set of API endpoints to facilitate interaction between the front-end interface and the back-end machine learning (ML) model. These endpoints deliver ML model predictions and suggestions to users. The endpoints are designed to handle various tasks, including prediction requests, optimization queries, and experiment suggestions. User inputs (e.g., reaction time, enzyme ratio, and OD value) are also delivered through the API endpoints, ensuring smooth interaction with the model and improving the user experience.
+                             We developed a set of API endpoints to facilitate interaction between the front-end interface and the back-end machine learning (ML) model. These endpoints deliver ML model predictions and suggestions to users. 
+                              </p>
+                              <p>
+                                The endpoints are designed to handle various tasks, including prediction requests, optimization queries, and experiment suggestions. User inputs (e.g., reaction time, enzyme ratio, and OD value) are also delivered through the API endpoints, ensuring smooth interaction with the model and improving the user experience.
                               </p>
                             </div>
                             
@@ -294,7 +297,7 @@
                             <br>
 
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                            <v-card-title id="Enzymix-Getting-Started" class="subtitle" style="font-size: 32px;"><b>Getting Started in 3 Steps</b></v-card-title>
+                            <v-card-title id="Usage" class="subtitle" style="font-size: 32px;"><b>How to use Enzymix?</b></v-card-title>
                             <v-card-subtitle style="font-size: 24px;">Web Application (Recommended)</v-card-subtitle>
                             <div class="text-content">
                                  <v-container>
@@ -319,33 +322,39 @@
                                                    </template>
                                                  </v-hover>
                                                </v-container>
-                                <ul>
+                                <ol>
                                     <li>Add experiment rows with enzyme ratios and reaction time</li>
                                     <li>Click Predict to obtain predicted removal and uncertainty</li>
                                     <li>Use Find Optimal Mix for optimization recommendations</li>
                                     <li>Get Suggested Experiments for informative follow-ups</li>
                                     <li>Export results as CSV and visualize feature importances</li>
-                                </ul>
+                                </ol>
+                                <br>
                             </div>
                             <v-card-subtitle style="font-size: 24px;">Local Installation</v-card-subtitle>
                             <div class="text-content">
-                                <p><b>Requirements:</b> Docker [5] and Git</p>
+                                <p><b>Requirements:</b> Docker and Git</p>
                                 <pre><code class="language-bash"># 1. Clone repository
 git clone https://gitlab.igem.org/2025/software-tools/ncku-tainan
 cd ncku-tainan/enzymix
+
 # 2. Build and run
 docker compose up --build -d biofilm-api
+
 # 3. Access the application
 # Web UI: http://localhost:8000/ui
 # API docs: http://localhost:8000/docs
 # Health check: http://localhost:8000/health</code></pre>
                             </div>
+                            <br>
                             <v-card-subtitle style="font-size: 24px;">Retraining with Your Data (Optional)</v-card-subtitle>
                             <div class="text-content">
                                 <pre><code class="language-bash"># Place your CSV as data/polished.csv
-# Required columns: dspb, dnase, prok, reaction_time, degrade
+# Required columns: dspb, dnase, prok, reaction_time, percentage degradation
+
 #Build the Docker image first if it hasn't been built yet
 docker compose up --build -d biofilm-api
+
 #Run training
 docker compose --profile training run --rm biofilm-trainer
 </code></pre>
@@ -362,7 +371,7 @@ docker compose --profile training run --rm biofilm-trainer
                                     This tool integrates predictive modeling and experiment design into a single interface, lowering lab iteration time through immediate estimates, principled optimization, and targeted enzyme ratio suggestions. The modular design makes it straightforward to update models as new data arrive.
                                 </p>
                                 <p>
-                                    <b>Broader Applicability:</b> Compatible with multiple biofilm types beyond <i>S. aureus</i>, making it accessible for experts and other iGEM teams. The model can be further trained and improved with additional high-quality data.
+                                    Enzymix also compatible with multiple biofilm types beyond <i>S. aureus</i>, making it accessible for experts and other iGEM teams. The model can be further trained and improved with additional high-quality data.
                                 </p>
                             </div>
                             </v-card>

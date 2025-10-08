@@ -134,7 +134,7 @@
                                     <li><b>Minimal overfitting gap</b> (~0.10) - Small difference between training and validation R² indicates generalizable learning.</li>
                                     <li><b>Rapid convergence</b> - Performance stabilizes after ~10–15 boosting rounds.</li>
                                 </ul>
-                                <v-img src="https://hackmd.io/_uploads/BJKZRmbael.png" alt="R² learning curve" class="my-4" />
+                                <v-img src="https://static.igem.wiki/teams/6003/software/r2.webp" alt="R² learning curve" class="my-4" />
                             </div>
                             <v-card-subtitle style="font-size: 24px;">RMSE Learning Curve Analysis</v-card-subtitle>
                             <div class="text-content">
@@ -145,7 +145,7 @@
                                     <li><b>Stable validation performance</b> - Flat plateau after round 20 indicates consistent predictions.</li>
                                     <li><b>Narrow train-validation gap (~0.01)</b> - Excellent generalization with minimal overfitting.</li>
                                 </ul>
-                                <v-img src="https://hackmd.io/_uploads/S1tWRQZ6el.png" alt="RMSE learning curve" class="my-4" />
+                                <v-img src="https://static.igem.wiki/teams/6003/software/rmse.webp" alt="RMSE learning curve" class="my-4" />
                             </div>
                             <v-card-subtitle style="font-size: 24px;">What This Means for Wet Lab Teams</v-card-subtitle>
                             <div class="text-content">

@@ -507,8 +507,6 @@ export default {
           detail: `
            <p>Biofilm formation was monitored over a 72-hour period, with optical density (OD₆₀₀) measurements taken every four hours to track growth and matrix accumulation. The results showed a steady increase in OD₆₀₀ during the initial 24 hours, indicating active biofilm development and bacterial proliferation.</p>
 <p>After 24 hours, the OD₆₀₀ values reached a plateau and remained relatively stable through 72 hours, suggesting that the biofilm had reached its mature phase and further biomass accumulation was minimal. This time point (24 hours) was therefore selected as the standard condition for subsequent biofilm degradation assays.</p>
-            <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-25-09-e2-80-afam.avif
-">
 
           `,
         },
@@ -516,7 +514,8 @@ export default {
           title: 'Cycle 7 — Learn',
           summary: '<p>瓶頸回顧與下一步策略…</p>',
           detail: `
-            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+          <p>From the biofilm formation experiment, we learned that the biofilm reached a stable state after approximately 24 hours, as the OD₆₀₀ value plateaued and showed little fluctuation afterward. This indicates that 24 h is an appropriate culture period for establishing a mature and consistent biofilm, suitable for subsequent degradation assays.</p>
+                        <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-25-09-e2-80-afam.avif">
           `,
         },
         {

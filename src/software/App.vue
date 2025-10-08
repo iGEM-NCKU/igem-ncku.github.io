@@ -88,7 +88,8 @@
                         <!-- Enzymix Section (from ML (4).md) -->
                         <div id="Enzymix" class="section-container scroller">
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                            <v-card-subtitle id="Enzymix-Introduction" class="subtitle" style="font-size: 24px;">Introduction</v-card-subtitle>
+                              
+                      <v-card-title id="Why-Enzymix" class="subtitle" style="font-size: 32px;"><b>Why Enzymix</b></v-card-title>
                             <div class="text-content">
                                 <p>
                                     Testing and experimenting to find the optimal enzyme ratio for biofilm degradation is time-consuming and costly. Our web tool helps wet lab teams and experts by suggesting the optimal enzyme ratio and suggesting what to experiment with next based on promising enzyme ratios.
@@ -123,63 +124,175 @@
                                                </v-container>
                             </div>
                             </v-card>
+                            
                             <br>
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                            <v-card-title id="Enzymix-Model-Performance" class="subtitle" style="font-size: 32px;"><b>Model Performance</b></v-card-title>
-                            <v-card-subtitle style="font-size: 24px;">R² Learning Curve Analysis</v-card-subtitle>
+                            <v-card-title id="how-we-solve-the-problem" class="subtitle" style="font-size: 32px;"><b>How can we solve this problem?</b></v-card-title>
+                            <div id="biofilm-approach">
+                                        <v-card :variant="alpha.card.theme" class="text-box pa-5">
+                                            <div class="text-content">
+                                               <p class="text-subtitle-1 mb-4">We tried to connect the results of experiments with computer models and real-world science by adding new ideas at each step. This helps our software improve and support real scientific progress.</p>
+                                                
+                                                <p class="text-subtitle-1 mb-4">Therefore, our development step was designed around wet lab feedback to ensure real research impact:</p>
+                                                
+                                                <v-timeline direction="vertical" class="mb-4">
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 1</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Data Analysis & Visualization</v-card-title>
+                                                            <v-card-text>Analyzed experiment data, cleaned it, and suggested improvements through visualization.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 2</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Base Model Development</v-card-title>
+                                                            <v-card-text>Base model trained on enzyme ratios and degradation features.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 3</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Web Interface</v-card-title>
+                                                            <v-card-text>Website for quick degradation predictions based on enzyme ratios.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 4</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Enhanced Features</v-card-title>
+                                                            <v-card-text>Added reaction time feature and optimal enzyme mix finder.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Step 5</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Smart Suggestions</v-card-title>
+                                                            <v-card-text>Experiment suggestions based on model uncertainty and promising ratios — enabling targeted experiments.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                    
+                                                    <v-timeline-item dot-color="primary" size="small">
+                                                        <template v-slot:opposite>
+                                                            <span class="text-caption">Next Step</span>
+                                                        </template>
+                                                        <v-card class="elevation-2">
+                                                            <v-card-title class="text-h6">Comprehensive Modeling</v-card-title>
+                                                            <v-card-text>Additional features (temperature, biofilm age, pH) for more comprehensive modeling.</v-card-text>
+                                                        </v-card>
+                                                    </v-timeline-item>
+                                                </v-timeline>
+                                                
+                                                <v-alert type="success" class="mt-4">
+                                                    This ensures every software iteration directly benefits wet lab progress.
+                                                </v-alert>
+                                            </div>
+                                        </v-card>
+                                    </div>
+                            
+                            </v-card>
+                            <br>
+                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
+                            <v-card-title id="Software-Design" class="subtitle" style="font-size: 32px;"><b>Software Design</b></v-card-title>
                             <div class="text-content">
-                                <ul>
-                                    <li><b>Training R²: ~0.73</b> - The model captures substantial variance in the training data.</li>
-                                    <li><b>Validation R²: ~0.63</b> - Strong generalization to unseen data, explaining 63% of variance in biofilm degradation.</li>
-                                    <li><b>Minimal overfitting gap</b> (~0.10) - Small difference between training and validation R² indicates generalizable learning.</li>
-                                    <li><b>Rapid convergence</b> - Performance stabilizes after ~10–15 boosting rounds.</li>
-                                </ul>
-                                <v-img src="https://static.igem.wiki/teams/6003/software/r2.webp" alt="R² learning curve" class="my-4" />
+                                <p>We designed our software to be easy to use, efficient, and able to adapt to changing needs. It's made to integrate machine learning models with a simple interface. Here's how it's structured:</p>
+                                 <p><b>Machine Learning Models</b><br>
+                                 These models are stored in the <code>ml-model/</code>  folder. They power our predictions and decision making. The <code>xgb_biofilm_model.json</code> is used for biofilm prediction, and the <code>rf_uncertainty_model.joblib</code> is used for uncertainty estimation.
+                                 </p>
+        
+                                <p><b>FastAPI Backend</b> [4]<br>
+                                   Our backend is built with FastAPI, which provides very fast, secure RESTful endpoints and serves the static UI. The models are loaded when the program starts, and they're ready to make predictions at scale.        </p>
+                                
+                                <p><b>Static Web UI</b><br>
+                                    The interface is simple yet powerful, built with <strong>HTML/CSS/JS</strong> and stored under <code>static/</code>, available at <code>/static</code>. Need quick access? The shortcut <code>/ui</code> will take you directly to the main page at <code>/static/index.html</code>.
+                                </p>
+                                
+                                <p><b> API Documentation</b><br>
+                                    The FastAPI backend automatically exposes OpenAPI documentation at /docs, making it easy for developers to integrate the software into any workflow or access the data programmatically through JSON endpoints.
+                                </p>
+                                <v-img src="https://static.igem.wiki/teams/6003/software/api.webp" alt="Overall workflow" class="my-4" />
+                                <div class="text-content text-center "><i>Fig. 1. Overall software workflow</i></div>
                             </div>
-                            <v-card-subtitle style="font-size: 24px;">RMSE Learning Curve Analysis</v-card-subtitle>
-                            <div class="text-content">
-                                <p>The RMSE learning curve confirms model reliability:</p>
-                                <ul>
-                                    <li><b>Training RMSE: ~0.08</b> - Low prediction error on training data.</li>
-                                    <li><b>Validation RMSE: ~0.09</b> - Predictions on new enzyme combinations typically within 9% of actual values.</li>
-                                    <li><b>Stable validation performance</b> - Flat plateau after round 20 indicates consistent predictions.</li>
-                                    <li><b>Narrow train-validation gap (~0.01)</b> - Excellent generalization with minimal overfitting.</li>
-                                </ul>
-                                <v-img src="https://static.igem.wiki/teams/6003/software/rmse.webp" alt="RMSE learning curve" class="my-4" />
-                            </div>
-                            <v-card-subtitle style="font-size: 24px;">What This Means for Wet Lab Teams</v-card-subtitle>
-                            <div class="text-content">
-                                <p>These learning curves provide strong evidence that our model:</p>
+                            </v-card>
+                            <br>
+                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
+                           <v-card-title id="Model-Performance" class="subtitle" style="font-size: 32px;">
+                             <b>Model Performance</b>
+                           </v-card-title>
+                        
+                           <v-card-subtitle style="font-size: 24px;">R² Learning Curve</v-card-subtitle>
+                           <div class="text-content">
+                             <ol>
+                               <li><b>Validation R² ≈ 0.63</b> — the model explains ~63% of variation in biofilm degradation on unseen data.</li>
+                               <li><b>Training R² ≈ 0.73</b> — a small train–validation gap (~0.10) suggests limited overfitting.</li>
+                               <li><b>Converges quickly</b> — curves plateau after ~10–15 boosting rounds, indicating stable learning.</li>
+                             </ol>
+                             <v-img src="https://static.igem.wiki/teams/6003/software/r2.webp" alt="R² learning curve" class="my-4" />
+                             <div class="text-content text-center "><i>Fig. 2. R² Learning Curve for Model Training and Validation</i></div>
+                           </div>
+                        
+                           <v-card-subtitle style="font-size: 24px;">RMSE Learning Curve</v-card-subtitle>
+                           <div class="text-content">
+                             <ol>
+                               <li><b>Validation RMSE ≈ 0.09</b> — on our 0–1 scale, typical predictions are within ~0.09 of measured degradation.</li>
+                               <li><b>Training RMSE ≈ 0.08</b> — narrow gap (~0.01) confirms good generalization.</li>
+                               <li><b>Stable plateau</b> — validation error flattens after ~20 rounds, avoiding unnecessary complexity.</li>
+                             </ol>
+                             <v-img src="https://static.igem.wiki/teams/6003/software/rmse.webp" alt="RMSE learning curve" class="my-4" />
+                             <div class="text-content text-center "><i>Fig. 3. Training and Validation RMSE Across Boosting Rounds</i></div>
+                           </div>
+                            <v-card-subtitle style="font-size: 24px;">How do we ensure the prediction is accurate?</v-card-subtitle>
+                              <div class="text-content">
                                 <ol>
-                                    <li><b>Generalizes well to new experiments</b> - Reliable predictions on untested enzyme ratios.</li>
-                                    <li><b>Doesn't overfit the training data</b> - Captures true biological relationships rather than noise.</li>
-                                    <li><b>Converges efficiently</b> - Retraining is fast when new data arrives.</li>
+                                  <li><b>5×5 nested cross-validation</b> — unbiased estimates with separate inner tuning and outer testing.</li>
+                                  <li><b>Reproducible</b> — fixed random seed and logged training history.</li>
+                                  <li><b>Robust tuning</b> — inner-CV hyperparameter search with early stopping prevents overfitting.</li>
                                 </ol>
-                            </div>
-                            <v-card-subtitle style="font-size: 24px;">Statistical Significance</v-card-subtitle>
-                            <div class="text-content">
-                                <ul>
-                                    <li><b>5-fold nested cross-validation</b> for unbiased performance estimates.</li>
-                                    <li><b>Reproducibility</b> with fixed random seed (SEED=42).</li>
-                                    <li><b>Robust hyperparameter selection</b> with inner CV optimization.</li>
-                                </ul>
-                            </div>
+                              </div>
+
+                              <v-card-subtitle style="font-size: 24px;">What This Means for Wet Lab</v-card-subtitle>
+                              <div class="text-content">
+                                <ol>
+                                  <li><b>Confident picks</b> — reliable predictions for untested enzyme ratios reduce trial-and-error.</li>
+                                  <li><b>Less wasted effort</b> — small train–val gaps mean we’re modeling biology, not noise.</li>
+                                  <li><b>Fast iteration</b> — quick convergence makes retraining practical whenever new data arrives.</li>
+                                </ol>
+                              </div>
+                            
+                             
                             </v-card>
+
                             <br>
+
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                            <v-card-title id="Enzymix-Iterative-Approach" class="subtitle" style="font-size: 32px;"><b>Our Iterative, Team-Centered Approach</b></v-card-title>
+                            <v-card-title id="API-Implementation" class="subtitle" style="font-size: 32px;"><b>How ML Model Prediction Delivered to User?</b></v-card-title>
                             <div class="text-content">
-                                <ul>
-                                    <li><b>Step 1:</b> Analyze experiment data, clean it, and visualize improvements.</li>
-                                    <li><b>Step 2:</b> Train base model on enzyme ratios and degradation features.</li>
-                                    <li><b>Step 3:</b> Provide website for quick degradation predictions.</li>
-                                    <li><b>Step 4:</b> Add reaction time feature and optimal enzyme mix finder.</li>
-                                    <li><b>Step 5:</b> Suggest experiments based on model uncertainty and promising ratios.</li>
-                                    <li><b>Next step:</b> Add temperature, biofilm age, and pH for richer modeling.</li>
-                                </ul>
+                              <p>
+                             We developed a set of API endpoints to facilitate interaction between the front-end interface and the back-end machine learning (ML) model. These endpoints deliver ML model predictions and suggestions to users. The endpoints are designed to handle various tasks, including prediction requests, optimization queries, and experiment suggestions. User inputs (e.g., reaction time, enzyme ratio, and OD value) are also delivered through the API endpoints, ensuring smooth interaction with the model and improving the user experience.
+                              </p>
                             </div>
+                            
+                            <SwaggerUI />
+                            
+
+
                             </v-card>
                             <br>
+
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
                             <v-card-title id="Enzymix-Getting-Started" class="subtitle" style="font-size: 32px;"><b>Getting Started in 3 Steps</b></v-card-title>
                             <v-card-subtitle style="font-size: 24px;">Web Application (Recommended)</v-card-subtitle>
@@ -239,56 +352,9 @@ docker compose --profile training run --rm biofilm-trainer
                                 <p>This runs the training pipeline and saves updated models in <code>ml-model/</code>.</p>
                             </div>
                             </v-card>
+                            
                             <br>
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                            <v-card-title id="Enzymix-System-Architecture" class="subtitle" style="font-size: 32px;"><b>System Architecture</b></v-card-title>
-                            <div class="text-content">
-                                <p>The software is packaged as containerized components:</p>
-                                <p><b>ML Models</b><br>Stored under <code>ml-model/</code> as <code>xgb_biofilm_model.json</code> and <code>rf_uncertainty_model.joblib</code></p>
-                                <p><b>FastAPI Backend</b> [4]<br>Serves REST endpoints and static UI; loads models on startup</p>
-                                <p><b>Static Web UI</b><br>HTML/CSS/JS bundled under <code>static/</code> and mounted at <code>/static</code>; shortcut <code>/ui</code> redirects to <code>static/index.html</code></p>
-                                <p>The API exposes OpenAPI docs at <code>/docs</code> and provides JSON endpoints for UI and programmatic access.</p>
-                                <v-img src="https://static.igem.wiki/teams/6003/software/api.webp" alt="Overall workflow" class="my-4" />
-                                <div class="text-content"><i>Fig. 1. Overall software workflow</i></div>
-                            </div>
-                            </v-card>
-                            <br>
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                            <v-card-title id="Enzymix-API-Reference" class="subtitle" style="font-size: 32px;"><b>API Reference</b></v-card-title>
-                            <SwaggerUI />
-                            <div class="text-content">
-                                <p><b>Backend Package Structure (<code>api/</code>):</b></p>
-                                <ul>
-                                    <li><code>api/main.py</code>: App factory, mounts <code>/static</code>, includes routers, loads models at startup</li>
-                                    <li><code>api/core/config.py</code>: Model paths and canonical feature names</li>
-                                    <li><code>api/core/models_io.py</code>: Pydantic request/response schemas</li>
-                                    <li><code>api/ml/engine.py</code>: Model loading, feature building, predictions with uncertainty, feature importance</li>
-                                    <li><code>api/optimization/optimizer.py</code>: Optimal mixture search and active-learning suggestions</li>
-                                    <li><b>Routers</b> (<code>api/routers/*</code>):
-                                        <ul>
-                                            <li><code>health.py</code>: <code>GET /health</code>, <code>GET /</code></li>
-                                            <li><code>misc.py</code>: <code>GET /training-schema-stats</code></li>
-                                            <li><code>predict.py</code>: <code>POST /predict</code>, <code>GET /feature-importance</code></li>
-                                            <li><code>optimize.py</code>: <code>POST /optimal-mix</code>, <code>GET /optimal-mix</code>, <code>POST /suggest-experiments</code></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <p><b>Key JSON Endpoints:</b></p>
-                                <ul>
-                                    <li><code>GET /health</code> – Liveness probe</li>
-                                    <li><code>GET /</code> – Status and model availability flags</li>
-                                    <li><code>GET /training-schema-stats</code> – Numeric ranges for UI client-side validation</li>
-                                    <li><code>POST /predict</code> – Returns mean prediction, 95% interval, epistemic uncertainty</li>
-                                    <li><code>GET /feature-importance</code> – Feature names/values [2]</li>
-                                    <li><code>POST /optimal-mix</code> – Recommends ratios and reaction time via prediction+uncertainty acquisition [3]</li>
-                                    <li><code>GET /optimal-mix</code> – Default equal-ratio mix for UI</li>
-                                    <li><code>POST /suggest-experiments</code> – Suggests diverse, high-uncertainty experiments using active learning [3]</li>
-                                </ul>
-                            </div>
-
-
-                            </v-card>
-                            <br>
+                            
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
                             <v-card-title id="Enzymix-Conclusion" class="subtitle" style="font-size: 32px;"><b>Conclusion</b></v-card-title>
                             <div class="text-content">

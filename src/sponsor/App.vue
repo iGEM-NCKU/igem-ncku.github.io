@@ -6,46 +6,139 @@
     <v-main>
     <sidenav name = 'Sponsor' />
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
+        
         <v-row>
-            <v-col>
-                <v-card title = 'Education' subtitle = 'Educational stuff' id = Education class = scroller>
+            <v-col cols = 12 md = 3>
+                <v-card >
+                         <div
+                        id="Contribution"
+                        title="Contribution"                      
+                        >
+                        <v-img class = "preview mx-auto" 
+                                :max-width= "800"
+                                src = " https://static.igem.wiki/teams/6003/logo/national-cheng-kung-university-logo.webp"/>
+                                </div>                      
+                </v-card>
+            </v-col>
+             <v-col cols = 12 md = 9>
+                <v-card title = 'NCKU' subtitle = '' :variant = 'alpha.card.theme'>
+                         <div
+                        id="Sponsor"
+                        title="Sponsor"
+                        class="text-content"
+                        text-align = 'start'
+                        >
+                        <p><strong>Contribution:</strong>
+                        We explored the concept of <strong>multi-enzymatic synergy</strong> in biofilm degradation, demonstrating that combinations of enzymes can have varying levels of cooperative effects when degrading complex, multilayered biofilms.</p>
+                        <p><strong>Methodological Contribution:</strong>
+                        We designed an experimental workflow that allows teams to test <strong>single-enzyme vs. multi-enzyme effects</strong> systematically. This modular approach encourages future teams to design biofilm-degrading systems that can be <strong>independently tested and optimized</strong>.</p>
+                        
+                       
+                        </div>
                 </v-card>
             </v-col>
         </v-row>
         <v-row>
-            <v-col>
-                <v-card title = 'Games' subtitle = 'Education' id = Games class = scroller>
-                    <template v-slot:text>
-                        To make our project more accessible and engaging, we are developing an educational mini-game that helps players understand the core concepts of our synthetic biology strategy. Inspired by real lab experiments, the game lets players design their own “enzyme troops” to mimic the bio-tools we use to target biofilms. Players analyze bacterial “towers” (representing biofilms), identify their weaknesses, and deploy their enzyme troops strategically to break them down. By turning science into interactive gameplay, we aim to spark curiosity and make learning about biofilms and synthetic biology fun and memorable.
-                        <br>
-                        <v-img src = 'https://hackmd.io/_uploads/ryKJAsnUxx.png' />
-                    </template>
+            <v-col cols = 12 md = 3>
+                <v-card >
+                         <div
+                        id="Contribution"
+                        title="Contribution"                      
+                        >
+                        <v-img class = "preview mx-auto" 
+                                :max-width= "800"
+                                src = " https://static.igem.wiki/teams/6003/logo/national-cheng-kung-university-logo.webp"/>
+                                </div>                      
                 </v-card>
             </v-col>
-
-            <v-col>
-                <a href = 'https://www.instagram.com/igemncku/' target = '_blank'>
-                    <v-card title = 'Instagram Reels' subtitle = 'Education' v-ripple id = 'Instagram Reels' class = scroller>
-                        <template v-slot:text>
-                            We also created short reels in Instagram to help people understand more about our project and how we manage to develop a solution to cure the desease.
-                            <v-col>
-                                <v-card variant = tonal class = rainbow>
-                                    <template v-slot:text>
-                                        Check our instagram page to view for more @igemncku
-                                    </template>
-                                </v-card>
-                            </v-col>
-                        </template>
-                    </v-card>
-                </a>
+             <v-col cols = 12 md = 9>
+                <v-card title = 'NCKU' subtitle = '' :variant = 'alpha.card.theme'>
+                         <div
+                        id="Sponsor"
+                        title="Sponsor"
+                        class="text-content"
+                        text-align = 'start'
+                        >
+                        <p><strong>Contribution:</strong>
+                        We explored the concept of <strong>multi-enzymatic synergy</strong> in biofilm degradation, demonstrating that combinations of enzymes can have varying levels of cooperative effects when degrading complex, multilayered biofilms.</p>
+                        <p><strong>Methodological Contribution:</strong>
+                        We designed an experimental workflow that allows teams to test <strong>single-enzyme vs. multi-enzyme effects</strong> systematically. This modular approach encourages future teams to design biofilm-degrading systems that can be <strong>independently tested and optimized</strong>.</p>
+                        
+                       
+                        </div>
+                </v-card>
             </v-col>
         </v-row>
+        <v-row>
+            <v-col cols = 12 md = 3>
+                <v-card >
+                         <div
+                        id="Contribution"
+                        title="Contribution"                      
+                        >
+                        <v-img class = "preview mx-auto" 
+                                :max-width= "800"
+                                src = " https://static.igem.wiki/teams/6003/logo/national-cheng-kung-university-logo.webp"/>
+                                </div>                      
+                </v-card>
+            </v-col>
+             <v-col cols = 12 md = 9>
+                <v-card title = 'NCKU' subtitle = '' :variant = 'alpha.card.theme'>
+                         <div
+                        id="Sponsor"
+                        title="Sponsor"
+                        class="text-content"
+                        text-align = 'start'
+                        >
+                        <p><strong>Contribution:</strong>
+                        We explored the concept of <strong>multi-enzymatic synergy</strong> in biofilm degradation, demonstrating that combinations of enzymes can have varying levels of cooperative effects when degrading complex, multilayered biofilms.</p>
+                        <p><strong>Methodological Contribution:</strong>
+                        We designed an experimental workflow that allows teams to test <strong>single-enzyme vs. multi-enzyme effects</strong> systematically. This modular approach encourages future teams to design biofilm-degrading systems that can be <strong>independently tested and optimized</strong>.</p>
+                        
+                       
+                        </div>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols = 12 md = 3>
+                <v-card >
+                         <div
+                        id="Contribution"
+                        title="Contribution"                      
+                        >
+                        <v-img class = "preview mx-auto" 
+                                :max-width= "800"
+                                src = " https://static.igem.wiki/teams/6003/logo/national-cheng-kung-university-logo.webp"/>
+                                </div>                      
+                </v-card>
+            </v-col>
+             <v-col cols = 12 md = 9>
+                <v-card title = 'NCKU' subtitle = '' :variant = 'alpha.card.theme'>
+                         <div
+                        id="Sponsor"
+                        title="Sponsor"
+                        class="text-content"
+                        text-align = 'start'
+                        >
+                        <p><strong>Contribution:</strong>
+                        We explored the concept of <strong>multi-enzymatic synergy</strong> in biofilm degradation, demonstrating that combinations of enzymes can have varying levels of cooperative effects when degrading complex, multilayered biofilms.</p>
+                        <p><strong>Methodological Contribution:</strong>
+                        We designed an experimental workflow that allows teams to test <strong>single-enzyme vs. multi-enzyme effects</strong> systematically. This modular approach encourages future teams to design biofilm-degrading systems that can be <strong>independently tested and optimized</strong>.</p>
+                        
+                       
+                        </div>
+                </v-card>
+            </v-col>
+        </v-row>
+        
     </v-col><v-col cols = 1 /></v-row>
 
-    </v-main></v-app>
 
-    <site_footer />
     
+    
+    <site_footer></site_footer>
+</v-main></v-app>
 </template>
 
 <script>
@@ -62,7 +155,17 @@ export default {
     name: 'App',
     data() {
         return {
-            loading: true
+            loading: true,
+            alpha: {
+                card: {
+                    theme: undefined,
+                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
+                },
+                subcard: {
+                    theme: 'tonal',
+                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
+                }
+            }
         }
     },
     components: {
@@ -104,33 +207,11 @@ export default {
 a.unfocused, a.unfocused:visited, a.unfocused:hover, a.unfocused:active {
     color: inherit;
 }
-.rainbow {
-    animation: rb 10s ease 0s 10000;
+.text-content {
+  font-size: 18px;      
+  line-height: 1.6;    
+  color: #333;     
+   padding-left: 30px; 
 }
-@keyframes rb {
-    0% {
-        color: red;
-    }
-    14% {
-        color: orange;
-    }
-    28% {
-        color: yellow;
-    }
-    43% {
-        color: green;
-    }
-    57% {
-        color: blue;
-    }
-    71% {
-        color: blueviolet;
-    }
-    86% {
-        color: purple;
-    }
-    100% {
-        color: red;
-    }
-}
+
 </style>

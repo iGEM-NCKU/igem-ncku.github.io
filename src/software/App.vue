@@ -255,6 +255,7 @@ docker compose --profile training run --rm biofilm-trainer
                             <br>
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
                             <v-card-title id="Enzymix-API-Reference" class="subtitle" style="font-size: 32px;"><b>API Reference</b></v-card-title>
+                            <SwaggerUI />
                             <div class="text-content">
                                 <p><b>Backend Package Structure (<code>api/</code>):</b></p>
                                 <ul>
@@ -284,6 +285,8 @@ docker compose --profile training run --rm biofilm-trainer
                                     <li><code>POST /suggest-experiments</code> – Suggests diverse, high-uncertainty experiments using active learning [3]</li>
                                 </ul>
                             </div>
+
+
                             </v-card>
                             <br>
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
@@ -786,7 +789,7 @@ import $ from 'jquery'
 import M from 'materialize-css'
 import hljs from 'highlight.js'
 import '@/styles/code.css'
-
+import SwaggerUI from "./SwaggerUI.vue";
 
 import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
@@ -814,6 +817,7 @@ export default {
         title_nav,
         page_loader,
         sidenav,
+        SwaggerUI,
         site_footer
     },
     mounted() {

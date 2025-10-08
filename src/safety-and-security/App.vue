@@ -5,7 +5,7 @@
     
     <v-main>
     <sidenav name = 'safety-and-security' />
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
+    <v-row justify = end><v-col cols = 12 md = 7 class = 'pa-5'>
         <v-row>
         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
             <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>

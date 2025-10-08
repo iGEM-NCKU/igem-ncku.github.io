@@ -1,0 +1,39 @@
+<!-- Vue組件中使用的HTML格式 -->
+<v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id="the-problem">
+    <v-card-title style="font-size: 32px;"><b>The Problem</b></v-card-title>
+    <div
+        id="the-problem-content"
+        title="The Problem"
+        class="text-content"
+    >
+        <p>
+            With global aging accelerating, <b>degenerative joint diseases</b> 
+            have become one of the leading causes of disability. Total Knee Arthroplasty (TKA) — 
+            an artificial knee replacement — is often the last and most effective solution for 
+            restoring mobility and quality of life.
+        </p>
+        
+        <p>
+            However, beneath this surgical success lies a hidden threat:<br>
+            <b>Periprosthetic Joint Infection (PJI)</b> — an infection that forms around the 
+            implant surface after surgery. Although its incidence is only around 
+            <em>0.5–2%</em>, once it occurs, it leads to catastrophic consequences such as 
+            <b>repeated surgeries, long-term antibiotic use, chronic pain, or even amputation</b>.
+        </p>
+        
+        <p>
+            The main culprit is <b>biofilm formation</b> — a structured bacterial community 
+            encased in a protective extracellular matrix made of 
+            <b>polysaccharides, proteins, and extracellular DNA (eDNA)</b>. 
+            Once established, biofilms block antibiotics and immune responses, turning a 
+            treatable infection into a chronic, relapsing one.
+        </p>
+    </div>
+    
+    <!-- 可選：添加相關圖片 -->
+    <v-img 
+        class="preview"
+        :max-width="3000000"
+        src="https://static.igem.wiki/teams/6003/results/biofilm-formation.webp"               
+    />
+</v-card>

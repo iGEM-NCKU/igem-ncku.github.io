@@ -4,7 +4,7 @@
           <!-- <b class = stroke>1</b> -->
         <v-hover>
             <template v-slot:default = '{isHovering, props}'>
-                <v-card min-width = '20vw' prepend-avatar = icon.png>
+                <v-card min-width = '20vw' prepend-avatar = icon.png class = 'sdv'>
                     <template v-slot:title>
                         <div v-bind = props>
                             <!-- {{ isHovering ? `< Back` : `Navigation` }} -->
@@ -155,5 +155,9 @@ export default {
         1px -1px 0 #fff,
         -1px 1px 0 #fff,
         1px 1px 0 #fff;
+}
+.sdv {
+    margin: 0px !important;
+    padding: 10px !important;
 }
 </style>

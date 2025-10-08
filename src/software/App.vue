@@ -253,7 +253,7 @@
                             
                             <p><strong>XGBoost Regressor</strong> (Primary predictions)<br>
                             • Optimized through 100 trials with nested cross-validation [11].<br>
-                            • Automatically tunes learning rate, tree depth, and regularization. [7]<br>
+                            • Automatically tunes learning rate, tree depth, and regularization. [7] <br>
                             • Trained on full dataset with optimal hyperparameters.</p>
                             
                             <p><strong>Random Forest Regressor</strong> (Uncertainty estimates)<br>

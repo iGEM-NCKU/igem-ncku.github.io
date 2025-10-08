@@ -12,7 +12,7 @@ export default {
     // Initialize Swagger UI
     SwaggerUI({
       dom_id: "#swagger-ui",  // ID of the div where Swagger UI should be rendered
-      url: "https://static.igem.wiki/teams/6003/software/enzymix-api.json",  // URL to your Swagger JSON definition
+      url: "https://static.igem.wiki/teams/6003/software/enzymix-docs.json",  // URL to your Swagger JSON definition
       deepLinking: true,
       presets: [
         SwaggerUI.presets.apis,

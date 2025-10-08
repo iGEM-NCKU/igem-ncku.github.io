@@ -69,8 +69,12 @@ export default {
         {name: 'MoE', popup: 'Good sponsor', url: 'https://english.moe.gov.tw/mp-1.html', logo: 'https://static.igem.wiki/teams/6003/logo/moe-logo.webp'},
         { name: 'IDT', popup: 'Also good sponsor:D', url: 'https://www.idtdna.com/', logo: 'https://static.igem.wiki/teams/6003/logo/idt-logo.webp' },
         { name: 'IV-Tech', popup: 'Excellent sponsor ouob', url: 'https://www.ivt.com.tw', logo: 'https://static.igem.wiki/teams/6003/logo/logo-20140117-2-2-11zon-11zon.webp' },
-        { name: 'DIKE', popup: 'Sponsor ouob', url: undefined, logo: 'https://static.igem.wiki/teams/6003/logo/dike.webp'},
-        {name: 'MSEAA', popup: 'Sponsor ouob', url: undefined, logo: 'https://static.igem.wiki/teams/6003/logo/mseaa-logo.webp'}
+        { name: 'DIKE', popup: 'Sponsor ouob', url: 'https://www.dike.tw/?srsltid=AfmBOopnaoKyRiftdwEApzwFduPi21Pg5cVBT08SRs_tRWPoQ1pb15i7', logo: 'https://static.igem.wiki/teams/6003/logo/dike.webp'},
+        {name: 'MSEAA', popup: 'Sponsor ouob', url: 'https://www.facebook.com/groups/401745790567546/?locale=zh_TW', logo: 'https://static.igem.wiki/teams/6003/logo/mseaa-logo.webp'},
+        {name: 'Department for Youth, Taipei City Government', popup: 'Sponsor ouob', url: 'https://tpyd.gov.taipei/en/', logo: 'https://static.igem.wiki/teams/6003/sponsor/4.avif'},
+        {name: 'NCKU Global Alumni Association', popup: 'Sponsor ouob', url: 'https://www.alumni-ncku.tw/%E9%97%9C%E6%96%BC%E6%A0%A1%E5%8F%8B%E7%B8%BD%E6%9C%83/', logo: 'https://static.igem.wiki/teams/6003/logo/alumni.avif'},
+        {name: 'NCKU Alumni Association of Thailand', popup: 'Sponsor ouob', url: 'https://www.facebook.com/groups/NCKUThailand/', logo: 'https://static.igem.wiki/teams/6003/sponsor/7.avif'}
+        
       ],
     }
   },

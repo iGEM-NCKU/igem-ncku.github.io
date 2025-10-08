@@ -2,7 +2,7 @@ Our project doesn’t stop at the laboratory bench. While we have focused on eng
 
 To take this vision a step further, we joined NCKU’s **Dream Come True Innovation Program**, where we started to translate our scientific findings into potential real-world products. We imagine a future where our system can evolve into **a customizable enzyme formulation** or **a smart injection kit** that works alongside antibiotics to treat implant-related infections safely and effectively — reducing surgery risks, shortening recovery time, and empowering hospitals with a new, low-invasive option.
 
-# 2025 NCKU Innovation Dreams Come True Project
+# NCKU Innovation Dreams Come True Project
 
 ---
 

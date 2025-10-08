@@ -10,7 +10,10 @@
         <v-col cols = 12 md = 7 class = 'pa-5'>
             <v-card class = 'ma-3' v-if = 'data[0][0].text !== ``'>
                 <template #text>
-                    <div v-html = 'data[0].map((e) => e.text).join(``)' />
+                    <div v-for = 'k in data[0]' :key = k>
+                        <v-img v-if = 'k.type == `img`' :src = 'get_image(k.text)' />
+                        <div v-html = 'k.text' v-else />
+                    </div>
                 </template>
             </v-card>
             <div v-for = 'i in data[1]' :key = i :id = 'tokenize(i.title)' class = scroller>
@@ -29,7 +32,7 @@
                         </template>
                         <template #text>
                             <div v-for = 'k in j.description' :key = k>
-                                <v-img v-if = 'k.type == `img`' v-text = '[Image]' />
+                                <v-img v-if = 'k.type == `img`' :src = 'get_image(k.text)' />
                                 <div v-html = 'k.text' v-else />
                             </div>
                         </template>
@@ -42,7 +45,7 @@
                                     </template>
                                     <template #text>
                                         <div v-for = 'l in k.description' :key = l>
-                                            <v-img v-if = 'l.type == `img`' v-text = '[Image]' />
+                                            <v-img v-if = 'l.type == `img`' :src = 'get_image(l.text)' />
                                             <div v-html = 'l.text' v-else />
                                         </div>
                                     </template>
@@ -97,7 +100,14 @@ export default {
             while(x.indexOf('</b>') != -1) x = x.replace('</b>', '-');
             while(x.indexOf('<i>') != -1) x = x.replace('<i>', '-');
             while(x.indexOf('</i>') != -1) x = x.replace('</i>', '-');
+            while(x.indexOf('&') != -1) x = x.replace('&', 'and');
+            if(x.indexOf('(') != -1) x = x.substr(0, x.indexOf('('));
             return x.toLowerCase();
+        },
+        get_image(x) {
+            var token = this.tokenize('<name>');
+            {/* return x; */}
+            return `https://static.igem.wiki/teams/6003/hp/${token}/${x}.avif`;
         }
     }
 }

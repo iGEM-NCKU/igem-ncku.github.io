@@ -125,7 +125,7 @@ We also realized the importance of planning Human Practices strategically from t
     - Scientific Planning: Develop theoretical logic and modeling backups even when data is limited; strong reasoning can compensate for experimental constraints.
     - Judging Insight: 90% of evaluation relies on the wiki—effective storytelling and accessible presentation are key to success.
 
-# Academic Exchange & Feedback
+# Academic Exchange And Feedback
 
 ---
 

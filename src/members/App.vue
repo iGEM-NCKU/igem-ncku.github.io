@@ -51,6 +51,44 @@
                         </v-dialog>
                     </v-col>
                 </v-row>
+
+
+                <v-row>
+                    <v-col v-for="i, j in pis_info" :key="i" cols="12" sm="6" lg="4">
+                        <!-- frontttt -->
+
+                        <v-dialog v-model='view[j]' class = 'text-center pa-4' width = auto>
+                            <template #activator='{ props }'>
+                                <v-card v-bind="props" height="500px" class="glass-card elevate"
+                                    :image="`https://static.igem.wiki/teams/6003/members/${i.img}`" :title="j"
+                                    :style = 'view[j] ? `opacity: 0%;` : undefined'
+                                    v-ripple v-reveal>
+                                </v-card>
+                            </template>
+                            
+                            <v-card width = 500px align = center justify = center :prepend-avatar = "`https://static.igem.wiki/teams/6003/members/${i.img}`">
+                                <template #image>
+                                    <!-- <v-img :src = "`members_picture/${i}.jpg`" class = 'align-end' cover style = 'filter: blur(10px); opacity: 30%' /> -->
+                                </template>
+                                
+                                <template #title>
+                                    {{ j }}
+                                </template>
+                                <template #subtitle>
+                                    Byefilm
+                                </template>
+                                <template #text>
+                                    <v-card :title = i.Major subtitle = Major prepend-icon = 'fa-solid fa-graduation-cap' color = amber-darken-2 variant = tonal class = 'pa-3 ma-3' />
+                                    <!-- <v-card :title = "members_info[i].Group.join(' / ')" subtitle = Group prepend-icon = 'fa-solid fa-flask' color = green variant = tonal class = 'pa-3 ma-3' /> -->
+                                    <v-card :title = i.Position subtitle = Position prepend-icon = 'fa-solid fa-map-pin' color = blue variant = tonal class = 'pa-3 ma-3' />
+                                </template>
+                                <template #actions>
+                                    <v-btn @click='view[j] = false'> ok </v-btn>
+                                </template>
+                            </v-card>
+                        </v-dialog>
+                    </v-col>
+                </v-row>
             </v-container>
 
         </v-main>
@@ -78,15 +116,18 @@ export default {
             pis_info: {
                'I-Son Ng':{
                     'Department': 'Chemical Engineering',
-                    'Position': 'PRIMARY PI'
+                    'Position': 'PRIMARY PI',
+                    'img': 'e590b3e6848fe78fa3.avif'
                },
                'Masayuki Hashimoto':{
                     'Department': 'Molecular Medicine',
-                    'Position': 'SECONDARY PI'
+                    'Position': 'SECONDARY PI',
+                    'img': 'image.avif'
                },
                'Cheng-Li Lin':{
                     'Department': 'Cheng-Kung Hospital',
-                    'Position': 'SECONDARY PI'
+                    'Position': 'SECONDARY PI',
+                    'img': 'cheng-li-lin.avif'
                }
             },
             members_info: {

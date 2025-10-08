@@ -306,6 +306,8 @@ docker compose --profile training run --rm biofilm-trainer
                                 <p>[3] Settles, B. (2009). Active Learning Literature Survey. Computer Sciences Technical Report 1648, University of Wisconsin-Madison.</p>
                                 <p>[4] FastAPI Documentation. (2024). FastAPI framework, high performance, easy to learn, fast to code, ready for production. Retrieved from https://fastapi.tiangolo.com/</p>
                                 <p>[5] Docker Documentation. (2024). Docker Compose overview. Retrieved from https://docs.docker.com/compose/.</p>
+                                <p>[6] Akiba, T., Sano, S., Yanase, T., Ohta, T., & Koyama, M. (2019). Optuna: A Next-generation Hyperparameter Optimization Framework. Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2623-2631.</p>
+                                <p>[7] Varma, S., & Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.</p>
                             </div>
                             </v-card>
                         </div>

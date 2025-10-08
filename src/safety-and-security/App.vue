@@ -111,7 +111,7 @@
         </v-card>
         </v-row>
         <v-row><v-col cols = 12 md = 8  class = 'pa-5'></v-col>
-        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Future-Applications-and-Biosafety-Considerations>
+        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Future-Applications>
             <v-card-title style="font-size: 32px;"><b>Future Applications and Biosafety Considerations</b></v-card-title>
                                 <div
                                 id=" Future-Applications"

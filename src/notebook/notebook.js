@@ -1,7 +1,7 @@
 import './notebook.css' 
 export const notebookItems = [
   {
-    title: 'Week 1(6/23-7-29)',
+    title: 'Week 1(6/23-6/29)',
     html: `
 <div class = "note-block panel-htm text-content"><h2><strong>Plasmid Work and Miniprep</strong></h2>
 <ol>

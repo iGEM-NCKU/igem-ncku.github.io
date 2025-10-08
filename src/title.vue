@@ -187,6 +187,7 @@ export default {
                 'WET': {
                     icon: 'fa-solid fa-flask',
                     subpages: [
+                        {name: 'design', icon: undefined},
                         {name: 'experiments', icon: undefined}, 
                         {name: 'notebook', icon: undefined}, 
                         {name: 'safety-and-security', icon: undefined}

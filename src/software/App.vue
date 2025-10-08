@@ -233,7 +233,18 @@
                            <v-card-title id="Model-Performance" class="subtitle" style="font-size: 32px;">
                              <b>Model Performance</b>
                            </v-card-title>
-                        
+                         <v-card-subtitle style="font-size: 24px;">How do we ensure the prediction is accurate?</v-card-subtitle>
+                              <div class="text-content">
+                                <ol>
+                                  <li><b>5×5 nested cross-validation</b> — unbiased estimates with separate inner tuning and outer testing.</li>
+                                  <li><b>Reproducible</b> — fixed random seed and logged training history.</li>
+                                  <li><b>Robust tuning</b> — inner-CV hyperparameter search with early stopping prevents overfitting.</li>
+                                </ol>
+                              </div>
+
+                                <v-img src="https://static.igem.wiki/teams/6003/software/flowchart-ml-model.webp" alt="ML workflow" class="my-4" />
+                                <div class="text-content text-center "><i>Fig. 2. Machine Learning Training Flowchart</i></div>
+
                            <v-card-subtitle style="font-size: 24px;">R² Learning Curve</v-card-subtitle>
                            <div class="text-content">
                              <ol>
@@ -242,7 +253,7 @@
                                <li><b>Converges quickly</b> — curves plateau after ~10–15 boosting rounds, indicating stable learning.</li>
                              </ol>
                              <v-img src="https://static.igem.wiki/teams/6003/software/r2.webp" alt="R² learning curve" class="my-4" />
-                             <div class="text-content text-center "><i>Fig. 2. R² Learning Curve for Model Training and Validation</i></div>
+                             <div class="text-content text-center "><i>Fig. 3. R² Learning Curve for Model Training and Validation</i></div>
                            </div>
                         
                            <v-card-subtitle style="font-size: 24px;">RMSE Learning Curve</v-card-subtitle>
@@ -253,17 +264,9 @@
                                <li><b>Stable plateau</b> — validation error flattens after ~20 rounds, avoiding unnecessary complexity.</li>
                              </ol>
                              <v-img src="https://static.igem.wiki/teams/6003/software/rmse.webp" alt="RMSE learning curve" class="my-4" />
-                             <div class="text-content text-center "><i>Fig. 3. Training and Validation RMSE Across Boosting Rounds</i></div>
+                             <div class="text-content text-center "><i>Fig. 4. Training and Validation RMSE Across Boosting Rounds</i></div>
                            </div>
-                            <v-card-subtitle style="font-size: 24px;">How do we ensure the prediction is accurate?</v-card-subtitle>
-                              <div class="text-content">
-                                <ol>
-                                  <li><b>5×5 nested cross-validation</b> — unbiased estimates with separate inner tuning and outer testing.</li>
-                                  <li><b>Reproducible</b> — fixed random seed and logged training history.</li>
-                                  <li><b>Robust tuning</b> — inner-CV hyperparameter search with early stopping prevents overfitting.</li>
-                                </ol>
-                              </div>
-
+                           
                               <v-card-subtitle style="font-size: 24px;">What This Means for Wet Lab</v-card-subtitle>
                               <div class="text-content">
                                 <ol>

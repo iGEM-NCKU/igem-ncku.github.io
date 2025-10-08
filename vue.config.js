@@ -11,7 +11,6 @@ module.exports = defineConfig({
     'introduction-to-problems': 'src/introduction/main.js',
     test: 'src/test/main.js',
     software: 'src/software/main.js',
-    model: 'src/model/main.js',
     experiments: 'src/experiments/main.js',
     engineering: 'src/engineering/main.js',
     description: 'src/description/main.js',

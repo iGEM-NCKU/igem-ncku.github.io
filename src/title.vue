@@ -174,8 +174,6 @@ export default {
                     subpages: [
                         {name: 'human-practices', icon: undefined}, 
                         {name: 'education', icon: undefined}, 
-                        {name: 'inclusivity', icon: undefined},
-                        {name: 'sustainability', icon: undefined}
                     ],
                     color: 'primary'
                 },
@@ -183,7 +181,6 @@ export default {
                     icon: 'fa-solid fa-computer',
                     subpages: [
                         {name: 'software', icon: undefined}, 
-                        {name: 'model', icon: undefined}, 
                     ],
                     color: 'orange'
                 },

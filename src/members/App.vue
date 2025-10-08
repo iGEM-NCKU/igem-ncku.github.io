@@ -74,6 +74,21 @@ export default {
         return {
             loading: true,
             members: ['Aaron', 'Jerry', 'Johan', 'Kathleen', 'Kelly', 'Richie', 'Sue', 'Yin', 'ysh'],
+            pis:['I-Son Ng', 'Masayuki Hashimoto', 'Cheng-Li Lin'],
+            pis_info: {
+               'I-Son Ng':{
+                    'Department': 'Chemical Engineering',
+                    'Position': 'PRIMARY PI'
+               },
+               'Masayuki Hashimoto':{
+                    'Department': 'Molecular Medicine',
+                    'Position': 'SECONDARY PI'
+               },
+               'Cheng-Li Lin':{
+                    'Department': 'Cheng-Kung Hospital',
+                    'Position': 'SECONDARY PI'
+               }
+            },
             members_info: {
                 'Aaron': {
                     'Major': 'International Bachelor Degree Program on Energy',

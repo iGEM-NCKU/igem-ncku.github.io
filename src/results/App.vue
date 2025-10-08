@@ -16,7 +16,7 @@
                 class="text-content"
                 >
                 <p>Biofilm-associated infections are a major challenge in clinical medicine, especially those occurring on medical implants and catheters. Once formed, biofilms provide bacteria with strong protection against antibiotics and host immune responses, often leading to chronic and recurrent infections. Conventional antibiotic treatments are insufficient because biofilms act as physical and biochemical barriers, preventing drug penetration and promoting resistance.</p>
-                <p>To address this issue, our project aims to engineer <em>Escherichia coli</em> strains capable of producing multiple biofilm-degrading enzymes and releasing them in a controlled, safe manner. Based on literature describing the structure of <em>Staphylococcus aureus</em> biofilms, we targeted the three major extracellular components (proteins, extracellular DNA, and polysaccharides) and selected corresponding enzymes (Proteinase K, DNase I, and Dispersin B) to degrade the biofilm component saperatly.</p>
+                <p>To address this issue, our project aims to engineer <em>Escherichia coli</em> strains capable of producing multiple biofilm-degrading enzymes and releasing them in a controlled, safe manner. The rationale for using a multi-enzyme approach is that a single enzyme can only partially disrupt the biofilm structure. The sequential and cooperative actions of multiple enzymes are expected to loosen the biofilm matrix, increase its porosity, and improve the penetration of antibiotics. In this mechanism, DNase I acts first to weaken structural DNA links, Proteinase K then digests matrix proteins, and Dispersin B removes residual polysaccharides, ultimately leading to the detachment of bacterial cells and complete biofilm disruption.</p>
                 <p>In addition, to ensure biosafety and controlled enzyme release, we integrated a λcI857 temperature-sensitive kill-switch system. This system allows the engineered bacteria to release accumulated enzymes upon heat induction while simultaneously undergoing self-lysis, preventing unwanted survival after treatment.</p>
                 <p>Through this design, we aim to create a controllable and safe multi-enzyme biofilm-degradation platform that can effectively disrupt mature <em>S. aureus</em> biofilms. Our ultimate goal is to provide a potential biological solution for managing and preventing medical-device-associated infections.</p>
                 </div>
@@ -53,7 +53,7 @@
                                 title="Result"
                                 class="text-content"
                                 >
-                                <p>Colony PCR yielded fragments of the expected sizes for all three enzymes, and restriction digestion verified the correct orientation of each insert.</p>
+                                <p>Initially, DspB and DNase I were cloned into pET28c under the T7 promoter (Fig. 1.). To optimize downstream protein expression, we also cloned these genes into pET28a, which was later used for all subsequent experiments (Fig. 2.). For Proteinase K, cloning into pTrc99A under the Trc promoter was successful. This plasmid was then transformed into <em>E. coli</em> MG1655 λcI857 and serve as one of the final engineered strain used for biofilm degradation assays.</p>
                                 </div>
                                 <v-img class = "preview mx-auto" src="https://static.igem.wiki/teams/6003/results/enzyme-result.webp" 
                                 :max-width= "500"
@@ -90,7 +90,7 @@
                                 title="Experimental setup"
                                 class="text-content"
                                 >                
-                                <p>We used a miniprep procedure to extract the pCL1920 plasmid, and inserted the PCR-amplified T7RNAP fragment from BL21(DE3) via electroporation. To verify the functionality of the constructed pCL1920/T7RNAP, we co-transformed it into <em>E. coli</em> TOP10 together with a T7-inducible GFP reporter plasmid. The presence of green fluorescence under IPTG induction served as an indicator of successful T7RNAP activity.</p>
+                                <p>We used a miniprep procedure to extract the pCL1920 plasmid, and inserted the PCR-amplified T7RNAP fragment from BL21(DE3) via electroporation. To verify the functionality of the constructed pCL1920-T7RNAP, we co-transformed it into <em>E. coli</em> TOP10 together with a T7-inducible GFP reporter plasmid. The presence of green fluorescence under IPTG induction served as an indicator of successful T7RNAP activity.</p>
                                 </div>
             <v-card-subtitle id = result class = "subtitle" style="font-size: 24px;"><b>Result:</b></v-card-subtitle>
                                 <div
@@ -98,19 +98,30 @@
                                 title="Result"
                                 class="text-content"
                                 >
-                                <p>After IPTG induction, the <em>E. coli</em> TOP10 strain carrying pCL1920/T7RNAP and T7GFP showed clear green fluorescence under UV illumination, demonstrating that the plasmid-expressed T7RNAP was functional.</p>
+                                <p>After IPTG induction, the <em>E. coli</em> TOP10 strain carrying pCL1920-T7RNAP and T7GFP showed clear green fluorescence under UV illumination, demonstrating that the plasmid-expressed T7RNAP was functional(Fig.7.).</p>
                                 </div>
                                 <v-img class = "preview mx-auto"
                                 :max-width= "500"
                                 src="https://static.igem.wiki/teams/6003/results/t7-result.webp"/>
-
+                                <div class = text-content>
+                                <p>After confirming the functionality of pCL1920-T7RNAP using T7-sfGFP, we introduced this plasmid into <EM>E. coli</em>MG1655 λcI857. We then transformed the enzyme plasmids pET28a-DspB and pET28a-DNase I into the same host. Along with pTrc99A-proK in <em>E. coli</em> MG1655 λcI857, this completed three final engineered strains:
+                                <br>
+                                1. <em>E. coli MG1655 λcI857</em> + pCL1920-T7RNAP + pET28a-Dispersin B
+                                                                <br>
+                                2. <em>E. coli MG1655 λcI857</em> + pCL1920-7RNAP + pET28a-DNase I
+                                                                <br>
+                                3. <em>E. coli</em> <em>MG1655 λcI857</em> + pTrc99A-Proteinase K
+                                <br>
+                                Next, we measured their growth curves at 30 °C, 40 °C, and 43 °C (Fig. 8, 9, 10). All of the engineered strains exhibited growth inhibition at elevated temperatures compared with the control strain (<em>E. coli MG1655</em>), indicating successful λcI857-mediated heat sensitivity.</p>
+                                </div>
+                        
             <v-card-subtitle id = conclusion class = "subtitle  " style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
                                 <div
                                 id="Conclusion"
                                 title="Conclusion"
                                 class="text-content"
                                 >
-                                <p>We successfully achieved functional T7RNAP expression using the low-copy plasmid pCL1920. The appearance of bright green fluorescence in TOP10 + pCL1920/T7RNAP + T7GFP confirmed that T7RNAP maintained its activity on this plasmid. Finally, we extracted the verified pCL1920/T7RNAP from this strain and introduced it into <em>E. coli</em> MG1655 λcI857. By subsequently transforming our previously constructed enzyme plasmids into this host, we successfully established an engineered strain capable of temperature-induced lysis and enzyme protein expression.</p>
+                                <p>The pCL1920-T7RNAP plasmid successfully expressed T7 promoter-driven expression capability within the λcI857 background. We established three temperature-sensitive, enzyme-producing <em>E. coli</em> strains capable of expressing and releasing biofilm-degrading enzymes under heat induction, providing a robust chassis for our degradation assays.</p>
                                 </div>
             </v-card>
         </v-col></v-row>
@@ -171,7 +182,7 @@
                                 title="Experimental setup"
                                 class="text-content"
                                 >                
-                                <p>Overnight cultures of each engineered strain were subcultured until reaching OD600 ≈ 0.6, followed by induction with 0.5 mM IPTG at 30 °C for 4 hours to allow intracellular enzyme accumulation. After induction, cultures were normalized to OD600 = 1 to ensure equal cell density. The strains were then mixed in predetermined ratios to a total volume of 200 μL. Each mixture was added into 96-well plates containing 24-hour pre-formed <em>S. aureus</em> biofilms. The plates were incubated at 40 °C, which simultaneously activated the λcI857 kill-switch and triggered enzyme release from lysed cells. After incubation, the wells were washed with ddH2O, stained with 0.06% crystal violet, and the absorbance at 600nm was measured to quantify residual biofilm biomass.</p>
+                                <p>Overnight cultures of each engineered strain were subcultured until reaching OD600 ≈ 0.6, followed by induction with 0.5 mM IPTG at 30 °C for 4 hours to allow intracellular enzyme accumulation. After induction, cultures were normalized to OD600 = 1 to ensure equal cell density. The strains were then mixed in predetermined ratios to a total volume of 200 μL. Each mixture was added into 96-well plates containing 24 hour pre-formed <em>S. aureus</em> biofilms. The plates were incubated at 40 °C, which simultaneously activated the λcI857 kill-switch and triggered enzyme release from lysed cells. After incubation, the wells were washed with ddH2O, stained with 0.06% crystal violet, and the absorbance at 600nm was measured to quantify residual biofilm biomass.</p>
                                 </div>
                                 <v-img class = preview src = "https://static.igem.wiki/teams/6003/software/biofilm-20degraded-20flow.webp"/>
             <v-card-subtitle id = result class = "subtitle" style="font-size: 24px;"><b>Result:</b></v-card-subtitle>
@@ -180,8 +191,20 @@
                                 title="Result"
                                 class="text-content"
                                 >
-                                <p>Single-enzyme treatments resulted in moderate reductions in biofilm biomass, while combinations of enzymes produced markedly greater degradation. The 1:1:1 mixture of DspB, DNase I, and Proteinase K showed the most significant reduction in biofilm density. The most pronounced biofilm clearance occurred under 40 °C incubation, consistent with enhanced enzyme release after heat-induced lysis.(結果還沒確定 要改)</p>
+                                <p>Based on the observation of the lysis dynamic curves, we designed a time-course analysis to determine the optimal reaction period for biofilm degradation. The degradation process was monitored hourly between 2 hours and 6 hours, and every two hours from 7 hours to 13 hours (Fig. 14). The most pronounced degradation was observed at 5 hours, after which activity gradually declined.</p>
                                 </div>
+                                <v-img/>
+                                <p>From these measurements, the most pronounced degradation occurred at around 5 hours, after which the activity gradually declined. Interestingly, among the individual enzymes tested, Proteinase K showed almost no significant effect on biofilm degradation under these conditions, suggested that it may not directly influence the integrity of <em>S. aureus</em> biofilms in this setup.</p>
+                                <p>To further investigate the optimal enzyme ratios and the possibility of synergistic effects, we next tested mixtures of DspB and DNase I at different proportions. The degradation activity of each combination was examined at 5 hours and 24 hours. During the 5-hour reaction, no significant biofilm degradation was observed for any tested ratio, showing little improvement compared to the individual enzymes.</p>
+                                <p>Surprisingly, after 24 hours, all tested mixtures exhibited significant decreased of biofilm mass, suggested that the mixture of Dispersin B and DNaseI have the ability to  degraded the biofilm at 24 hours reaction. Regardless of their ratio, confirming that prolonged incubation might enhance enzyme synergy and overall biofilm breakdown.</p>
+            <v-card-subtitle id = conclusion class = "subtitle  " style="font-size: 24px;"><b>Conclusion:</b></v-card-subtitle>
+                                <div
+                                id="Conclusion"
+                                title="Conclusion"
+                                class="text-content"
+                                >
+                                <p>Among the three enzymes, Dispersin B and DNase I showed clear degradation ability, while Proteinase K had little effect under the tested conditions. When Dispersin B and DNase I were combined, significant biofilm reduction was observed after 24 hours, indicating that longer reaction times might enhance their synergistic effect. In the future, we plan to test additional reaction durations and optimize the Proteinase K sequence to improve its performance in biofilm degradation.</p>
+                                </div>                                  
             </v-card>
             <br>
 

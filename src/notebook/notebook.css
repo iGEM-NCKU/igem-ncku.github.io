@@ -39,15 +39,14 @@
 }
 .panel-html ol,
 .panel-html ul {
-  margin: 0.5em 0 0.5em 1.5em;  /* 控制左側縮排 */
+  margin: 0.5em 0 0.5em 1.5em; 
   padding-left: 1em;
   line-height: 1.6;
 }
 
-/* 針對 li 裡面再放一層列表的情況，讓內層不要再多縮一格 */
 .panel-html li > ol,
 .panel-html li > ul {
-  margin-left: 1em;   /* 從預設 2em 改成 1em，縮排更自然 */
+  margin-left: 1em;   
 }
 .panel-html li strong {
   color: #2b6cb0;

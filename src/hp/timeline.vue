@@ -4,6 +4,9 @@
                     <div />
                     <v-timeline align=center>
                         <v-timeline-item v-for='i in people' :key=i>
+                            <template #opposite>
+                                {{ i.opposite }}
+                            </template>
                             <v-card @click='i.operator = true'>
                                 <template #text>
                                     <v-hover v-for='j in i.name' :key=j>
@@ -272,14 +275,17 @@ export default {
             people: [
                 {
                     name: [['Prof. 王昭雯', 'Molecular Biology'], ['Prof. 陳珮君', 'Physiology, NCKU']],
+                    opposite: 'Parkinson\'s Disease - Gut-Brain Axis Hypothesis',
                     operator: false
                 },
                 {
                     name: [['Prof. 黃兆立', 'Life Science, NCKU'], ['Prof. 張文綺', 'Plant Pathology, NCKU'], ['Prof. 鍾嘉綾', 'Plant Pathology, NTU']],
+                    opposite: 'Brown Root Rot Disease (BRR) - Plant Pathogen Control',
                     operator: false
                 },
                 {
                     name: [['Dr. 吳炳慶', 'Biodesign Program'], ['Dr. 林政立', 'Orthopedic Surgeon, NCKU Hospital']],
+                    opposite: 'Post-Surgical Infection & Biofilm-Associated Diseases',
                     operator: false
                 }
             ]

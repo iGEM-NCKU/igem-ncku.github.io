@@ -4,8 +4,8 @@
         <title_nav />
         <v-main>
         <sidenav name = 'experiments' />
-            <v-row justify = center>
-            <v-col cols = 12 md = 8 class = 'pa-5'>
+            <v-row justify = end>
+            <v-col cols = 12 md = 9 class = 'pa-5'>
                 <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Protocol>
                 <v-toolbar color="primary">
                     <v-card-title style="font-size: 32px;"><b>Protocol</b></v-card-title>
@@ -916,6 +916,86 @@
                         </v-tabs-window-item>
                 </v-tabs-window>
                 </div>
+            </v-card>
+            <br>
+            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Material>
+                <v-card-title style="font-size: 32px;"><b>Material</b></v-card-title>
+                <v-card-text>
+                    <p>All the primers we used are listed in the table below.</p>
+                    <v-table>
+                    <thead>
+                    <tr>
+                    <th class="text-left"></th>
+                    <th class="text-left">Primers</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>Proteinase K</td>
+                    <td>ProK_FW:<br>
+                        CCGGAATTCATGGCTCCTGCGGTGGAACAA<br>
+                        ProK_RV: 
+                        GTCACTCTGCAGTCACGCTTGATAATTATTATACGCG
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Dsp B</td>
+                    <td>DSPB_FW :
+                        TCAGAATTCCATATGTGCGTAAAAGGCAATTCCAT
+                    DSPB_RV : <br>CCGCTCGAGTCACTCATCCCCATTCGT
+
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>DNase I</td>
+                    <td>DNaseI_FW : <br>TCAGAATTCCATATGCTCAAAATTGCCGCGTTT
+                        DNaseI_RV : <br>CGGCTCGAGTCAGGTGAGCGTGACTTC
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Dsp B、DNase I、(Colony PCR)</td>
+                    <td>GFP-HF : gccgAAGCTTTGTTTAACTTTAAGAAGGAG
+                        6x His-c : TCCTTTCAGCAAAAAACCCCTCAAGACCCG</td>
+                    </tr>
+                    <tr>
+                    <td>Pro k (Colony PCR)</td>
+                    <td>ProK_FW : CCG GAA TTC ATG GCT CCT GCG GTG GAA CAA
+                        pTrc99A-1 : aagcggccgcagatctAAGAGTTTGTAGAAACGC</td>
+                    </tr>
+                    <tr>
+                    <td>T7RNAP</td>
+                    <td>141-20 : CATCTGGTCGCATTGGGTCACCAGCAAATC<br>
+                        T7RNAP-3: taaacgcctggtgctacgcctgaataagtgattgatttggcgttacgcgaac
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>CmR</td>
+                    <td>Cmc(jk) : cAcTTATTcAggcgTAgcAc<br>
+                        Not-CmN : CCCGGGCGGCCGCGACGCACACCGTGGAAA
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>lacZ</td>
+                    <td>141-31 : cagggcttcccggtatcaacagggacaccagcggccgcggttccagttccgtttatccgg
+                        141-23 : <br>GACTGTAGCGGCTGATGTTGAACTGGAAG
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>lacI-T7RNAP (Overlapping PCR)</td>
+                    <td>180-1 : ccaccatcaagggaaagccc<br>
+                        T7-RNAP2 : tcgaactgcaggtcgacggatccccggaattgatttggcgttacgcgaac
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>Lambda c1857</td>
+                    <td>lambda10 : cctcctcgcccttgctcacCATacaacctccttagtacatg
+                        lambda11 : GCGTAGCACgaattcggggGATCAGCCAAACGTCTCTTC
+                    </td>
+                    </tr>
+                    </tbody>
+                    </v-table>
+                </v-card-text>
+
             </v-card>
         </v-col>
         </v-row>

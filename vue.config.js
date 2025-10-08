@@ -25,6 +25,12 @@ module.exports = defineConfig({
     'hp_connecting-with-igemers': 'src/hp/connecting-with-igemers/main.js',
     hp_entrepreneurship: 'src/hp/entrepreneurship/main.js',
     hp_fundraising: 'src/hp/fundraising/main.js',
+    overview: 'src/hp/overview/main.js',
+    'integrated-human-practice': 'src/hp/integrated-human-practice/main.js',
+    education: 'src/hp/education/main.js',
+    'connecting-with-igemers': 'src/hp/connecting-with-igemers/main.js',
+    entrepreneurship: 'src/hp/entrepreneurship/main.js',
+    fundraising: 'src/hp/fundraising/main.js',
     'sponsor-Partnership': 'src/sponsor/main.js',
     'design' : 'src/design/main.js'
     }

@@ -58,7 +58,7 @@
                         <v-icon> fa-solid fa-arrow-pointer </v-icon>
                         <b class = stext> Hover to view </b>
                         <br>
-                        <v-img src = logo.png max-height = 7vh class = 'ma-2' />
+                        <v-img src = https://static.igem.wiki/teams/6003/logo/logo.avif max-height = 7vh class = 'ma-2' />
                     </v-card>
                 </v-col>
             </template>

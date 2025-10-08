@@ -42,7 +42,7 @@
                 </template>
                 <template #text>
                     <v-list>
-                    <v-list-item v-for = 'k in i.subpages' :key = k :title = title(k.name) :href = '`${k.name}.html`'></v-list-item>
+                    <v-list-item v-for = 'k in i.subpages' :key = k :title = title(hp(k.name)) :href = '`${(k.name)}.html`'></v-list-item>
                     </v-list>
                 </template>
                 </v-card>
@@ -69,7 +69,7 @@
                                     </template>
                                     <template #text>
                                         <v-list v-if = i.subpages style = 'border-radius: 10px;'>
-                                            <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${url.name}.html`'> {{ title(url.name) }} </v-list-item>
+                                            <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${(url.name)}.html`'> {{ title(hp(url.name)) }} </v-list-item>
                                         </v-list>
                                     </template>
                                 </v-card>
@@ -90,7 +90,7 @@
                             </template>
                             <template #text>
                                 <v-list v-if = i.subpages style = 'border-radius: 10px;'>
-                                    <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${url.name}.html`'> {{ title(url.name) }} </v-list-item>
+                                    <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${(url.name)}.html`'> {{ title(hp(url.name)) }} </v-list-item>s
                                 </v-list>
                             </template>
                         </v-card>
@@ -127,7 +127,7 @@
     <transition name = scale>
         <v-fab key = app app color = transparent location = 'right bottom' size = large icon @click = 'real_goto(0)' v-if = 'show_top && !show_nav'>
             <!-- <v-icon> fa-solid fa-circle-up </v-icon> -->
-            <v-img src = 'up.png' width = 100px height = 100px id = gotop />
+            <v-img src = 'https://static.igem.wiki/teams/6003/logo/up.avif' width = 100px height = 100px id = gotop />
         </v-fab>
     </transition>
     
@@ -172,8 +172,13 @@ export default {
                 'HP': {
                     icon: 'fa-solid fa-person',
                     subpages: [
-                        {name: 'human-practices', icon: undefined}, 
-                        {name: 'education', icon: undefined}, 
+                        {name: 'human-practices', icon: undefined},
+                        {'name': 'overview', 'icon': undefined},
+                        {'name': 'integrated-human-practice', 'icon': undefined},
+                        {'name': 'education', 'icon': undefined},
+                        {'name': 'connecting-with-igemers', 'icon': undefined},
+                        {'name': 'entrepreneurship', 'icon': undefined},
+                        {'name': 'fundraising', 'icon': undefined},
                     ],
                     color: 'primary'
                 },
@@ -277,6 +282,10 @@ export default {
                 duration: 300
             })
             this.goto(x)
+        },
+        hp(x) {
+            if(x.indexOf('hp_') == 0) return x.substr(3);
+            return x;
         }
     }
 }

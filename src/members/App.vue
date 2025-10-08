@@ -6,6 +6,9 @@
         <v-main>
             <v-container>
                 <v-row>
+                    <v-col cols = 12>
+                        <v-card title = 'Our Team!' class = text-center />
+                    </v-col>
                     <v-col v-for="i, j in members" :key="i" cols="12" sm="6" lg="4">
                         <!-- frontttt -->
 

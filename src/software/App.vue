@@ -179,9 +179,9 @@
                                 <p><b>Requirements:</b> Docker [5] and Git</p>
                                 <pre><code class="language-bash"># 1. Clone repository
 git clone https://gitlab.igem.org/2025/software-tools/ncku-tainan
-cd ncku-tainan
+cd ncku-tainan/enzymix
 # 2. Build and run
-docker compose up --build -d
+docker compose up --build -d biofilm-api
 # 3. Access the application
 # Web UI: http://localhost:8000/ui
 # API docs: http://localhost:8000/docs
@@ -191,8 +191,11 @@ docker compose up --build -d
                             <div class="text-content">
                                 <pre><code class="language-bash"># Place your CSV as data/polished.csv
 # Required columns: dspb, dnase, prok, reaction_time, degrade
-chmod +x ./train.sh 
-./train.sh</code></pre>
+#Build the Docker image first if it hasn't been built yet
+docker compose up --build -d biofilm-api
+#Run training
+docker compose --profile training run --rm biofilm-trainer
+</code></pre>
                                 <p>This runs the training pipeline and saves updated models in <code>ml-model/</code>.</p>
                             </div>
                             </v-card>
@@ -205,46 +208,8 @@ chmod +x ./train.sh
                                 <p><b>FastAPI Backend</b> [4]<br>Serves REST endpoints and static UI; loads models on startup</p>
                                 <p><b>Static Web UI</b><br>HTML/CSS/JS bundled under <code>static/</code> and mounted at <code>/static</code>; shortcut <code>/ui</code> redirects to <code>static/index.html</code></p>
                                 <p>The API exposes OpenAPI docs at <code>/docs</code> and provides JSON endpoints for UI and programmatic access.</p>
-                                <v-img src="https://hackmd.io/_uploads/HywquNg6gl.png" alt="Overall workflow" class="my-4" />
+                                <v-img src="https://static.igem.wiki/teams/6003/software/api.webp" alt="Overall workflow" class="my-4" />
                                 <div class="text-content"><i>Fig. 1. Overall software workflow</i></div>
-                            </div>
-                            </v-card>
-                            <br>
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                            <v-card-title id="Enzymix-Model-Design" class="subtitle" style="font-size: 32px;"><b>Model Design &amp; Training Pipeline</b></v-card-title>
-                            <div class="text-content">
-                                <p><b>Dataset:</b> <code>data/polished.csv</code><br><b>Required columns:</b> <code>dspb</code>, <code>dnase</code>, <code>prok</code>, <code>reaction_time</code>, <code>degrade</code></p>
-                                <p><b>Feature Preparation</b></p>
-                                <ul>
-                                    <li>Enzyme ratios normalized to sum to 1.0</li>
-                                    <li><code>reaction_time</code> used as numeric feature</li>
-                                </ul>
-                                <p><b>Target Handling</b></p>
-                                <ul>
-                                    <li>Original scale and sign preserved (0–100 rescaled to 0–1)</li>
-                                </ul>
-                                <p><b>Models</b></p>
-                                <ul>
-                                    <li><b>XGBoost regressor:</b> Primary predictor [1]</li>
-                                    <li><b>Random Forest regressor:</b> Uncertainty via standard deviation across estimators</li>
-                                </ul>
-                                <p><b>Validation &amp; Tuning</b></p>
-                                <ul>
-                                    <li>Nested cross-validation (5×5) with Optuna-driven tuning [6][7]</li>
-                                    <li>Early stopping prevents overfitting</li>
-                                    <li>Final models retrained on all data with tuned rounds</li>
-                                </ul>
-                                <p><b>Model Interpretability</b></p>
-                                <ul>
-                                    <li>SHAP provides feature importance and explanations [2]</li>
-                                </ul>
-                                <p><b>Training Entry Points</b></p>
-                                <ul>
-                                    <li>Script: <code>ml-model/train.py</code></li>
-                                    <li>Outputs: <code>ml-model/xgb_biofilm_model.json</code>, <code>ml-model/rf_uncertainty_model.joblib</code></li>
-                                </ul>
-                                <v-img src="https://hackmd.io/_uploads/rkQRFPWpxg.png" alt="Training workflow" class="my-4" />
-                                <div class="text-content"><i>Fig. 2. Machine learning training workflow</i></div>
                             </div>
                             </v-card>
                             <br>

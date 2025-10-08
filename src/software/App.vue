@@ -131,9 +131,9 @@
                             <div id="biofilm-approach">
                                         <v-card :variant="alpha.card.theme" class="text-box pa-5">
                                             <div class="text-content">
-                                               <p class="text-subtitle-1 mb-4">We tried to connect the results of experiments with computer models and real-world science by adding new ideas at each step. This helps our software improve and support real scientific progress.</p>
+                                               <p class="mb-4">We tried to connect the results of experiments with computer models and real-world science by adding new ideas at each step. This helps our software improve and support real scientific progress.</p>
                                                 
-                                                <p class="text-subtitle-1 mb-4">Therefore, our development step was designed around wet lab feedback to ensure real research impact:</p>
+                                                <p class="mb-4">Therefore, our development step was designed around wet lab feedback to ensure real research impact:</p>
                                                 
                                                 <v-timeline direction="vertical" class="mb-4">
                                                     <v-timeline-item dot-color="primary" size="small">
@@ -214,8 +214,8 @@
                                  These models are stored in the <code>ml-model/</code>  folder. They power our predictions and decision making. The <code>xgb_biofilm_model.json</code> is used for biofilm prediction, and the <code>rf_uncertainty_model.joblib</code> is used for uncertainty estimation.
                                  </p>
         
-                                <p><b>FastAPI Backend</b> [4]<br>
-                                   Our backend is built with FastAPI, which provides very fast, secure RESTful endpoints and serves the static UI. The models are loaded when the program starts, and they're ready to make predictions at scale.        </p>
+                                <p><b>FastAPI Backend</b> <br>
+                                   Our backend is built with FastAPI, which provides very fast, secure RESTful endpoints and serves the static UI [4]. The models are loaded when the program starts, and they're ready to make predictions at scale.        </p>
                                 
                                 <p><b>Static Web UI</b><br>
                                     The interface is simple yet powerful, built with <strong>HTML/CSS/JS</strong> and stored under <code>static/</code>, available at <code>/static</code>. Need quick access? The shortcut <code>/ui</code> will take you directly to the main page at <code>/static/index.html</code>.
@@ -230,13 +230,35 @@
                             </v-card>
                             <br>
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                           <v-card-title id="Model-Performance" class="subtitle" style="font-size: 32px;">
-                             <b>Model Performance</b>
+                           <v-card-title id="ML-model" class="subtitle" style="font-size: 32px;">
+                             <b>Machine Learning Model</b>
                            </v-card-title>
+
+                          <v-card-subtitle style="font-size: 24px;">Model Training Pipeline</v-card-subtitle>
+                          <div class="text-content">
+                            <p><strong>Data Source</strong><br>
+                            Training data from <code>data/polished.csv</code> containing enzyme ratios (DSPB, DNase I, Proteinase K), reaction times, and degradation measurements.</p>
+                            
+                            <p><strong>Data Preprocessing</strong><br>
+                            • Three enzyme concentrations normalized to proportions that sum to 1.0.<br>
+                            • Reaction time kept as numeric hours.<br>
+                            • Degradation values scaled from 0-100% to 0-1 range for model training.</p>
+                            
+                            <p><strong>XGBoost Regressor</strong> (Primary predictions)<br>
+                            • Optimized through 100 trials with nested cross-validation [7].<br>
+                            • Automatically tunes learning rate, tree depth, and regularization.<br>
+                            • Trained on full dataset with optimal hyperparameters.</p>
+                            
+                            <p><strong>Random Forest Regressor</strong> (Uncertainty estimates)<br>
+                            • 300 decision trees generate prediction variance.<br>
+                            • Standard deviation across trees quantifies confidence.<br>
+                            • Higher uncertainty flags predictions needing validation.</p>
+                            
+                          </div> 
                          <v-card-subtitle style="font-size: 24px;">How do we ensure the prediction is accurate?</v-card-subtitle>
                               <div class="text-content">
                                 <ol>
-                                  <li><b>5×5 nested cross-validation</b> — unbiased estimates with separate inner tuning and outer testing.</li>
+                                  <li><b>5×5 nested cross-validation with Optuna-driven </b> — for robust hyperparameter search [6].</li>
                                   <li><b>Reproducible</b> — fixed random seed and logged training history.</li>
                                   <li><b>Robust tuning</b> — inner-CV hyperparameter search with early stopping prevents overfitting.</li>
                                 </ol>

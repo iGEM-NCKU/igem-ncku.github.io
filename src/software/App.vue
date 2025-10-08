@@ -99,6 +99,28 @@
                                 <p>
                                     We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [1], iterates quickly, and provides interpretable signals for future experiments [2].
                                 </p>
+                                 <v-container>
+                                                 <v-hover>
+                                                   <template #default = '{isHovering, props}'>
+                                                     <a href = 'https://johan-susilo.github.io/enzymix/' target = '_blank'>
+                                                       <v-card v-bind = props :color = 'isHovering ? `primary` : undefined' v-ripple :variant = 'isHovering ? undefined : `tonal`' :class = 'isHovering ? undefined : `rainbow`'>
+                                                         <template #title>
+                                                           <b> Enzymix </b>
+                                                         </template>
+                                                         <template #subtitle>
+                                                           Optimize enzyme ratios for smarter biofilm breakdown
+                                                         </template>
+                                                         <template #text>
+                                                           You can try Enzymix here!
+                                                         </template>
+                                                         <template #prepend>
+                                                           <v-icon> fa-solid fa-server </v-icon>
+                                                         </template>
+                                                       </v-card>
+                                                     </a>
+                                                   </template>
+                                                 </v-hover>
+                                               </v-container>
                             </div>
                             </v-card>
                             <br>
@@ -159,13 +181,31 @@
                             </v-card>
                             <br>
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                            </v-card>
-                            <br>
-                            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
                             <v-card-title id="Enzymix-Getting-Started" class="subtitle" style="font-size: 32px;"><b>Getting Started in 3 Steps</b></v-card-title>
                             <v-card-subtitle style="font-size: 24px;">Web Application (Recommended)</v-card-subtitle>
                             <div class="text-content">
-                                Visit <b>https://johan-susilo.github.io/biofilm-ml-model/</b> to:
+                                 <v-container>
+                                                 <v-hover>
+                                                   <template #default = '{isHovering, props}'>
+                                                     <a href = 'https://johan-susilo.github.io/enzymix/' target = '_blank'>
+                                                       <v-card v-bind = props :color = 'isHovering ? `primary` : undefined' v-ripple :variant = 'isHovering ? undefined : `tonal`' :class = 'isHovering ? undefined : `rainbow`'>
+                                                         <template #title>
+                                                           <b> Enzymix </b>
+                                                         </template>
+                                                         <template #subtitle>
+                                                           Optimize enzyme ratios for smarter biofilm breakdown
+                                                         </template>
+                                                         <template #text>
+                                                           You can try Enzymix here!
+                                                         </template>
+                                                         <template #prepend>
+                                                           <v-icon> fa-solid fa-server </v-icon>
+                                                         </template>
+                                                       </v-card>
+                                                     </a>
+                                                   </template>
+                                                 </v-hover>
+                                               </v-container>
                                 <ul>
                                     <li>Add experiment rows with enzyme ratios and reaction time</li>
                                     <li>Click Predict to obtain predicted removal and uncertainty</li>

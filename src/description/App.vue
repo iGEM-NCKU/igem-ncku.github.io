@@ -165,11 +165,11 @@
                                 <p>Ultimately, ByeFilm aims to <b>restore the effectiveness of antibiotics</b> and <b>reduce the need for invasive revision surgeries</b>, improving patients’ lives while lowering healthcare burdens.</p>
                                 </div>
             </v-card>
-            <br>
+            
 
         </v-col></v-row>
-        <v-row><v-col cols = 12 md = 8  class = 'pa-5'></v-col>
-        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = References>
+        <v-row><v-col>
+            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = References>
             <v-card-title style="font-size: 32px;"><b>References</b></v-card-title>
                                 <div
                                 id=" References"
@@ -185,9 +185,11 @@
                                 <li><a href="https://www.neb.com/en/products/m0303-dnase-i-rnase-free?srsltid=AfmBOoq4hVhjsdkPfEHoznJQHNjyFBN-O3mNb2zALXEk4wfbHhPmZUoe">DNase I (RNase-free)</a></li>
                                 </ol>
                                 </div>
+                                
+            </v-card>
+            
 
-        </v-card>
-        </v-row>
+        </v-col></v-row>
         
     </v-col><v-col cols = 1 /></v-row>
 

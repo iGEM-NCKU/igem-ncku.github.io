@@ -154,7 +154,7 @@ export default {
     name: 'title_nav',
     data() {
         return {
-            pre: ['education', 'integrated-human-practices', 'members', 'wetlab', 'introduction-to-problems', 'software', 'model', ],
+            pre: ['education', 'integrated-human-practices', 'members', 'wetlab', 'introduction-to-problems', 'software',  ],
             f: {
                 'Sponsor': {
                     icon: 'fa-solid fa-key',

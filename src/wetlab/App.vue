@@ -209,21 +209,6 @@
             </v-col>
         </v-row>
     </v-col><v-col cols = 1 /></v-row>
-
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row><v-col>
-            <v-card title = 'Testing Area' color = grey>
-                <template v-slot:text>
-                    <v-card title = 'Card theme' variant = outlined>
-                        <v-btn rounded = undefined v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.card.theme == i ? `green` : undefined' @click = 'alpha.card.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                    </v-card>
-                    <v-card title = 'Sub-Card theme' variant = outlined>
-                        <v-btn rounded = undefined v-for = 'i in alpha.subcard.f' :key = 'i' :color = 'alpha.subcard.theme == i ? `green` : undefined' @click = 'alpha.subcard.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                    </v-card>
-                </template>
-            </v-card>
-        </v-col></v-row>
-    </v-col><v-col cols = 1 /></v-row>
     
     <site_footer></site_footer>
 </v-main></v-app>
@@ -243,17 +228,7 @@ export default {
     name: 'App',
     data() {
         return {
-            loading: true,
-            alpha: {
-                card: {
-                    theme: undefined,
-                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
-                },
-                subcard: {
-                    theme: 'tonal',
-                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
-                }
-            }
+            loading: true
         }
     },
     components: {

@@ -7,7 +7,7 @@
     <sidenav name = 'safety-and-security' />
     <v-row justify = end><v-col cols = 12 md = 7 class = 'pa-5'>
         <v-row>
-        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
+        <v-card class="text-box pa-5 scroll-box scroller" id = Introduction>
             <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>
                                 <div
                                 id="Introduction"
@@ -21,7 +21,7 @@
         </v-row>
         <v-row>
             <v-col cols = 12 md = 8  class = 'pa-5'></v-col>
-            <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Risk-Identification>
+            <v-card class="text-box pa-5 scroll-box scroller" id = Risk-Identification>
             <v-card-title style="font-size: 32px;"><b>Risk Identification</b></v-card-title>
                 <v-card-subtitle id = Biological-Risks class="subtitle" style="font-size: 24px;">1. Biological Risks</v-card-subtitle>
                                 <div
@@ -57,7 +57,7 @@
             </v-card>
         </v-row>
         <v-row><v-col cols = 12 md = 8  class = 'pa-5'></v-col>
-        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Safety-Measures-in-the-Laboratory>
+        <v-card class="text-box pa-5 scroll-box scroller" id = Safety-Measures-in-the-Laboratory>
             <v-card-title style="font-size: 32px;"><b>Safety Measures in the Laboratory</b></v-card-title>
                                 <div
                                 id="Safety-Measures"
@@ -77,7 +77,7 @@
         </v-card>
         </v-row>
         <v-row><v-col cols = 12 md = 8  class = 'pa-5'></v-col>
-        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Design-Features-for-Biosafety>
+        <v-card class="text-box pa-5 scroll-box scroller" id = Design-Features-for-Biosafety>
             <v-card-title style="font-size: 32px;"><b>Design Features for Biosafety</b></v-card-title>
                                 <v-card-subtitle id = Chassis-Selection class="subtitle" style="font-size: 24px;">Chassis Selection</v-card-subtitle>
                                 <div class = text-content>
@@ -111,7 +111,7 @@
         </v-card>
         </v-row>
         <v-row><v-col cols = 12 md = 8  class = 'pa-5'></v-col>
-        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Future-Applications>
+        <v-card class="text-box pa-5 scroll-box scroller" id = Future-Applications>
             <v-card-title style="font-size: 32px;"><b>Future Applications and Biosafety Considerations</b></v-card-title>
                                 <div
                                 id=" Future-Applications"
@@ -127,7 +127,7 @@
 
         </v-card>
         </v-row><v-row><v-col cols = 12 md = 8  class = 'pa-5'></v-col>
-        <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = References>
+        <v-card class="text-box pa-5 scroll-box scroller" id = References>
             <v-card-title style="font-size: 32px;"><b>References</b></v-card-title>
                                 <div
                                 id=" References"
@@ -146,21 +146,6 @@
 
         </v-card>
         </v-row>
-    </v-col><v-col cols = 1 /></v-row>
-
-    <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-row><v-col>
-            <v-card title = 'Testing Area' color = grey>
-                <template v-slot:text>
-                    <v-card title = 'Card theme' variant = outlined>
-                        <v-btn rounded = undefined v-for = 'i in alpha.card.f' :key = 'i' :color = 'alpha.card.theme == i ? `green` : undefined' @click = 'alpha.card.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                    </v-card>
-                    <v-card title = 'Sub-Card theme' variant = outlined>
-                        <v-btn rounded = undefined v-for = 'i in alpha.subcard.f' :key = 'i' :color = 'alpha.subcard.theme == i ? `green` : undefined' @click = 'alpha.subcard.theme = i'> {{ i ? i : 'NORMAL' }} </v-btn>
-                    </v-card>
-                </template>
-            </v-card>
-        </v-col></v-row>
     </v-col><v-col cols = 1 /></v-row>
     
     <site_footer></site_footer>
@@ -181,17 +166,7 @@ export default {
     name: 'App',
     data() {
         return {
-            loading: true,
-            alpha: {
-                card: {
-                    theme: undefined,
-                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
-                },
-                subcard: {
-                    theme: 'tonal',
-                    f: ['outlined', undefined, 'tonal', 'text', 'plain', 'flat']
-                }
-            }
+            loading: true
         }
     },
     components: {

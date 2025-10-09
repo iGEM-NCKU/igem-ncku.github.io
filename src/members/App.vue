@@ -7,7 +7,11 @@
             <v-container>
                 <v-row>
                     <v-col cols = 12>
-                        <v-card title = 'Our Team!' class = text-center />
+                        <v-hover>
+                            <template #default = '{isHovering, props}'>
+                                <v-card v-bind = props :color = 'isHovering ? `primary` : undefined' title = 'Our Team!' class = text-center prepend-avatar = 'https://static.igem.wiki/teams/6003/logo/logo.avif'/>
+                            </template>
+                        </v-hover>
                     </v-col>
                     <v-col v-for="i, j in members" :key="i" cols="12" sm="6" lg="4">
                         <!-- frontttt -->
@@ -54,9 +58,15 @@
                         </v-dialog>
                     </v-col>
                 </v-row>
-
-
+                
                 <v-row>
+                    <v-col cols = 12>
+                        <v-hover>
+                            <template #default = '{isHovering, props}'>
+                                <v-card v-bind = props :color = 'isHovering ? `primary` : undefined' title = 'Professors' class = text-center prepend-avatar = 'https://static.igem.wiki/teams/6003/logo/logo.avif'/>
+                            </template>
+                        </v-hover>
+                    </v-col>
                     <v-col v-for="i, j in pis_info" :key="i" cols="12" sm="6" lg="4">
                         <!-- frontttt -->
 

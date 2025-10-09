@@ -175,14 +175,7 @@ export const notebookItems = [
 <li>DNase I expected size: 1022 bp</li>
 <li>ProK did not show bands; additional colonies will be tested</li>
 </ul>
-<p><img src="attachment:82bac698-7b1d-49aa-a2f6-3d8611a08f85:0623_PCR-1.jpg" alt="0623_PCR-1.JPG"></p>
-<p><img src="attachment:d1a45aba-3ca8-4ea4-ad26-23e8e8819cfa:0623_PCR-2.jpg" alt="0623_PCR-2.jpg"></p>
-<p><img src="attachment:d1a45aba-3ca8-4ea4-ad26-23e8e8819cfa:0623_PCR-2.jpg" alt="0623_PCR-2.jpg"></p>
-<p><img src="attachment:f01f5300-6c1c-4dde-8f0e-8b70a21d5c73:0623_PCR-3.heic" alt="0623_PCR-3.HEIC"></p>
-<p><img src="attachment:7cd094cf-a5ff-43e3-9459-d8978dade693:d818ba2a-b7d9-4b04-94a6-8cb170054e0a.png" alt="0624-PCR-1.HEIC"></p>
-<p><img src="attachment:fc30200c-de8c-4d61-8218-868abc4192cf:9fb26d56-bd98-4709-8637-77edf89b9401.png" alt="0624_PCR-2.HEIC"></p>
-<p><img src="attachment:b2be19af-f513-4d45-a710-233760eff219:0628_Colony_PCR.heic" alt="0628 Colony PCR.HEIC"></p>
-<p><img src="attachment:e7e75765-38fa-4684-b8c0-7ae3bd95a55d:0629_colony_PCR.heic" alt="0629 colony PCR.HEIC"></p>
+
 </li>
 </ol>
 <h2><strong>PCR Purification</strong></h2>
@@ -195,14 +188,13 @@ export const notebookItems = [
 <li>Note: When extracting pET28-c plasmid, do not split into two tubes initially; dilute after extraction to save kit</li>
 <li>Images documented for verification</li>
 </ul>
-<p><img src="attachment:dd0a83b1-65c6-432f-8e49-7171fd4654d8:65412c5e-adc7-4e57-b7b2-a3c6fc1343dd.png" alt="0624_Digestion-1.heic"></p>
-<p><img src="attachment:522c67a4-9e91-4ad4-a3fa-9a0dfcef501e:0d6fbe03-001f-488f-bad4-960d4c79c88c.png" alt="0624_Digestion-2.HEIC"></p>
+
 <h2><strong>Ligation</strong></h2>
 <ul>
 <li>Performed and gel run on 06/25</li>
 <li>Images recorded for confirmation</li>
 </ul>
-<p><img src="attachment:1cbecf22-7c3e-4538-b10f-21ec1c2c6af7:a0fff176-684b-4de4-91fc-9cdbad81e746.png" alt="0625-ligation.heic"></p>
+
 <h2><strong>Transformation / Electroporation</strong></h2>
 <ul>
 <li>Plasmids and competent cells:
@@ -224,8 +216,7 @@ export const notebookItems = [
 </ul>
 </li>
 </ul>
-<p><img src="attachment:8a0b582b-38b0-42f2-ba8e-6d8d8a94545c:8c4f5361-97c0-4029-9d69-1dd478248ce8.png" alt="0625_Masterplate-pTrc99A.HEIC"></p>
-<p><img src="attachment:351701e5-de86-4135-b394-1205927c9227:acabc651-9253-432f-81f4-9d424aa3ae1f.png" alt="0628 Master plate.heic"></p>
+
 </div>
     `
   },
@@ -303,8 +294,7 @@ export const notebookItems = [
 <p><strong>Notes</strong>: ProK did not amplify with other primers; used insert-specific forward primer</p>
 </li>
 </ul>
-<p><img src="attachment:a52abaed-d15e-4758-9f00-65f872d59596:0630_Colony_PCR.png" alt="0630 Colony PCR.png"></p>
-<p><img src="attachment:c63b913b-ec33-4040-b71b-05e2c088708f:0701_Colony_PCR_Digestion.png" alt="0701 Colony PCR Digestion.png"></p>
+
 <h2><strong>2. Plasmid Construction</strong></h2>
 <ul>
 <li><strong>Colony PCR Digestion</strong>: Digest PCR products to verify insert integrity</li>
@@ -389,15 +379,7 @@ export const notebookItems = [
 <li><strong>Result</strong>: only one control amplified, target products not obtained</li>
 <li><strong>Next Step</strong>: rerun with mentor assistance</li>
 </ul>
-<p><img src="attachment:a97bea2f-08e6-4a75-a8b3-f5c5955df42a:0701_PCR_for_BL21_(DE3)_T7RNAP_KE10_lacY_Km.png" alt="0701 PCR for BL21 (DE3) T7RNAP, KE10 lacY Km.png"></p>
-<p><img src="attachment:2cfe4e1b-6b2b-4694-bc40-6011bc8afead:0702_PCR_for_KE10_lacY_Km.png" alt="0702 PCR for KE10 lacY Km.png"></p>
-<p><img src="attachment:fc3080a0-4d05-4aa3-886b-2f4cea199db2:0702_PCR_for_KE10_lacY_Km.png" alt="0702 PCR for KE10 lacY Km.png"></p>
-<p><img src="attachment:ae371d62-0d62-4907-b457-f3b3f492780b:0703_PCR_for_KE10_lacY_Km.png" alt="0703 PCR for KE10 lacY Km.png"></p>
-<p><img src="attachment:e5e64672-2d2b-4b6d-be37-4b94c8d46c8a:image.png" alt="image.png"></p>
-<p><img src="attachment:fc130036-6b31-4f76-b755-fef55f125f7a:image.png" alt="image.png"></p>
-<p><img src="attachment:481bbdbb-d7ee-4c55-9855-0726bb93fcf7:image.png" alt="image.png"></p>
-<p><img src="attachment:81070dc5-1235-4287-9c5b-b31fbb497d5f:image.png" alt="image.png"></p>
-<p><img src="attachment:92999ffb-430d-468e-b14a-ee28510a6c7e:e20a3683-1d76-4929-a69c-35377a80b8c2.png" alt="0703 KE10 lacY Km plate.JPG"></p>
+
 </div>
     `
   },
@@ -463,10 +445,7 @@ export const notebookItems = [
 <li><strong>Annealing</strong>: 50-60°C</li>
 <li><strong>Notes</strong>: Success achieved with KE10 ∆lacY::km (primer p1-pKD13/141-11-1 at 60°C)</li>
 </ul>
-<p><img src="attachment:5dfce339-e7a0-4c4a-a8a8-7b4b4927d11b:image.png" alt="image.png"></p>
-<p><img src="attachment:9da91347-a506-49b0-afb0-3c9ce0fa4003:Screenshot_2025-07-09_at_6.20.22_PM.png" alt="Screenshot 2025-07-09 at 6.20.22 PM.png"></p>
-<p><img src="attachment:5b688d96-ac30-45a1-87f2-8b72acb2de37:Screenshot_2025-07-09_at_6.21.57_PM.png" alt="Screenshot 2025-07-09 at 6.21.57 PM.png"></p>
-<p><img src="attachment:10e68c0c-920d-4239-820b-18c5692d6f47:image.png" alt="image.png"></p>
+
 <h3><strong>2. PCR Purification</strong></h3>
 <ul>
 <li>
@@ -478,7 +457,6 @@ export const notebookItems = [
 <li>T7: 53 ng/1.0 μg</li>
 <li>lacY: 21 ng/1.0 μg</li>
 </ul>
-<p><img src="attachment:4863cb8c-7f6a-4bc2-a8c6-5fcdaf8effee:Screenshot_2025-07-09_at_6.25.41_PM.png" alt="Screenshot 2025-07-09 at 6.25.41 PM.png"></p>
 </li>
 </ul>
 <h3><strong>3. Overlapping PCR</strong></h3>
@@ -552,16 +530,13 @@ export const notebookItems = [
 <p><strong>Observation</strong>: Gel extraction of 4260-5148 bp region showed no visible bands; likely low DNA concentration or kit problem.</p>
 </li>
 </ul>
-<p><img src="attachment:2c59710d-ef49-460d-80d1-b7f9f041e990:Screenshot_2025-07-09_at_6.31.23_PM.png" alt="Screenshot 2025-07-09 at 6.31.23 PM.png"></p>
-<p><img src="attachment:22575b0c-cb9d-41f5-bd3e-fbae654a923a:Screenshot_2025-07-11_at_1.49.07_PM.png" alt="Screenshot 2025-07-11 at 1.49.07 PM.png"></p>
-<p><img src="attachment:0504318c-7d6c-4e4e-b282-f468c5a2c076:Screenshot_2025-07-15_at_4.24.15_PM.png" alt="Screenshot 2025-07-15 at 4.24.15 PM.png"></p>
+
 <h3><strong>4. Gel Extraction</strong></h3>
 <ul>
 <li>Attempted gel extraction for overlapping PCR product</li>
 <li>Result: no bands observed; considered kit issue</li>
 </ul>
-<p><img src="attachment:205150c2-651f-4599-9458-225dd48af91d:image.png" alt="image.png"></p>
-<h3><strong>5. Red Recombination</strong></h3>
+<p><img src="attachment:205150c2-651f-4599-9458-225dd48af91d:image.png" alt="image.png"></p><h3><strong>5. Red Recombination</strong></h3>
 <ul>
 <li>Planned as next step after overlapping PCR</li>
 </ul>
@@ -637,7 +612,7 @@ export const notebookItems = [
 <li><strong>Observation</strong>: No non-blue colonies on LB + Km + IPTG + X-Gal plate → lacY replacement by T7RNAP + Km failed</li>
 <li>Negative control: red (Cm) strain; still has lacY → blue colonies as expected</li>
 </ul>
-<p><img src="attachment:9dc1a7c7-6193-4c26-9a83-af74ab695280:fe832a05-0cea-41c2-911d-c836728674b8.png" alt="IMG_6107.HEIC"></p>
+
 </li>
 </ul>
 <h3><strong>2. Master Plate (Plasmid Construction)</strong></h3>
@@ -647,9 +622,7 @@ export const notebookItems = [
 <li><strong>MG1655 λCI857 + ProK</strong>: LB + Ap, LB + Ap + Glucose</li>
 <li><strong>Observation</strong>: Plates prepared for future SDS-PAGE protein expression analysis</li>
 </ul>
-<p><img src="attachment:ba6d19ae-4107-4683-a1b7-9a2628d6b236:47cfd902-697b-45f6-a382-114b034a6db1.png" alt="IMG_6109.HEIC"></p>
-<p><img src="attachment:d1fe186f-471a-4f7a-9cea-4fc068efdf4f:1c4f8e1f-03d1-430d-868a-de0537d7b0a0.png" alt="IMG_6110.HEIC"></p>
-<p><img src="attachment:6d99c8f3-205d-4279-84b5-7a23d6663968:53d20511-0ecb-45d0-80ab-1cbec880adef.png" alt="IMG_6111.HEIC"></p>
+
 <h3><strong>3. PCR for BL21(DE3) T7RNAP &amp; KE10 lacY::Km</strong></h3>
 <ul>
 <li>
@@ -750,9 +723,7 @@ export const notebookItems = [
 <p><strong>Observation</strong>: MASA ran PCR → T7 amplified, Km did not; new primer (T7RNAP-3) designed for further trials</p>
 </li>
 </ul>
-<p><img src="attachment:765e0ad2-51db-4915-9c72-0ca0498dd636:1000015791.jpg" alt="1000015791.jpg"></p>
-<p><img src="attachment:7b31c8d6-95b4-4a4d-b8a9-a73f13402f12:0716_PCR_for_KEIO_lacYKm.png" alt="0716 PCR for KEIO lacYKm.png"></p>
-<p><img src="attachment:046b8e54-a7c9-42f5-843e-923cd78762f8:Screenshot_2025-10-05_at_5.39.31_PM.png" alt="Screenshot 2025-10-05 at 5.39.31 PM.png"></p>
+
 <h2><strong>Biofilm Formation</strong></h2>
 <ul>
 <li>
@@ -787,15 +758,14 @@ export const notebookItems = [
 <p><strong>Extended Biofilm Collection</strong>: 48 hr, 72 hr for analysis</p>
 </li>
 </ul>
-<p><img src="attachment:236dff41-5a11-4c51-a135-a36549481e8f:Screenshot_2025-07-21_at_9.56.35_PM.png" alt="Screenshot 2025-07-21 at 9.56.35 PM.png"></p>
+
 <h2><strong>Protein Expression</strong></h2>
 <ul>
 <li><strong>Sample Collection</strong>: Cell pellet collected</li>
 <li><strong>PCR for lacY</strong>: Enzyme: Taq, primers 141-49 / p1-pKD13ex</li>
 <li><strong>Future Analysis</strong>: SDS-PAGE planned to verify protein expression</li>
 </ul>
-<p><img src="attachment:685f9dd8-2c6b-45ed-948a-dbefc6201252:0718_SDS-page.png" alt="0718 SDS-page.png"></p>
-<p><img src="attachment:c2d65ac7-7da3-4795-b6e8-fc9d25519cd4:Screenshot_2025-07-21_at_7.44.41_PM.png" alt="Screenshot 2025-07-21 at 7.44.41 PM.png"></p>
+
 </div>
     `
   },
@@ -809,7 +779,7 @@ export const notebookItems = [
 <li><strong>T7 GFP → BL21(DE3)</strong></li>
 <li><strong>Observation</strong>: Colonies grown for downstream biofilm assays</li>
 </ul>
-<p><img src="attachment:b142e746-adba-4569-b9db-660f0ca014cd:IMG_6218.heic" alt="IMG_6218.HEIC"></p>
+
 <h3><strong>2. Biofilm Growth Test</strong></h3>
 <ul>
 <li><strong>Timepoints</strong>: 0, 2, 4, 6, 8, 12, 24 hr</li>
@@ -821,7 +791,7 @@ export const notebookItems = [
 <li><strong>Samples</strong>: BL21(DE3) derivatives expressing DSPB, DNase I, ProK</li>
 <li><strong>Observation</strong>: Protein bands visualized (#0723)</li>
 </ul>
-<p><img src="attachment:e1a6dc20-c2a2-4380-89cd-95023e7a1a42:0723_SDS.heic" alt="0723 SDS.HEIC"></p>
+
 <h3><strong>4. PCR for CmR, lacZ, T7RNAP</strong></h3>
 <ul>
 <li>
@@ -922,7 +892,7 @@ export const notebookItems = [
 </table>
 </li>
 </ul>
-<p><img src="attachment:8c7d7e46-c662-42c4-92cf-0eb291216895:0724_PCR_for_T7RNAP_CmR_lacZ.png" alt="0724 PCR for T7RNAP, CmR, lacZ.png"></p>
+
 <h3><strong>5. PCR Purification</strong></h3>
 <ul>
 <li><strong>Fragments purified</strong>: T7RNAP, CmR, lacZ (50 μL each)</li>
@@ -956,11 +926,7 @@ export const notebookItems = [
 <li><strong>Template Volume</strong>: 1+1 μL</li>
 <li><strong>Observation</strong>: Bands obtained for downstream cloning</li>
 </ul>
-<p><img src="attachment:777d1ef6-3c9e-4863-b2a2-1a4920e389d0:Screenshot_2025-07-25_at_11.39.35_PM.png" alt="Screenshot 2025-07-25 at 11.39.35 PM.png"></p>
-<p><img src="attachment:b0452803-6bd1-4f22-b46d-f578283d4bfd:Screenshot_2025-07-25_at_11.42.52_PM.png" alt="Screenshot 2025-07-25 at 11.42.52 PM.png"></p>
-<p><img src="attachment:9847d352-45c1-462d-9dca-926f02045901:Screenshot_2025-10-05_at_6.05.51_PM.png" alt="Screenshot 2025-10-05 at 6.05.51 PM.png"></p>
-<p><img src="attachment:03c95f62-c6ec-496b-8af3-8771ccd3e3ac:image.png" alt="image.png"></p>
-<p><img src="attachment:04ac9d49-9600-4357-85d1-945852ddbe61:image.png" alt="image.png"></p>
+
 <h3><strong>9. Pre-culture</strong></h3>
 <ul>
 <li><strong>Strains</strong>: red(Km), ProK</li>
@@ -971,9 +937,7 @@ export const notebookItems = [
 <li><strong>Growth Curves</strong>: 36–96 hr standard biofilm assay</li>
 <li><strong>Observation</strong>: Biofilm OD values recorded; growth monitored over time</li>
 </ul>
-<p><img src="attachment:79401457-e67a-48c7-aec2-cda52e099fde:image.png" alt="image.png"></p>
-<p><img src="attachment:9d291f66-156a-4304-a69b-a33f0ddc9111:image.png" alt="image.png"></p>
-<p><img src="attachment:54bc4b20-dd4e-42ad-a20c-7d9bef610bca:image.png" alt="image.png"></p>
+
      </div>
     `
   },{
@@ -1023,7 +987,7 @@ export const notebookItems = [
 <li>Purpose: Visualize protein expression</li>
 <li>Observation: Target protein bands detected</li>
 </ul>
-<p><img src="attachment:93bb6198-d094-4c4a-8924-ae1c4f04376d:Screenshot_2025-10-05_at_6.35.03_PM.png" alt="Screenshot 2025-10-05 at 6.35.03 PM.png"></p>
+
 </li>
 <li>
 <p><strong>Western Blot</strong></p>
@@ -1032,7 +996,7 @@ export const notebookItems = [
 <li>Experimental conditions recorded</li>
 <li>Observation: Band intensity and specificity analyzed</li>
 </ul>
-<p><img src="attachment:ca32de95-9b3b-4ad4-a85e-69c5f3167931:Screenshot_2025-10-05_at_6.39.20_PM.png" alt="Screenshot 2025-10-05 at 6.39.20 PM.png"></p>
+
 </li>
 </ul>
 <h2><strong>Red Recombination</strong></h2>
@@ -1053,12 +1017,7 @@ export const notebookItems = [
 <li>PCR Confirmation:</li>
 <li>Overlapping Template Check:</li>
 </ul>
-<p><img src="attachment:bcae19c0-33b7-42ae-9c70-65e0d9ec6fb5:0729_overlapping_for_lacZCmT7.png" alt="0729 overlapping for lacZ+Cm+T7.png"></p>
-<p><img src="attachment:8f621095-2c6f-466b-9fa4-a9597cb0c339:Screenshot_2025-10-05_at_6.18.25_PM.png" alt="Screenshot 2025-10-05 at 6.18.25 PM.png"></p>
-<p><img src="attachment:92bdb9c5-7ce1-4f43-9920-1d897e6bac22:Screenshot_2025-10-05_at_6.21.12_PM.png" alt="Screenshot 2025-10-05 at 6.21.12 PM.png"></p>
-<p><img src="attachment:6d570cb4-0153-4019-8150-d0a2f026ccb6:Screenshot_2025-10-05_at_6.28.26_PM.png" alt="Screenshot 2025-10-05 at 6.28.26 PM.png"></p>
-<p><img src="attachment:0e2b3b26-a46d-491f-b012-a9b2b45b4e89:Screenshot_2025-10-05_at_6.32.37_PM.png" alt="Screenshot 2025-10-05 at 6.32.37 PM.png"></p>
-<p><img src="attachment:f32c5e8e-7cac-487a-896f-925db55cf43c:Screenshot_2025-10-05_at_6.38.10_PM.png" alt="Screenshot 2025-10-05 at 6.38.10 PM.png"></p>
+
 </li>
 </ul>
 <h2><strong>Biofilm Formation</strong></h2>
@@ -1075,7 +1034,7 @@ export const notebookItems = [
 <ul>
 <li>Purpose: Assess biofilm formation and secretion activity</li>
 </ul>
-<p><img src="attachment:2fec5803-af9c-4220-9880-fefd9ce74a4a:Screenshot_2025-10-05_at_6.46.47_PM.png" alt="Screenshot 2025-10-05 at 6.46.47 PM.png"></p>
+
 </li>
 <li>
 <p><strong>Phage Preparation</strong></p>
@@ -1128,8 +1087,7 @@ export const notebookItems = [
 <li>Plates incubated at 30°C and 43°C.</li>
 <li>Only colonies growing at 30°C but not 43°C were retained for further use.</li>
 </ul>
-<p><img src="attachment:26936782-56f6-4e4c-b3f0-72e74d15bbfc:image.png" alt="image.png"></p>
-<p><img src="attachment:a9463b83-8a60-40f7-bfe0-ffbdc1208d16:image.png" alt="image.png"></p>
+
 </li>
 </ul>
 <h2><strong>Biofilm Degradation Assays</strong></h2>
@@ -1292,7 +1250,7 @@ export const notebookItems = [
 </ul>
 </li>
 </ul>
-<p><img src="attachment:42a58d8c-224f-492c-9506-398e578ea839:image.png" alt="image.png"></p>
+
 <h2><strong>Biofilm Degradation Assays</strong></h2>
 <h3><strong>Preculture</strong></h3>
 <ul>
@@ -1656,7 +1614,7 @@ export const notebookItems = [
 <li><strong>Strain:</strong> BL21(DE3) transformed with T7 GFP plasmid + maltose supplementation.</li>
 <li><strong>PCR Check</strong></li>
 </ul>
-<p><img src="attachment:da66efe3-b291-4096-bd70-7f9b82cc175d:Screenshot_2025-10-05_at_8.11.25_PM.png" alt="Screenshot 2025-10-05 at 8.11.25 PM.png"></p>
+
 <h3><strong>2. Biofilm Degradation Assay</strong></h3>
 <h3><strong>Subculture OD600 Measurements</strong></h3>
 <table>
@@ -1721,8 +1679,7 @@ export const notebookItems = [
 <p>Infection with lambda cI857 may <strong>interfere with the T7 system</strong> in the original DE3 fragment, potentially causing loss of T7 function or elimination of the plasmid expression.</p>
 </li>
 </ul>
-<p><img src="attachment:cb3eee69-a94f-4aac-894b-98c5441ca003:67f21e21-d4b8-4e4c-a2fd-7c709ea3eaf1.png" alt="image.png"></p>
-<p><img src="attachment:d80f6f9f-1010-4a07-a34c-1dd8d6d98de8:image.png" alt="image.png"></p>
+
      </div>
     `
   },
@@ -1846,7 +1803,7 @@ export const notebookItems = [
 </tr>
 </tbody>
 </table>
-<p><img src="attachment:ea1618eb-cf1d-4c37-a747-bef9c6e8775a:image.png" alt="image.png"></p>
+
 <h3><strong>2. PCR for Cm Fragment</strong></h3>
 <p><strong>Template:</strong> 1/1000x pACYC184</p>
 <p><strong>Enzyme:</strong> Taq or KOD</p>
@@ -1908,8 +1865,7 @@ export const notebookItems = [
 </tbody>
 </table>
 <p><strong>Observation:</strong> Gel showed that Cm fragment concentration is approximately 5× higher than T7 RNAP fragment.</p>
-<p><img src="attachment:e4b344dd-c2fa-46ba-b52c-d3bbf48c34fb:Screenshot_2025-10-05_at_8.16.28_PM.png" alt="Screenshot 2025-10-05 at 8.16.28 PM.png"></p>
-<p><img src="attachment:3dcbf5dd-9421-4058-b985-e2460fd8d56e:image.png" alt="image.png"></p>
+
 <h3><strong>3. Gel Extraction</strong></h3>
 <ul>
 <li>Extracted PCR fragments (T7 RNAP and Cm) to purify products before overlapping PCR.</li>
@@ -1979,8 +1935,7 @@ export const notebookItems = [
 </tr>
 </tbody>
 </table>
-<p><img src="attachment:1430be32-52be-46be-aa56-cbc1e5265b96:image.png" alt="image.png"></p>
-<p><img src="attachment:0711e7cf-1bf4-463b-9100-f14c51c7d7d9:Screenshot_2025-10-05_at_8.20.37_PM.png" alt="Screenshot 2025-10-05 at 8.20.37 PM.png"></p>
+
 <h3><strong>5. Pre-Culture and Plasmid Work</strong></h3>
 <ol>
 <li><strong>Pre-culture:</strong> TOP10 / pCL1920 overlapping PCR product for T7 RNAP + Cm.</li>
@@ -2027,8 +1982,7 @@ export const notebookItems = [
 <li>Then, add SalI and its corresponding buffer.</li>
 <li>Adjust final volume with nuclease-free water to 60 µL.</li>
 </ol>
-<p><img src="attachment:ab4d4fd8-af99-44bf-8a69-08a98f6c6baf:image.png" alt="image.png"></p>
-<p><img src="attachment:9069681d-f3dd-4495-a3d6-52d2ae7745e0:image.png" alt="image.png"></p>
+
 </li>
 </ul>
 <h3><strong>3. Ligation</strong></h3>
@@ -2039,8 +1993,7 @@ export const notebookItems = [
 <ul>
 <li>Ligation initially failed, but this is expected because digestion and ligation outcomes differ inherently.</li>
 </ul>
-<p><img src="attachment:a46d17b7-6b15-43c8-8a2e-3d344fdf1757:image.png" alt="image.png"></p>
-<p><img src="attachment:24f3dc61-aee9-408a-ab2e-12b7bbb0797a:Screenshot_2025-10-05_at_8.34.15_PM.png" alt="Screenshot 2025-10-05 at 8.34.15 PM.png"></p>
+
 <h3><strong>4. Transformation</strong></h3>
 <ul>
 <li><strong>T7-GFP → TOP10</strong></li>
@@ -2131,7 +2084,7 @@ export const notebookItems = [
 </li>
 <li>Purpose: prepare cells for biofilm degradation assays and SDS-PAGE sample collection.</li>
 </ul>
-<p><img src="attachment:832b3baf-4d48-4d58-9f93-e122030e8270:image.png" alt="image.png"></p>
+
 <h2><strong>Biofilm Degradation</strong></h2>
 <h3><strong>1. Subculture</strong></h3>
 <table>
@@ -2443,10 +2396,7 @@ export const notebookItems = [
 <li>IPTG induction was performed for 3 hours before measuring the OD600 for biofilm degradation efficiency.</li>
 <li>DspB and Proteinase K consistently showed stronger biofilm degradation than DNase I under these conditions.</li>
 </ul>
-<p><img src="attachment:f976b5b1-437f-4581-bc38-64105c50acc3:image.png" alt="image.png"></p>
-<p><img src="attachment:9ec3e377-ecab-4d3d-bf89-379811a45115:image.png" alt="image.png"></p>
-<p><img src="attachment:166b4079-52bb-4215-9ada-c9acdd040636:image.png" alt="image.png"></p>
-<p><img src="attachment:483e429b-5ef4-4f9e-ae82-7b7cb8ca084f:image.png" alt="image.png"></p>
+
      </div>
     `
   }

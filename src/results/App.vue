@@ -83,7 +83,7 @@
                                 class="text-content"
                                 >
                                 <p>In previous experiments, we try to infected BL21(DE3) with λ phage CI857, so that we could have both function of T7 RNA polymerase to induce T7 promoter and λCI857 to induce host cell lysis while temperature raised to 43°C. However, we found that the λ phage and the DE3 prophage in BL21(DE3) could not coexist within the same genome, as λcI857 infection might displace the DE3 lysogen carrying T7RNAP.</p>
-                                <p>To overcome this, we redesigned our system to isolate the T7RNAP gene from BL21(DE3) and clone it into a low-copy-number plasmid pCL1920. This plasmid would then be transformed into <em>E. coli</em> MG1655 λcI857, allowing T7 promoter-driven enzyme plasmids to be induced in a host also containing the heat-inducible kill switch.</p>
+                                <p>To overcome this, we redesigned our system to isolate the T7RNAP gene from BL21(DE3) and clone it into a low-copy-number plasmid pCL1920, creating a stable and controllable source of T7 RNA polymerase. We deliberately chose a low-copy plasmid to prevent  strong T7RNAP expression, which could otherwise lead to leaky enzyme production and premature cell lysis before the temperature induction. This plasmid would then be transformed into <em>E. coli</em> MG1655 λcI857, allowing T7 promoter-driven enzyme plasmids to be induced in a host also containing the heat-inducible kill switch.</p>
                                 </div>
                                 <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;">
                                 <v-img class = "preview img" src = "https://static.igem.wiki/teams/6003/results/t7-aim.webp"></v-img><figcaption style="font-size:14px; color:#555; margin-top:6px;">Figure 5. Design of the temperature-inducible T7 expression strain.
@@ -122,6 +122,9 @@
                                 <br>
                                 Next, we measured their growth curves at 30 °C, 40 °C, and 43 °C (Fig. 8, 9, 10). All of the engineered strains exhibited growth inhibition at elevated temperatures compared with the control strain (<em>E. coli MG1655</em>), indicating successful λcI857-mediated heat sensitivity.</p>
                                 </div>
+                                <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;">
+                                <v-img class = "preview img" src = "https://static.igem.wiki/teams/6003/results/30.webp"></v-img><figcaption style="font-size:14px; color:#555; margin-top:6px;">Figure 8. Growth Curve of Enzyme-Expressing Strain at 30°C.
+                                </figcaption></figure></div>
                                 <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;">
                                 <v-img class = "preview img" src = "https://static.igem.wiki/teams/6003/results/image-3.webp"></v-img><figcaption style="font-size:14px; color:#555; margin-top:6px;">Figure 9. Growth Curve of  Enzyme-Expressing Strain at 40°C.
                                 </figcaption></figure></div>

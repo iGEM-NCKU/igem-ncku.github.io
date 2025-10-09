@@ -9,7 +9,6 @@
     
     <v-row justify = end>
         <v-col cols = 12 md = 7 class = 'pa-5'>
-            <v-img style="margin-bottom: -8%; margin-top: -7%;" src = "https://static.igem.wiki/teams/6003/title/7.avif"/>  
             <v-card class = 'ma-3' v-if = 'data[0][0].text !== ``'>
                 <template #text>
                     <template v-for = 'k in data[0]' :key = k>
@@ -40,7 +39,7 @@
                                 <template v-else-if = 'k.type == `pdf`'>
                                     <v-hover>
                                         <template #default = '{isHovering, props}'>
-                                            <a href = 'https://static.igem.wiki/teams/6003/hp/entrepreneurship/entrepreneurship-4.pdf' target = '_blank'>
+                                            <a :href = 'k.text' target = '_blank'>
                                                 <v-card title = PDF subtitle = 'Click to view' v-bind = props :color = 'isHovering ? `primary` : undefined' v-ripple class = ma-3 prepend-icon = 'fa-solid fa-file-pdf' />
                                             </a>
                                         </template>
@@ -61,6 +60,15 @@
                                     <template #text>
                                         <template v-for = 'l in k.description' :key = l>
                                             <v-img class = 'preview cursor-help' v-if = 'l.type == `img`' :src = 'get_image(l.text)' />
+                                            <template v-else-if = 'l.type == `pdf`'>
+                                                <v-hover>
+                                                    <template #default = '{isHovering, props}'>
+                                                        <a :href = 'l.text' target = '_blank'>
+                                                            <v-card title = PDF subtitle = 'Click to view' v-bind = props :color = 'isHovering ? `primary` : undefined' v-ripple class = ma-3 prepend-icon = 'fa-solid fa-file-pdf' />
+                                                        </a>
+                                                    </template>
+                                                </v-hover>
+                                            </template>
                                             <template v-else-if = 'l.type == `icon`'><br><br><v-icon> {{ l.text }} </v-icon></template>
                                             <template v-else-if = 'l.type == `subicon`'><br>&nbsp;<v-icon> {{ l.text }} </v-icon></template>
                                             <span v-html = 'l.text' v-else />

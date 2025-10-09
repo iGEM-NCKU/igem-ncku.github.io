@@ -106,6 +106,17 @@
                                   40% exhibit additive or antagonistic interactions [3,4].
                                 </p>
                                 <p>
+                                    To address these challenges, we developed Enzymix, a machine learning-powered tool designed to optimize enzyme ratios for biofilm degradation. It uses XGBoost and Random Forest models to predict biofilm removal efficiency and suggest optimal enzyme combinations, helping researchers avoid extensive trial-and-error experimentation.
+                                </p>
+                                <ul>
+                                  Key Features:
+
+                                  <li>• <b>Predict biofilm degradation</b> percentage with uncertainty estimates</li> 
+                                  <li>• <b>Find optimal enzyme ratios</b> for specific reaction times</li>
+                                  <li>• <b>Suggest informative follow-up experiments</b> using active learning</li>
+                                  <li>• <b>Visualize feature importance</b> to understand key factors driving degradation</li>
+                                </ul>
+                                <p>
                                     We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [5], iterates quickly, and provides interpretable signals for future experiments [6].
                                 </p>
                                  <v-container>
@@ -356,17 +367,42 @@
                                                  </v-hover>
                                                </v-container>
                                 <ol>
-                                    <li>Add experiment rows with enzyme ratios and reaction time</li>
-                                    <li>Click Predict to obtain predicted removal and uncertainty</li>
-                                    <li>Use Find Optimal Mix for optimization recommendations</li>
-                                    <li>Get Suggested Experiments for informative follow-ups</li>
-                                    <li>Export results as CSV and visualize feature importances</li>
+                                    <li><b>Add experiment</b></li>
+                                    <ul>
+                                      <li>• Enter enzyme ratios: DSPB, DNase, ProK (values between 0-1).</li>
+                                      <li>• Enter reaction time in hours (e.g., 12, 18, 24).</li>
+                                    </ul>
+                                    <li><b>Scroll to the right and click "Predict"</b></li>
+                                    <ul>
+                                      <li>• Predicted biofilm removal percentage (0-100%).</li>
+                                      <li>• View uncertainty estimate (±value) showing prediction confidence.</li>
+                                    
+                                    </ul>
+                                    <li><b>Use Find Optimal Mix</b></li>
+                                    <ul>
+                                      <li>• Get the best enzyme combination for maximum degradation.</li>
+                                      <li>• The optimal conditions for the current version are fixed. However, it can be improved so that users can receive optimal conditions from Enzymix in addition to an optimal ratio.</li>
+                                    
+                                    </ul>
+                                    <li><b>Get Suggested Experiments for informative follow-ups</b></li>
+                                    <ul>
+                                      <li>• Receive 3 high-value experiment recommendations.</li>
+                                      <li>• These combinations balance high predicted degradation and high uncertainty (unexplore regions to improve ml model).</li>
+                                      <li>• Acquisition score = predicted degradation + 1.5 × uncertainty.</li>
+                                    
+                                    </ul>
+                                    <li><b>Export results as CSV and visualize feature importances</b></li>
+                                     <ul>
+                                      <li>• Download results as CSV for further analysis.</li>
+                                      <li>• View feature importance charts showing which enzymes/time matter most.</li>
+                                    
+                                    </ul>
                                 </ol>
                                 <br>
                             </div>
                             <v-card-subtitle style="font-size: 24px;">Local Installation</v-card-subtitle>
                             <div class="text-content">
-                                <p><b>Requirements:</b> Docker and Git</p>
+                                <p><b>Requirements:</b> Docker and Git installed on your system </p>
                                 <pre><code class="language-bash"># 1. Clone repository
 git clone https://gitlab.igem.org/2025/software-tools/ncku-tainan
 cd ncku-tainan/enzymix
@@ -378,6 +414,16 @@ docker compose up --build -d biofilm-api
 # Web UI: http://localhost:8000/ui
 # API docs: http://localhost:8000/docs
 # Health check: http://localhost:8000/health</code></pre>
+                                
+                                <ul>
+                                  <br>
+                                  <li><b>What's happening?</b></li>
+                                  <li>The API serves a model for predictions</li>
+                                  <li>FastAPI provides interactive API docs at <code>/docs</code></li>
+                                  <li>The web UI offers a user-friendly interface</li>
+                                </ul>
+                  
+
                             </div>
                             <br>
                             <v-card-subtitle style="font-size: 24px;">Retraining with Your Data (Optional)</v-card-subtitle>
@@ -391,7 +437,14 @@ docker compose up --build -d biofilm-api
 #Run training
 docker compose --profile training run --rm biofilm-trainer
 </code></pre>
-                                <p>This runs the training pipeline and saves updated models in <code>ml-model/</code>.</p>
+                                <ul>
+                                  <br>
+                                  <li><b>When to retrain?</b></li>
+                                  <li>You have new experimental data</li>
+                                  <li>You want to improve model accuracy</li>
+                                  <li>You're working with different enzyme systems</li>
+                                  <br>
+                                </ul>
                             </div>
                             </v-card>
                             
@@ -401,7 +454,8 @@ docker compose --profile training run --rm biofilm-trainer
                             <v-card-title id="Enzymix-Conclusion" class="subtitle" style="font-size: 32px;"><b>Conclusion</b></v-card-title>
                             <div class="text-content">
                                 <p>
-                                    This tool integrates predictive modeling and experiment design into a single interface, lowering lab iteration time through immediate estimates, principled optimization, and targeted enzyme ratio suggestions. The modular design makes it straightforward to update models as new data arrive.
+                                    
+                                  This tool integrates predictive modeling and experiment design into a single interface, lowering lab iteration time through immediate estimates, principled optimization, and targeted enzyme ratio suggestions. The modular design makes it straightforward to update models as new data arrive.
                                 </p>
                                 <p>
                                     Enzymix also compatible with multiple biofilm types beyond <i>S. aureus</i>, making it accessible for experts and other iGEM teams. The model can be further trained and improved with additional high-quality data.

@@ -6,6 +6,7 @@
     <v-main>
       <sidenav name="engineering" />
       <v-row justify=end><v-col cols=12 md=7>
+        <v-img style="margin-bottom: -10%; margin-top: -6%;" src = "https://static.igem.wiki/teams/6003/title/20-3.avif"/>
         <div class=scroller id=Enzyme-Plasmid-Engineering>
           <v-card-title style="font-size: 32px;"><b>Enzyme Plasmid
               Engineering</b></v-card-title>
@@ -30,6 +31,7 @@
             </v-col>
           </v-row>
           </div>
+
           <div class=scroller id=Host-Engineering>
           <v-card-title style="font-size: 32px;"><b>Host Engineering for T7 RNAP–λcI857 System</b></v-card-title>
           <v-row justify="end">
@@ -52,13 +54,14 @@
             </v-col>
           </v-row>
           </div>
+
           <div class=scroller id=Biofilm-Degradation-Assay>
           <v-card-title style="font-size: 32px;d"><b>Biofilm
               Degradation Assay Development</b></v-card-title>
           <v-row justify="end">
             <v-row>
             </v-row>
-            <v-col v-for="(cycle, i) in cycles.slice(24)" :key="`cycle2-${i}`" cols="12" md="6">
+            <v-col v-for="(cycle, i) in cycles.slice(24, 32)" :key="`cycle2-${i}`" cols="12" md="6">
               <v-hover>
                 <template #default = '{isHovering, props}'>
                   <v-card class="cycle-card ma-3" @click="openDialog(i + 24)" role="button" tabindex="0" v-bind = props :color = "isHovering ? `primary` : undefined">
@@ -70,6 +73,37 @@
                       <v-divider />
                       <!-- <v-icon> fa-solid fa-arrow-pointer fa-2xs </v-icon> -->
                       <v-btn variant="flat" @click.stop="openDialog(i + 24)">Click Me</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </template>
+              </v-hover>
+            </v-col>
+          </v-row>
+          <v-row justify="end">
+            <v-row>
+              <v-col cols="12" md="8" class="mx-auto">
+              </v-col>
+            </v-row>
+          </v-row>
+          </div>
+
+          <div class=scroller id=ENDZYME-cycle>
+          <v-card-title style="font-size: 32px;"><b>ENDZYME cycle</b></v-card-title>
+          <v-row justify="end">
+            <v-row>
+            </v-row>
+            <v-col v-for="(cycle, i) in cycles.slice(32, 40)" :key="`cycle2-${i}`" cols="12" md="6">
+              <v-hover>
+                <template #default = '{isHovering, props}'>
+                  <v-card class="cycle-card ma-3" @click="openDialog(i + 32)" role="button" tabindex="0" v-bind = props :color = "isHovering ? `primary` : undefined">
+                    <v-card-title class="text-h6">{{ cycle.title }}</v-card-title>
+                    <v-card-text class="line-clamp">
+                      <div v-html="cycle.summary"></div>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-divider />
+                      <!-- <v-icon> fa-solid fa-arrow-pointer fa-2xs </v-icon> -->
+                      <v-btn variant="flat" @click.stop="openDialog(i + 32)">Click Me</v-btn>
                     </v-card-actions>
                   </v-card>
                 </template>
@@ -414,6 +448,159 @@ export default {
   <br>Overall, these findings highlight that (1) 24-hour biofilm growth provides a reliable substrate for degradation studies, (2) pre-expression of enzymes before heat induction significantly enhances biofilm degradation efficiency, and (3) approximately 5 hours after temperature induction represents the optimal active phase for enzyme-mediated degradation. Future optimization will focus on enzyme ratios, a to further enhance biofilm clearance efficiency.</p>
           `,
         },
+        {
+          title: 'Cycle 4-1 — Design',
+          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          detail: `
+<p>
+  We began by defining our goal: to generate functional enzyme variants and obtain reliable 3D structural predictions (pLDDT/IDDT ≥ 80).
+</p>
+
+<p>
+  To achieve this, we combined <strong>ZymCTRL</strong> for enzyme sequence design with <strong>AlphaFold2</strong> for structure prediction.
+</p>
+
+<p>
+  Based on community benchmarks, we required active-site conservation and set quantitative thresholds for model confidence.
+</p>
+
+<p>
+  We hypothesized that the <strong>depth of multiple sequence alignment (MSA)</strong> strongly affects AlphaFold2 accuracy — a relationship supported by several studies (Nature, 2022).
+</p>          `,
+    
+        },
+        {
+          title: 'Cycle 4-1 — Build',
+          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          detail: `
+<p>
+  Using <strong>ZymCTRL</strong>, we generated enzyme sequences tagged with EC numbers for traceability.
+  Initial MSA construction via <strong>mmseqs2 (ColabFold default)</strong> produced shallow alignments, resulting in many low-confidence regions (pLDDT &lt; 50).
+</p>
+
+<p>To improve this, we:</p>
+
+<ul>
+  <li>Performed <strong>deep homology searches</strong> in UniRef90 and metagenomic databases with higher sensitivity.</li>
+  <li>Focused on <strong>high-similarity Swiss-Prot sequences</strong> to reduce noise.</li>
+  <li>Combined and filtered sequences to construct a <strong>clean, deep MSA</strong>.</li>
+</ul>
+
+<p>
+  The second AlphaFold2 prediction showed significantly higher confidence, with key residues reaching pLDDT &gt; 80.
+</p>         `,
+    
+        },
+        {
+          title: 'Cycle 4-1 — Test',
+          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          detail: `
+<p>
+  We evaluated model quality through pLDDT/IDDT distributions, emphasizing catalytic-site residues.
+  Additional validation was done using <strong>ProteInfer</strong> and <strong>RaptorX</strong> for functional prediction.
+</p>
+
+<p>To ensure reproducibility, we compared:</p>
+
+<ul>
+  <li>Models before vs. after MSA improvement.</li>
+  <li><strong>ZymCTRL</strong> sequences vs. literature-known structures.</li>
+</ul>
+
+<p>
+  This confirmed that improved MSA depth directly enhanced structural reliability.
+</p>          `,
+    
+        },
+        {
+          title: 'Cycle 4-1 — Learn',
+          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          detail: `
+<p>From this cycle, we identified several key insights:</p>
+
+<ul>
+  <li><strong>MSA depth is critical</strong> for reliable structural prediction; insufficient homologs reduce AlphaFold2 accuracy.</li>
+  <li><strong>Tool sensitivity matters</strong> — mmseqs2 favors speed, but deeper searches (e.g., Jackhmmer) provide better signals for difficult targets.</li>
+  <li><strong>Iterative modeling</strong> using high-confidence templates can further refine low-quality regions.</li>
+</ul>
+
+<p>
+  Future work will integrate <strong>metagenomic sequences</strong> and experimental validation (e.g., CD spectroscopy) 
+  to further improve model reliability.
+</p>       `,
+    
+        },
+        {
+          title: 'Cycle 4-2 — Design',
+          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          detail: `
+<p>
+  In standard AutoDock workflows, users must manually specify the grid box center and size based on known active sites or structural annotations.
+  However, for newly designed enzymes (especially those generated by <strong>ZymCTRL</strong> or other de novo pipelines), such information is often unavailable.
+</p>
+
+<p>
+  To overcome this limitation, we designed an <strong>algorithmic method</strong> that defines the docking region based purely on 
+  <strong>spatial distribution of active residues</strong> and <strong>enzyme size parameters</strong>, 
+  eliminating the need for prior literature references.
+</p>       `,
+    
+        },
+        {
+          title: 'Cycle 4-2 — Build',
+          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          detail: `
+<p>From this cycle, we identified several key insights:</p>
+
+<ul>
+  <li><strong>MSA depth is critical</strong> for reliable structural prediction; insufficient homologs reduce AlphaFold2 accuracy.</li>
+  <li><strong>Tool sensitivity matters</strong> — mmseqs2 favors speed, but deeper searches (e.g., Jackhmmer) provide better signals for difficult targets.</li>
+  <li><strong>Iterative modeling</strong> using high-confidence templates can further refine low-quality regions.</li>
+</ul>
+
+<p>
+  Future work will integrate <strong>metagenomic sequences</strong> and experimental validation (e.g., CD spectroscopy) 
+  to further improve model reliability.
+</p>       `,
+    
+        },
+        {
+          title: 'Cycle 4-2 — Test',
+          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          detail: `
+<p>From this cycle, we identified several key insights:</p>
+
+<ul>
+  <li><strong>MSA depth is critical</strong> for reliable structural prediction; insufficient homologs reduce AlphaFold2 accuracy.</li>
+  <li><strong>Tool sensitivity matters</strong> — mmseqs2 favors speed, but deeper searches (e.g., Jackhmmer) provide better signals for difficult targets.</li>
+  <li><strong>Iterative modeling</strong> using high-confidence templates can further refine low-quality regions.</li>
+</ul>
+
+<p>
+  Future work will integrate <strong>metagenomic sequences</strong> and experimental validation (e.g., CD spectroscopy) 
+  to further improve model reliability.
+</p>       `,
+    
+        },
+        {
+          title: 'Cycle 4-2 — Learn',
+          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          detail: `
+<p>From this cycle, we identified several key insights:</p>
+
+<ul>
+  <li><strong>MSA depth is critical</strong> for reliable structural prediction; insufficient homologs reduce AlphaFold2 accuracy.</li>
+  <li><strong>Tool sensitivity matters</strong> — mmseqs2 favors speed, but deeper searches (e.g., Jackhmmer) provide better signals for difficult targets.</li>
+  <li><strong>Iterative modeling</strong> using high-confidence templates can further refine low-quality regions.</li>
+</ul>
+
+<p>
+  Future work will integrate <strong>metagenomic sequences</strong> and experimental validation (e.g., CD spectroscopy) 
+  to further improve model reliability.
+</p>       `,
+    
+        },
+        
 
       
 

@@ -7,6 +7,7 @@
     <v-main>
     <sidenav name = 'Result' />
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
+        <v-img style="margin-bottom: -10%; margin-top: -7%;" src = "https://static.igem.wiki/teams/6003/title/20-4.avif"/>
         <v-row><v-col>
         <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Introduction>
             <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>

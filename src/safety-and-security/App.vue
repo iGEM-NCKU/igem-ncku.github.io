@@ -6,6 +6,7 @@
     <v-main>
     <sidenav name = 'safety-and-security' />
     <v-row justify = end><v-col cols = 12 md = 7 class = 'pa-5'>
+            <v-img style="margin-bottom: -8%; margin-top: -7%;" src = "https://static.igem.wiki/teams/6003/title/20-10.avif"/>  
         <v-row>
         <v-card class="text-box pa-5 scroll-box scroller" id = Introduction>
             <v-card-title style="font-size: 32px;"><b>Introduction</b></v-card-title>

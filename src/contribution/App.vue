@@ -8,8 +8,8 @@
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
         <v-row class = 'text-center scroller' id = 'Contribution'>
             <v-col>
+                <v-img style="margin-bottom: -8%; margin-top: -7%;" src = "https://static.igem.wiki/teams/6003/title/20-5.avif"/>  
                 <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
-                                <v-card-title style="font-size: 32px;"><b>Contribution</b></v-card-title>
                                 <div
                                 id="Contribution"
                                 title="Contribution"

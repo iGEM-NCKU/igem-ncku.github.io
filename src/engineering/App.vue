@@ -6,6 +6,7 @@
     <v-main>
       <sidenav name="engineering" />
       <v-row justify=end><v-col cols=12 md=7>
+        <v-img style="margin-bottom: -10%; margin-top: -6%;" src = "https://static.igem.wiki/teams/6003/title/20-3.avif"/>
         <div class=scroller id=Enzyme-Plasmid-Engineering>
           <v-card-title style="font-size: 32px;"><b>Enzyme Plasmid
               Engineering</b></v-card-title>

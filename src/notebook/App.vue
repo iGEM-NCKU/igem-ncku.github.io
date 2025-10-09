@@ -6,7 +6,7 @@
     <v-main>
     <sidenav name = 'notebook' />
     <v-row justify = end><v-col cols = 12 md = 8 class = 'pa-5'>
-        <v-img style="margin-bottom: -10%; margin-top: -13%;" src = "https://static.igem.wiki/teams/6003/title/3.avif"/>
+        <v-img style="margin-bottom: -5%; margin-top: -5%;" src = "https://static.igem.wiki/teams/6003/title/3.avif"/>
         <v-row class = 'text-center scroller' id = 'Notebook'>
         <v-expansion-panels class="my-4">
         <v-expansion-panel

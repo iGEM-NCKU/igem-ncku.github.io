@@ -8,6 +8,7 @@
     
     <v-row justify = end>
         <v-col cols = 12 md = 7 class = 'pa-5'>
+             <v-img style="margin-bottom: -8%; margin-top: -7%;" src = "https://static.igem.wiki/teams/6003/title/4.avif"/>  
             <v-hover v-for = 'i in data' :key = i>
                 <template #default = '{isHovering, props}'>
                     <a :href = 'i.block ? undefined : `hp_${tokenize(i.title.toLowerCase())}.html`'>

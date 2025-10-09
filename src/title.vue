@@ -172,9 +172,9 @@ export default {
                 'HP': {
                     icon: 'fa-solid fa-person',
                     subpages: [
-                        // {'name': 'overview', 'icon': undefined},
-                        {'name': 'human-practice-overview', 'icon': undefined},
                         {name: 'human-practice', icon: undefined},
+                        // {'name': 'overview', 'icon': undefined},
+                        {'name': 'integrated-human-practice', 'icon': undefined},
                         {'name': 'education', 'icon': undefined},
                         {'name': 'connecting-with-igemers', 'icon': undefined},
                         {'name': 'entrepreneurship', 'icon': undefined},

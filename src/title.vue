@@ -17,7 +17,7 @@
         </template>
      </v-card> -->
     <navi class = 'block glass elevate' @click = '($vuetify.display.mdAndUp ? show_nav ^= 1 : (show_nav ? () => {}: show_nav ^= 1))' :class = '[show_nav ? `tmp fixed` : `sticky`, !$vuetify.display.mdAndUp ? `text-center` : undefined]' id = 'title'>
-        <img src = icon.png height = 20px />
+        <img src = https://static.igem.wiki/teams/6003/img/icon.webp height = 20px />
         <!-- {{ alpha }} -->
         <a href = 'index.html' class = 'unfocused stroke'>
             <!-- <img src = 'logo.png' width = '10%' /> -->

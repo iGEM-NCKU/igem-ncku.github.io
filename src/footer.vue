@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12" md="6" class="mb-4">
           <div class="d-flex align-center mb-2">
-            <img src="icon.png" height="28" class="mr-2" alt="ByeFilm" />
+            <img src="https://static.igem.wiki/teams/6003/img/icon.webp" height="28" class="mr-2" alt="ByeFilm" />
             <div class="text-h6"><span class="text-primary">Bye</span><b class="text-accent">film</b></div>
           </div>
           <div class="text-muted" style="font-size: 0.95rem;">

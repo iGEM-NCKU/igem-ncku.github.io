@@ -4,7 +4,7 @@
           <!-- <b class = stroke>1</b> -->
         <v-hover>
             <template v-slot:default = '{isHovering, props}'>
-                <v-card min-width = '20vw' prepend-avatar = icon.png class = 'sdv'>
+                <v-card min-width = '20vw' prepend-avatar = https://static.igem.wiki/teams/6003/img/icon.webp class = 'sdv'>
                     <template v-slot:title>
                         <div v-bind = props>
                             <!-- {{ isHovering ? `< Back` : `Navigation` }} -->

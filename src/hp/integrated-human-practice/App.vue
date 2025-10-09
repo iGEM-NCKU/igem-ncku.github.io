@@ -65,6 +65,19 @@
                     </v-card>
                 </template>
             </div>
+
+            <div class = scroller id = 'Timeline'>
+                <v-row>
+                    <v-col>
+                        <hp_timeline />
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>
+                        <hp_long />
+                    </v-col>
+                </v-row>
+            </div>
         </v-col><v-col cols = 1 /></v-row>
     </v-main></v-app>
     
@@ -82,6 +95,9 @@ import sidenav from '@/sidenav.vue'
 import site_footer from '@/footer.vue'
 import image_previewer from '@/preview.vue'
 
+import hp_timeline from '@/hp/timeline.vue'
+import hp_long from '@/hp/long.vue'
+
 export default {
     name: 'App',
     data() {
@@ -95,7 +111,9 @@ export default {
         page_loader,
         sidenav,
         site_footer,
-        image_previewer
+        image_previewer,
+        hp_timeline,
+        hp_long
     },
     mounted() {
         M.AutoInit();

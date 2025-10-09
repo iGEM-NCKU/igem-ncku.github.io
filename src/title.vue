@@ -173,7 +173,7 @@ export default {
                     icon: 'fa-solid fa-person',
                     subpages: [
                         {name: 'human-practice', icon: undefined},
-                        {'name': 'overview', 'icon': undefined},
+                        // {'name': 'overview', 'icon': undefined},
                         {'name': 'integrated-human-practice', 'icon': undefined},
                         {'name': 'education', 'icon': undefined},
                         {'name': 'connecting-with-igemers', 'icon': undefined},

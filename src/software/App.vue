@@ -341,7 +341,7 @@
                                   <li><b>Fast iteration</b> — quick convergence makes retraining practical whenever new data arrives.</li>
                                 </ol>
                               </div>
-                     
+                     <br>
                             </v-card>
 
                             <br>

@@ -37,7 +37,7 @@
                                             <v-icon size="80" class="mb-4 tool-icon"> fa-solid fa-chart-line </v-icon>
                                             <v-card-title class="text-h4 mb-3">Enzymix</v-card-title>
                                             <v-card-text class="text-subtitle-1 mb-4 text-left">
-                                                XGBoost-powered machine learning for optimizing enzyme ratios in biofilm degradation experiments
+                                                XGBoost-powered machine learning for optimizing enzyme ratios in biofilm degradation experiments.
                                             </v-card-text>
                                             <v-chip color="primary" size="large" class="mb-4" title="Open live Enzymix web app" @click.stop="openExternal('https://johan-susilo.github.io/enzymix/')">
                                                 <v-icon start> fa-solid fa-globe </v-icon>
@@ -67,7 +67,7 @@
                                             <v-icon size="80" class="mb-4 tool-icon"> fa-solid fa-atom </v-icon>
                                             <v-card-title class="text-h4 mb-3">Endzyme</v-card-title>
                                             <v-card-text class="text-subtitle-1 mb-4 text-left">
-                                                AI-driven pipeline for generating, screening, and optimizing functional enzyme sequences
+                                                AI-driven pipeline for generating, screening, and optimizing functional enzyme sequences.
                                             </v-card-text>
                                             <v-chip color="secondary" size="large" class="mb-4" title="Open Endzyme GitHub repository" @click.stop="openExternal('https://github.com/iGEM-NCKU/endzyme')">
                                                 <v-icon start> fa-brands fa-github </v-icon>
@@ -90,11 +90,15 @@
                       <v-card-title id="Why-Enzymix" class="subtitle" style="font-size: 32px;"><b>Why Enzymix</b></v-card-title>
                             <div class="text-content">
                                 <p>
-Due to the combinatorial explosion problem, finding the optimal enzyme combination for biofilm degradation is inherently challenging. For a three-enzyme system consisting of Dispersin B, DNase I, and Proteinase K, conducting a comprehensive screening at 10 concentration levels requires 1,000 experiments (10³) [1]. Accounting for biological replicates and additional parameters such as pH, temperature, and reaction time expands the experimental matrix to 2,250–3,000 individual assays for thorough optimization [2].
+                                Due to the combinatorial explosion problem, finding the optimal enzyme combination for biofilm degradation is inherently challenging. Large-scale screening efforts testing hundreds of single- and multi-enzyme formulations illustrate the magnitude of this optimization problem [1]. 
                                 </p>
-                                                              <p>
+                                 <p>
                                   
-Furthermore, multi-enzyme cocktails exhibit unpredictable synergistic and antagonistic effects that cannot be reliably predicted in advance. Studies show that only 60% of enzyme combinations demonstrate synergistic effects, while 40% exhibit additive or antagonistic interactions [3, 4].
+                                Multi-enzyme cocktails exhibit context-dependent performance that varies with biofilm matrix composition, bacterial species, and environmental conditions [2, 3]. Because combinations can yield synergistic or antagonistic outcomes depending on species and conditions, large, empirical screens are often required rather than purely a priori predictions [1–3]. 
+                                </p>
+
+                                <p>
+                                  Moreover, some studies show that combining biofilm-degrading enzymes can even reduce overall antimicrobial efficacy relative to using an individual enzyme alone [4].
                                 </p>
                                 <p>
                                    To address these challenges, we developed Enzymix, a machine learning–powered tool designed to optimize enzyme ratios for biofilm degradation. Enzymix uses XGBoost and Random Forest models to predict biofilm removal efficiency and suggest optimal enzyme combinations, helping researchers avoid extensive trial-and-error experimentation.
@@ -102,10 +106,10 @@ Furthermore, multi-enzyme cocktails exhibit unpredictable synergistic and antago
                                 <ul>
                                   Key Features:
 
-                                  <li>• <b>Predict biofilm degradation</b> percentage with uncertainty estimates</li> 
-                                  <li>• <b>Find optimal enzyme ratios</b> for specific reaction times</li>
-                                  <li>• <b>Suggest informative follow-up experiments</b> using active learning</li>
-                                  <li>• <b>Visualize feature importance</b> to understand key factors driving degradation</li>
+                                  <li>• <b>Predict biofilm degradation</b> percentage with uncertainty estimates.</li> 
+                                  <li>• <b>Find optimal enzyme ratios</b> for specific reaction times.</li>
+                                  <li>• <b>Suggest informative follow-up experiments</b> using active learning.</li>
+                                  <li>• <b>Visualize feature importance</b> to understand key factors driving degradation.</li>
                                 </ul>
 
                                  <v-container>
@@ -234,9 +238,6 @@ Furthermore, multi-enzyme cocktails exhibit unpredictable synergistic and antago
                                     The interface is simple yet powerful, built with <strong>HTML/CSS/JS</strong> and stored under <code>static/</code>, available at <code>/static</code>. Need quick access? The shortcut <code>/ui</code> will take you directly to the main page at <code>/static/index.html</code>.
                                 </p>
                                 
-                                <p><b> API Documentation</b><br>
-                                    The FastAPI backend automatically exposes OpenAPI documentation at /docs, making it easy for developers to integrate the software into any workflow or access the data programmatically through JSON endpoints.
-                                </p>
                                 <v-img src="https://static.igem.wiki/teams/6003/software/api.webp" alt="Overall workflow" class="my-4" />
                                 <div class="text-content text-center "><i>Fig. 1. Overall software workflow</i></div>
                             </div>
@@ -412,9 +413,9 @@ docker compose up --build -d biofilm-api
                                 <ul>
                                   <br>
                                   <li><b>What's happening?</b></li>
-                                  <li>The API serves a model for predictions</li>
-                                  <li>FastAPI provides interactive API docs at <code>/docs</code></li>
-                                  <li>The web UI offers a user-friendly interface</li>
+                                  <li>The API serves a model for predictions.</li>
+                                  <li>FastAPI provides interactive API docs at <code>/docs</code>.</li>
+                                  <li>The web UI offers a user-friendly interface.</li>
                                 </ul>
                   
 
@@ -434,9 +435,9 @@ docker compose --profile training run --rm biofilm-trainer
                                 <ul>
                                   <br>
                                   <li><b>When to retrain?</b></li>
-                                  <li>You have new experimental data</li>
-                                  <li>You want to improve model accuracy</li>
-                                  <li>You're working with different enzyme systems</li>
+                                  <li>You have new experimental data.</li>
+                                  <li>You want to improve model accuracy.</li>
+                                  <li>You're working with different enzyme systems.</li>
                                   <br>
                                 </ul>
                             </div>
@@ -464,14 +465,14 @@ docker compose --profile training run --rm biofilm-trainer
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
                             <v-card-title id="Enzymix-References" class="subtitle" style="font-size: 32px;"><b>References</b></v-card-title>
                             <div class="text-content">
-                              <p>[1] Møllebjerg, A., et al. (2024). Large-scale screening identifies enzyme combinations that remove in situ grown oral biofilm. Cell Reports Methods, 4(5), 100546.</p>
+                              <p>[1] Møllebjerg, A., et al. (2024). Large-scale screening identifies enzyme combinations that remove in situ grown oral biofilm. Biofilm, 8, 100229.</p>
     
-                              <p>[2] Opdensteinen, P., Wittmann, M., Mindt, M., Giese, H., Kasanmascheff, M., Kabisch, J., &amp; Buyel, J. F. (2021). Expression of Biofilm-Degrading Enzymes in Plants and Automated High-Throughput Activity Screening Using Experimental Bacillus subtilis Biofilms. Frontiers in Bioengineering and Biotechnology, 9, 708150.</p>
+                              <p>[2] Poilvache, H., et al. (2021). In vitro study of the synergistic effect of an enzyme cocktail and antibiotics against biofilms in a prosthetic joint infection model. Antimicrob. Agents Chemother., 65(10), e01699-20.</p>
 
                           
-                              <p>[3] Fanaei Pirlar, R., Emaneini, M., Beigverdi, R., Banar, M., Neither, F., Leekha, S., &amp; Jabalameli, F. (2020). Combinatorial effects of antibiotics and enzymes against dual-species Staphylococcus aureus and Pseudomonas aeruginosa biofilms in the wound-like medium. PLOS ONE, 15(6), e0235093.</p>
+                              <p>[3] Kim, J.-S., et al. (2023). Extracellular matrix-degrading enzymes as a biofilm control strategy for food-related microorganisms. Food Sci. Biotechnol., 32, 1-15.</p>
 
-                              <p>[4] Waryah, C. B., et al. (2017). In Vitro Antimicrobial Efficacy of Tobramycin Against Staphylococcus aureus Biofilms in Combination With or Without DNase I and/or Dispersin B. Microbial Drug Resistance, 23(5), 634-642.</p>
+                              <p>[4] Waryah, C.B., et al. (2017). In vitro antimicrobial efficacy of tobramycin against Staphylococcus aureus biofilms in combination with or without DNase I and/or dispersin B. Microb. Drug Resist., 23(3), 384-390.</p>
   
                                 <p>[5] Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794.</p>
                                 <p>[6] Lundberg, S. M., &amp; Lee, S. I. (2017). A Unified Approach to Interpreting Model Predictions. Advances in Neural Information Processing Systems 30, 4765-4774.</p>

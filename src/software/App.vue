@@ -259,12 +259,12 @@
                             • Degradation values scaled from 0-100% to 0-1 range for model training.</p>
                             
                             <p><strong>XGBoost Regressor</strong> (Primary predictions)<br>
-                            • Optimized through 100 trials with nested cross-validation to prevent bias [7].<br>
+                            • Optimized through 100 trials with 5×5 nested CV to prevent bias; early stopping is used inside the inner CV. [7].<br>
                             • Automatically tunes learning rate, tree depth, and regularization. <br>
                             • Trained on full dataset with optimal hyperparameters.</p>
                             
                             <p><strong>Random Forest Regressor</strong> (Uncertainty estimates)<br>
-                            • 300 decision trees generate prediction variance.<br>
+                            • Random Forest (300 trees) provides an uncertainty proxy as the across-tree prediction standard deviation; higher values flag ratios to validate experimentally.<br>
                             • Standard deviation across trees quantifies confidence.<br>
                             • Higher uncertainty flags predictions needing validation.</p>
                             
@@ -272,7 +272,7 @@
                          <v-card-subtitle style="font-size: 24px;">How do we ensure the prediction is accurate?</v-card-subtitle>
                               <div class="text-content">
                                 <ol>
-                                  <li><b>5×5 nested cross-validation with Optuna-driven </b> — for robust hyperparameter search.</li>
+                                  <li>We report outer-CV performance from 5×5 nested CV: R² (mean±SD) and RMSE (mean±SD).</li>
                                   <li><b>Reproducible</b> — fixed random seed and logged training history.</li>
                                   <li><b>Robust tuning</b> — inner-CV hyperparameter search with early stopping prevents overfitting.</li>
                                 </ol>
@@ -366,31 +366,32 @@
                                     <ul>
                                       <li>• Enter enzyme ratios: DSPB, DNase, ProK (values between 0-1).</li>
                                       <li>• Enter reaction time in hours (e.g., 12, 18, 24).</li>
+                                      <br>
                                     </ul>
                                     <li><b>Scroll to the right and click "Predict"</b></li>
                                     <ul>
                                       <li>• Predicted biofilm removal percentage (0-100%).</li>
                                       <li>• View uncertainty estimate (±value) showing prediction confidence.</li>
-                                    
+                                    <br>
                                     </ul>
                                     <li><b>Use Find Optimal Mix</b></li>
                                     <ul>
                                       <li>• Get the best enzyme combination for maximum degradation.</li>
                                       <li>• The optimal conditions for the current version are fixed. However, it can be improved so that users can receive optimal conditions from Enzymix in addition to an optimal ratio.</li>
-                                    
+                                    <br>
                                     </ul>
                                     <li><b>Get Suggested Experiments for informative follow-ups</b></li>
                                     <ul>
                                       <li>• Receive 3 high-value experiment recommendations.</li>
                                       <li>• These combinations balance high predicted degradation and high uncertainty (unexplore regions to improve ml model).</li>
                                       <li>• Acquisition score = predicted degradation + 1.5 × uncertainty.</li>
-                                    
+                                    <br>
                                     </ul>
                                     <li><b>Export results as CSV and visualize feature importances</b></li>
                                      <ul>
                                       <li>• Download results as CSV for further analysis.</li>
                                       <li>• View feature importance charts showing which enzymes/time matter most.</li>
-                                    
+                                    <br>
                                     </ul>
                                 </ol>
                                 <br>

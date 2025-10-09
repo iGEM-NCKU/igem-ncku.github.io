@@ -140,17 +140,17 @@ export default {
           title: 'Cycle 1-1 — Build',
           summary: '<p>ProK engineering</p>',
           detail: `
-            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into <em>E. coli</em> TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli MG1655 λ cI857</em> for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p><img class = "img" src = "https://static.igem.wiki/teams/6003/engineering/pro-20k-20cloning-20map.webp"></img><p>figue 1. Schematic Map of the pTrc99a-Pro K Plasmid</p>
+            <p>Proteinase K was cloned into the pTrc99a vector, which carries an Ampicillin resistance gene and a lac promoter for IPTG-inducible expression. The proteinase K gene was amplified and ligated into pTrc99a using EcoRI and PstI restriction sites. The recombinant plasmid was first transformed into <em>E. coli</em> TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis, and was subsequently introduced into <em>E. coli MG1655 λ cI857</em> for protein expression.</p><p>This construct enables controllable Proteinase K production under the lac promoter and allows temperature-induced cell lysis via the λ cI857 system when the temperature rises to approximately 40 °C, facilitating the release of intracellular enzymes.</p>
           `,
         },
         {
           title: 'Cycle 1-1 — Test',
           summary: '<p>Colony PCR / SDS-PAGE / Expression analysis</p>',
           detail: `
-<p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in <em>E. coli MG1655 λ cI857</em> and analyzed the protein expression by SDS-PAGE (Fig. 1). However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the <em>E. coli MG1655 λ cI857</em> control, suggesting low expression or poor solubility under the tested conditions.</p>
+<p>To verify the successful construction and expression of Proteinase K, we first performed colony PCR, which confirmed the presence of the expected proteinase K fragment in the recombinant plasmid. Subsequently, we attempted protein expression in <em>E. coli</em> MG1655 λ cI857 and analyzed the protein expression by SDS-PAGE (Fig. 1). However, the expected Proteinase K band was barely detectable, and the band pattern was almost identical to that of the <em>E. coli MG1655 λ cI857</em> control, suggesting low expression or poor solubility under the tested conditions.</p>
 <p><img src="https://static.igem.wiki/teams/6003/engineering/sds-20prok.webp" alt="Figure 1. SDS-PAGE Analysis of Proteinase K Expression."></p>
 <p>Figure 1. SDS-PAGE Analysis of Proteinase K Expression.</p>
-<p>We also evaluated enzyme activity using a milk plate assay, <a href="https://pubmed.ncbi.nlm.nih.gov/2645134/">following previously reported methods for detecting casein degradation.</a> Successful activity would be indicated by a clear zone surrounding the colony. Using <em>E. coli MG1655 λ cI857</em> as a negative control, both the test and control strains showed identical results, with no observable clear zones. Despite these attempts, the observed enzymatic activity was minimal and did not match the effects reported in the reference studies.</p>
+<p>We also evaluated enzyme activity using a milk plate assay, following previously reported methods for detecting casein degradation(Gunkel & Gassen, 1989).</a> Successful activity would be indicated by a clear zone surrounding the colony. Using <em>E. coli</em> MG1655 λ cI857 as a negative control, both the test and control strains showed identical results, with no observable clear zones. Despite these attempts, the observed enzymatic activity was minimal and did not match the effects reported in the reference studies.</p>
 <p><img src="https://static.igem.wiki/teams/6003/engineering/milk-20plate.webp" alt="Figure 2. Enzymatic activity of Proteinase K on Milk Agar Plate."></p>
 <p>Figure 2. Enzymatic activity of Proteinase K on Milk Agar Plate.</p>
 <p>These results indicate that, while the construct was successfully assembled, further optimization is required to achieve detectable Proteinase K expression and activity. Possible contributing factors include insufficient induction conditions, protein instability, formation of inclusion bodies, or suboptimal assay sensitivity.</p>
@@ -160,27 +160,25 @@ export default {
           title: 'Cycle 1-1 — Learn',
           summary: '<p>Replan for ProK</p>',
           detail: `
-            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli MG1655 λ cI857</em>. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli MG1655 λ cI857</em> undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
+            <p>From the test results, we inferred that the low or undetectable Proteinase K expression could be due to limitations in transcriptional or translational efficiency under the lac promoter, protein instability, or formation of inclusion bodies in <em>E. coli</em> MG1655 λ cI857. Additionally, the enzymatic assay might not have been sensitive enough to detect weak activity.</p><p>It is also possible that Proteinase K exhibits optimal activity only at higher temperatures (around 50–66 °C), while our host strain <em>E. coli</em> MG1655 λ cI857 undergoes lysis at approximately 40 °C due to the λ cI857 system. This temperature constraint prevented us from testing Proteinase K under its ideal reaction conditions. Furthermore, Proteinase K may have intrinsic toxicity to <em>E. coli</em> cells, potentially reducing expression levels or affecting protein stability.</p><p>From these findings, we learned that Proteinase K may not be compatible with our current expression system due to host and temperature limitations. Therefore, we decided not to further optimize Proteinase K expression and instead focused on the other biofilm-degrading enzymes in the following experiments.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-11-44-e2-80-afam.webp
           `,
         },
         { title: 'Cycle 1-2 — Design',
           summary: '<p>DspB, DNase I engineering</p>', 
-          detail: '<p>To develop an efficient system for expressing biofilm-degrading enzymes, we designed plasmid constructs that could produce DNase I and Dispersin B under IPTG-inducible T7  promoters.</p>' },
+          detail: '<p>To develop an efficient system for expressing biofilm-degrading enzymes, we designed plasmid constructs that could produce DNase I and Dispersin B under IPTG-inducible T7  promoters.</p><img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-2025-10-06-at-1-11-44-am.avif">' },
       { title: 'Cycle 1-2 — Build', 
           summary: '<p>DspB, DNase I engineering</p>', 
-          detail: '<p>For DNase I and Dispersin B, each gene was cloned separately into the pET28c vector, which carries Kanamycin resistance and a strong T7 promoter for high-level expression. Both constructs included a His-tag to facilitate purification. The DNase I and Dispersin B genes were inserted using NdeI and XhoI restriction sites, respectively.</p><p>The recombinant plasmids were first transformed into <em>E. coli TOP10</em> for amplification and sequence verification, including colony PCR and restriction digestion analysis. After confirmation, the verified plasmids were transformed into <em>E. coli BL21(DE3)</em> for protein expression.</p></p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/dnase-i-cloning-map.webp" style="width:100%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 5.Schematic Map of the pET28c-DNase I Plasmid</figcaption></figure> <figure style="width:100%; text-align:center;"><img src="https://static.igem.wiki/teams/6003/engineering/dspb-cloning-map.webp" style="width:100%; border-radius:10px;"><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 6.Schematic Map of the pET28c-DspB Plasmid</figcaption></figure></div>' },
+          detail: '<p>For DNase I and Dispersin B, each gene was cloned separately into the pET28c vector, which carries Kanamycin resistance and a strong T7 promoter for high-level expression. Both constructs included a His-tag to facilitate purification. The DNase I and Dispersin B genes were inserted using NdeI and XhoI restriction sites, respectively.</p><p>The recombinant plasmids were first transformed into <em>E. coli</em> TOP10 for amplification and sequence verification, including colony PCR and restriction digestion analysis. After confirmation, the verified plasmids were transformed into <em>E. coli BL21(DE3)</em> for protein expression.</p></p>' },
       { title: 'Cycle 1-2 — Test', summary: '<p>Colony PCR / SDS-PAGE / Expression analysis</p>', detail: `
-        <p>To verify the successful construction and expression of Dispersin B and DNase I, colony PCR was performed, confirming the presence of the correct gene fragments in both recombinant plasmids. Subsequently, protein expressions were analyzed in <em>E. coli BL21(DE3)</em> by SDS-PAGE and Western blot.</p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;"><img class = img src = "https://static.igem.wiki/teams/6003/engineering/dspb-20dnasei-20colony-20pcr.webp"></img><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 7.PCR Amplification of DNase I Gene and Dispersin B gene</figcaption></figure>
-        <p>In the SDS-PAGE analysis, the banding patterns of both recombinant strains appeared similar to that of the <em>E. coli BL21(DE3)</em> control, suggesting that expression levels were low or that the proteins were not easily distinguishable under the tested conditions. Western blotting detected signals for both enzymes; however, the observed band sizes did not perfectly match the expected molecular weights, indicating possible protein truncation, degradation, or unexpected post-translational modifications.</p>
-        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;">
-        <img class = img src = "https://static.igem.wiki/teams/6003/engineering/sds-20dspb-20dnasei.webp"></img><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 3.SDS-PAGE Analysis of DNase I and Dispersin B Expression
-        </figcaption></figure></div>
-        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;">
-        <img class = img src = "https://static.igem.wiki/teams/6003/engineering/western.webp"></img><figcaption style="font-size:14px; color:#555; margin-top:6px;">figue 4.Western Blot Analysis of DNase I and Dispersin B Expression
-        </figcaption></figure></div>
+        <p>To verify the successful construction and expression of Dispersin B and DNase I, colony PCR was performed, confirming the presence of the correct gene fragments in both recombinant plasmids. Subsequently, protein expressions were analyzed in <em>E. coli</em> BL21(DE3) by SDS-PAGE(Fig. 3) and Western Blot.(Fig. 4)
+          
+        <p>In the SDS-PAGE analysis, the banding patterns of both recombinant strains appeared similar to that of the <em>E. coli</em> BL21(DE3) control, suggesting that expression levels were low or that the proteins were not easily distinguishable under the tested conditions. Western blotting detected signals for both enzymes; however, the observed band sizes did not perfectly match the expected molecular weights, indicating possible protein truncation, degradation, or unexpected post-translational modifications.</p>
+        </p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;"><img class = img src = "https://static.igem.wiki/teams/6003/engineering/sds-dspb-dnasei.avif"></img><figcaption style="font-size:14px; color:#555; margin-top:6px;">Figure 3. SDS-PAGE Analysis of DNase I and Dispersin B Expression.</figcaption></figure>
+        </p><div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;"><img class = img src = "https://static.igem.wiki/teams/6003/engineering/western.avif"></img><figcaption style="font-size:14px; color:#555; margin-top:6px;">Figure 4. Western Blot Analysis of DNase I and Dispersin B Expression.</figcaption></figure>
         ` },
       { title: 'Cycle 1-2 — Learn', summary: '<p>Replan for Dispersin B and DNase I</p>', detail: `<p>From the test results, we learned that although the Dispersin B and DNase I genes were successfully cloned into the pET28c vector, their expression levels in <em>E. coli BL21(DE3)</em> were likely low or unstable. The SDS-PAGE results showed no visible target bands, and the Western blot bands did not match the expected molecular weights, suggesting possible protein degradation, premature termination, or improper folding.</p>
-        <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-15-55-e2-80-afam.webp"></img>
+      <p>These findings indicated that the pET28c constructs might not provide efficient expression for our target enzymes under the tested conditions. To address this issue, we decided to reconstruct both genes using the pET28a vector, which maintains the same T7 promoter system but may provide more stable expression or improved compatibility with our cloning strategy. This adjustment aimed to enhance protein yield and reliability in subsequent testing.</p>  
+      <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-15-55-e2-80-afam.webp"></img>
 
       ` },
       {
@@ -189,7 +187,7 @@ export default {
           detail: `
             <p>In previous results suggested that the pET28c-based constructs provided insufficient or unstable expression of Dispersin B and DNase I.</p>
             <p>To address this, we redesigned both enzyme expression constructs using the pET28a vector, which vector differs from pET28c by including a T7 tag sequence and a slightly altered multiple cloning site (MCS). These sequence differences may change the spacing or secondary structure near the translation initiation region, potentially improving translation efficiency and overall protein expression.</p>
-            <img class = img src = "https://static.igem.wiki/teams/6003/engineering/image.webp"></img>
+
             `,
         },
         {
@@ -197,7 +195,7 @@ export default {
           summary: '<p>Constructing the pET28a-DNase I and pET28a-DspB Plasmids</p>',
           detail: `
             <p>After identifying expression issues with the pET28c constructs, both the Dispersin B and DNase I genes were recloned into the pET28a vector to improve expression stability and yield (Fig. 5, 6). The pET28a vector carries Kanamycin resistance and a strong T7 promoter for IPTG-inducible expression. Each construct also included a His-tag to facilitate purification.</p>
-            <p>Both genes were inserted into the pET28a vector using EcoRI and XhoI restriction sites, and the resulting recombinant plasmids were transformed into <em>E. coli BL21(DE3)</em> for protein expression analysis.</p>
+            <p>Both genes were inserted into the pET28a vector using EcoRI and XhoI restriction sites, and the resulting recombinant plasmids were transformed into <em>E. coli)</em> BL21(DE3 for protein expression analysis.</p>
             <img class = img src = "https://static.igem.wiki/teams/6003/engineering/image.webp"></img>
             <p>Figure 5. Schematic Map of the pET28a-DNase I Plasmid.</p>
             <img class = img src = "https://static.igem.wiki/teams/6003/engineering/image-2.webp"></img>
@@ -209,8 +207,8 @@ export default {
           summary: '<p>Colony PCR / SDS-PAGE / Expression analysis</p>',
           detail: `
             <p>To verify the successful construction and expression of the reconstructed Dispersin B and DNase I plasmids, colony PCR and SDS-PAGE analyses were performed (Fig. 7). The PCR results confirmed the presence of the correct gene fragments for both constructs.</p>
-            <p>In the SDS-PAGE analysis, the recombinant <em>E. coli BL21(DE3)</em> strain expressing Dispersin B showed a clear additional protein band corresponding to the expected molecular weight, indicating successful expression. In contrast, the DNase I-expressing strain did not show any distinct band compared with the control, suggesting low or undetectable expression under the tested induction conditions. </p>
-            <img class = img src = "https://static.igem.wiki/teams/6003/engineering/sds-20dspb-20dnasei.webp"></img>
+            <p>In the SDS-PAGE analysis, the recombinant <em>E. coli</em> BL21(DE3) strain expressing Dispersin B showed a clear additional protein band corresponding to the expected molecular weight, indicating successful expression. In contrast, the DNase I-expressing strain did not show any distinct band compared with the control, suggesting low or undetectable expression under the tested induction conditions. </p>
+            <img class = img src = "https://static.igem.wiki/teams/6003/engineering/sds.avif"></img>
             <p>Figure 7. SDS-PAGE Analysis of DNase I and Dispersin B Expression from pET28a- DNase I and pET28a-DspB.</p>
 
             `,
@@ -229,7 +227,7 @@ export default {
           detail: `
           
             <p>To enable efficient release of our biofilm-degrading enzymes, it is necessary to induce controlled cell lysis. Traditional lysis methods, such as chemical or mechanical disruption, may pose biosafety risks or lead to protein denaturation, particularly if the strain is to be handled in human-related contexts. To mitigate these risks, we chose to employ the temperature-inducible λ cI857 system, which allows controlled cell lysis at temperatures near or slightly above human body temperature.</p>
-            <p>A second challenge arises from the fact that our host strain, <em>E. coli MG1655</em>, does not naturally express T7 RNA polymerase (T7RNAP), which is essential for transcription from the T7 promoters controlling Dispersin B and DNase I expression. Therefore, the design involves integrating the T7RNAP gene into E. coli MG1655 λ cI857, ensuring that the target enzymes can be efficiently transcribed under T7 promoter control prior to temperature-induced lysis. This integration allows the combination of high-level T7-driven expression with the λ cI857-mediated heat-triggered release system, creating a self-contained host suitable for controlled enzyme production and release.</p>
+            <p>A second challenge arises from the fact that our host strain, <em>E. coli</em> MG1655, does not naturally express T7 RNA polymerase (T7RNAP), which is essential for transcription from the T7 promoters controlling Dispersin B and DNase I expression. Therefore, the design involves integrating the T7RNAP gene into <em>E. coli</em> MG1655 λ cI857, ensuring that the target enzymes can be efficiently transcribed under T7 promoter control prior to temperature-induced lysis. This integration allows the combination of high-level T7-driven expression with the λ cI857-mediated heat-triggered release system, creating a self-contained host suitable for controlled enzyme production and release.</p>
             <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-17-42-e2-80-afam.avif"></img>
 
             `,
@@ -238,7 +236,7 @@ export default {
           title: 'Cycle 2-1 — Build',
           summary: '<p>Host Engineering for T7 RNAP–λcI857 System</p>',
           detail: `
-                    <p>To enable T7-driven expression of Dispersin B and DNase I in E.coli MG1655 λ cI857, we constructed a T7RNAP integration cassette using a multi-step assembly approach. First, the T7RNAP fragment was amplified from E. coli BL21(DE3) using primers 141-20/T7RNAP-3. Next, the lacZ fragment was amplified from E. coli MG1655 using primers 141-31/141-23, and the CmR cassette was amplified from pAcyc184 using primers Cmc(jk)/Not-CmN. These three fragments were then fused together via overlapping PCR to generate the complete integration cassette (Fig. 8).</p>
+                    <p>To enable T7-driven expression of Dispersin B and DNase I in <em>E.coli</em> MG1655 λ cI857, we constructed a T7RNAP integration cassette using a multi-step assembly approach. First, the T7RNAP fragment was amplified from <em>E. coli</em> BL21(DE3) using primers 141-20/T7RNAP-3. Next, the lacZ fragment was amplified from <em>E. coli</em> MG1655 using primers 141-31/141-23, and the CmR cassette was amplified from pAcyc184 using primers Cmc(jk)/Not-CmN. These three fragments were then fused together via overlapping PCR to generate the complete integration cassette (Fig. 8).</p>
           <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-204-41-32-e2-80-afam.avif"></img>
             <p>Figure 8. Schematic Representation of the T7 RNAP Integration Cassette.</p>
           <p>The assembled cassette was delivered into Red(km) competent cells through Red recombination, allowing homologous integration into the host genome. Subsequently, the recombinant strain was used to produce P1 phage, which was then employed to transduce MG1655 λ cI857, thereby generating a host strain carrying the integrated T7RNAP gene. This host provides a functional T7RNAP system compatible with the T7 promoters of Dispersin B and DNase I, while maintaining the temperature-inducible λ cI857 lysis system (Fig. 9).</p>
@@ -252,15 +250,15 @@ export default {
           detail: `
             <p>To verify the successful construction and integration of the T7RNAP cassette, colony PCR was performed on the assembled fragments, confirming that each individual PCR fragment was successfully amplified. The integration cassette was then successfully delivered into Red(km) competent cells via Red recombination, and P1 phage was subsequently produced from the recombinant strain (Fig. 10). </p>
                       <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screen-20shot-202025-10-06-20at-2004-44-22-20am.avif"></img><p>Figure 10.  PCR Amplification of T7 RNAP, CmR, and lacZ Genes.</p>
-            <p>However, upon transduction of <em>E. coli MG1655 λ cI857</em> with the P1 phage, no colonies were observed on Chloramphenicol-containing plates, indicating that the T7RNAP integration into the E. coli MG1655 genome was unsuccessful under the tested conditions. This result suggests that, despite successful fragment assembly and phage preparation, the recombination and/or transduction step did not yield viable integrants.</p>
+            <p>However, upon transduction of <em>E. coli</em> MG1655 λ cI857 with the P1 phage, no colonies were observed on Chloramphenicol-containing plates, indicating that the T7RNAP integration into the <em>E. coli</em> MG1655 genome was unsuccessful under the tested conditions. This result suggests that, despite successful fragment assembly and phage preparation, the recombination and/or transduction step did not yield viable integrants.</p>
             `,
         },
         {
           title: 'Cycle 2-1 — Learn',
           summary: '<p>Understanding the Challenges of T7RNAP Integration</p>',
           detail: `
-            <p>From the experimental results, it was clear that although individual PCR fragments were successfully amplified and the integration cassette could be delivered into Red(km) competent cells, no colonies were obtained on Chloramphenicol plates after P1 transduction, indicating that T7RNAP integration into E. coli MG1655 λ cI857 was unsuccessful. Several factors may have contributed to this outcome, including low P1 phage transduction efficiency or incomplete cassette packaging, host strain resistance to P1 infection (e.g., restriction-modification barriers, prophage interference, or O-antigen variation), inefficient cassette integration or toxicity, high selection pressure or suboptimal culture conditions, and potential interference from the λ cI857 prophage.</p>
-            <p>Given these challenges and the failure to obtain viable integrants, we did not pursue further optimization of this approach. Instead, we decided to shift our strategy to using λ phage to infect E. coli BL21(DE3), which would provide a more compatible host for T7RNAP-driven expression of our enzymes.</p>
+            <p>From the experimental results, it was clear that although individual PCR fragments were successfully amplified and the integration cassette could be delivered into Red(km) competent cells, no colonies were obtained on Chloramphenicol plates after P1 transduction, indicating that T7RNAP integration into E. coli MG1655 λ cI857 was unsuccessful. Several factors may have contributed to this outcome, including low P1 phage transduction efficiency or incomplete cassette packaging, host strain resistance to P1 infection, inefficient cassette integration or toxicity, high selection pressure or suboptimal culture conditions, and potential interference from the λ cI857 prophage.</p>
+            <p>Given these challenges and the failure to obtain viable integrants, we did not pursue further optimization of this approach. Instead, we decided to shift our strategy to using λ phage to infect <em>E. coli</em> BL21(DE3), which would provide a more compatible host for T7RNAP-driven expression of our enzymes.</p>
             <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-19-18-e2-80-afam.avif">
             `,
         },
@@ -269,37 +267,37 @@ export default {
           summary: '<p>Designing a Temperature-Controlled Expression System</p>',
           detail: `
           <p>To construct a host capable of temperature-controlled enzyme release and T7 promoter–driven expression, we designed a system that combines the λ cI857 temperature-sensitive lysis module with the T7 RNA polymerase expression system.</p>
-          <p>Since <em>E. coli BL21(DE3)</em> already carries the T7RNAP gene on its DE3 prophage, we reasoned that this strain would provide a convenient foundation for achieving both functions within a single host. Therefore, we designed the experiment to directly infect the genome of <em>E. coli BL21(DE3)</em> with a laboratory-provided λ cI857 phage. This approach was allowing the strain to simultaneously express T7RNAP for enzyme induction and undergo heat-induced lysis for controlled enzyme release.</p>
+          <p>Since <em>E. coli</em> BL21(DE3) already carries the T7RNAP gene on its DE3 prophage, we reasoned that this strain would provide a convenient foundation for achieving both functions within a single host. Therefore, we designed the experiment to directly infect the genome of <em>E. coli</em> BL21(DE3) with a λ cI857 phage. This approach was allowing the strain to simultaneously express T7RNAP for enzyme induction and undergo heat-induced lysis for controlled enzyme release.</p>
             `,
         },
         {
           title: 'Cycle 2-2 — Build',
           summary: '<p>Constructing the pET28a-DNase I and pET28a-DspB Plasmids</p>',
           detail: `
-            <p>To establish a host strain capable of T7RNAP-driven expression and controlled enzyme release,<em>E. coli BL21(DE3)</em> was infected with laboratory-provided λc1857  phage. This generated a <em>E. coli BL21(DE3)  λ cI857</em> strain, which enables temperature-inducible lysis for controlled release of Dispersin B and DNase I.</p>
+            <p>To establish a host strain capable of T7RNAP-driven expression and controlled enzyme release,<em>E. coli</em> BL21(DE3) was infected with laboratory-provided λc1857  phage. This generated a <em>E. coli</em> BL21(DE3)  λ cI857 strain, which enables temperature-inducible lysis for controlled release of Dispersin B and DNase I.</p>
           `,
         },
         {
           title: 'Cycle 2-2 — Test',
           summary: '<p>System Testing and Validation</p>',
           detail: `
-            <p>After infecting <em>E. coli BL21(DE3)</em> with λ phage carrying the cI857 allele, we observed a clear difference in colony growth between plates incubated at 30 °C and 43 °C (Fig. 11), indicating that the temperature-sensitive lysis system was functional. Subsequently, the lysogenized <em>E. coli BL21(DE3) λ cI857</em> strain was transformed with the enzyme plasmids and a T7-GFP reporter plasmid, and growth curves were measured post-infection (Fig. 12).</p>
+            <p>After infecting <em>E. coli</em> BL21(DE3) with λ phage carrying the cI857 allele, we observed a clear difference in colony growth between plates incubated at 30 °C and 43 °C (Fig. 11), indicating that the temperature-sensitive lysis system was functional. Subsequently, the lysogenized <em>E. coli</em> BL21(DE3) λ cI857 strain was transformed with the enzyme plasmids and a T7-GFP reporter plasmid, and growth curves were measured post-infection (Fig. 12).</p>
             <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screen-20shot-202025-10-06-20at-2004-45-39-20am.avif">
-            <p>Figure 11. Growth of <em>E. coli BL21(DE3) λ c1857</em> at 30°C and 43°C.</p>
+            <p>Figure 11. Growth of <em>E. coli</em> BL21(DE3) λ c1857 at 30°C and 43°C.</p>
             <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screen-20shot-202025-10-06-20at-2004-58-37-20am.avif">
-            <p>Figure 12. Growth Curve of <em>E. coli BL21(DE3) λ c1857</em> at 43°C.</p>
+            <p>Figure 12. Growth Curve of <em>E. coli</em> BL21(DE3) λ c1857 at 43°C.</p>
             <p>However, while bacterial growth was detectable, no GFP fluorescence was observed from the T7-GFP reporter, suggesting that T7RNAP expression or activity was insufficient under the tested conditions. PCR analysis revealed that the T7RNAP gene was absent, and only the cI857 fragment was detected (Fig. 13). These results indicate that, although the λ cI857 prophage was successfully established and temperature-dependent effects were visible, the intended T7RNAP integration was not achieved, preventing T7-driven protein expression in this configuration. </p>
             <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screen-20shot-202025-10-06-20at-2004-59-36-20am.avif">
             <p>Figure 13. PCR Amplification of T7 RNAP and c1857 Genes.</p>
-            <p>We further tested λ phage infection of <em>E. coli BL21(DE3)</em>/pT7-RNAP, which already carries a plasmid-based T7RNAP. In this case, the infected cells also failed to show GFP fluorescence.</p>
+            <p>We further tested λ phage infection of <em>E. coli</em> BL21(DE3)/pT7-RNAP, which already carries a plasmid-based T7RNAP. In this case, the infected cells also failed to show GFP fluorescence.</p>
             `,
         },
         {
           title: 'Cycle 2-2 — Learn',
           summary: '<p>Understanding the Challenges of T7RNAP Integration</p>',
           detail: `
-            <p>From the experimental observations, we speculate that the failure to obtain T7RNAP in <em>E. coli BL21(DE3) λ cI857</em> lysogens was due to non-targeted homologous recombination driven by high sequence similarity between the DE3-derived T7RNAP locus in <em>E. coli BL21(DE3)</em> and λ phage sequences carrying cI857.</p>
-            <p><em>E. coli BL21(DE3)</em> already harbors chromosomally integrated T7RNAP derived from the DE3 region. During λ phage infection, regions of high homology between the phage cassette and the DE3 T7RNAP locus facilitated crossovers, resulting in replacement of the original T7RNAP region with the cI857 fragment, while the T7RNAP gene itself was not correctly integrated. This non-targeted recombination explains why PCR only detected cI857 and no T7RNAP sequence, and why the T7-GFP reporter failed to produce fluorescence despite bacterial growth.</p>
+            <p>From the experimental observations, we speculate that the failure to obtain T7RNAP in <em>E. coli</em> BL21(DE3) λ cI857 lysogens was due to non-targeted homologous recombination driven by high sequence similarity between the DE3-derived T7RNAP locus in <em>E. coli</em> BL21(DE3) and λ phage sequences carrying cI857.</p>
+            <p><em>E. coli</em> BL21(DE3) already harbors chromosomally integrated T7RNAP derived from the DE3 region. During λ phage infection, regions of high homology between the phage cassette and the DE3 T7RNAP locus facilitated crossovers, resulting in replacement of the original T7RNAP region with the cI857 fragment, while the T7RNAP gene itself was not correctly integrated. This non-targeted recombination explains why PCR only detected cI857 and no T7RNAP sequence, and why the T7-GFP reporter failed to produce fluorescence despite bacterial growth.</p>
             <p>Based on this observation, we decided to abandon attempts to integrate T7RNAP via λ phage and instead rely on plasmid-based T7RNAP expression for subsequent experiments. This approach avoids potential interference from phage-derived sequences while still enabling T7-driven transcription of Dispersin B and DNase I.</p>
             <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-20-49-e2-80-afam.avif">
             `,
@@ -308,14 +306,14 @@ export default {
           title: 'Cycle 2-3 — Design',
           summary: '<p>Alternative Approaches to T7RNAP Integration</p>',
           detail: `
-            <p>From our previous experiments, we learned that introducing the λ phage into the bacterial genome was extremely challenging and often led to instability or loss of essential elements such as T7RNAP. To simplify the system, we decided that instead of integrating the T7RNAP gene into the chromosome, we would construct a plasmid carrying the T7RNAP fragment. This design separates the T7RNAP module from the phage genome, avoiding unwanted homologous recombination while maintaining reliable expression. When introduced into <em>E. coli MG1655 λ cI857</em>, the pCL1920/T7RNAP plasmid enables IPTG-inducible expression of T7 promoter–regulated enzymes at 30 °C, while the λ cI857 system ensures temperature-induced lysis at elevated temperatures. Through this setup, we can achieved biosafety through controlled self-lysis.</p>
+            <p>From our previous experiments, we learned that introducing the λ phage into the bacterial genome was extremely challenging and often led to instability or loss of essential elements such as T7RNAP. To simplify the system, we decided that instead of integrating the T7RNAP gene into the chromosome, we would construct a plasmid carrying the T7RNAP fragment. This design separates the T7RNAP module from the phage genome, avoiding unwanted homologous recombination while maintaining reliable expression. When introduced into <em>E. coli</em> MG1655 λ cI857, the pCL1920/T7RNAP plasmid enables IPTG-inducible expression of T7 promoter–regulated enzymes at 30 °C, while the λ cI857 system ensures temperature-induced lysis at elevated temperatures. Through this setup, we can achieved biosafety through controlled self-lysis.</p>
           `,
         },
         {
           title: 'Cycle 2-3 — Build',
           summary: '<p>Engineering a Plasmid-Based T7RNAP System</p>',
           detail: `
-          <p>Based on this idea, we designed a plasmid-based T7RNAP expression system compatible with the λ cI857 kill-switch strain. The T7RNAP gene was isolated from E. coli BL21(DE3) and cloned into the low-copy-number plasmid pCL1920. We used a miniprep procedure to extract the pCL1920 plasmid, and inserted the PCR-amplified T7RNAP fragment from E. coli BL21(DE3) via electroporation. To verify the functionality of the constructed pCL1920-T7RNAP, we transformed it into E. coli TOP10/pT7-RNAP with a T7-inducible GFP reporter plasmid. The presence of green fluorescence under IPTG induction served as an indicator of successful T7RNAP activity.</p>
+          <p>Based on this idea, we designed a plasmid-based T7RNAP expression system compatible with the λ cI857 kill-switch strain. The T7RNAP gene was isolated from <em>E. coli</em> BL21(DE3) and cloned into the low-copy-number plasmid pCL1920. We used a miniprep procedure to extract the pCL1920 plasmid, and inserted the PCR-amplified T7RNAP fragment from <em>E. coli</em> BL21(DE3) via electroporation. To verify the functionality of the constructed pCL1920-T7RNAP, we transformed it into E. coli TOP10/pT7-RNAP with a T7-inducible GFP reporter plasmid. The presence of green fluorescence under IPTG induction served as an indicator of successful T7RNAP activity.</p>
           `,
         },
         {
@@ -331,7 +329,7 @@ export default {
           title: 'Cycle 2-3 — Learn',
           summary: '<p>Successful Integration of T7RNAP</p>',
           detail: `
-            <p>Overall, these results demonstrate that the plasmid-based T7RNAP construct is functional, stable, and compatible with E. coli MG1655 λ cI857, providing a reliable system for downstream T7 promoter-driven enzyme expression.</p>
+            <p>Overall, these results demonstrate that the plasmid-based T7RNAP construct is functional, stable, and compatible with <em>E. coli</em> MG1655 λ cI857, providing a reliable system for downstream T7 promoter-driven enzyme expression.</p>
 
           `,
         },
@@ -352,9 +350,8 @@ export default {
           title: 'Cycle 3-1 — Build',
           summary: '<p>Biofilm Formation Assay Setup</p>',
           detail: `
-            <p>To evaluate biofilm formation under controlled conditions, we adopted a static culture setup inspired by Kwasny &amp; Opperman (2010). Cultures were grown in tryptic soy broth (TSB) supplemented with 1% glucose to enhance extracellular matrix production and surface attachment. The cultures were incubated at 37 °C to promote bacterial growth and biofilm development.</p>
+            <p>To evaluate biofilm formation under controlled conditions, we employed a static culture system adapted from Kwasny and Opperman (2010). Cultures were grown in tryptic soy broth (TSB) supplemented with 1% glucose to enhance extracellular matrix production and surface attachment. The cultures were incubated at 37 °C to promote bacterial growth and biofilm development.</p>
 <p>At defined time intervals, the optical density (OD₆₀₀) of the culture was measured to monitor growth dynamics and indirectly assess biofilm formation over time.</p>
-<p>Kwasny, S. M., &amp; Opperman, T. J. (2010). Static biofilm cultures of Gram-positive pathogens grown in a microtiter format used for anti-biofilm drug discovery. Current protocols in pharmacology, Chapter 13, 13A.8.1–13A.8. https://doi.org/10.1002/0471141755.ph13a08s50</p>
 
           `,
         },
@@ -372,7 +369,7 @@ export default {
           summary: '<p>Appropriate Culture Conditions for Biofilm Development</p>',
           detail: `
           <p>From the biofilm formation experiment, we learned that the biofilm reached a stable state after approximately 24 hours, as the OD₆₀₀ value plateaued and showed little fluctuation afterward. This indicates that 24 h is an appropriate culture period for establishing a mature and consistent biofilm, suitable for subsequent degradation assays.</p>
-                        <img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-25-09-e2-80-afam.avif">
+          
           `,
         },
         {
@@ -381,7 +378,7 @@ export default {
           detail: `
             <p>To identify the optimal mixing ratio of the three enzymes and to test whether synergistic effects exist among them, we designed a series of experiments to determine the best culture and induction conditions for our engineered strains. Since enzyme activity and stability are influenced by the host’s physiological state, our first goal was to identify the conditions that allow the bacteria to grow efficiently while still enabling sufficient enzyme production.</p>
 <p>We compared different induction strategies and culture temperatures to evaluate how pre-induction, staged induction, or low-temperature induction affect overall cell growth and enzyme expression. By analyzing growth curves, we aimed to define when biofilm degradation is expected to be most effective. Through this approach, we intended to establish both the optimal reaction time and the most efficient conditions for achieving maximum biofilm degradation.</p>
-
+<img class = img src = "https://static.igem.wiki/teams/6003/engineering/screenshot-202025-10-06-20at-201-25-09-e2-80-afam.avif">
           `,
         },
         {
@@ -410,12 +407,11 @@ export default {
           title: 'Cycle 3-2 — Learn',
           summary: '<p>Insights from Biofilm Degradation Experiments</p>',
           detail: `
-<p>From the biofilm formation experiment, we learned that the biofilm reached a stable state after approximately 24 hours, as the OD₆₀₀ value plateaued and showed little fluctuation afterward. This indicates that 24 h is an appropriate culture period for establishing a mature and consistent biofilm, suitable for subsequent degradation assays.</p>
 <p>In the degradation phase, comparison of induction and temperature conditions provided several important insights. Although 40 °C and 43 °C showed similar bacterial growth and degradation trends, we selected 40 °C as the optimal condition because it is closer to human body temperature and aligns better with the known optimal activity of Dispersin B (around 37 °C). This makes it more representative of potential application environments and more favorable for enzyme stability.</p>
 <p>Among the four induction methods, IPTG induction at 30 °C followed by 3 h of expression before adding to the biofilm resulted in the most effective degradation, suggesting that sufficient pre-expression time is crucial for accumulating active enzymes before temperature-induced release.</p>
 <p>By monitoring degradation over time, we found that the most active degradation phase occurred around 5 hours after induction, corresponding with a marked decrease in OD₆₀₀. This indicates that enzyme production and release reached peak efficiency at this point. After 5 hours, degradation gradually slowed and stabilized, suggesting that enzyme concentration or substrate availability may have become limiting factors.</p>
-<p>Based on the experimental data <s>(Figure 28)</s>, Proteinase K never showed a significant effect on biofilm degradation, regardless of the induction method or time point tested. This suggests that Proteinase K has minimal contribution to biofilm disruption under the current experimental conditions. Future design iterations may consider focusing on DNase I and Dispersin B as the primary active enzymes, while reevaluating the necessity of including Proteinase K in the system.
-Overall, these findings highlight that (1) 24-hour biofilm growth provides a reliable substrate for degradation studies, (2) pre-expression of enzymes before heat induction significantly enhances biofilm degradation efficiency, and (3) approximately 5 hours after temperature induction represents the optimal active phase for enzyme-mediated degradation. Future optimization will focus on enzyme ratios, a to further enhance biofilm clearance efficiency.</p>
+<p>Based on the experimental data, Proteinase K never showed a significant effect on biofilm degradation, regardless of the induction method or time point tested. This suggests that Proteinase K has minimal contribution to biofilm disruption under the current experimental conditions. Future design iterations may consider focusing on DNase I and Dispersin B as the primary active enzymes, while reevaluating the necessity of including Proteinase K in the system.
+  <br>Overall, these findings highlight that (1) 24-hour biofilm growth provides a reliable substrate for degradation studies, (2) pre-expression of enzymes before heat induction significantly enhances biofilm degradation efficiency, and (3) approximately 5 hours after temperature induction represents the optimal active phase for enzyme-mediated degradation. Future optimization will focus on enzyme ratios, a to further enhance biofilm clearance efficiency.</p>
           `,
         },
 

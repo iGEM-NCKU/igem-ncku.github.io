@@ -935,62 +935,62 @@
                     <td>Proteinase K</td>
                     <td>ProK_FW:<br>
                         CCGGAATTCATGGCTCCTGCGGTGGAACAA<br>
-                        ProK_RV: 
+                        ProK_RV: <br>
                         GTCACTCTGCAGTCACGCTTGATAATTATTATACGCG
                     </td>
                     </tr>
                     <tr>
                     <td>Dsp B</td>
-                    <td>DSPB_FW :
-                        TCAGAATTCCATATGTGCGTAAAAGGCAATTCCAT
+                    <td>DSPB_FW :<br>
+                        TCAGAATTCCATATGTGCGTAAAAGGCAATTCCAT<br>
                     DSPB_RV : <br>CCGCTCGAGTCACTCATCCCCATTCGT
 
                     </td>
                     </tr>
                     <tr>
                     <td>DNase I</td>
-                    <td>DNaseI_FW : <br>TCAGAATTCCATATGCTCAAAATTGCCGCGTTT
+                    <td>DNaseI_FW : <br>TCAGAATTCCATATGCTCAAAATTGCCGCGTTT<br>
                         DNaseI_RV : <br>CGGCTCGAGTCAGGTGAGCGTGACTTC
                     </td>
                     </tr>
                     <tr>
                     <td>Dsp B、DNase I、(Colony PCR)</td>
-                    <td>GFP-HF : gccgAAGCTTTGTTTAACTTTAAGAAGGAG
-                        6x His-c : TCCTTTCAGCAAAAAACCCCTCAAGACCCG</td>
+                    <td>GFP-HF :<br> gccgAAGCTTTGTTTAACTTTAAGAAGGAG<br>
+                        6x His-c :<br> TCCTTTCAGCAAAAAACCCCTCAAGACCCG</td>
                     </tr>
                     <tr>
                     <td>Pro k (Colony PCR)</td>
-                    <td>ProK_FW : CCG GAA TTC ATG GCT CCT GCG GTG GAA CAA
-                        pTrc99A-1 : aagcggccgcagatctAAGAGTTTGTAGAAACGC</td>
+                    <td>ProK_FW :<br> CCG GAA TTC ATG GCT CCT GCG GTG GAA CAA<br>
+                        pTrc99A-1 :<br> aagcggccgcagatctAAGAGTTTGTAGAAACGC</td>
                     </tr>
                     <tr>
                     <td>T7RNAP</td>
-                    <td>141-20 : CATCTGGTCGCATTGGGTCACCAGCAAATC<br>
-                        T7RNAP-3: taaacgcctggtgctacgcctgaataagtgattgatttggcgttacgcgaac
+                    <td>141-20 :<br> CATCTGGTCGCATTGGGTCACCAGCAAATC<br>
+                        T7RNAP-3:<br> taaacgcctggtgctacgcctgaataagtgattgatttggcgttacgcgaac
                     </td>
                     </tr>
                     <tr>
                     <td>CmR</td>
-                    <td>Cmc(jk) : cAcTTATTcAggcgTAgcAc<br>
-                        Not-CmN : CCCGGGCGGCCGCGACGCACACCGTGGAAA
+                    <td>Cmc(jk) :<br> cAcTTATTcAggcgTAgcAc<br>
+                        Not-CmN :<br> CCCGGGCGGCCGCGACGCACACCGTGGAAA
                     </td>
                     </tr>
                     <tr>
                     <td>lacZ</td>
-                    <td>141-31 : cagggcttcccggtatcaacagggacaccagcggccgcggttccagttccgtttatccgg
-                        141-23 : <br>GACTGTAGCGGCTGATGTTGAACTGGAAG
+                    <td>141-31 :<br> cagggcttcccggtatcaacagggacaccagcggccgcggttccagttccgtttatccgg<br>
+                        141-23 :<br>GACTGTAGCGGCTGATGTTGAACTGGAAG
                     </td>
                     </tr>
                     <tr>
                     <td>lacI-T7RNAP (Overlapping PCR)</td>
-                    <td>180-1 : ccaccatcaagggaaagccc<br>
-                        T7-RNAP2 : tcgaactgcaggtcgacggatccccggaattgatttggcgttacgcgaac
+                    <td>180-1 :<br> ccaccatcaagggaaagccc<br>
+                        T7-RNAP2 :<br> tcgaactgcaggtcgacggatccccggaattgatttggcgttacgcgaac
                     </td>
                     </tr>
                     <tr>
                     <td>Lambda c1857</td>
-                    <td>lambda10 : cctcctcgcccttgctcacCATacaacctccttagtacatg
-                        lambda11 : GCGTAGCACgaattcggggGATCAGCCAAACGTCTCTTC
+                    <td>lambda10 :<br> cctcctcgcccttgctcacCATacaacctccttagtacatg<br>
+                        lambda11 :<br> GCGTAGCACgaattcggggGATCAGCCAAACGTCTCTTC
                     </td>
                     </tr>
                     </tbody>

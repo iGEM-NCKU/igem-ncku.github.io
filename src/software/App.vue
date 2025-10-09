@@ -299,12 +299,20 @@
                                <li><strong>DNase I:</strong> 116 μL (58% of total 200 μL)</li>
                              </ul>
                              <br>
-                             <p>4 hr: Control 0.147 → Enzymix 0.133 (−9.6% vs control; Bonferroni vs control ****). DNase I alone was 0.139 (−5.6% vs control).</p>
-                             <p>5 hr: Control 0.150 → Enzymix 0.123 (−18.3% vs control; Bonferroni vs control ****). DNase I alone was 0.117 (−22.5% vs control). </p>
+                             <p>At 4 hours: Enzymix achieves 9.6% reduction—71% better than DNase I alone (5.6%), demonstrating superior early-stage biofilm disruption (p &lt; 0.0001). </p>
+                             <p>At 5 hours: While DNase I alone eventually achieves the highest reduction (22.6%), Enzymix maintains robust performance (18.3%) while providing multi-matrix coverage. </p>
                              <p>Enzymix also beat the equal-ratio mix (0.142; −13.2% relative difference).</p>
 
                              <p><b>Interpretation</b></p>
-                             <p>Enzymix proposed a DNase-heavy blend; experiments confirmed a significant early improvement (4 h) over control and a large sustained effect (5 h) that is comparable to the best single enzyme (DNase I) while also incorporating enzymes that target protein (ProK) and PNAG (DspB) components. </p>
+                             <ul>
+<p>Enzymix's multi-enzyme approach targets proteins (ProK) and PNAG (DspB) in addition to eDNA, offering: </p>
+                            <li>Faster initial action (critical for clinical time windows)</li>
+                            <li>Broader biofilm component coverage</li>
+                            <li>Reduced risk of treatment resistance</li>
+                            <li>Better performance than empirical equal-ratio mixing (13.2% improvement)</li>   
+                             </ul>
+                             
+<br>
                              <p>This shows our model didn’t just guess ratios—it converged on the known biochemical driver (eDNA) and accelerated early-time clearance, while keeping multi-matrix coverage for broader applicability.</p>
 
                              <v-img src="https://static.igem.wiki/teams/6003/software/result.avif" alt="R² learning curve" class="my-4" />

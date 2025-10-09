@@ -269,6 +269,7 @@
                             • Higher uncertainty flags predictions needing validation.</p>
                             
                           </div> 
+  
                          <v-card-subtitle style="font-size: 24px;">How do we ensure the prediction is accurate?</v-card-subtitle>
                               <div class="text-content">
                                 <ol>
@@ -280,7 +281,36 @@
 
                                 <v-img src="https://static.igem.wiki/teams/6003/software/flowchart-ml-model.webp" alt="ML workflow" class="my-4" />
                                 <div class="text-content text-center "><i>Fig. 2. Machine Learning Training Flowchart</i></div>
+                            <br>
+                           <v-card-subtitle style="font-size: 30px;">Enzymix suggestions validated experimentally</v-card-subtitle>
+                           <div class="text-content">
+                            <p>
+                                Wet lab validate Enzymix finding of identified a synergistic three-enzyme combination that demonstrates statistically significant superior biofilm degradation compared to traditional approaches. The optimized mixture achieves up to 18.3% reduction in biofilm compared to untreated controls (p-value  &lt; 0.0001).
+                            </p>
+                             <p>
+                               Enzymix suggested an optimal enzyme mixture for biofilm degradation, as following:
+                             </p>
+                             <p>
+                              
+                             </p>
+                             <ul>
+                               <li><strong>Proteinase K:</strong> 56 μL (28% of total 200 μL)</li>
+                               <li><strong>Dispersin B (DSPB):</strong> 28 μL (14% of total 200 μL)</li>
+                               <li><strong>DNase I:</strong> 116 μL (58% of total 200 μL)</li>
+                             </ul>
+                             <br>
+                             <p>4 hr: Control 0.147 → Enzymix 0.133 (−9.6% vs control; Bonferroni vs control ****). DNase I alone was 0.139 (−5.6% vs control).</p>
+                             <p>5 hr: Control 0.150 → Enzymix 0.123 (−18.3% vs control; Bonferroni vs control ****). DNase I alone was 0.117 (−22.5% vs control). </p>
+                             <p>Enzymix also beat the equal-ratio mix (0.142; −13.2% relative difference).</p>
 
+                             <p><b>Interpretation</b></p>
+                             <p>Enzymix proposed a DNase-heavy blend; experiments confirmed a significant early improvement (4 h) over control and a large sustained effect (5 h) that is comparable to the best single enzyme (DNase I) while also incorporating enzymes that target protein (ProK) and PNAG (DspB) components. </p>
+                             <p>This shows our model didn’t just guess ratios—it converged on the known biochemical driver (eDNA) and accelerated early-time clearance, while keeping multi-matrix coverage for broader applicability.</p>
+
+                             <v-img src="https://static.igem.wiki/teams/6003/software/result.avif" alt="R² learning curve" class="my-4" />
+                             <div class="text-content text-center "><i>Fig. 3. Model result suggestions validated by experimentally</i></div>
+                           </div>
+                           <br>
                            <v-card-subtitle style="font-size: 24px;">R² Learning Curve</v-card-subtitle>
                            <div class="text-content">
                              <ol>
@@ -289,9 +319,9 @@
                                <li><b>Converges quickly</b> — curves plateau after ~10–15 boosting rounds, indicating stable learning.</li>
                              </ol>
                              <v-img src="https://static.igem.wiki/teams/6003/software/r2.webp" alt="R² learning curve" class="my-4" />
-                             <div class="text-content text-center "><i>Fig. 3. R² Learning Curve for Model Training and Validation</i></div>
+                             <div class="text-content text-center "><i>Fig. 4. R² Learning Curve for Model Training and Validation</i></div>
                            </div>
-                        
+                        <br>
                            <v-card-subtitle style="font-size: 24px;">RMSE Learning Curve</v-card-subtitle>
                            <div class="text-content">
                              <ol>
@@ -300,9 +330,9 @@
                                <li><b>Stable plateau</b> — validation error flattens after ~20 rounds, avoiding unnecessary complexity.</li>
                              </ol>
                              <v-img src="https://static.igem.wiki/teams/6003/software/rmse.webp" alt="RMSE learning curve" class="my-4" />
-                             <div class="text-content text-center "><i>Fig. 4. Training and Validation RMSE Across Boosting Rounds</i></div>
+                             <div class="text-content text-center "><i>Fig. 5. Training and Validation RMSE Across Boosting Rounds</i></div>
                            </div>
-                           
+                           <br>
                               <v-card-subtitle style="font-size: 24px;">What This Means for Wet Lab</v-card-subtitle>
                               <div class="text-content">
                                 <ol>
@@ -311,8 +341,7 @@
                                   <li><b>Fast iteration</b> — quick convergence makes retraining practical whenever new data arrives.</li>
                                 </ol>
                               </div>
-                            
-                             
+                     <br>
                             </v-card>
 
                             <br>

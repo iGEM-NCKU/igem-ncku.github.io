@@ -11,11 +11,8 @@
                          <!-- Introduction Section -->
                         <div id="Intro" class="section-container scroller">
                             <v-card class="ma-4 pa-8 intro-card" variant="elevated" elevation="8">
-                                <v-card-title class="text-h2 text-center mb-6">
-                                    <b>Software Tools</b>
-                                </v-card-title>
                                 <v-card-subtitle class="text-h5 text-center mb-8 text-grey-darken-1">
-                                    Computational Solutions for Biofilm Research and Enzyme Design
+                                    Solutions for Biofilm Research and Enzyme Design
                                 </v-card-subtitle>
                                 
                                 <v-card-text class="text-h6 text-left mb-8">
@@ -93,20 +90,14 @@
                       <v-card-title id="Why-Enzymix" class="subtitle" style="font-size: 32px;"><b>Why Enzymix</b></v-card-title>
                             <div class="text-content">
                                 <p>
-                                  Finding the optimal enzyme combination for biofilm degradation is inherently challenging due to 
-                                  the <b>combinatorial explosion problem</b>. For a three-enzyme system (Dispersin B, DNase I, and Proteinase K), 
-                                  testing  a more comprehensive 
-                                  screening at 10 concentration levels demands <b>1,000 experiments (10³)</b> [1]. When accounting for biological replicates 
-                                  and additional parameters like pH, temperature, and reaction time, the experimental matrix expands to 
-                                  <b>2,250-3,000 individual assays</b> for thorough optimization [2].
+Due to the combinatorial explosion problem, finding the optimal enzyme combination for biofilm degradation is inherently challenging. For a three-enzyme system consisting of Dispersin B, DNase I, and Proteinase K, conducting a comprehensive screening at 10 concentration levels requires 1,000 experiments (10³) [1]. Accounting for biological replicates and additional parameters such as pH, temperature, and reaction time expands the experimental matrix to 2,250–3,000 individual assays for thorough optimization [2].
                                 </p>
                                                               <p>
-                                  Furthermore, multi-enzyme cocktails exhibit <b>unpredictable synergistic and antagonistic effects</b> that cannot be reliably 
-                                  predicted a priori. Research demonstrates that only 60% of enzyme combinations show synergistic effects, while 
-                                  40% exhibit additive or antagonistic interactions [3,4].
+                                  
+Furthermore, multi-enzyme cocktails exhibit unpredictable synergistic and antagonistic effects that cannot be reliably predicted in advance. Studies show that only 60% of enzyme combinations demonstrate synergistic effects, while 40% exhibit additive or antagonistic interactions [3, 4].
                                 </p>
                                 <p>
-                                    To address these challenges, we developed Enzymix, a machine learning-powered tool designed to optimize enzyme ratios for biofilm degradation. It uses XGBoost and Random Forest models to predict biofilm removal efficiency and suggest optimal enzyme combinations, helping researchers avoid extensive trial-and-error experimentation.
+                                   To address these challenges, we developed Enzymix, a machine learning–powered tool designed to optimize enzyme ratios for biofilm degradation. Enzymix uses XGBoost and Random Forest models to predict biofilm removal efficiency and suggest optimal enzyme combinations, helping researchers avoid extensive trial-and-error experimentation.
                                 </p>
                                 <ul>
                                   Key Features:
@@ -116,9 +107,7 @@
                                   <li>• <b>Suggest informative follow-up experiments</b> using active learning</li>
                                   <li>• <b>Visualize feature importance</b> to understand key factors driving degradation</li>
                                 </ul>
-                                <p>
-                                    We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [5], iterates quickly, and provides interpretable signals for future experiments [6].
-                                </p>
+
                                  <v-container>
                                                  <v-hover>
                                                    <template #default = '{isHovering, props}'>
@@ -219,6 +208,7 @@
                                                 <v-alert type="success" class="mt-4">
                                                     This ensures every software iteration directly benefits wet lab progress.
                                                 </v-alert>
+                                                <br>
                                             </div>
                                         </v-card>
                                     </div>
@@ -229,9 +219,13 @@
                             <v-card-title id="Software-Design" class="subtitle" style="font-size: 32px;"><b>Software Design</b></v-card-title>
                             <div class="text-content">
                                 <p>We designed our software to be easy to use, efficient, and able to adapt to changing needs. It's made to integrate machine learning models with a simple interface. Here's how it's structured:</p>
-                                 <p><b>Machine Learning Models</b><br>
-                                 These models are stored in the <code>ml-model/</code>  folder. They power our predictions and decision making. The <code>xgb_biofilm_model.json</code> is used for biofilm prediction, and the <code>rf_uncertainty_model.joblib</code> is used for uncertainty estimation.
-                                 </p>
+                               
+                                   <p>
+                                    <b>Machine Learning Models</b> <br>
+                                    We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [5], iterates quickly, and provides interpretable signals for future experiments [6].
+                                </p>
+                                 <p>These models are stored in the <code>ml-model/</code>  folder. They power our predictions and decision making. The <code>xgb_biofilm_model.json</code> is used for biofilm prediction, and the <code>rf_uncertainty_model.joblib</code> is used for uncertainty estimation.</p>
+                                 
         
                                 <p><b>FastAPI Backend</b> <br>
                                    Our backend is built with FastAPI, which provides very fast, secure RESTful endpoints and serves the static UI. The models are loaded when the program starts, and they're ready to make predictions at scale.        </p>
@@ -455,10 +449,14 @@ docker compose --profile training run --rm biofilm-trainer
                             <div class="text-content">
                                 <p>
                                     
-                                  This tool integrates predictive modeling and experiment design into a single interface, lowering lab iteration time through immediate estimates, principled optimization, and targeted enzyme ratio suggestions. The modular design makes it straightforward to update models as new data arrive.
+                                  Enzymix integrates predictive modeling and experimental design into a single interface. This lowers laboratory iteration time by providing immediate estimates, principled optimization, and targeted enzyme ratio suggestions. 
+
                                 </p>
                                 <p>
-                                    Enzymix also compatible with multiple biofilm types beyond <i>S. aureus</i>, making it accessible for experts and other iGEM teams. The model can be further trained and improved with additional high-quality data.
+                                    Enzymix is also compatible with multiple biofilm types beyond <i>S. aureus</i>, making it accessible to experts and other iGEM teams. The model can be further trained and improved with additional high-quality data.
+                                </p>
+                                <p>
+                                    Despite having limited data and time, we managed to complete five development steps. Our wet team members used Enzymix and found it to be an important tool for their daily testing and experimentation. Enzymix significantly reduced the time they spent on testing and experimenting, allowing them to focus more on analyzing and interpreting the results.
                                 </p>
                             </div>
                             </v-card>

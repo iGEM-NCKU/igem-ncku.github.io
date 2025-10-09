@@ -96,6 +96,8 @@ The main goal of the **Topic Reflection Mindmap** is to help us better understan
 
 The **Topic Reflection Mindmap** serves as a **reflective exercise** to ensure that the project remains focused and continuously adapts based on the evolving understanding of the topic. It helps guide us in asking **critical questions** about the problem, ensuring that all aspects of the project are well-understood and aligned with real-world needs.
 
+[PDF](https://static.igem.wiki/teams/6003/hp/igem-ncku-tainan-mindmap.pdf)
+
 ### **How It Works: Identifying Gaps and Solutions**
 
 ---

@@ -1,5 +1,5 @@
 <template>
-    <div><v-row><v-col><v-card title = 'From Exploration to Reflection — How We Shaped Byefilm'>
+    <div><v-row><v-col><v-card title = Timeline subtitle = 'From Exploration to Reflection — How We Shaped Byefilm' class = subtitle id = 'From-Exploration-to-Reflection'>
         <v-timeline>
             <v-timeline-item v-for = 'i in data' :key = i>
                 <template #opposite>
@@ -16,7 +16,7 @@
                                 </v-card>
                             </template>
                             
-                            <v-card :title = i.title>
+                            <v-card :title = i.title :subtitle = j.name>
                                 <v-row>
                                     <template v-for = 'k, l in j' :key = k>
                                         <v-col cols = 12 md = 4 v-if = 'l != `title` && l != `text`'>

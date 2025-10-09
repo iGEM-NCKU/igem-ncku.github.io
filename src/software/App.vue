@@ -92,13 +92,20 @@
                       <v-card-title id="Why-Enzymix" class="subtitle" style="font-size: 32px;"><b>Why Enzymix</b></v-card-title>
                             <div class="text-content">
                                 <p>
-                                    Testing and experimenting to find the optimal enzyme ratio for biofilm degradation is time-consuming and costly. Our web tool helps wet lab teams and experts by suggesting the optimal enzyme ratio and suggesting what to experiment with next based on promising enzyme ratios.
+                                  Finding the optimal enzyme combination for biofilm degradation is inherently challenging due to 
+                                  the <b>combinatorial explosion problem</b>. For a three-enzyme system (Dispersin B, DNase I, and Proteinase K), 
+                                  testing just 5 concentration levels per enzyme requires <b>125 experiments (5³)</b>, while a more comprehensive 
+                                  screening at 10 levels demands <b>1,000 experiments (10³)</b> [1]. When accounting for biological replicates 
+                                  and additional parameters like pH, temperature, and reaction time, the experimental matrix expands to 
+                                  <b>2,250-3,000 individual assays</b> for thorough optimization [2].
+                                </p>
+                                                              <p>
+                                  Multi-enzyme cocktails exhibit <b>unpredictable synergistic and antagonistic effects</b> that cannot be reliably 
+                                  predicted a priori. Research demonstrates that only 60% of enzyme combinations show synergistic effects, while 
+                                  40% exhibit additive or antagonistic interactions [3,4].
                                 </p>
                                 <p>
-                                    Predicting the optimal ratio of three enzymes is inherently challenging. Biofilm degradation is nonlinear and interactive, and it is influenced by multiple factors, such as pH, temperature, and reaction time. Traditional trial-and-error testing is time-consuming and costly.
-                                </p>
-                                <p>
-                                    We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [1], iterates quickly, and provides interpretable signals for future experiments [2].
+                                    We chose XGBoost because it captures nonlinear enzyme interactions, remains robust with limited data [5], iterates quickly, and provides interpretable signals for future experiments [6].
                                 </p>
                                  <v-container>
                                                  <v-hover>
@@ -215,7 +222,7 @@
                                  </p>
         
                                 <p><b>FastAPI Backend</b> <br>
-                                   Our backend is built with FastAPI, which provides very fast, secure RESTful endpoints and serves the static UI [4]. The models are loaded when the program starts, and they're ready to make predictions at scale.        </p>
+                                   Our backend is built with FastAPI, which provides very fast, secure RESTful endpoints and serves the static UI [8]. The models are loaded when the program starts, and they're ready to make predictions at scale.        </p>
                                 
                                 <p><b>Static Web UI</b><br>
                                     The interface is simple yet powerful, built with <strong>HTML/CSS/JS</strong> and stored under <code>static/</code>, available at <code>/static</code>. Need quick access? The shortcut <code>/ui</code> will take you directly to the main page at <code>/static/index.html</code>.
@@ -245,8 +252,8 @@
                             • Degradation values scaled from 0-100% to 0-1 range for model training.</p>
                             
                             <p><strong>XGBoost Regressor</strong> (Primary predictions)<br>
-                            • Optimized through 100 trials with nested cross-validation [7].<br>
-                            • Automatically tunes learning rate, tree depth, and regularization.<br>
+                            • Optimized through 100 trials with nested cross-validation [11].<br>
+                            • Automatically tunes learning rate, tree depth, and regularization. [7] <br>
                             • Trained on full dataset with optimal hyperparameters.</p>
                             
                             <p><strong>Random Forest Regressor</strong> (Uncertainty estimates)<br>
@@ -258,7 +265,7 @@
                          <v-card-subtitle style="font-size: 24px;">How do we ensure the prediction is accurate?</v-card-subtitle>
                               <div class="text-content">
                                 <ol>
-                                  <li><b>5×5 nested cross-validation with Optuna-driven </b> — for robust hyperparameter search [6].</li>
+                                  <li><b>5×5 nested cross-validation with Optuna-driven </b> — for robust hyperparameter search [10].</li>
                                   <li><b>Reproducible</b> — fixed random seed and logged training history.</li>
                                   <li><b>Robust tuning</b> — inner-CV hyperparameter search with early stopping prevents overfitting.</li>
                                 </ol>
@@ -393,7 +400,7 @@ docker compose --profile training run --rm biofilm-trainer
                             <v-card-title id="Enzymix-Conclusion" class="subtitle" style="font-size: 32px;"><b>Conclusion</b></v-card-title>
                             <div class="text-content">
                                 <p>
-                                    This tool integrates predictive modeling and experiment design into a single interface, lowering lab iteration time through immediate estimates, principled optimization, and targeted enzyme ratio suggestions. The modular design makes it straightforward to update models as new data arrive.
+                                    This tool integrates predictive modeling and experiment design into a single interface, lowering lab iteration time through immediate estimates, principled optimization, and targeted enzyme ratio suggestions. The modular design makes it straightforward to update models as new data arrive [9].
                                 </p>
                                 <p>
                                     Enzymix also compatible with multiple biofilm types beyond <i>S. aureus</i>, making it accessible for experts and other iGEM teams. The model can be further trained and improved with additional high-quality data.
@@ -404,13 +411,23 @@ docker compose --profile training run --rm biofilm-trainer
                             <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box">
                             <v-card-title id="Enzymix-References" class="subtitle" style="font-size: 32px;"><b>References</b></v-card-title>
                             <div class="text-content">
-                                <p>[1] Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794.</p>
-                                <p>[2] Lundberg, S. M., &amp; Lee, S. I. (2017). A Unified Approach to Interpreting Model Predictions. Advances in Neural Information Processing Systems 30, 4765-4774.</p>
-                                <p>[3] Settles, B. (2009). Active Learning Literature Survey. Computer Sciences Technical Report 1648, University of Wisconsin-Madison.</p>
-                                <p>[4] FastAPI Documentation. (2024). FastAPI framework, high performance, easy to learn, fast to code, ready for production. Retrieved from https://fastapi.tiangolo.com/</p>
-                                <p>[5] Docker Documentation. (2024). Docker Compose overview. Retrieved from https://docs.docker.com/compose/.</p>
-                                <p>[6] Akiba, T., Sano, S., Yanase, T., Ohta, T., & Koyama, M. (2019). Optuna: A Next-generation Hyperparameter Optimization Framework. Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2623-2631.</p>
-                                <p>[7] Varma, S., & Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.</p>
+                              <p>[1] Møllebjerg, A., et al. (2024). Large-scale screening identifies enzyme combinations that remove in situ grown oral biofilm. Cell Reports Methods, 4(5), 100546.</p>
+    
+                              <p>[2] Opdensteinen, P., Wittmann, M., Mindt, M., Giese, H., Kasanmascheff, M., Kabisch, J., &amp; Buyel, J. F. (2021). Expression of Biofilm-Degrading Enzymes in Plants and Automated High-Throughput Activity Screening Using Experimental Bacillus subtilis Biofilms. Frontiers in Bioengineering and Biotechnology, 9, 708150.</p>
+
+                          
+                              <p>[3] Fanaei Pirlar, R., Emaneini, M., Beigverdi, R., Banar, M., Neither, F., Leekha, S., &amp; Jabalameli, F. (2020). Combinatorial effects of antibiotics and enzymes against dual-species Staphylococcus aureus and Pseudomonas aeruginosa biofilms in the wound-like medium. PLOS ONE, 15(6), e0235093.</p>
+
+                              <p>[4] Waryah, C. B., et al. (2017). In Vitro Antimicrobial Efficacy of Tobramycin Against Staphylococcus aureus Biofilms in Combination With or Without DNase I and/or Dispersin B. Microbial Drug Resistance, 23(5), 634-642.</p>
+  
+                                <p>[5] Chen, T., &amp; Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 785-794.</p>
+                                <p>[6] Lundberg, S. M., &amp; Lee, S. I. (2017). A Unified Approach to Interpreting Model Predictions. Advances in Neural Information Processing Systems 30, 4765-4774.</p>
+                                <p>[7] Settles, B. (2009). Active Learning Literature Survey. Computer Sciences Technical Report 1648, University of Wisconsin-Madison.</p>
+                                <p>[8] FastAPI Documentation. (2024). FastAPI framework, high performance, easy to learn, fast to code, ready for production. Retrieved from https://fastapi.tiangolo.com/</p>
+                                <p>[9] Docker Documentation. (2024). Docker Compose overview. Retrieved from https://docs.docker.com/compose/.</p>
+                                <p>[10] Akiba, T., Sano, S., Yanase, T., Ohta, T., & Koyama, M. (2019). Optuna: A Next-generation Hyperparameter Optimization Framework. Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2623-2631.</p>
+                                <p>[11] Varma, S., & Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics, 7(1), 91.</p>
+
                             </div>
                             </v-card>
                         </div>

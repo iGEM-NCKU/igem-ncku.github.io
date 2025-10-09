@@ -6,7 +6,8 @@
         <v-main>
         <sidenav name = 'software' />
                 <v-row justify = end>
-                    <v-col cols = 12 md = 8 class = 'pa-5'>
+                    <v-col cols = 12 md = 7 class = 'pa-5'>
+                        <v-img style="margin-bottom: -10%;" src = "https://static.igem.wiki/teams/6003/title/11.avif"/>
                          <!-- Introduction Section -->
                         <div id="Intro" class="section-container scroller">
                             <v-card class="ma-4 pa-8 intro-card" variant="elevated" elevation="8">

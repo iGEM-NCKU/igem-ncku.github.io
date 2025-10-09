@@ -169,7 +169,7 @@
                                 title="Result"
                                 class="text-content"
                                 >
-                                <p>From our biofilm growth curve, we observed that biofilm formation reached a stable phase after approximately 24 hours of incubation.  Therefore, we selected 24 hours ****as the standard growth time for all subsequent biofilm degradation experiments.</p>
+                                <p>From our biofilm growth curve, we observed that biofilm formation reached a stable phase after approximately 24 hours of incubation.  Therefore, we selected 24 hours as the standard growth time for all subsequent biofilm degradation experiments.</p>
                                 <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;"><figure style="width:100%; text-align:center;">
                                 <v-img class = "preview img" src = "https://static.igem.wiki/teams/6003/results/sa-result.webp"></v-img><figcaption style="font-size:14px; color:#555; margin-top:6px;">Figure 12. Growth curve of S.aureus biofilm formation.
                                 </figcaption></figure></div>

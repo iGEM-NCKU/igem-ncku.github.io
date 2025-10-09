@@ -6,6 +6,7 @@
         <sidenav name = 'experiments' />
             <v-row justify = end>
             <v-col cols = 12 md = 9 class = 'pa-5'>
+                <v-img style="margin-bottom: -10%; margin-top: -13%;" src = "https://static.igem.wiki/teams/6003/title/2.avif"/>
                 <v-card :variant="alpha.card.theme" class="text-box pa-5 scroll-box scroller" id = Protocol>
                 <v-toolbar color="primary">
                     <v-card-title style="font-size: 32px;"><b>Protocol</b></v-card-title>

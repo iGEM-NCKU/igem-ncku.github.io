@@ -68,8 +68,6 @@ Through group discussions and literature review, we analyzed each idea from both
 
 By mapping and comparing all ideas visually, we were able to avoid narrow thinking and make decisions more systematically. The brainstorming map became the foundation for our later stakeholder consultations and experimental planning. It helped us understand how different disciplines—medicine, microbiology, and engineering—could intersect to form an integrated solution. Ultimately, this structured ideation process led us to define our final project topic, ensuring it was both scientifically robust and socially meaningful.
 
-（https://www.canva.com/design/DAGuDe_poKo/M9wN6Dh-nleHK_tGA1mNwQ/edit）
-
 ![截圖 2025-10-04 晚上10.35.48.png](attachment:2f930986-41ec-4e17-a5ee-6f2b8db3454a:截圖_2025-10-04_晚上10.35.48.png)
 
 ### (2) Stakeholder map

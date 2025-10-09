@@ -90,7 +90,7 @@
                             </template>
                             <template #text>
                                 <v-list v-if = i.subpages style = 'border-radius: 10px;'>
-                                    <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${(url.name)}.html`'> {{ title(hp(url.name)) }} </v-list-item>s
+                                    <v-list-item v-for = 'url in i.subpages' :key = url :href = '`${(url.name)}.html`'> {{ title(hp(url.name)) }} </v-list-item>
                                 </v-list>
                             </template>
                         </v-card>
@@ -172,7 +172,7 @@ export default {
                 'HP': {
                     icon: 'fa-solid fa-person',
                     subpages: [
-                        {name: 'human-practices', icon: undefined},
+                        {name: 'human-practice', icon: undefined},
                         {'name': 'overview', 'icon': undefined},
                         {'name': 'integrated-human-practice', 'icon': undefined},
                         {'name': 'education', 'icon': undefined},

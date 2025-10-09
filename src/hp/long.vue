@@ -1,9 +1,9 @@
 <template>
-    <div><v-row><v-col><v-card title = 'From Exploration to Reflection — How We Shaped Byefilm' class = subtitle id = 'From-Exploration-to-Reflection'>
+    <div><v-row><v-col><v-card title = 'From Exploration to Reflection — How We Shaped Byefilm'>
         <v-timeline>
             <v-timeline-item v-for = 'i in data' :key = i>
                 <template #opposite>
-                    <div v-html = i.reflection />
+                    <div v-html = i.reflection style = 'font-size: 20px;' />
                 </template>
                 <v-card :title = i.title>
                     <template #text>

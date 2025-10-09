@@ -5,7 +5,9 @@
                     <v-timeline align=center>
                         <v-timeline-item v-for='i in people' :key=i>
                             <template #opposite>
-                                {{ i.opposite }}
+                                <p style = 'font-size: 20px;'>
+                                    {{ i.opposite }}
+                                </p>
                             </template>
                             <v-card @click='i.operator = true'>
                                 <template #text>

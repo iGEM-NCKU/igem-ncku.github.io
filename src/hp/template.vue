@@ -5,15 +5,18 @@
     
     <v-main>
     <sidenav name = '<name>' />
+    <image_previewer />
     
     <v-row justify = end>
         <v-col cols = 12 md = 7 class = 'pa-5'>
             <v-card class = 'ma-3' v-if = 'data[0][0].text !== ``'>
                 <template #text>
-                    <div v-for = 'k in data[0]' :key = k>
-                        <v-img v-if = 'k.type == `img`' :src = 'get_image(k.text)' />
-                        <div v-html = 'k.text' v-else />
-                    </div>
+                    <template v-for = 'k in data[0]' :key = k>
+                        <v-img class = 'preview cursor-help' v-if = 'k.type == `img`' :src = 'get_image(k.text)' />
+                        <template v-else-if = 'k.type == `icon`'><br><br><v-icon> {{ k.text }} </v-icon></template>
+                        <template v-else-if = 'k.type == `subicon`'><br>&nbsp;<v-icon> {{ k.text }} </v-icon></template>
+                        <span v-html = 'k.text' v-else />
+                    </template>
                 </template>
             </v-card>
             <div v-for = 'i in data[1]' :key = i :id = 'tokenize(i.title)' class = scroller>
@@ -31,10 +34,12 @@
                             <div v-html = 'j.title' />
                         </template>
                         <template #text>
-                            <div v-for = 'k in j.description' :key = k>
-                                <v-img v-if = 'k.type == `img`' :src = 'get_image(k.text)' />
-                                <div v-html = 'k.text' v-else />
-                            </div>
+                            <template v-for = 'k in j.description' :key = k>
+                                <v-img class = 'preview cursor-help' v-if = 'k.type == `img`' :src = 'get_image(k.text)' />
+                                <template v-else-if = 'k.type == `icon`'><br><br><v-icon> {{ k.text }} </v-icon></template>
+                                <template v-else-if = 'k.type == `subicon`'><br>&nbsp;<v-icon> {{ k.text }} </v-icon></template>
+                                <span v-html = 'k.text' v-else />
+                            </template>
                         </template>
 
                         <v-row v-if = j.text>
@@ -44,10 +49,12 @@
                                         <div v-html = k.title />
                                     </template>
                                     <template #text>
-                                        <div v-for = 'l in k.description' :key = l>
-                                            <v-img v-if = 'l.type == `img`' :src = 'get_image(l.text)' />
-                                            <div v-html = 'l.text' v-else />
-                                        </div>
+                                        <template v-for = 'l in k.description' :key = l>
+                                            <v-img class = 'preview cursor-help' v-if = 'l.type == `img`' :src = 'get_image(l.text)' />
+                                            <template v-else-if = 'l.type == `icon`'><br><br><v-icon> {{ l.text }} </v-icon></template>
+                                            <template v-else-if = 'l.type == `subicon`'><br>&nbsp;<v-icon> {{ l.text }} </v-icon></template>
+                                            <span v-html = 'l.text' v-else />
+                                        </template>
                                     </template>
                                     {{ k.text }}
                                 </v-card>
@@ -72,6 +79,7 @@ import title_nav from '@/title.vue'
 import page_loader from '@/loader.vue'
 import sidenav from '@/sidenav.vue'
 import site_footer from '@/footer.vue'
+import image_previewer from '@/preview.vue'
 
 export default {
     name: 'App',
@@ -85,7 +93,8 @@ export default {
         title_nav,
         page_loader,
         sidenav,
-        site_footer
+        site_footer,
+        image_previewer
     },
     mounted() {
         M.AutoInit();

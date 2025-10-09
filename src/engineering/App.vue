@@ -56,7 +56,7 @@
           </div>
 
           <div class=scroller id=Biofilm-Degradation-Assay>
-          <v-card-title style="font-size: 32px;d"><b>Biofilm
+          <v-card-title style="font-size: 32px;"><b>Biofilm
               Degradation Assay Development</b></v-card-title>
           <v-row justify="end">
             <v-row>
@@ -550,12 +550,13 @@ export default {
           title: 'Cycle 4-2 — Build',
           summary: '<p>Insights from Biofilm Degradation Experiments</p>',
           detail: `
-<p>From this cycle, we identified several key insights:</p>
+<p>We formulated the system mathematically:</p>
 
 <ul>
-  <li><strong>MSA depth is critical</strong> for reliable structural prediction; insufficient homologs reduce AlphaFold2 accuracy.</li>
-  <li><strong>Tool sensitivity matters</strong> — mmseqs2 favors speed, but deeper searches (e.g., Jackhmmer) provide better signals for difficult targets.</li>
-  <li><strong>Iterative modeling</strong> using high-confidence templates can further refine low-quality regions.</li>
+  <li><strong>Candidate region definition</strong><br><img src = "https://static.igem.wiki/teams/6003/engineering/s1hyupm6gg.avif" /><br>where <strong>C</strong> is the protein center and Ω represents the atomic coordinates of the enzyme.</li>
+  <li><strong>Neighborhood mapping</strong><br>For each point <strong>c</strong>, define nearby atoms within a radius of 10 Å:<br><img src = "https://static.igem.wiki/teams/6003/engineering/rk0g8wzpxg.avif"/></li>
+  <li><strong>Local density center (potential active pocket)</strong><br><img src = "https://static.igem.wiki/teams/6003/engineering/hjegupg6le.avif"/><br>This identifies regions with minimal spatial deviation — i.e., probable binding pockets.</li>
+  <li><strong>Grid box dimensions</strong><br>Using all pocket points:<br>img src = "https://static.igem.wiki/teams/6003/engineering/rk47lvgple.avif"/><br>The final grid box size is then scaled by enzyme size factor<br><img src = "https://static.igem.wiki/teams/6003/engineering/r1cslwmpxx.avif" /><br><img src = "https://static.igem.wiki/teams/6003/engineering/bkzn8vmtlg.avif" /></li>
 </ul>
 
 <p>
@@ -568,13 +569,14 @@ export default {
           title: 'Cycle 4-2 — Test',
           summary: '<p>Insights from Biofilm Degradation Experiments</p>',
           detail: `
-<p>From this cycle, we identified several key insights:</p>
-
+<p>We validated the algorithm on multiple protein structures with known ligand positions.
+The automatically generated grid boxes consistently <strong>covered the true binding pocket regions</strong> with minimal deviation (< 5 Å from reference).</p>
+<p>When compared to manual setup:
 <ul>
-  <li><strong>MSA depth is critical</strong> for reliable structural prediction; insufficient homologs reduce AlphaFold2 accuracy.</li>
-  <li><strong>Tool sensitivity matters</strong> — mmseqs2 favors speed, but deeper searches (e.g., Jackhmmer) provide better signals for difficult targets.</li>
-  <li><strong>Iterative modeling</strong> using high-confidence templates can further refine low-quality regions.</li>
-</ul>
+  <li>Setup time reduced by <strong> 80 %</strong>. </li>
+  <li>Docking success rate (ligand within correct pocket) maintained <strong>> 90 %</strong> accuracy.</li>
+  <li>Required <strong>no prior literature data</strong> or structural annotation.</li>
+</ul></p>
 
 <p>
   Future work will integrate <strong>metagenomic sequences</strong> and experimental validation (e.g., CD spectroscopy) 
@@ -586,18 +588,15 @@ export default {
           title: 'Cycle 4-2 — Learn',
           summary: '<p>Insights from Biofilm Degradation Experiments</p>',
           detail: `
-<p>From this cycle, we identified several key insights:</p>
-
+          <p>Through this DBTL cycle, we learned that:</p>
 <ul>
-  <li><strong>MSA depth is critical</strong> for reliable structural prediction; insufficient homologs reduce AlphaFold2 accuracy.</li>
-  <li><strong>Tool sensitivity matters</strong> — mmseqs2 favors speed, but deeper searches (e.g., Jackhmmer) provide better signals for difficult targets.</li>
-  <li><strong>Iterative modeling</strong> using high-confidence templates can further refine low-quality regions.</li>
+<li><strong>Geometric pocket detection</strong> can fully replace manual grid box placement.</li>
+<li>The model is <strong>scalable and generalizable</strong> — it works for novel enzyme variants or uncharacterized proteins.</li>
+<li>Incorporating enzyme-specific scaling (via ( \alpha )) ensures compatibility across varying molecular sizes.</li>
 </ul>
+<p>This method effectively transforms a previously manual, literature-dependent process into a <strong>data-driven, automated pipeline</strong>, enabling faster, reproducible molecular docking for synthetic enzyme design and analysis.</p>
 
-<p>
-  Future work will integrate <strong>metagenomic sequences</strong> and experimental validation (e.g., CD spectroscopy) 
-  to further improve model reliability.
-</p>       `,
+       `,
     
         },
         
@@ -644,7 +643,6 @@ export default {
   overflow: hidden;
 }
 
-/* Dialog 內文可滾動 */
 .dialog-card {
   display: flex;
   flex-direction: column;

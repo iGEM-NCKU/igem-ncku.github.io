@@ -87,8 +87,8 @@
           </v-row>
           </div>
 
-          <div class=scroller id=ENDZYME-cycle>
-          <v-card-title style="font-size: 32px;"><b>ENDZYME cycle</b></v-card-title>
+          <div class=scroller id=ENDZYME-Tool>
+          <v-card-title style="font-size: 32px;"><b>ENDZYME Tool</b></v-card-title>
           <v-row justify="end">
             <v-row>
             </v-row>
@@ -450,7 +450,7 @@ export default {
         },
         {
           title: 'Cycle 4-1 — Design',
-          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          summary: '<p>Designing Enzyme Variants for Enhanced Biofilm Degradation</p>',
           detail: `
 <p>
   We began by defining our goal: to generate functional enzyme variants and obtain reliable 3D structural predictions (pLDDT/IDDT ≥ 80).
@@ -471,7 +471,7 @@ export default {
         },
         {
           title: 'Cycle 4-1 — Build',
-          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          summary: '<p>Building Reliable Enzyme Generating Tool</p>',
           detail: `
 <p>
   Using <strong>ZymCTRL</strong>, we generated enzyme sequences tagged with EC numbers for traceability.
@@ -493,7 +493,7 @@ export default {
         },
         {
           title: 'Cycle 4-1 — Test',
-          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          summary: '<p>Evaluating Model Quality and Functional Prediction</p>',
           detail: `
 <p>
   We evaluated model quality through pLDDT/IDDT distributions, emphasizing catalytic-site residues.
@@ -514,7 +514,7 @@ export default {
         },
         {
           title: 'Cycle 4-1 — Learn',
-          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          summary: '<p>Insufficient Homologs Reduce AlphaFold2 Accuracy</p>',
           detail: `
 <p>From this cycle, we identified several key insights:</p>
 
@@ -532,7 +532,7 @@ export default {
         },
         {
           title: 'Cycle 4-2 — Design',
-          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          summary: '<p>Automating Docking Region Definition</p>',
           detail: `
 <p>
   In standard AutoDock workflows, users must manually specify the grid box center and size based on known active sites or structural annotations.
@@ -548,7 +548,7 @@ export default {
         },
         {
           title: 'Cycle 4-2 — Build',
-          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          summary: '<p>Mathematical Formulation of Docking Regions</p>',
           detail: `
 <p>We formulated the system mathematically:</p>
 
@@ -567,7 +567,7 @@ export default {
         },
         {
           title: 'Cycle 4-2 — Test',
-          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          summary: '<p>Validating the Docking Region Definition Algorithm</p>',
           detail: `
 <p>We validated the algorithm on multiple protein structures with known ligand positions.
 The automatically generated grid boxes consistently <strong>covered the true binding pocket regions</strong> with minimal deviation (< 5 Å from reference).</p>
@@ -586,7 +586,7 @@ The automatically generated grid boxes consistently <strong>covered the true bin
         },
         {
           title: 'Cycle 4-2 — Learn',
-          summary: '<p>Insights from Biofilm Degradation Experiments</p>',
+          summary: '<p>Insights from Docking Region Definition</p>',
           detail: `
           <p>Through this DBTL cycle, we learned that:</p>
 <ul>

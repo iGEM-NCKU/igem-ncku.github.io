@@ -81,7 +81,7 @@
                                     Byefilm
                                 </template>
                                 <template #text>
-                                    <v-card :title = i.Major subtitle = Major prepend-icon = 'fa-solid fa-graduation-cap' color = amber-darken-2 variant = tonal class = 'pa-3 ma-3' />
+                                    <v-card :title = i.Department subtitle = Department prepend-icon = 'fa-solid fa-graduation-cap' color = amber-darken-2 variant = tonal class = 'pa-3 ma-3' />
                                     <!-- <v-card :title = "members_info[i].Group.join(' / ')" subtitle = Group prepend-icon = 'fa-solid fa-flask' color = green variant = tonal class = 'pa-3 ma-3' /> -->
                                     <v-card :title = i.Position subtitle = Position prepend-icon = 'fa-solid fa-map-pin' color = blue variant = tonal class = 'pa-3 ma-3' />
                                 </template>

@@ -22,7 +22,7 @@
             <div v-for = 'i in data[1]' :key = i :id = 'tokenize(i.title)' class = scroller>
                 <v-card class = 'ma-3'>
                     <template #title>
-                        <div v-html = 'i.title' />
+                        <div v-html = 'i.title' style = 'font-size: 30px' />
                     </template>
                     <template #text>
                         <div v-html = 'i.description.map((e) => e.text).join(``)' />
@@ -36,6 +36,15 @@
                         <template #text>
                             <template v-for = 'k in j.description' :key = k>
                                 <v-img class = 'preview cursor-help' v-if = 'k.type == `img`' :src = 'get_image(k.text)' />
+                                <template v-else-if = 'k.type == `pdf`'>
+                                    <v-hover>
+                                        <template #default = '{isHovering, props}'>
+                                            <a href = 'https://static.igem.wiki/teams/6003/hp/entrepreneurship/entrepreneurship-4.pdf' target = '_blank'>
+                                                <v-card title = PDF subtitle = 'Click to view' v-bind = props :color = 'isHovering ? `primary` : undefined' v-ripple class = ma-3 prepend-icon = 'fa-solid fa-file-pdf' />
+                                            </a>
+                                        </template>
+                                    </v-hover>
+                                </template>
                                 <template v-else-if = 'k.type == `icon`'><br><br><v-icon> {{ k.text }} </v-icon></template>
                                 <template v-else-if = 'k.type == `subicon`'><br>&nbsp;<v-icon> {{ k.text }} </v-icon></template>
                                 <span v-html = 'k.text' v-else />

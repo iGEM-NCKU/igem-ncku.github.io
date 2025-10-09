@@ -43,7 +43,7 @@ Our business model focuses on a **two-phase pathway**
 
 Through collaborations with medical partners and biotech accelerators, we envision building a sustainable platform that bridges **synthetic biology innovation and real-world healthcare applications**
 
-[Business Plan.pdf](attachment:681b2e60-9011-4ef7-b3a0-c50ff3d5030a:Business_Plan.pdf)
+[PDF](https://static.igem.wiki/teams/6003/hp/entrepreneurship/entrepreneurship-4.pdf)
 
 ## Our reflection
 

@@ -1,6 +1,6 @@
 <template>
     <div><v-row><v-col>
-                <v-card>
+                <v-card title = Timeline subtitle = 'Pre-Project Exploration — From Multiple Ideas to One Feasible Path' id = 'pre-project-exploration' class = subtitle>
                     <div />
                     <v-timeline align=center>
                         <v-timeline-item v-for='i in people' :key=i>

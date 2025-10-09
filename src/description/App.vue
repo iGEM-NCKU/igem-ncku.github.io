@@ -177,12 +177,15 @@
                                 class="text-content"
                                 >
                                 <ol>
-                                <li>Tourret, Jérôme et al. “The interaction between a non-pathogenic and a pathogenic strain synergistically enhances extra-intestinal virulence in Escherichia coli.” Microbiology (Reading, England) vol. 157,Pt 3 (2011): 774-785. doi:10.1099/mic.0.037416-0</li>
+                                <li>Shichman, Ittai et al. “Projections and Epidemiology of Primary Hip and Knee Arthroplasty in Medicare Patients to 2040-2060.” JB & JS open access vol. 8,1 e22.00112. 28 Feb. 2023, doi:10.2106/JBJS.OA.22.00112</li>
+                                <li>Ma, Tao et al. “Incidence of periprosthetic joint infection after primary total knee arthroplasty shows significant variation : a synthesis of meta-analysis and bibliometric analysis.” Journal of orthopaedic surgery and research vol. 19,1 649. 12 Oct. 2024, doi:10.1186/s13018-024-05099-8</li>
+                                <li>Li, Cheng et al. “Management of Periprosthetic Joint Infection.” Hip & pelvis vol. 30,3 (2018): 138-146. doi:10.5371/hp.2018.30.3.138</li>
                                 <li>Ballister, Edward R et al. “The emerging landscape of engineered bacteria cancer therapies.” Nature biotechnology vol. 43,5 (2025): 672-676. doi:10.1038/s41587-025-02623-x</li>
-                                <li><a href="https://patents.google.com/patent/WO2020018989A1/en">Programmable bacteria for the treatment of cancer</a></li>
-                                <li><a herf="https://www.sigmaaldrich.com/US/en/technical-documents/technical-article/genomics/dna-and-rna-purification/guide-to-use-proteinase-k-procedures?srsltid=AfmBOordVsuJ4-4iGw9xh2XCCZhLblWSIqwFPMJGbDq6jFSSWZPnuf5K">sigmaaldrich</a></li>
-                                <li>Gawande, Purushottam V et al. “Antibiofilm Efficacy of DispersinB(®) Wound Spray Used in Combination with a Silver Wound Dressing.” Microbiology insights vol. 7 9-13. 5 Mar. 2014, doi:10.4137/MBI.S13914</li>
-                                <li><a href="https://www.neb.com/en/products/m0303-dnase-i-rnase-free?srsltid=AfmBOoq4hVhjsdkPfEHoznJQHNjyFBN-O3mNb2zALXEk4wfbHhPmZUoe">DNase I (RNase-free)</a></li>
+                                <li>Yakandawala, Nandadeva et al. “Enhanced expression of engineered ACA-less beta-1, 6-N-acetylglucosaminidase (dispersin B) in Escherichia coli.” Journal of industrial microbiology & biotechnology vol. 36,10 (2009): 1297-305. doi:10.1007/s10295-009-0613-0</li>
+                                <li>Gunkel, F A, and H G Gassen. “Proteinase K from Tritirachium album Limber. Characterization of the chromosomal gene and expression of the cDNA in Escherichia coli.” European journal of biochemistry vol. 179,1 (1989): 185-94. doi:10.1111/j.1432-1033.1989.tb14539.x</li>
+                                <li>Chen, C Y et al. “Cloning, sequencing and expression of a cDNA encoding bovine pancreatic deoxyribonuclease I in Escherichia coli: purification and characterization of the recombinant enzyme.” Gene vol. 206,2 (1998): 181-4. doi:10.1016/s0378-1119(97)00582-9</li>        
+                                <li>Wang, Shaochi et al. “Strategy to combat biofilms: a focus on biofilm dispersal enzymes.” NPJ biofilms and microbiomes vol. 9,1 63. 7 Sep. 2023, doi:10.1038/s41522-023-00427-y</li>
+                                <li>Di Domenico, Enea Gino et al. “The Current Knowledge on the Pathogenesis of Tissue and Medical Device-Related Biofilm Infections.” Microorganisms vol. 10,7 1259. 21 Jun. 2022, doi:10.3390/microorganisms10071259</li>
                                 </ol>
                                 </div>
                                 
